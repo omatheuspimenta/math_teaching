@@ -1,7 +1,7 @@
 # Notas de Aula e Arquivos das Disciplinas
 ---
 
-Este repositório contém alguns arquivos referentes as listas, notas de aula e conteúdo explorado em disciplinas que já foram ministradas.
+Este repositório contém arquivos referentes as listas, notas de aula e conteúdo explorado em algumas disciplinas.
 
 Fiquem a vontade para sugerir inclusão de exercícios, exemplos, gráficos, materiais e correções.
 
