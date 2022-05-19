@@ -1,0 +1,469 @@
+\documentclass[oneside,a4paper,12pt]{article}
+\usepackage[english,brazilian]{babel}
+\usepackage{multicol}
+\usepackage{textcomp}
+\usepackage[alf]{abntex2cite}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb,exscale}
+\usepackage[top=20mm, bottom=20mm, left=20mm, right=20mm]{geometry}%margens cima, baixo, esquerda direita
+\usepackage{framed}
+\usepackage{booktabs} %Pacote para deixar tabelas mais bonitas.
+\usepackage{color} %Pacote de Cores
+\usepackage{hyperref} %Pacotes para Hiperlinks
+\usepackage{graphicx} %Pacote de imagens
+\graphicspath{{./Figuras/}}%Direciona as imagens para uma pasta chamada "Figuras" (uso isso para organizar. Uma vez que todas as imagens vao ficar em uma pasta isolada)    
+\definecolor{shadecolor}{rgb}{0.8,0.8,0.8}
+
+%FAZ EDICOES AQUI (somente no conteudo que esta entre entre as ultimas  chaves de cada linha!!!)
+\newcommand{\universidade}{Universidade Estadual de Londrina}
+\newcommand{\centro}{Centro de Ciências Exatas}
+\newcommand{\departamento}{Departamento Matemática}
+\newcommand{\curso}{Física}
+\newcommand{\professores}{Matheus Pimenta}
+\newcommand{\disciplina}{Cálculo I - 1MAT096}
+%\newcommand{\tema}{Lista 01}
+%\newcommand{\turma}{MA31G}
+%\newcommand{\data}{Março de 2019}%{\today}
+%\newcommand{\tempodeaula}{30 minutos}
+%\newcommand{\prerequisitos}{Matrizes, Transformações Lineares e Bases}
+%ATE AQUI !!!	
+
+\begin{document}
+	\pagestyle{empty}
+	
+	\begin{center}
+		\includegraphics[width=\linewidth/2]{logo.jpg}%LOGOTIPO DA INSTITUICAO
+	 	\vspace{2pt} 	
+		
+		\universidade
+		\par
+		\centro
+		\par
+		\departamento
+		\par
+	%	Curso de \curso
+		\par
+		\vspace{12pt}
+		\LARGE \textbf{Lista 05}
+		
+	\end{center}
+	
+	\vspace{12pt}
+	
+	\begin{tabular}{ |l|p{12cm}| }
+		
+		\hline
+		\multicolumn{2}{|c|}{\textbf{Dados de Identificação}} \\
+		\hline
+		Professor:         &    \professores           \\
+		\hline
+		Disciplina:        &    \disciplina          \\
+		\hline
+	%	Tema:              &    \tema                \\
+	%	\hline
+	%	Pré-requisito	:  &    \prerequisitos         \\
+	%	\hline
+		Aluno:             &                   \\
+	%	\hline
+	%	Data:              &    \data                \\
+	%	\hline
+	%	Duração da aula:   &    \tempodeaula         \\
+		\hline
+		
+	\end{tabular}
+	\vspace{6pt}
+	
+	
+	\begin{snugshade}
+	\end{snugshade}
+
+	\begin{center}
+		{\bf Os exercícios em sua maioria foram retirados do livro: Um Curso de Cálculo - Vol. 1 - Autor:Guidorizzi, Hamilton Luiz (cap. 10, 11 e 12), a biblioteca possui diversos exemplares. Ao final do livro tem as respostas. }
+	\end{center}
+\begin{enumerate}
+%	\setcounter{enumi}{37}
+	
+	\item Determine a única função $y = y(x), x \in \mathbb{R}$, que satisfaça as condições dadas.
+	\begin{enumerate}
+		\item $\dfrac{\partial y}{\partial x}= 2y$ e $y(0) = 1$
+		\item $\dfrac{\partial y}{\partial x}= -y$ e $y(0) = -1$
+		\item $\dfrac{\partial y}{\partial x}= \frac{1}{2}y$ e $y(0) = 2$
+	\end{enumerate}
+	
+	\item Calcule:
+	\begin{multicols}{2}
+		\begin{enumerate}
+			\item $\displaystyle \int x dx$
+			\item $\displaystyle \int (3x + 1)dx$
+			\item $\displaystyle \int (x + \frac{1}{x})dx$
+			\item $\displaystyle \int (ax + b)dx$ onde $a,b$ são escalares
+			\item $\displaystyle \int (3\sqrt[5]{x^2} +3)dx$
+		\end{enumerate}
+	\end{multicols}
+	
+	\item Calcule:
+	\begin{multicols}{2}
+		\begin{enumerate}
+			\item $\displaystyle \int (x^3 + 2x +3)dx$
+			\item $\displaystyle \int (x^2 + x +1)dx$
+			\item $\displaystyle \int (x + \frac{1}{x^3})dx$
+			\item $\displaystyle \int (2 + \sqrt[4]{x})dx$
+			\item $\displaystyle \int \frac{x^2 + 1}{x}dx$
+		\end{enumerate}
+	\end{multicols}
+	
+	\item Seja $\alpha \neq 0$ um real fixo. Verifique que:
+	\begin{enumerate}
+		\item $\displaystyle \int \sin(\alpha x)dx = - \frac{1}{\alpha}\cos(\alpha x) + k$
+		\item $\displaystyle \int \cos(\alpha x)dx = \frac{1}{\alpha} \sin (\alpha x) + k$ 
+	\end{enumerate}
+	
+	\item Calcule:
+	\begin{multicols}{2}
+		\begin{enumerate}
+			\item $\displaystyle \int e^{2x}dx$\\
+			\item $\displaystyle \int e^{-x}dx$
+			\item $\displaystyle \int (x + 3e^{x})dx$
+			\item $\displaystyle \int \cos(3x)dx$
+			\item $\displaystyle \int \sin(5x)dx$
+			\item $\displaystyle \int (x^2 + \sin(x))dx$
+		\end{enumerate}
+	\end{multicols}
+	
+	\item Calcule:
+	\begin{multicols}{2}
+		\begin{enumerate}
+			\item $\displaystyle \int \frac{e^x + e^{-x}}{2}dx$
+			\item $\displaystyle \int (\sin(3x) + \cos(5x))dx$
+			\item $\displaystyle \int \sin(\frac{x}{2})dx$
+			\item $\displaystyle \int (\sqrt[3]{x} + \cos(3x))dx$
+			\item $\displaystyle \int (1 - \cos(4x))dx$
+			\item $\displaystyle \int \cos (\frac{x}{3})dx$
+			\item $\displaystyle \int 5e^{7x}dx$
+		\end{enumerate}
+	\end{multicols}
+	
+	
+	\item Determine a função $y=y(x), x \in \mathbb{R}$, tal que:
+	\begin{multicols}{2}
+		\begin{enumerate}
+			\item $\dfrac{\partial y}{\partial x}= 3x - 1$ e $y(0) = 2$
+			\item $\dfrac{\partial y}{\partial x}= \cos(x)$ e $y(0) = 0$
+			\item $\dfrac{\partial y}{\partial x}= e^{-x}$ e $y(0) = 1$
+			\item $\dfrac{\partial y}{\partial x}= \frac{1}{x^2}$ e $y(1) = 1$
+			\item $\dfrac{\partial y}{\partial x}= x + \frac{1}{\sqrt{x}}$ e $y(1) = 0$
+			\item $\dfrac{\partial y}{\partial x}= 2x - 1$ e $y(0) = 0$
+		\end{enumerate}
+	\end{multicols}
+	\item Calcule:
+	\begin{multicols}{2}
+		\begin{enumerate}
+			\item $\displaystyle \int_{0}^{1}(x+3)dx$
+			\item $\displaystyle \int_{0}^{4}\frac{1}{2}dx$
+			\item $\displaystyle \int_{1}^{3}dx$
+			\item $\displaystyle \int_{1}^{3}\frac{1}{x^3}dx$
+			\item $\displaystyle \int_{-1}^{1}(2x + 1)dx$
+			\item $\displaystyle \int_{0}^{1}(5x^3 - \frac{1}{2})dx$
+		\end{enumerate}
+	\end{multicols}	
+
+	\item Calcule:
+	\begin{multicols}{2}
+		\begin{enumerate}
+			\item $\displaystyle \int_{1}^{0}(2x + 3)dx$
+			\item $\displaystyle \int_{1}^{4}\frac{1}{\sqrt{x}}dx$
+			\item $\displaystyle \int_{1}^{2}(x^3 + x + \frac{1}{x^3})dx$
+			\item $\displaystyle \int_{0}^{4}\sqrt{x}dx$
+			\item $\displaystyle \int_{0}^{1}\sqrt[8]{x}dx$
+			\item $\displaystyle \int_{-3}^{3}x^3 dx$
+		\end{enumerate}
+	\end{multicols}
+
+	\item Calcule:
+	\begin{multicols}{2}
+		\begin{enumerate}
+			\item $\displaystyle \int_{1}^{4}(5x + \sqrt{x})dx$
+			\item $\displaystyle \int_{1}^{2}\frac{1+x}{x^3}dx$
+			\item $\displaystyle \int_{1}^{4}\frac{1 + x}{\sqrt{x}}dx$
+			\item $\displaystyle \int_{0}^{1}(x-3)^2dx$
+			\item $\displaystyle \int_{1}^{2}\frac{1+t^2}{t^4}dt$
+		\end{enumerate}
+	\end{multicols}	
+
+	\item Calcule:
+	\begin{multicols}{2}
+		\begin{enumerate}
+			\item $\displaystyle \int_{-1}^{0}e^{-2x}dx$
+			\item $\displaystyle \int_{0}^{\frac{\pi}{3}}(3 + \cos(3x))dx$
+			\item $\displaystyle \int_{0}^{1}\sin(5x)dx$
+			\item $\displaystyle \int_{0}^{1}2xe^{x^2}dx$
+			\item $\displaystyle \int_{0}^{\frac{\pi}{4}}\sec^2(x)dx$
+			\item $\displaystyle \int_{0}^{\frac{\pi}{4}}\tan^2(x)dx$
+		\end{enumerate}
+	\end{multicols}
+
+	\item Calcule:
+	\begin{multicols}{2}
+		\begin{enumerate}
+			\item $\displaystyle \int_{0}^{\frac{\pi}{3}}\cos(2x)dx$
+			\item $\displaystyle \int_{0}^{1}\frac{x^2}{1+x^3}dx$
+			\item $\displaystyle \int_{0}^{1}\frac{x^2}{(1+x^3)^2}dx$
+			\item $\displaystyle \int_{1}^{3}\frac{2}{5+3x}dx$
+			\item $\displaystyle \int_{-1}^{1}\sqrt[3]{x+1}dx$
+			\item $\displaystyle \int_{-1}^{0}x(x+1)^{100} dx$
+			\item $\displaystyle \int_{0}^{1}xe^{x^2}dx$
+			\item $\displaystyle \int_{-1}^{0}x\sqrt{x+1}dx$
+		\end{enumerate}
+	\end{multicols}
+
+	\item Calcule:
+	\begin{multicols}{2}
+		\begin{enumerate}
+			\item $\displaystyle \int_{1}^{2}(x-2)^5dx$
+			\item $\displaystyle \int_{0}^{1}(3x+1)^4dx$
+			\item $\displaystyle \int_{0}^{1}\sqrt{3x+1}dx$
+			\item $\displaystyle \int_{-3}^{4}\sqrt[3]{5-x}dx$
+			\item $\displaystyle \int_{1}^{2}\frac{2}{(3x - 2)^3}dx$
+			\item $\displaystyle \int_{0}^{1}\frac{1}{(x+1)^5}dx$
+			\item $\displaystyle \int_{-2}^{1}\frac{3}{4+x}dx$
+		\end{enumerate}
+	\end{multicols}
+
+	\item Calcule a área do conjunto dado:
+		\begin{enumerate}
+			\item $A = \{ (x,y) \in \mathbb{R}^2; 1 \leq x \leq 2 \text{ e } 0 \leq y \leq \sqrt{x-1} \}$
+			\item $B = \{ (x,y) \in \mathbb{R}^2; 0 \leq x \leq 2 \text{ e } 0 \leq y \leq \frac{x}{1+ x^2} \}$
+		\end{enumerate}
+	
+	\item Calcule:
+	\begin{multicols}{2}
+		\begin{enumerate}
+			\item $\displaystyle \int_{0}^{1}x\sqrt{x^2 + 3}dx$
+			\item $\displaystyle \int_{0}^{1}x(x^2 +3)^5dx$
+			\item $\displaystyle \int_{0}^{1}x\sqrt{1-x^2}dx$
+			\item $\displaystyle \int_{-1}^{0}x^2e^{x^3}dx$
+			\item $\displaystyle \int_{0}^{1}\frac{1}{1+4s}ds$
+			\item $\displaystyle \int_{0}^{3}\frac{x}{\sqrt{x+1}}dx$
+		\end{enumerate}
+	\end{multicols}
+	
+	\item Calcule:
+	\begin{multicols}{2}
+		\begin{enumerate}
+			\item $\displaystyle \int_{-1}^{1}x^3(x^2+3)^{10} dx$
+			\item $\displaystyle \int_{0}^{\frac{\pi}{3}}\sin(x)\cos^2(x)dx$
+			\item $\displaystyle \int_{0}^{\frac{\pi}{6}}\cos(x)\sin^5(x)dx$
+			\item $\displaystyle \int_{\frac{\pi}{3}}^{\frac{\pi}{2}}\sin(x)(1-\cos^2(x))dx$
+			\item $\displaystyle \int_{\frac{\pi}{3}}^{\frac{\pi}{2}}\sin^3(x)dx$
+		\end{enumerate}
+	\end{multicols}
+	
+	\item Calcule e confira sua resposta por derivação quando possível:
+	\begin{multicols}{2}
+		\begin{enumerate}
+			\item $\displaystyle \int 3dx$
+			\item $\displaystyle \int x^5 dx$
+			\item $\displaystyle \int \sqrt{x}dx$
+			\item $\displaystyle \int \sqrt[5]{x^2}dx$
+			\item $\displaystyle \int \frac{1}{x^3}dx$
+			\item $\displaystyle \int \frac{x+x^2}{x^2}dx$
+			\item $\displaystyle \int \left( \cos(3x) + \frac{1}{2}\sin(4x)  \right)dx$
+			\item $\displaystyle \int \left( \frac{1}{3}\cos(2x)+\frac{1}{2}\cos(3x) \right)dx$
+		\end{enumerate}
+	\end{multicols}
+		
+	\item Calcule e confira sua resposta por derivação quando possível:
+	\begin{multicols}{2}
+		\begin{enumerate}
+			\item $\displaystyle \int (\frac{1}{x} + \frac{1}{x^2})dx$
+			\item $\displaystyle \int (e^x + 4)dx$
+			\item $\displaystyle \int e^{5x}dx$
+			\item $\displaystyle \int (e^{2x}+e^{-x})dx$
+			\item $\displaystyle \int (\frac{1}{x}+\frac{1}{e^x})dx$
+			\item $\displaystyle \int_{0}^{1}{e^{2x}}dx$ 
+			\item $\displaystyle \int \left( 2 + \frac{1}{3}\sin(2x) \right)dx$
+		\end{enumerate}
+	\end{multicols}	
+		
+	\item Calcule e confira sua resposta por derivação quando possível:	
+	\begin{multicols}{2}
+		\begin{enumerate}
+			\item $\displaystyle \int_{1}^{2}\left(x +\frac{1}{x} \right)dx$
+			\item $\displaystyle \int_{0}^{\frac{1}{2}}\frac{1}{\sqrt{1-x^2}}dx$
+			\item $\displaystyle \int \sin(2x)dx$
+			\item $\displaystyle \int \cos(5x)dx$
+			\item $\displaystyle \int \cos(\sqrt{3t})dt$
+			\item $\displaystyle \int \left( \frac{1}{2} - \frac{1}{2}\cos(2x) \right)dx$
+			\item $\displaystyle \int \left( \frac{1}{3} + \frac{5}{2}\cos(7x) \right)dx$
+		\end{enumerate}
+	\end{multicols}
+		
+	\item Calcule:
+	\begin{multicols}{2}
+		\begin{enumerate}
+			\item $\displaystyle \int_{0}^{\frac{\pi}{3}}\sin(2x)dx$
+			\item $\displaystyle \int_{-\frac{\pi}{2}}^{\frac{\pi}{2}}\cos(\frac{\pi}{2})dx$
+			\item $\displaystyle \int_{0}^{\frac{\pi}{3}}(\sin(3x) + \cos(3x))dx$
+			\item $\displaystyle \int \tan(x)dx$
+			\item $\displaystyle \int \tan^2(x)dx$
+			\item $\displaystyle \int \sec^2(x)dx$
+			\item $\displaystyle \int \sec(x)dx$
+			\item $\displaystyle \int 3^x dx$
+		\end{enumerate}
+	\end{multicols}
+
+	\item Calcule:
+	\begin{multicols}{2}
+		\begin{enumerate}
+			\item $\displaystyle \int (5^x + e^{-x})dx$
+			\item $\displaystyle \int \sin(6x)\cos(x)dx$
+			\item $\displaystyle \int \sin(5x)\cos(x)dx$
+			\item $\displaystyle \int \sin(3x)\cos(3x)dx$
+			\item $\displaystyle \int \sin(3x)\sin(2x)dx$
+			\item $\displaystyle \int \sin(x)\sin(3x)dx$
+			\item $\displaystyle \int \sin(3x)\cos(2x)dx$
+			\item $\displaystyle \int \cos(7x)\cos(3x)dx$
+		\end{enumerate}
+	\end{multicols}
+
+	\item Calcule:
+	\begin{multicols}{2}
+		\begin{enumerate}
+			\item $\displaystyle \int (3x - 2)^3dx$
+			\item $\displaystyle \int \sqrt{3x -2}dx$
+			\item $\displaystyle \int \frac{1}{3x-2}dx$
+			\item $\displaystyle \int x\sin(x^2)dx$
+			\item $\displaystyle \int xe^{x^2}dx$
+			\item $\displaystyle \int x^2 e^{x^3}dx$
+		\end{enumerate}
+	\end{multicols}
+	
+	\item Calcule:
+	\begin{multicols}{2}
+		\begin{enumerate}
+			\item $\displaystyle \int \cos^3(x)\sin(x)dx$
+			\item $\displaystyle \int \sin^5(x)\cos(x)dx$
+			\item $\displaystyle \int \frac{5}{4x+3}dx$
+			\item $\displaystyle \int \frac{x}{1+4x^2}dx$
+			\item $\displaystyle \int \frac{x}{(1+4x^2)^2}dx$
+			\item $\displaystyle \int e^x\sqrt{1+e^x}dx$
+		\end{enumerate}
+	\end{multicols}
+	
+	\item Calcule:
+	\begin{multicols}{2}
+		\begin{enumerate}
+			\item $\displaystyle \int_{0}^{1}xe^{-x^2}dx$
+			\item $\displaystyle \int_{1}^{2}\frac{x}{1+3x^2}dx$
+			\item $\displaystyle \int_{-\frac{3}{2}}^{-1}(2x+3)^100 dx$
+			\item $\displaystyle \int_{0}^{\sqrt{\pi}}x\sin(3x^2)dx$
+			\item $\displaystyle \int_{0}^{\frac{\pi}{3}}\frac{\sin(x)}{\cos^2(x)}dx$
+			\item $\displaystyle \int \sin^2(x)\cos(x)dx$
+		\end{enumerate}
+	\end{multicols}
+	
+	\item Calcule:
+	\begin{multicols}{2}
+		\begin{enumerate}
+			\item $\displaystyle \int \sin(2x)\sqrt{5+\sin^2(x)}dx$
+			\item $\displaystyle \int \cos^5(x)dx$
+			\item $\displaystyle \int \tan(x)\sec^3(x)dx$
+			\item $\displaystyle \int \sin(x)\sqrt{3+ \cos(x)}dx$
+			\item $\displaystyle \int \frac{2}{x_3}dx$
+			\item $\displaystyle \int \left( x + \frac{3}{x-2} \right)dx$
+		\end{enumerate}
+	\end{multicols}
+	
+	\item Calcule:
+	\begin{multicols}{2}
+		\begin{enumerate}
+			\item $\displaystyle \int \frac{1}{(x+1)(x-1)}dx$
+			\item $\displaystyle \int \frac{2x+3}{x(x-2)}dx$
+			\item $\displaystyle \int \frac{1}{x^2 -4}dx$
+			\item $\displaystyle \int \frac{5x + 3}{x^2 -3x +2}dx$
+			\item $\displaystyle \int xe^x dx$
+			\item $\displaystyle \int x\sin(x)dx$
+		\end{enumerate}
+	\end{multicols}
+	
+	\item Calcule:
+	\begin{multicols}{2}
+		\begin{enumerate}
+			\item $\displaystyle \int x\ln(x)dx$
+			\item $\displaystyle \int \ln(x)dx$
+			\item $\displaystyle \int x^2 \ln(x)dx$
+			\item $\displaystyle \int x\sec^2(x)dx$
+			\item $\displaystyle \int xe^{2x}dx$
+			\item $\displaystyle \int e^x\cos(x)dx$ 
+		\end{enumerate}
+	\end{multicols}
+	
+	\item Calcule:
+	\begin{multicols}{2}
+		\begin{enumerate}
+			\item $\displaystyle \int e^{-2x}\sin(x)dx$
+			\item $\displaystyle \int x^3e^{x^2}dx$
+			\item $\displaystyle \int x^3\cos(x^2)dx$
+			\item $\displaystyle \int \frac{1}{\sqrt{4-x^2}}dx$
+			\item $\displaystyle \int \frac{1}{4+x^2}dx$
+			\item $\displaystyle \int \frac{x}{\sqrt{1-x^2}}dx$
+		\end{enumerate}
+	\end{multicols}
+
+	\item Calcule:
+	\begin{multicols}{2}
+		\begin{enumerate}
+			\item $\displaystyle \int \frac{x^2}{\sqrt{1-x^2}}dx$
+			\item $\displaystyle \int \sqrt{9-4x^2}dx$
+			\item $\displaystyle \int \frac{1}{x^2 - 4}dx$
+			\item $\displaystyle \int \frac{x}{x^2 -4}dx$
+			\item $\displaystyle \int \frac{x+3}{x^2 - x}dx$
+		\end{enumerate}
+	\end{multicols}
+	
+	\item Calcule:
+	\begin{multicols}{2}
+		\begin{enumerate}
+			\item $\displaystyle \int \frac{x+1}{x(x-2)(x+3)}dx$
+			\item $\displaystyle \int \frac{x+3}{x^3 -2x^2 -x +2}dx$
+			\item $\displaystyle \int \frac{4}{x^3 - x^2 -2x}dx$
+			\item $\displaystyle \int \frac{x^3 +1}{x^3 -x^2 -2x}dx$
+			\item $\displaystyle \int \sin(7x)\cos(2x)dx$
+			\item $\displaystyle \int \sin(3x)\sin(5x)dx$
+		\end{enumerate}
+	\end{multicols}
+
+	\item Calcule:
+	\begin{multicols}{2}
+		\begin{enumerate}
+			\item $\displaystyle \int \cos(2x)\cos(x)dx$
+			\item $\displaystyle \int \sin(x)\cos^2(x)dx$
+			\item $\displaystyle \int \cos(x)\sin^4(x)dx$
+			\item $\displaystyle \int \tan^5(x)\sec^2(x)dx$
+			\item $\displaystyle \int \tan^3(2x)\sec(2x)dx$
+			\item $\displaystyle \int \tan^6(x)dx$  
+		\end{enumerate}
+	\end{multicols}
+	
+	\item Calcule a área da região limitada pelo gráfico de $f(x) = x^3$, pelo eixo $x$ e pelas retas $x=-1$ e $x=1$.
+	
+	\item Calcule a área da região limitada pelas retas $x=0,x=1,y=2$ e pelo gráfico de $y=x^2$.
+	
+	\item Calcule a área do conjunto de todos os pontos $(x,y)$ tais que: $x^2 \leq y \leq \sqrt{x}$
+	
+	\item Calcule a área da região compreendida entre os gráficos de $y=x$ e $y=x^2$, com $0 \leq x \leq 2$.
+	
+	\item Determine $y = y(x)$ que satisfaça:
+	\begin{multicols}{2}
+		\begin{enumerate}
+			\item $\dfrac{\partial y}{\partial x}= e^y$ e $y(0)=1$
+			\item $\dfrac{\partial y}{\partial x}= 3y^2$ e $y(0) = \frac{1}{2}$
+		\end{enumerate}
+	\end{multicols}
+	
+\end{enumerate}
+
+
+	
+\end{document}

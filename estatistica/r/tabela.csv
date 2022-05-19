@@ -1,0 +1,57 @@
+categoria,marca,modelo,potencia,tipo,precoatual,desvalorizacao
+Hatch Compacto,Volkswagen,Gol G. VI 1.0,74,N,34050,7982
+Hatch Compacto,Volkswagen,Fox 1.0,72,N,46009,15803
+Hatch Compacto,Fiat,Novo Uno 1.4,86,N,27562,2345
+Hatch Compacto,Fiat,Palio 1.0,74,N,26510,4780
+Hatch Compacto,Peugeot,207 1.4,81,N,31410,3711
+Hatch Compacto,Chevrolet,Onix 1.0,80,N,30129,2434
+Hatch Compacto,Chevrolet,Celta 1.0,76,N,24840,4731
+Hatch Compacto,Ford,Novo KA 1.0,85,N,42092,19859
+Hatch Compacto,Audi,A3 Sportback 1.4 Turbo,122,I,90700,36035
+Hatch Compacto,BMW,Serie 1 118i GP 1.6,170,I,146169,36037
+Hatch Compacto,BMW,Serie 1 M135i 3.0,320,N,187820,22169
+Hatch Compacto,Citroen,C3 1.5,93,N,46225,11871
+Hatch Compacto,Mercedes Benz,Classe A 200 Turbo Style Hatchback,156,I,95940,7356
+Hatch Compacto,Hyundai,HB 20 1.0,80,N,37782,5546
+Hatch Compacto,Hyundai,I30 1.8,150,I,86000,21766
+Hatch Compacto,Honda,Fit 1.5,115,N,45661,6233
+Hatch Compacto,Nissan,New March 1.0 S,74,N,31578,5023
+Hatch Compacto,Toyota,Etios Hatch 1.3 X,86,N,31775,3276
+Sedan Grande,Volkswagen,Passat 2.0,211,I,155026,49908
+Sedan Grande,Volkswagen,Jetta 2.0,211,I,68451,9101
+Sedan Grande,Fiat,Linea 1.8,131,N,49519,8771
+Sedan Grande,Fiat,Grand Siena 1.4,86,I,37975,3985
+Sedan Grande,Peugeot,408 2.0,150,I,58488,9624
+Sedan Grande,Chevrolet,Cobalt 1.4,102,N,48014,10029
+Sedan Grande,Chevrolet,Cruze Sedan 1.8,144,N,64371,6390
+Sedan Grande,Ford,New Fiesta Sedan Titanium Plus 1.6 PowerShift,126,N,50562,8505
+Sedan Grande,Ford,Focus Sedan Titanium Plus 2.0 PowerShift,176,I,77540,20012
+Sedan Grande,Ford,Fusion Titanium 2.0 EcoBoost,234,I,111020,13323
+Sedan Grande,Audi,A8 Sedan V8 4.0 TFSI,435,I,500580,26060
+Sedan Grande,Audi,A7 Sedan Sportback 3.0 TFSI,310,I,343821,51954
+Sedan Grande,Audi,A6 Sedan 3.0 TFSI,310,I,294415,43766
+Sedan Grande,Audi,A4 Sedan 1.8 TFSI,170,I,171340,40491
+Sedan Grande,Audi,A3 Sedan 1.8 TFSI,180,I,117911,48276
+Sedan Grande,BMW,Serie 3 328i Sport GP 2.0,245,I,179361,20539
+Sedan Grande,BMW,Serie 5 Sedan 2.0,245,I,224013,26082
+Sedan Grande,BMW,Serie 6 Gran Coupé 3.0,320,I,352512,32994
+Sedan Grande,BMW,Serie 7 M Sport 4.4,450,I,403021,48021
+Sedan Grande,BMW,M5 4.4,560,I,542625,143710
+Sedan Grande,BMW,M6 Gran Coupé 4.4,560,I,528090,65685
+Sedan Grande,Citroen,C4 Lounge 2.0i,147,I,56837,13548
+Sedan Grande,Mercedes Benz,Classe S 63 L AMG,571,I,652511,76659
+Sedan Grande,Hyundai,New Elantra 2.0,178,I,80200,11973
+Sedan Grande,Hyundai,New Azera 3.0 GLS ,250,I,106940,9480
+Sedan Grande,Honda,Civic 2.0 LXR,150,N,68022,13634
+Sedan Grande,Honda,City 1.5,115,N,48820,6613
+Sedan Grande,Nissan,Sentra 2.0 S Flex,140,I,57153,11876
+Sedan Grande,Toyota,Corolla 1.8,144,N,63283,11640
+Picape,Volkswagen,Saveiro 1.6 MSI,120,N,53819,8701
+Picape,Volkswagen,Amarok SE,180,I,89027,9474
+Picape,Fiat,Strada Working 1.4,86,N,35820,3425
+Picape,Chevrolet,Montana 1.4 Econoflex,96,N,33235,4305
+Picape,Chevrolet,S10 2.4 Flex Dupla,206,N,76640,13003
+Picape,Ford,Ranger Cabine Dupla 2.5 XLS,170,N,69818,8403
+Picape,Nissan,Frontier SV Attack 2.5,163,N,99625,16338
+Picape,Toyota,Hilux 2.7 Flex STD,175,I,97200,9590
+Picape,Mitsubishi,L200,205,I,140990,42569

@@ -1,0 +1,332 @@
+\documentclass[hyperref={pdfpagelabels=false}]{beamer}
+\usepackage{lmodern}
+\usetheme{CambridgeUS}
+
+\usepackage[english,brazilian]{babel}
+\usepackage{multicol}
+\usepackage{textcomp}
+\usepackage[alf]{abntex2cite}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+\usepackage{amsmath,amssymb,exscale}
+
+\title{Probabilidade e Estatística}  
+\author[Matheus Pimenta]{Matheus Pimenta} 
+\institute[UTFPR-CP]{\normalsize Universidade Tecnológica Federal do Paraná \\
+	Câmpus Cornélio Procópio
+} 
+\date{Agosto de 2020 \\ ADNP 2020} 
+\begin{document}
+	
+\begin{frame}
+\titlepage
+\end{frame} 
+
+
+%\begin{frame}
+%\frametitle{Table of contents}
+%\tableofcontents
+%\end{frame} 
+
+
+\section{Variáveis Aleatórias} 
+
+\begin{frame}
+\frametitle{Exemplo}
+
+São lançadas três moedas.Seja $X$ o número de ocorrências de ``cara''. Qual a distribuição de probabilidade de $X$?
+
+\pause
+{\it Solução:}
+
+$\footnotesize{ \Omega = \{ (c,c,c), (c,c,k), (c,k,c), (c,k,k), (k,c,c), (k,c,k), (k,k,c), (k,k,k) \}}$
+
+\pause
+
+Se $X$ é o número de ``cara'' que pode-se ter então $X$ tem os seguintes valores: $0,1,2$ e $3$. Associando os valores a $\Omega$, segue:
+
+\begin{table}[!h]
+	\centering
+	\begin{tabular}{|c|c|}
+		\hline
+		$X$		&	Evento Associado \\ \hline \pause
+		$0$		&	$A_1 = \{(k,k,k)\}$	\\ \hline \pause
+		$1$		&	$A_2 = \{(c,k,k),(k,c,k),(k,k,c)\}$	\\ \hline \pause
+		$2$		&	$A_3 = \{(c,c,k),(c,k,c),(k,c,c)\}$	\\ \hline \pause
+		$3$		&	$A_4 = \{(c,c,c)\}$	\\ \hline
+	\end{tabular}
+	\caption{Resolução do Exemplo 01.}
+\end{table}
+\pause
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Exemplo}
+Associando a cada evento uma probabilidade temos que:
+$P(X=0)=P(A_1) = \displaystyle \frac{1}{8}$
+\vspace{4pt}
+
+\pause
+$P(X=1)=P(A_2) = \displaystyle \frac{3}{8} = P(X=2)=P(A_3)$
+\vspace{4pt}
+
+\pause
+$P(X=3)=P(A_4) = \displaystyle \frac{1}{8}$
+
+\end{frame}
+
+
+\begin{frame}
+	\frametitle{Exemplo}
+	
+Dessa maneira:
+	
+	\begin{table}[!h]
+		\centering
+		\begin{tabular}{|c|c|}
+			\hline
+			$X$		&	Evento Associado \\ \hline \pause
+			$0$		&	$\displaystyle \frac{1}{8}$	\\ \hline \pause
+			$1$		&	$\displaystyle \frac{3}{8}$	\\ \hline \pause
+			$2$		&	$\displaystyle \frac{3}{8}$	\\ \hline \pause
+			$3$		&	$\displaystyle \frac{1}{8}$	\\ \hline
+					&	$1$							\\ \hline
+		\end{tabular}
+		\caption{Resolução do Exemplo 01.}
+	\end{table}
+	\pause
+	
+	{\bf Através do Gráfico e Diagrama}
+	
+\end{frame}
+
+
+
+
+\begin{frame}
+\frametitle{Definição}
+	
+{\bf Definição de Variável Aleatória:}
+
+É a função que associa a todo evento pertencente a uma partição do espaço amostral um único valor real.
+
+No caso discreto, a variável deve assumir valores em um conjunto finito ou em um conjunto infinito, porém enumerável.
+
+No caso finito, será indicado por:
+$$X: x_1,x_2,\dots,x_n$$
+	
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Definição}
+
+{\bf Definição Função de Probabilidade:}
+
+É a função que associa a cada valor assumido pela variável aleatória a probabilidade do evento correspondente, isto é:
+
+$$P(X=x_i) = P(A_i),i=1,2,\dots,n$$
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Definição}
+
+{\bf Definição Distribuição de Probabilidades da Variável Aleatória $X$:}
+
+	É o conjunto $\{ x_i, p(x_i), i=1,2,\dots,n \}$.
+	
+	\pause
+	
+	{\bf Observação:} Para que faça sentido uma distribuição de probabilidades de uma variável aleatória $X$, é necessário que:
+	$$\sum_{i=1}^{n}p(x_i) = 1$$
+\end{frame}
+
+\begin{frame}
+\frametitle{Esperança Matemática}
+
+Quando trabalhamos com distribuições de probabilidades de uma variável aleatória discreta, os parâmetros da distribuição são características numéricas de grande importância.
+
+\pause
+O primeiro parâmetro é a \emph{esperança matemática} (ou simplesmente média) de uma variável aleatória.
+
+\pause
+{\bf Definição Esperança Matemática:}
+
+	$$E(X) = \displaystyle \sum_{i=1}^{n}x_i \cdot p(x_i)$$
+	
+	A \emph{esperança matemática} é um número real. É também uma média aritmética ponderada. 
+	
+	Notação: $E(X)$, $\mu(x)$, $\mu_x$, $\mu$.
+	
+\end{frame}
+
+\begin{frame}
+\frametitle{Exemplo}
+
+{\bf Exemplo 01:} Uma seguradora paga $R\$ 30.000,00$ em caso de acidente de carro e cobra uma taxa de $R\$ 1.000,00$. Sabe-se que a probabilidade de que um carro sofra acidente é de $3\%$. Quanto espera a seguradora ganhar por carro segurado?
+
+\pause
+{\it Solução:}
+\pause
+
+Suponha que em $100$ carros, $97$ dão lucro de $R\$ 1.000,00$ e $3$ dão prejuízo de $R\$ 29.000,00$ $(R\$ 30.000,00 - R\$ 1.000,00)$.
+\pause
+
+Lucro total: \pause $97 \cdot 1.000 - 3 \cdot 29.000 = R\$ 10.000,00$
+
+\pause
+Lucro médio por carro: \pause $R\$ 10.000,00 / 100 = R\$ 100,00$
+
+\pause
+Se chamarmos de $X$ o lucro por carro, e o lucro médio por carro de $E(X)$, teremos:
+\pause
+
+$$E(X) = \displaystyle \frac{0,97 \cdot 1.000}{0,03 \cdot 29.000} = 100$$
+
+\begin{flushright}
+	$\blacksquare$
+\end{flushright}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Propriedades da Esperança Matemática}
+
+\begin{enumerate}
+	\item $E(k) = k$, onde $k$ é uma constante; \pause
+	\item $E(k\cdot X) = k \cdot E(X)$; \pause
+	\item $E(X \pm Y) = E(X) \pm E(Y)$; \pause
+	\item $E\left\{ \displaystyle \sum_{i=1}^{n}X_i \right\} = \displaystyle \sum_{i=1}^{n}\{ E(X_i) \}$; \pause
+	\item $E(aX \pm b) = aE(X) \pm b$, onde $a$ e $b$ são constantes; \pause
+	\item $E(X - \mu_x) = 0$. \pause
+\end{enumerate}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Variância}
+
+A medida que dá o grau de dispersão (ou concentração) de probabilidade em torno da média é a \emph{variância}.
+
+\pause
+{\bf Definição Variância:}
+
+	$$VAR(X) = \sum_{i = 1}^{n}(x_i - \mu_x)^2 \cdot p(x_i)$$
+	
+	Notação: $VAR(X)$, $V(X)$, $\sigma^2(X)$, $\sigma_X^2$,$\sigma^2$.
+
+\pause
+
+{\bf Observação:} Quanto menor a variância, menor o grau de dispersão de probabilidades em torno da média e vice-versa; quanto maior a variância, maior e grau de dispersão da probabilidade em torno da média.
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Desvio Padrão}
+
+{\bf Definição Desvio Padrão:}
+
+É a raiz quadrada da variância de $X$, isto é:
+$$\sigma_x = \sqrt{VAR(X)}$$
+
+\pause
+{\bf Propriedades da Variância}
+
+\begin{enumerate}
+	\item $VAR(k) = 0$, onde $k$ é constante; \pause
+	\item $VAR(k\cdot X) = k^2 \cdot VAR(X)$; \pause
+	\item $VAR(X \pm Y) = VAR(X) + VAR(Y) \pm 2cov(X,Y)$ \pause
+	
+	\footnotesize{
+	{\bf Definição Covariância entre $X$ e $Y$:}
+	
+		$$cov(X,Y) =  E\{[X - E(X)]\cdot[Y - E(Y)]\}$$
+		A covariância mede o grau de dependência entre as duas variáveis $X$ e $Y$.
+	}
+	
+	\item $VAR\left(\displaystyle \sum_{i=1}^{n}X_i\right) = \displaystyle \sum_{i=1}^{n}VAR(X_i) + 2\displaystyle \sum_{i<j}^{n}cov(X_i , Y_j)$ \pause
+	\item $VAR(aX \pm b) = a^2VAR(X)$, $a$ e $b$ constantes.
+\end{enumerate}
+
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Função de Distribuição}
+{\bf Definição Função de Distribuição:}
+
+$$F(x) = P(X \leq x) = \sum_{x_i \leq x}p(x_i)$$
+
+\pause
+{\bf Propriedades de $F(x)$}
+\pause
+\begin{enumerate}
+	\item $0 \leq F(x) \leq 1$; \pause
+	\item $(F - \infty) = 0$; \pause
+	\item $F(+\infty) = 1$; \pause
+	
+	As demais propriedades requer conhecimentos prévios de cálculo.
+\end{enumerate}
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{Exemplo}
+
+Suponha que uma variável aleatória $X$ tenha a seguinte distribuição de probabilidades: \pause
+\begin{table}[!h]
+	\centering
+	\begin{tabular}{|c|c|}
+		\hline
+		$X$		&	$P(X)$ \\ \hline 
+		$1$		&	$0,1$	\\ \hline 
+		$2$		&	$0,2$	\\ \hline 
+		$3$		&	$0,4$	\\ \hline
+		$4$		&	$0,2$	\\ \hline
+		$5$		&	$0,1$	\\ \hline
+	\end{tabular}
+	\caption{Resolução do Exemplo 01.}
+\end{table}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Exemplo}
+
+Dessa maneira:
+\pause
+\begin{align*}
+F(1) &= P(X \leq 1) = P(X=1) = 0,1 \\ 
+F(2) &= P(X \leq 2) = P(X=1) + P(X=2) = 0,3 \\ 
+F(3) &= P(X \leq 3) = P(X=1) + P(X=2) + P(X=3)\\
+& = F(2) + P(X=3) = 0,3 + 0,4 = 0,7 \\ 
+&\vdots& \\ 
+F(5) &= P(X \leq 4) + P(X = 5) = F(4) + P(X=5) = 0,9 + 0,1 = 1
+\end{align*}
+\pause
+Pode-se utilizar valores contínuos também.
+
+\end{frame}
+
+\begin{frame}{Exemplo}
+	Dessa maneira pode-se resumir através de:
+	$$F(x) = \begin{cases}
+	0	& \text{,se } X < 1 \\
+	0,1 & \text{,se } 1 \leq X < 2 \\
+	0,3 & \text{,se } 2 \leq X < 3 \\
+	0,7 & \text{,se } 3 \leq X < 4 \\
+	0,9 & \text{,se } 4 \leq X < 5 \\
+	1   & \text{,se } X \geq 5
+	\end{cases}$$
+\pause
+
+O domínio de $F(x)$ será $D = \{\mathbb{R}\}$ e o contradomínio será o conjunto $\{ 0,1;0,3;0,7;0,9;1 \}$.
+
+\end{frame}
+
+
+
+\end{document}
+

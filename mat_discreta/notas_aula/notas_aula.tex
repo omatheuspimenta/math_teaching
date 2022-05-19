@@ -1,0 +1,627 @@
+\documentclass[oneside,a4paper,12pt]{article}
+\usepackage[english,brazilian]{babel}
+\usepackage{multicol}
+\usepackage{textcomp}
+\usepackage[alf]{abntex2cite}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb,exscale}
+\usepackage[top=20mm, bottom=20mm, left=20mm, right=20mm]{geometry}%margens cima, baixo, esquerda direita
+\usepackage{framed}
+\usepackage{booktabs} %Pacote para deixar tabelas mais bonitas.
+\usepackage{color} %Pacote de Cores
+\usepackage{hyperref} %Pacotes para Hiperlinks
+\usepackage{graphicx} %Pacote de imagens
+\graphicspath{{./Figuras/}}%Direciona as imagens para uma pasta chamada "Figuras" (uso isso para organizar. Uma vez que todas as imagens vao ficar em uma pasta isolada)    
+\definecolor{shadecolor}{rgb}{0.8,0.8,0.8}
+
+
+%%%%%
+
+\newtheorem{proposition}{Proposição}[section]
+\newtheorem{theorem}{Teorema}[section]
+\newtheorem{lemma}{Lema}[section]
+\newtheorem{definition}{Definição}[section]
+\newtheorem{conjecture}{Conjectura}[section]
+\newtheorem{corollary}{Corolário}[section]
+\newtheorem{proof}{Demonstração}
+
+%%%%%
+
+%FAZ EDICOES AQUI (somente no conteudo que esta entre entre as ultimas  chaves de cada linha!!!)
+\newcommand{\universidade}{Universidade Tecnológica Federal do Paraná}
+\newcommand{\centro}{Câmpus Cornélio Procópio}
+\newcommand{\departamento}{Departamento Acadêmico de Matemática}
+\newcommand{\curso}{Engenharia da Computação}
+\newcommand{\professores}{Matheus Pimenta}
+\newcommand{\disciplina}{Matemática Discreta - EC34G}
+%\newcommand{\tema}{Lista 01}
+%\newcommand{\turma}{MA31G}
+%\newcommand{\data}{Março de 2019}%{\today}
+%\newcommand{\tempodeaula}{30 minutos}
+%\newcommand{\prerequisitos}{Matrizes, Transformações Lineares e Bases}
+%ATE AQUI !!!	
+
+\begin{document}
+
+	\begin{center}
+		\includegraphics[width=\linewidth/8]{logo.jpg}%LOGOTIPO DA INSTITUICAO
+	 	\vspace{2pt} 	
+		
+		\universidade
+		\par
+		\centro
+		\par
+		\departamento
+		\par
+	%	Curso de \curso
+		\par
+		\vspace{12pt}
+		\LARGE \textbf{Notas de Aula}
+		
+	\end{center}
+	
+	\vspace{12pt}
+	
+	\begin{tabular}{ |l|p{12cm}| }
+		
+		\hline
+		\multicolumn{2}{|c|}{\textbf{Dados de Identificação}} \\
+		\hline
+		Professor:         &    \professores           \\
+		\hline
+		Disciplina:        &    \disciplina          \\
+		\hline
+	%	Tema:              &    \tema                \\
+	%	\hline
+	%	Pré-requisito	:  &    \prerequisitos         \\
+	%	\hline
+	%	Aluno:             &                   \\
+	%	\hline
+	%	Data:              &    \data                \\
+	%	\hline
+	%	Duração da aula:   &    \tempodeaula         \\
+	%	\hline
+		
+	\end{tabular}
+	\vspace{6pt}
+	
+	
+	\begin{snugshade}
+		\section{Métodos de Prova}
+	\end{snugshade}
+
+\subsection{Noções de Lógica}
+A ordem dos quantificadores lógicos (existencial e universal) alteram o valor-verdade da proposição.
+
+Exemplo:
+\begin{itemize}
+	\item [a):] $(\forall n)(\exists m)(n<m)$ é verdade;
+	\item [b):] $(\exists m)(\forall n)(n<m)$ é falsa.
+\end{itemize}
+
+De fato:
+\begin{itemize}
+	\item [a):] Para $(\forall n)(\exists m)(n<m)$, dado {\it qualquer} valor de $n$, é possível encontrar ($existe$) ao menos $um$ $m$ que satisfaça a proposição. Por exemplo, tome $m=n+1$. Assim, para qualquer número natural $n$, vale a proposição $n<n+1$ que é trivialmente verdadeira (axiomas de Peano).
+	\item [b):] Já a proposição $(\exists m)(\forall n)(n<m)$ afirma que existe um número natural que é maior que $qualquer$ outro número natural, isto é, o conjunto dos números naturais seria limitado, o que não ocorre. Portanto, a proposição é falsa.
+\end{itemize}
+
+\textbf{Existe $\times$ Existe um único}
+
+Geralmente é necessário quantificar existencialmente de forma única, isto é, de tal forma que só exista um {\it único} elemento. Não é uma quantificação existencial usual, na qual pode existir qualquer elemento (mais de um). Simbolicamente é simbolizado por $(\exists!)$. Note o exemplo:
+\begin{itemize}
+	\item $(\exists!n\in \mathbb{N})(n<1)$ é verdade;
+	\item $(\exists!n\in \mathbb{N})(n! < 10)$ é falsa;
+	\item $(\exists!n\in \mathbb{N})(n+1 < n)$ é falsa;
+	\item $(\exists!n\in \mathbb{N})(2n$ é par$)$ é falsa;
+\end{itemize}
+
+O quantificador existencial de forma única é uma abreviação da seguinte equivalência:
+$$(\exists!x)p(x) \Leftrightarrow (\exists x)p(x) \land (\forall x)(\forall y)((p(x)\land p(y) \rightarrow x=y))$$
+
+
+\subsubsection{Negação de Proposições Quantificadas}
+
+A negação de proposições quantificadas é intuitiva. Suponha a seguinte proposição quantificada:
+$$(\forall x \in A)p(x)$$ cujo o valor-verdade (já visto) é como segue:
+$$(\forall x \in A)p(x) \text{ é verdade, se } p(x) \text{ for verdadeira para todos os elementos de A}$$
+
+A negação deve significar que {\it não} é verdadeira para todos os elementos de $A$, ou seja, existe ao menos um elemento de $A$ que não valida $p(x)$, portanto:
+$$(\exists x \in A) \neg p(x)$$
+
+Assim:
+$$\neg ((\forall x \in A)p(x)) \Leftrightarrow (\exists x \in A) \neg p(x)$$
+
+Analogamente, para o caso existencial:
+$$\neg ((\exists x \in A)p(x)) \Leftrightarrow (\forall x \in A) \neg p(x)$$
+
+Isto é, negar que existe um elemento, é mostrar que vale para todos os elementos de $A$ a negação da proposição.
+
+Exemplo:
+
+\begin{itemize}
+	\item $\neg ((\forall n \in \mathbb{N})(n<1)) \Leftrightarrow (\exists n \in \mathbb{N})(n \geq 1) \Leftrightarrow V$
+	\\ $\neg ((\exists n \in \mathbb{N})(n<1)) \Leftrightarrow (\forall n \in \mathbb{N})(n \geq 1) \Leftrightarrow F$
+	\item $\neg((\forall n \in \mathbb{N})(n! < 10)) \Leftrightarrow (\exists n \in \mathbb{N})(n! \geq 10) \Leftrightarrow V$ \\
+	$\neg((\exists n \in \mathbb{N})(n! < 10)) \Leftrightarrow (\forall n \in \mathbb{N})(n! \geq 10) \Leftrightarrow F$
+	\item $\neg ((\forall n \in \mathbb{N})(n+1>n)) \Leftrightarrow (\exists n \in \mathbb{N})(n+1 \leq n) \Leftrightarrow F$ \\
+	$\neg ((\exists n \in \mathbb{N})(n+1>n)) \Leftrightarrow (\forall n \in \mathbb{N})(n+1 \leq n) \Leftrightarrow F$ 
+	\item $\neg ((\forall n \in \mathbb{N})(2n \text{ é par })) \Leftrightarrow (\exists n \in \mathbb{N})(2n \text{ não é par }) \Leftrightarrow F$ \\
+	$\neg ((\exists n \in \mathbb{N})(2n \text{ é par })) \Leftrightarrow (\forall n \in \mathbb{N})(2n \text{ não é par }) \Leftrightarrow F$
+\end{itemize}
+
+\textbf{Exercício:} Negue as proposições:
+\begin{itemize}
+	\item [a):] $(\forall n)(\exists m)(n<m)$ é verdadeira \\
+				$(\exists n)(\forall m)(n\geq m)$ é falsa.
+	\item [b):] $(\exists m)(\forall n)(n<m)$ é falsa \\
+				$(\forall m)(\exists n)(n\geq m)$ é verdadeira.
+\end{itemize}
+
+
+\subsection{Técnicas de Demonstração Matemática}
+
+\begin{definition}[teorema]
+	Um {\it teorema} é uma proposição do tipo: $$ p \rightarrow q$$ a qual prova-se ser verdadeira sempre (tautologia), ou seja, que $p$ implique a $q$.
+\end{definition}
+
+As {\it proposições} $p$ e $q$ são denominadas {\it hipótese} e {\it tese}, respectivamente.
+
+Um {\it corolário} é um teorema que é uma consequência imediata de um teorema já demonstrado (ou seja, a prova é trivial). Já um {\it lema} é um teorema auxiliar, utilizado para a demonstração de outro teorema.
+
+São de grande importância na Informática e Computação, pois através deles é possível validar uma implementação. Podem ser vistos como um algoritmo que, prova-se, sempre funciona.
+
+Ao demonstrar um teorema é necessário identificar corretamente a {\it hipótese} e a {\it tese}. 
+
+Exemplo: {\it $0$ é o único elemento neutro da adição em $\mathbb{N}$}.
+
+Na demonstração, a hipótese é sempre suposta como verdadeira, consequentemente, a hipótese não precisa ser demonstrada. Todas as teorias possuem premissas (hipóteses) que são supostas como verdadeiras, e todo o raciocínio é construído.
+
+Para um determinado teorema $p \rightarrow q$, existem diversas técnicas para demonstrar que de fato $p \rightarrow q$. Destacamos as seguintes:
+\begin{enumerate}
+	\item Prova Direta;
+	\item Prova por Contraposição;
+	\item Prova por Redução ao Absurdo (ou apenas Prova por Absurdo);
+	\item Prova por Indução.
+\end{enumerate}
+
+\textbf{Observação:}
+
+A prova por Indução é uma aplicação do {\it Princípio da Indução Finita}.
+
+Uma atenção especial aos quantificadores. Por exemplo, para provar que: $$(\forall x \in A)p(x)$$ é necessário provar $p(x)$ para todo $x \in A$. Mostrar para um determinado $x \in A$  não é uma prova, é apenas um exemplo, já que não constitui uma prova válida $para$ $todos$ os elementos de $A$.
+
+Já no caso $$(\exists x \in A)p(x)$$ basta mostrar que para pelo menos um $a \in A$ que $p(x)$ é verdadeira. Ao contrário do caso acima, um exemplo {\bf é} a prova.
+
+
+\subsubsection{Prova Direta}
+
+Uma {\it prova direta} é quando pressupõe como verdadeira a hipótese e, a partir desta, prova ser {\it verdadeira} a tese.
+
+Exemplo:
+Considere o teorema abaixo:
+\begin{center}
+	{\it a soma de dois números pares é um número par}
+\end{center}
+
+reescrevendo na forma de $p \rightarrow q$:
+\begin{center}
+	se $n$ e $m$ são dois números pares quaisquer,\\ então $n+m$ é um número par.
+\end{center}
+
+\begin{proof}
+	Inicialmente, lembre-se de qualquer número par $n$ pode ser definido como $n:=2r$, para $r \in \mathbb{N}$.
+	
+	Suponha que $n$ e $m$ são dois números pares. Então existem $r,s \in \mathbb{N}$ tais que: 
+	$$ n = 2r$$ e $$m=2s$$.
+	
+	Então,
+	$$n+m=2r+2s=2(r+s)$$
+	
+	Como a soma de dois números naturais $r+s$ é um número natural, vale $n+m = 2(r+s)$. Logo $n+m$ é um número par.
+\end{proof}
+
+
+\subsubsection{Prova por Contraposição}
+
+Uma prova é dita {\it prova por contraposição} ou {\it demonstração por contraposição} quando, para provar $p \rightarrow q$, prova-se $\neq q \rightarrow \neg p$, já que são formas equivalentes. Para mostrar que $\neq q \rightarrow \neg p$ basta, a partir de $\neg q$, obter $\neg p$ (através da prova direta).
+
+Exemplo:
+Suponha $n \in \mathbb{N}$ e mostre que:
+\begin{center}
+	$n! > (n+1) \rightarrow n>2$
+\end{center}
+
+\begin{proof}[Por Contraposição]
+Equivalentemente, pode-se demonstrar:
+$$n \leq 2 \rightarrow n! \leq n+1$$
+
+Que é bem mais simples de mostrar, pois bastar mostrar para os casos $n \leq 2$.
+
+{\bf Fazer os casos $n=0, n=1, n=2$.}
+\end{proof}
+
+\subsubsection{Prova por Redução ao Absurdo}
+
+A prova por absurdo baseia-se no seguinte resultado: $$p \rightarrow q \Leftrightarrow (p \land \neg q) \rightarrow F$$
+
+\begin{definition}[Prova por Redução ao Absurdo]
+	Uma prova é dita {\it prova por redução ao absurdo} quando a prova de $p \rightarrow q$ consiste em supor a hipótese $p$, supor a negação da tese $\neg q$ e concluir uma contradição (em geral, $q \land \neg q$).
+\end{definition}
+
+Uma técnica de demonstração de apresentar o {\it contra-exemplo} também é uma forma de demonstração por absurdo. 
+
+Exemplo:
+Considere o seguinte teorema:
+\begin{center}
+	{\it 0 é o único elemento neutro da adição em} $\mathbb{N}$
+\end{center}
+
+\begin{proof}
+	Reescrevendo na forma $p \rightarrow q$:
+	\begin{center}
+		se $0$ é elemento neutro da adição em $\mathbb{N}$, \\ então $0$ é o único elemento neutro da adição em $\mathbb{N}$
+	\end{center}
+A prova por absurdo é a seguinte:
+\begin{itemize}
+	\item [a)] Supor a hipótese, isto é, supor que $0$ é o elemento neutro da adição em $\mathbb{N}$ e negar a tese, ou seja, $0$ não é o único elemento neutro da adição em $\mathbb{N}$. \\ Suponha então que existe um elemento $e$, onde $e \neq 0$, já que $0$ não é o único, então $e$ é diferente de zero;
+	\item [b)] Então:
+	\begin{itemize}
+		\item como $0$ é elemento neutro, $\forall n \in \mathbb{N}$, vale $n=0+n=n+0$. Em particular, para $n=e$, vale $e=0+e=e+0$
+		\item como $e$ é elemento neutro, $\forall n \in \mathbb{N}$, vale $n=e+n=n+e$. Em particular, para $n=0$, vale $0=0+e=e+0$
+		\item portanto, como $e=0+e=e+0$ e $0=0+e=e+0$, pela transitividade da igualdade, vale que $e=0$, o que é uma contradição, pois foi suposto que $e \neq 0$.
+	\end{itemize}
+\end{itemize}
+Logo, é absurdo supor que o elemento neutro da adição em $\mathbb{N}$ não é único. Portanto, $0$ é o único elemento neutro da adição em $\mathbb{N}$.
+
+\end{proof}
+
+\subsubsection{Prova por Indução}
+
+Seja $P$ uma propriedade tal que:
+\begin{itemize}
+	\item $0$ satisfaz $P$;
+	\item Para todo $n \in \mathbb{N}$, se $n$ satisfaz $P$, então $n+1$ satisfaz $P$;
+	\item Então, todo $n \in \mathbb{N}$ satisfaz $P$.
+\end{itemize}
+
+{\bf Exemplo 01:} Mostre que:
+$$1+3+5+7+9+11+\dots+2n-1=n^{2}$$
+
+\vspace{180pt}
+
+{\bf Exemplo 02:} Verifique que:
+$$2^{0}+2^{1}+2^{2}+\dots+2^{n-1} = 2^{n}-1$$
+
+\vspace{180pt}
+
+\newpage
+{\bf Exemplo 03:} Mostre que:
+$$\frac{1}{1 \cdot 2}+\frac{1}{2 \cdot 3} + \frac{1}{3 \cdot 4} + \dots + \frac{1}{n(n+1)} = \frac{n}{n+1}$$
+
+\vspace{180pt}
+
+{\bf Exemplo 04:} Verifique que:
+$$1+2+3+4+\dots+n = \frac{(n-1)(n+2)}{2}$$
+\begin{enumerate}
+	\item Mostre que se $P(k)$ é verdadeira então $P(k+1)$ também é verdadeira.
+	\item Podemos concluir que $P(n)$ é verdadeira para todo $n \in \mathbb{N}^{*}$
+\end{enumerate}
+\vspace{180pt}
+
+\newpage
+\begin{snugshade}
+	\section{Conjuntos e Análise Combinatória}
+\end{snugshade}	
+	
+\subsection{O Paradoxo de Russell}
+
+
+Considere uma cidade em que barbeiros raspam a barba apenas aqueles homens que não se barbeiam. Suponha que haja um barbeiro nessa coleção que não se barbeia; então pela definição da coleção, ele deve se barbear. Mas nenhum barbeiro na coleção pode se barbear. (Se sim, ele seria um homem que faz a barba de homens que se barbeiam.)
+
+Ou de outra maneira, quem fará a barba ao barbeiro que tem na janela da loja uma placa a dizer: "Faço a barba a todos os homens da cidade que não se barbeiam sozinhos, e só a esses."
+
+É um exemplo do paradoxo de Russell, que apresentou uma contradição na teoria de conjuntos formulada por Gottlob Frege, que é baseada na formulação lógica simbólica.
+	
+No desenvolvimento proposto por Frege, pode-se utilizar livremente qualquer propriedade para definir novas propriedades.
+	
+Inicialmente, definimos o conjunto membro de si próprios. Por exemplo: o conjunto de todos os conjuntos; o conjunto de todas as coisas, menos amarelo.
+
+E depois, os conjuntos não membros de si próprio. Por exemplo: o conjunto de todas as frutas; o conjunto que contêm apenas amarelo.
+
+E agora, defina o conjunto $R$ como: conjunto de todos os conjuntos que não são membros de si próprios.
+
+A questão que surge é:
+\begin{enumerate}
+	\item É membro de si próprio.\\ Se $R$ é membro de si próprio, então ele deixa de ser o conjunto de todos os conjuntos que não são membros de si próprios, porque ele seria membro de si próprio. Logo, ele não é membro de sí próprio.
+	\item Não é membro de si próprio. \\ Se $R$ não é membro de si próprio e é o conjunto que contêm todos os conjuntos que não são membros de si próprio, então $R$ contêm a si próprio.
+\end{enumerate}
+
+A conclusão é que $R$ é membro de si próprio e não é membro de si próprio. Logo, uma contradição.
+
+Solução de Russell, foi a Teoria dos Tipos, isto é, um conjunto não pode se relacionar com outro conjunto de tipo inferior, essa hierarquia é infinita. 
+
+Os conjuntos estão numa hierarquia de tipos de tal modo que não é permissível dizer que um conjunto é membro de si mesmo, nem que o não é, o que elimina conjuntos contraditórios.
+
+\textbf{Exemplos: }
+\begin{itemize}
+	\item $\mathbb{N} = \{0,1,2,3,4, \dots\}$
+	\item $\{\mathbb{N}\}$
+	\item $\varnothing$ ; $\{\varnothing\}$
+\end{itemize}
+
+\subsection{Axiomas} 
+
+Foram formuladas por {\it Zermelo-Fraenkel} e utilizam constantes para os indivíduos, duas relações binárias ($=$,$\in$), os conectivos $\lor, \land, \neg, \rightarrow, \leftrightarrow$ e os quantificadores $\forall$ (para todo) e $\exists$ (existe). As variáveis são denotadas:$a,b,\dots,x,y,z$ (com ou sem índices). Como é usual, as fórmulas $\neg(x=y)$ e $\neg(x \in y)$ serão denotadas por $(x \neq y)$ e $(x \notin y)$, respectivamente.
+\begin{enumerate}
+	
+	\item \textbf{Axioma de Extensão: } $(\forall z)(z \in x \leftrightarrow z \in y) \rightarrow (x = y)$ \\ Dois conjuntos são iguais se, e somente se, tem os mesmos elementos. A implicação é recíproca, isto é $(x = y) \rightarrow (\forall z)(z \in x \leftrightarrow z \in y)$
+	
+	\item \textbf{Axioma do Vazio: } $(\exists y)(\forall x)(x \in y)$ \\ Existe um conjunto, denotado por $\varnothing$, que não tem elementos. \\ \textbf{OBS: } Pelo axioma de extensão o vazio é único.
+	
+	\item \textbf{Axioma de União: } $(\exists y)(\forall x)(x\in y \leftrightarrow (x\in a \lor x \in b))$  \\ Se $x$ é um conjunto, então existe um conjunto indicado por $\cup_x$ tal que $z \in \cup_x$ se, e somente se, existe $x$ e $y$ tal que $z \in y$.
+	
+	\item \textbf{Axioma das Partes: } $(\exists y)(\forall x)(x \in y \leftrightarrow (\forall z)(z \in x \rightarrow z \in a))$ \\ Se $x$ é um conjunto, existe um conjunto chamado {\it das partes de} $x$, é denotado: $$P(x)$$ cujos elementos são precisamente os subconjuntos de $x$. \\ \textbf{Exemplo: } Seja $x = \{0,1,2\}$, então:
+	\\$P(x) = \{ \{0\}, \{1\}, \{2\}, \{0,1\}, \{0,2\}, \{1,2\}, \{0,1,2\}, \varnothing \}$
+	\\$P(\varnothing) = \{ \varnothing \}$
+	\\$P(P(\varnothing)) = \{ \varnothing, \{\varnothing\} \}$
+	
+	\item \textbf{Axioma da Substituição: } Seja $P( , )$, uma propriedade tal que para todo $x$ existe um único $y$ para o qual $P(x,y)$ é verdade.
+	\\ \textbf{Exemplo: }Tomando $x,y \in \mathbb{R}$, dizemos $P(x,y)$ é verdade se, e somente se, $y=2x$.
+	\\ Para todo conjunto $A$, existe um conjunto $B$ tal que para todo $x \in A$ existe $y \in B$ para o qual $P(x,y)$ é verdade.
+	
+	\item \textbf{Axioma da Separação (especificação): } Se $x$ é um conjunto e $P$ é qualquer propriedade que possa ser aplicada a elementos $z$ de $x$, então existe subconjunto $y$ de $z$ que contem os elementos $x$ de $z$ que possuem esta propriedade. Podemos, com o axioma de separação, definir intersecção de conjuntos.
+	\\ Sejam $x$ e $y$ conjuntos. $P(z) : z$ pertence a $y$?
+	\\ $$x \cap y = \{ z \in x; z \in y\} = \{ z \in y ; z \in x \}$$
+	
+	\item \textbf{Axioma do Par: } $(\exists y)(\forall x)(x \in y \leftrightarrow ((x = a) \lor (x = b)))$ \\ Se $x$ e $y$ são conjuntos no qual $x$ e $y$ são os únicos elementos denotados $\{ x, y \}$. \\ Como consequência, podemos definir a união de dois conjuntos.
+	\\ $\cup_{x,y} = x \cup y$
+	\\ $\{ z; z \in x \lor z \in y \}$
+	
+	\item \textbf{Axioma da Infinidade: } Existe um conjunto $\omega$ tal que:
+	\begin{enumerate}
+		\item $\varnothing \in \omega$, $\{ \varnothing \in \omega \}$
+		\item Se $x \in \omega$, então $x^{+} \in \omega$
+		\item Se $z \in \omega$, então ou $z = 0$ ou $z = x^{+}$
+		\item $A \subset \omega$, $A \neq$ então existe $y \in A$ ; $y \cap A = \varnothing$
+	\end{enumerate}
+	Exemplo: Seja $x = \{0,1\}$ então $x^{+} = x \cup \{x\}$, logo, $x^{+} = \{ 0,1,\{0,1\} \}$
+	\\ Dizemos que $A$ é subconjunto de $B$ quando todo elemento de $A$ é elemento de $B$ denotamos $A \subset B$
+	
+	\item \textbf{Axioma da Regularidade: } Se $x$ é um conjunto não vazio, então existe $y \in x$ tal que: $$y \cap x = \varnothing$$
+\end{enumerate}
+
+A noção de conjuntos é de que são coleções, isto é, uma coleção $x$. Os objetos: $a$, que também podem ser um conjunto. Dizemos que $a \in x$ quando $a$ é um elemento que pertence ao conjunto $x$.
+
+Em geral, fixamos um {\it conjunto universo} $U$. Naturalmente $U$ deve ficar claro no contexto.
+
+\textbf{Exemplo: }Considere o conjunto $x$ dos números reais que são solução da equação $x^2 - x - 2 = 0$.
+\begin{eqnarray*}
+x^2 - x -2 	&=&0\\
+(x+1)(x-2)	&=&0
+\end{eqnarray*}
+	
+$x=-1$ ou $x=2$ isto é $x \in \{-1,2\}$ ou seja $x=\{-1,2\}$.
+
+Fixando o conjunto universo $U$, dado um conjunto $A \subset U$ e um elemento $x \in U$ vale uma, e somente uma, das opções:
+$$ x \in A \text{ ou } x \notin A$$
+
+O fato de que para $x \in U$ não existe outra opção além de $x \in A$ e $x \notin A$ é conhecido como: \textbf{PRINCÍPIO DO TERCEIRO EXCLUÍDO}. 
+
+O fato de que as alternativas $x \in A$ e $x \notin A$ não podem ser verdadeiras simultaneamente chama-se: \textbf{PRINCÍPIO DE NÃO CONTRADIÇÃO}.
+
+\vspace{150pt}
+\begin{center}
+	\textcolor{red}{FIGURA 1 - REPRESENTAÇÃO GRÁFICA DO PRINCÍPIO DE NÃO CONTRADIÇÃO}
+\end{center}
+	
+Dado um conjunto $A$, isto é, um subconjunto de $U$ podemos definir o complementar do conjunto $A$, como:
+$$A^{C} = \{ x \in U; x \notin A \}$$
+
+
+\vspace{150pt}
+\begin{center}
+	\textcolor{red}{FIGURA 2 - REPRESENTAÇÃO GRÁFICA DO COMPLEMENTAR}
+\end{center}
+
+\textbf{OBS:}$A^{C}$ pode ser denotado como $U-A$ ($U$ menos $A$).
+
+
+\subsection{Regras Operatórias}
+\begin{enumerate}
+	\item Para todo $A \subset U$, temos $(A^{C})^{C} = A$ \\
+	De fato,
+	\begin{eqnarray*}
+	(A^{C})^{C}	& = &	\{ x \in U; x \notin A^{C}\} \\
+				& = & 	\{ x \in U; x \in A \} \\
+				& = & A
+	\end{eqnarray*}
+	{\bf Exemplo: } $U = \mathbb{R}$ e $A = \{ -1,2\}$ \\
+	\begin{eqnarray*}
+		(A^{C})^{C}	& = &	\{ x \in \mathbb{R}; x \notin \{ -1,2\}^{C}\} \\
+		& = & 	\{ x \in \mathbb{R}; x \in \{ -1,2\} \} \\
+		& = & \{ -1,2\}
+	\end{eqnarray*}
+	Logo, todo conjunto é complementar de seu complementar.
+	
+	
+	\item Se $A \subset B$ então $B^{C} \subset A^{C}$
+	\vspace{200pt}
+	
+	\item Fixado o conjunto universo $U$. Dados $A$ e $B$ dois subconjuntos de $U$, temos:
+	$$A \cup B = \{ x \in U; x \in A \lor x \in B  \} $$
+	$$A \cap B = \{ x \in U; x \in A \land x \in B \} $$
+	$$A - B = \{ x; x \in A \land x \notin B \}$$
+	
+\end{enumerate}
+
+{\bf Exemplo: } Sejam $U = \mathbb{R}$ e 
+$$A = \{ x\in \mathbb{R}; x^2-x-2=0  \}$$
+$$B = \{ x \in \mathbb{R}; x^2-5x+6=0 \}$$
+Logo $A=\{-1,2\}$ e $B=\{2,3\}$
+
+Determine: $A \cup B$ e $A \cap B$:
+$$A \cup B = \{ x \in \mathbb{R}; x^2-x-2=0 \lor x^2-5x+6=0 \} $$
+$$A \cup B = \{ -1,2,3 \}$$
+e
+$$A \cap B = \{ x \in \mathbb{R};  x^2-x-2=0 \land x^2-5x+6=0   \}$$
+$$A \cap B = \{ 2 \}$$
+
+
+São válidas algumas propriedades:
+\begin{enumerate}
+	\item $A \cup B = B \cup A$
+	\item $A \cap B = B \cap A$
+	\item $(A \cup B) \cup C = A \cup (B \cup C)$
+	\item $(A \cap B) \cap C = A \cap (B \cap C)$
+	\item $A \cup (B \cap C) = (A \cup B) \cap (A \cup C)$
+	\item $A \cap (B \cup C) = (A \cap B) \cup (A \cap C)$
+	\item $A \cup \varnothing = A$
+	\item $A \cap U = A$
+	\item $A \cup A^{C} = U$
+	\item $A \cap A^{C} = \varnothing$
+\end{enumerate}
+
+{\bf Exercício:} Mostre que: 
+\begin{enumerate}
+	\item $A \cup A = A$
+	\item $A \cap A = A$
+	\item $A \cup U = U$
+	\item $A \cap \varnothing = \varnothing$
+\end{enumerate}
+
+\subsection{Relação de Ordem}
+
+\begin{definition}
+	Para todo $a,b \in \mathbb{N}$ dizemos que $a$ é {\it menor ou igual} a $b$ quando existe um $c \in \mathbb{N}$ tal que $a + c = b$.
+	
+	{\bf Notação:} $a \leq b$
+\end{definition}
+
+{\bf Propriedades da Ordem}
+\begin{enumerate}
+	\item {\bf Transitividade:} Se $m <n$ e $n < r$ então $m < r$. \\
+	De fato,
+	como $m<n$ e $n<r$ existem $p,q \in \mathbb{N}^{*}$ tais que
+
+$
+	\begin{cases}
+		$m + p = n$ \\
+		$n + q = r$
+	\end{cases}
+$
+
+	logo, tomando $s = p+q$, temos:
+	$$ m + s = m + p + q=n + q = r$$
+	e portanto $m < r$.
+	
+	\item {\bf Tricotomia} Dados $m,n \in \mathbb{N}$, uma e somente uma das alternativas é verdadeira:
+	
+	$$
+	\begin{cases}
+	m < n \\
+	m = n \\
+	n < m \\
+	\end{cases}
+	$$
+	
+	\item {\bf Monotonicidade: } Se $m < n$ e $p \in \mathbb{N}$
+	\begin{enumerate}
+		\item $m + p < n + p$
+		\item $p.m < p.n$ se $p \neq 0$
+	\end{enumerate}
+
+	Prova de {\bf (a):} De fato, se $m<n$ então existe $q \in \mathbb{N}^{*}$ tal que:
+	$$m + q = n$$
+	Como $m + p + q = n + p$ e $ q \in \mathbb{N}^{*}$ temos $m + p < n + p$
+	
+	Prova de {\bf (b):} Se $p \in \mathbb{N}^{*}$, então $p.q \in \mathbb{N}^{*}$. 
+	
+	Assim, $p.m+p.q = p(m+q)=p.q$, portanto $pm<pn$.
+	
+	\item {\bf Boa Ordenação: } Todo subconjunto não vazio $X \subset \mathbb{N}$ possui um menor elemento.
+\end{enumerate}
+
+\subsection{Cardinalidade}
+
+Informalmente, o cardinal de um conjunto (finito) A (que representaremos por $\#(A)$, ou $\#A$) é o número de elementos de A. Daí decorre que se $A \subseteq B$ então $\#A \leq \#B$, e se $A \subset B$, então $A$ tem menos elementos do que $B$, pelo que $\#A < \#B$.
+
+Para conjuntos finitos essa relação é natural, porém ao adentrar em conjuntos infinitos, tais relações necessitam de maiores definições.
+
+Para realizar a contagem pode-se operar da seguinte maneira: retira-se um elemento de um conjunto finito e associa o número natural $1$, retira-se outro elemento do conjunto e associa-se o número natural $2$, e assim sucessivamente até esgotar os elementos do conjunto. O último número natural a ser associado resultará na cardinalidade do conjunto finito.
+
+Matematicamente, diremos que um conjunto será finito quando existir uma bijeção entre esse conjunto e o conjunto $\{1, 2, 3, \dots, n\}$.
+
+\begin{definition}[Conjunto Finito/Infinito e de Cardinal]
+	
+	\begin{enumerate}
+		\item Dado um natural $n$, diremos que um conjunto $A$ tem $n$ elementos, ou que $A$ tem cardinal $n$, se e somente se, podemos estabelecer uma bijecção entre $A$ e o conjunto dos números $\{1, ..., n\}$. \\
+		Escreve-se $\#A = n$ para designar que $A$ tem $n$ elementos.
+		\item Diremos que o conjunto $A$ é {\it finito}, se existe algum número $n$ tal que $\#A = n$.
+		\item No caso do conjunto não ser finito, diremos que é {\it infinito}. 
+	\end{enumerate}
+
+\end{definition}
+
+
+\begin{definition}[Conjuntos Equipotentes]
+	Diremos que um conjunto $A$ tem o mesmo número de elementos que um conjunto $B$, ou que $A$ tem o mesmo cardinal que $B$, se e somente se, existe uma bijecção entre $A$ e $B$.
+	
+	{\bf Notação: } $A \sim B$	
+\end{definition}
+
+
+{\bf Exemplo: } Mostrar que os números $\mathbb{N}$ e os números naturais pares $P$ tem a mesma cardinalidade.
+
+\vspace{200pt}
+
+\begin{definition}
+	Um conjunto será chamado de infinito se ele for equivalente a um subconjunto próprio.
+\end{definition}
+
+\begin{definition}[Conjunto Enumerável]
+	Qualquer conjunto equivalente ao conjunto dos números naturais é chamado {\it enumerável}.
+\end{definition}
+
+\begin{definition}[Conjunto Contável e Incomensurável]
+	Todo conjunto que é finito ou enumerável é chamado de {\it contável}.
+	
+	Já um conjunto infinito e não-enumerável é chamado {\it incomensurável}.
+\end{definition}
+
+\subsubsection{Princípio da Adição}
+\begin{definition}
+	Se $A$ e $B$ são conjuntos disjuntos, então:
+	$$\#(A \cup B) = \#A + \#B$$
+\end{definition}
+
+{\bf Exemplo: } Um estudante tem que escolher um projeto em uma de $3$ listas. As $3$ listas contêm $23, 15$ e $19$ possíveis projetos, respectivamente. Quantas possibilidades de projetos há para escolher.
+
+\subsubsection{Princípio da Multiplicação}
+
+\begin{definition}
+	Se $A$ e $B$ são conjuntos finitos, então: $$\#(A \times B) = \#A \times \#B$$
+\end{definition}
+
+{\bf Exemplo: }A última parte de um número de telefone tem $4$ dígitos. Quantos números de $4$ dígitos existem?
+
+\subsubsection{Princípio da Inclusão e Exclusão}
+
+\begin{definition}
+		Se $A$ e $B$ são conjuntos finitos, então:
+		$$\#(A \cup B) = \#A + \#B - \#(A \cap B)$$
+\end{definition}
+
+{\bf Exemplo: } Suponha que haja $1807$ calouros no Campus de Curitiba da UTFPR. Destes, $453$ estão cursando Computação, $567$ estão cursando Eng. Mecânica e $299$ estão em ambos os cursos. Quantos não estão cursando nem Computação nem Engenharia Mecânica?
+
+\vspace{200pt}
+
+Ampliando a definição, segue que:
+$$\#(A \cup B \cup C) = \#A + \#B + \#C - \#(A \cap B) - \#(A \cap C) - \#(B \cap C) + \#(A \cap B \cap C)$$
+
+
+\subsection{Análise Combinatória}
+
+
+	
+\end{document}

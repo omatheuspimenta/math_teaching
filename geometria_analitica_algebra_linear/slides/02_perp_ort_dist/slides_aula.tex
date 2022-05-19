@@ -1,0 +1,253 @@
+\documentclass[hyperref={pdfpagelabels=false}]{beamer}
+\usepackage{lmodern}
+\usetheme{CambridgeUS}
+
+\usepackage[english,brazilian]{babel}
+\usepackage{multicol}
+\usepackage{textcomp}
+\usepackage[alf]{abntex2cite}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+\title{Perpendicularidade, Ortogonalidade, Medida Angular e Distância}  
+\author[Matheus Pimenta]{Matheus Pimenta} 
+\institute[UTFPR-CP]{\normalsize Universidade Tecnológica Federal do Paraná \\
+	Câmpus Cornélio Procópio
+} 
+\date{Abril de 2019} 
+\begin{document}
+	
+\begin{frame}
+\titlepage
+\end{frame} 
+
+
+%\begin{frame}
+%\frametitle{Table of contents}
+%\tableofcontents
+%\end{frame} 
+
+
+\section{Perpendicularidade e Ortogonalidade} 
+
+
+\begin{frame}
+\frametitle{Retas} 
+\begin{itemize}
+
+	\item Duas retas ortogonais podem ser concorrentes ou reversas e duas retas perpendiculares são obrigatoriamente concorrentes.
+	\item Duas retas são ortogonais se, e somente se, cada vetor diretor de uma é ortogonal a qualquer vetor diretor da outra.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Exemplo}
+\begin{itemize}
+	\item Verifique se as retas $r: X = (1,1,1) + \lambda(2,1,-3)$ e $s: X = (0,1,0) + \lambda(-1,2,0)$ são ortogonais. Caso sejam, verifique se são perpendiculares.
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Vetor Normal a um Plano}
+{\bf Definição:} Dado um plano $\pi$, qualquer vetor não-nulo ortogonal a $\pi$ é um {\bf vetor normal} a $\pi$.
+
+\pause
+
+Um vetor $\overrightarrow{n}$ não-nulo é perpendicular ao plano $\pi$ se, e somente se, $\overrightarrow{n}$ é ortogonal a qualquer vetor diretor de $\pi$.
+
+\pause
+Assim, se $(\overrightarrow{u}, \overrightarrow{v})$ é um par de vetores diretores de $\pi$, então $\overrightarrow{u} \land \overrightarrow{v}$ (ou qualquer um de seus múltiplos escalares) é vetor normal a $\pi$.
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Proposição}
+
+{\bf Proposição: } Se o sistema de coordenadas é ortogonal, então $\overrightarrow{n} = (a,b,c)$ é um vetor normal ao plano $\pi$ se, e somente se, $\pi$ tem uma equação geral da forma $ax + by + cz + d = 0$.
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Exemplo}
+
+Obtenha a equação geral do plano $\pi$ que contém o ponto $A = (1,0,2)$ sabendo que $\overrightarrow{n} = (1,1,4)$ é um vetor normal a $\pi$.
+
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Plano e Reta}
+
+Se $\overrightarrow{n}$ é um vetor normal ao plano $\pi$ e $\overrightarrow{r}$ é um vetor diretor da reta $r$, então $r$ e $\pi$ são perpendiculares se, e somente se, $\overrightarrow{r}$ e $\overrightarrow{n}$ são paralelos.
+\end{frame}
+
+\begin{frame}
+\frametitle{Planos}
+
+Se $\overrightarrow{n}_1$ e $\overrightarrow{n}_2$ são vetores normais aos planos $\pi_1$ e $\pi_2$, então os planos são perpendiculares se, e somente se, $\overrightarrow{n}_1$ e $\overrightarrow{n}_2$ são ortogonais, isto é, $\overrightarrow{n}_1 \cdot \overrightarrow{n}_2 = 0$
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Exemplo} 
+
+Verifique se $\pi_1:X = (0,0,1) + \lambda(1,0,1) + \mu(-1,1,1)$ e $\pi_2: 2x - 7y + 16z -40=0$ são perpendiculares.
+
+\end{frame}
+
+\section{Medida Angular}
+
+\begin{frame}
+\frametitle{Definição}
+
+{\bf Definição:} Sejam $r$ e $s$ duas retas, $\overrightarrow{r}$ e $\overrightarrow{s}$ vetores diretores. A {\bf medida angular entre $r$ e $s$} é a medida angular entre os vetores $\overrightarrow{r}$ e $\overrightarrow{s}$, se esta pertence ao intervalo $[0,\pi/2]$ $rad$ ou $[0,90]$ (graus) e é a medida angular entre $\overrightarrow{r}$ e $ - \overrightarrow{s}$, se pertence a $[\pi/2,\pi]$ ou a $[90,180]$. Notação: ang(r,s)
+
+{\bf OBS:} Se $\theta = 0$, então $r$ e $s$ são paralelas e se $\theta = 90$, então $r$ e $s$ são ortogonais.
+\pause
+
+$$\cos(\theta) = \frac{|\overrightarrow{r} \cdot \overrightarrow{s}|}{||\overrightarrow{r}||||\overrightarrow{s}||}$$
+\end{frame}
+
+\begin{frame}
+\frametitle{Exemplo}
+
+Calcule a medida angular $\theta$ entre as retas $r:X = (1,1,9) + \lambda(0,-1,1)$ e $s:(1,3,2) + \mu(1,1,0)$
+\end{frame}
+
+\begin{frame}
+\frametitle{Plano e Reta}
+{\bf Definição: } Sejam $r$ uma reta e $\pi$ um plano. A {\bf medida angular} entre $r$ e $\pi$ é $90 - ang(r,s)$, sendo $s$ uma reta qualquer perpendicular a $\pi$. Notação: $ang(r,\pi)$
+
+\pause
+
+$$\sin(\theta) = \frac{|\overrightarrow{n} \cdot \overrightarrow{r}|}{||\overrightarrow{n}||||\overrightarrow{r}||}$$
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Exemplo}
+Obtenha a medida angular em radianos entre a reta $r: X = (0,1,0) + \lambda(-1,-1,0)$ e o plano $\pi:y+z-10=0$
+
+
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Planos}
+
+{\bf Exemplo: } Sendo $\pi_1: x -y + z = 20$ e $\pi_2: X= (1,1-2) + \lambda(0,-1,1) + \mu(1,-3,2)$
+
+
+\end{frame}
+
+\section{Distância}
+
+\begin{frame}
+\frametitle{Entre Pontos}
+
+Sejam $A = (x_1, y_1, z_1)$ e $B = (x_2, y_2, z_2)$. A distância $d(A,B)$ entre $A$ e $B$ é $||\overrightarrow{BA}||$, ou seja, 
+$$d(A,B) = \sqrt{(x_1 - x_2)^2 + (y_1 - y_2)^2 + (z_1 - z_2)^2}$$
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Entre Ponto e Reta}
+
+Uma forma é através da projeção ortogonal do ponto a reta.
+
+\pause
+
+Outra forma é: sejam $A$ e $B$ dois pontos quaisquer de $r$, distintos. A área do triângulo $ABP$ é $||\overrightarrow{AP} \land \overrightarrow{AB}||/2$, logo se $h$ é a altura relativa ao vértice $P$, segue que:
+$$d(P,r) = \frac{||\overrightarrow{AP} \land \overrightarrow{AB}||}{||\overrightarrow{AB}||}$$
+
+\pause
+Indicando por $\overrightarrow{r}$ o vetor $\overrightarrow{AB}$, que é vetor diretor de $r$, obtemos
+
+$$d(P,r) = \frac{||\overrightarrow{AP} \land \overrightarrow{r}||}{||\overrightarrow{r}||}$$
+
+onde $\overrightarrow{r}$ é um vetor diretor de $r$ e $A$ é um ponto qualquer de $r$.
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Exemplo}
+
+Calcule a distância de $P = (1,1,-1)$ à interseção de $\pi_1: x-y=1$ e $\pi_2:x+y-z=0$
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Entre Ponto e Plano}
+
+Através da projeção do ponto no plano, ou através da projeção ortogonal de $\overrightarrow{AP}$ sobre $\overrightarrow{n}$, onde $\overrightarrow{n}$ é um vetor normal de $\pi$.
+
+\pause
+
+$$d(P,\pi) = \frac{|\overrightarrow{AP}\cdot\overrightarrow{n}|}{||\overrightarrow{n}||}$$
+
+A versão com coordenadas será:
+
+$$d(P,\pi) = \frac{|ax_0 + by_0 + cz_0 + d|}{\sqrt{a^2 + b^2 + c^2}}$$
+
+Onde $P = (x_0, y_0, z_0)$, $A = (x_1, y_1, z_1)$ e $\pi = ax + by + cz + d = 0$
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Exemplo}
+
+Calcule a distância do ponto $P = (1,2,-1)$ ao plano $\pi : 3x - 4y -5z + 1 = 0$
+
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Distância entre Retas}
+
+Outra forma de se calcular a distância entre retas é utilizando:
+
+$$d(r,s) = \frac{|\overrightarrow{AB}\cdot \overrightarrow{r}\land \overrightarrow{s}|}{||\overrightarrow{r}\land \overrightarrow{s}||}$$
+
+Onde $B$ é ponto qualquer de $s$ e $A$ é ponto qualquer de $r$.
+
+\pause
+
+{\bf OBS:} Se $r$ e $s$ são concorrentes a distância é zero
+\\ 
+Se $r$ e $s$ são paralelas não podemos utilizar a fórmula acima, temos que selecionar pontos quaisquer entre elas e calcular a distância entre eles.
+
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Distância entre Reta e Plano}
+
+Utilizamos um vetor diretor da reta $r$ e um vetor normal $\overrightarrow{n}$ ao plano $\pi$ e calculamos $\overrightarrow{r}\cdot \overrightarrow{n}$, se:
+\begin{itemize}
+	\item $\overrightarrow{r}\cdot \overrightarrow{n} \neq 0$, $r$ é transversal a $\pi$, logo, a distância é zero;
+	\item $\overrightarrow{r}\cdot \overrightarrow{n} = 0$, $r$ está contida em $\pi$ e neste caso a distância é zero, {\bf pode também} a reta ser paralela ao plano $\pi$, neste caso a distância é a distância de um ponto qualquer de $r$ ao plano $\pi$.
+\end{itemize} 
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Distância entre Planos}
+
+Analisaremos os vetores normais, assim se:
+\begin{itemize}
+	\item $(\overrightarrow{n_1},\overrightarrow{n_2})$ é LI, então $\pi_1$ e $\pi_2$ são transversais e a distância é zero;
+	\item $(\overrightarrow{n_1},\overrightarrow{n_2})$ é LD, então $\pi_1$ e $\pi_2$ são paralelos e a distância entre eles é dada através da distância entre dois pontos quaisquer deles.
+\end{itemize}
+
+\end{frame}
+
+
+
+
+
+
+
+
+\end{document}
+

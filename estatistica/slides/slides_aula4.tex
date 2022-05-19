@@ -1,0 +1,263 @@
+\documentclass[hyperref={pdfpagelabels=false}]{beamer}
+\usepackage{lmodern}
+\usetheme{CambridgeUS}
+
+\usepackage[english,brazilian]{babel}
+\usepackage{multicol}
+\usepackage{textcomp}
+\usepackage[alf]{abntex2cite}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+\usepackage{amsmath,amssymb,exscale}
+
+\title{Probabilidade e Estatística}  
+\author[Matheus Pimenta]{Matheus Pimenta} 
+\institute[UTFPR-CP]{\normalsize Universidade Tecnológica Federal do Paraná \\
+	Câmpus Cornélio Procópio
+} 
+\date{ADNP 2020} 
+\begin{document}
+	
+\begin{frame}
+\titlepage
+\end{frame} 
+
+
+%\begin{frame}
+%\frametitle{Table of contents}
+%\tableofcontents
+%\end{frame} 
+
+
+\section{Variáveis Aleatórias Contínuas} 
+
+\begin{frame}
+\frametitle{Variáveis Aleatórias Contínuas}
+
+Seja o seguinte exemplo, considerando as probabilidades da variável aleatória discreta $X$:
+
+\begin{table}[!h]
+	\centering
+	\begin{tabular}{|c|c|}
+		\hline
+		$X$	&	$P(X)$	\\\hline
+		$1$	&	$0,1$	\\\hline
+		$2$	&	$0,2$	\\\hline
+		$3$	&	$0,4$	\\\hline
+		$4$	&	$0,2$	\\\hline
+		$5$	&	$0,1$	\\\hline	
+	\end{tabular}
+\end{table}
+
+Faremos o \emph{histograma} da distribuição de probabilidades de $X$.
+
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Histograma}
+O {\it histograma} é um gráfico da distribuição de $X$. É construído com retângulos de bases unitárias e alturas iguais às probabilidades de $X = x_0$.
+
+\pause
+Para calcularmos, por exemplo, $P(1\leq X \leq 3)$, somamos as áreas dos retângulos $1,2$ e $3$.
+
+\pause
+Ao ligar os pontos médios de todos os retângulos teremos uma curva, se considerarmos $X$ uma \emph{uma variável aleatória contínua}, essa curva representará uma função contínua $f(X)$, representada no gráfico.
+
+\end{frame}
+
+
+\begin{frame}
+	\frametitle{Definição}
+	
+{\bf Variável Aleatória Contínua:}
+
+Uma variável aleatória $X$ é contínua em $\mathbb{R}$ se existir uma função $f(x)$, tal que: \pause
+\begin{itemize}
+	\item $f(x) \geq 0$, isto é, $f(x)$ é não negativa; \pause
+	\item $\displaystyle \int_{- \infty}^{+ \infty}f(x)dx = 1$ \pause
+\end{itemize}
+	
+	A função $f(x)$ é chamada \emph{função densidade de probabilidade (f. d. p.)}. \pause
+	
+	$$P(a \leq X\leq b) = \displaystyle \int_{a}^{b}f(x)dx$$
+	
+\end{frame}
+
+\begin{frame}
+\frametitle{Definição}
+	
+{\bf Esperança de uma variável aleatória contínua:} \pause
+
+$$E(X) = \displaystyle \int_{- \infty}^{+ \infty}xf(x)dx$$ \pause
+
+Também é vista como o ``centro da distribuição de probabilidade''. \pause
+
+Veremos o significado a seguir. \pause
+
+{\bf Variância de uma variável aleatória contínua:} \pause
+$$VAR(X) = \displaystyle \int_{- \infty}^{+ \infty}(x - E(X))^2 dx$$ \pause
+ou
+$$VAR(X) = E(X^2) - (E(X))^2$$
+	
+\end{frame}
+
+\section{Principais Distribuições de Probabilidades - Contínuas}
+
+\begin{frame}
+\frametitle{Distribuição Uniforme}
+
+{\bf Definição:}
+
+Uma variável aleatória contínua $X$ tem distribuição uniforme de probabilidades no intervalo $[a,b]$ se a sua função de densidade de probabilidade é dada por: \pause
+$$f(x) = \begin{cases}
+k \text{ se } a \leq x \leq b \\
+0 \text{ se } x < a \text{ ou } x > b
+\end{cases}$$
+\pause
+{\bf GRÁFICO}
+\pause
+
+{\bf Exercício:} Determinar o valor de $k$.
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Distribuição Exponencial}
+
+{\bf Definição:}
+
+Uma variável aleatória contínua $X$ tem distribuição exponencial de probabilidades se a sua função de densidade de probabilidade é dada por:
+	\pause
+	
+$$f(x) = \begin{cases}
+\lambda e^{-\lambda x} &\text{ se } x \geq 0 \\
+0 &\text{ se } x < 0
+\end{cases}$$
+\pause
+
+{\bf GRÁFICO}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Distribuição Normal}
+
+Uma variável aleatória contínua $X$ tem distribuição normal de probabilidades se a sua função de densidade de probabilidade é dada por:
+
+\pause
+$$
+f(x) = \displaystyle \frac{1}{\sigma \sqrt{2\pi}}e^{- \displaystyle \frac{1}{2}\left( \displaystyle \frac{x - \mu}{\sigma} \right)^2 } \text{ , para } -\infty < x < \infty
+$$
+\pause
+{\bf GRÁFICO}
+	
+\end{frame}
+
+\begin{frame}
+\frametitle{Distribuição Normal}
+
+As principais características da distribuição Normal são: \pause
+\begin{enumerate}
+	\item O ponto de máximo de $f(x)$ é o ponto $X = \mu$; \pause
+	\item Os pontos de inflexão da função são: $X = \mu + \sigma$ e $X = \mu - \sigma$; \pause
+	\item A curva é simétrica com relação a $\mu$; \pause
+	\item $E(X) = \mu$ e $VAR(X) = \sigma^2$. \pause
+\end{enumerate}
+
+Utilizaremos a seguinte notação:
+$$X: N(\mu,\sigma^2)$$ \pause
+$X$ tem distribuição normal com média $\mu$ e variância $\sigma^2$.
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Distribuição Normal}
+
+Seja $X: N(\mu,\sigma^2)$, definimos: \pause
+$$Z = \displaystyle \frac{X - \mu}{\sigma}$$
+
+\pause
+$Z$ é chamada de \emph{variável normal reduzida, normal padronizada} ou \emph{variável normalizada}.
+
+\pause
+$Z$ possui $E(X) = 0$ e $VAR(X) = 1$.
+
+\pause
+A vantagem de utilizar a variável $Z$ é a utilização da tabela.
+\end{frame}
+
+\begin{frame}
+\frametitle{Uso da Tabela}
+
+Exemplo: Seja $X:N(100,25)$.
+\begin{enumerate}
+	\item $P(100 \leq X \leq 106)$ \pause
+	\item $P(89 \leq X \leq 107)$ \pause
+	\item $P(112 \leq X \leq 116)$ \pause
+	\item $P(X \geq 108)$
+\end{enumerate}
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{Uso do GeoGebra}
+	
+	Exemplo: Seja $X:N(100,25)$.
+	\begin{enumerate}
+		\item $P(100 \leq X \leq 106)$ \pause
+		\item $P(89 \leq X \leq 107)$ \pause
+		\item $P(112 \leq X \leq 116)$ \pause
+		\item $P(X \geq 108)$
+	\end{enumerate}
+	
+\end{frame}
+
+\begin{frame}
+\frametitle{Exemplo}
+
+Um fabricante de baterias sabe, por experiência passada, que as baterias de sua fabricação têm vida média de $600$ dias e desvio-padrão de $100$ dias, sendo que a duração tem aproximadamente distribuição normal. Oferece uma garantia de $312$ dias, isto é, troca as baterias que apresentem falhas nesse período. Fabrica $10.000$ baterias mensalmente. Quantas deverá trocar pelo uso da garantia, mensalmente?
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Exemplo - Solução}
+{\it Resolução:}
+
+\pause
+$X:$ é a duração da bateria e assim \pause $\begin{cases}
+\mu = 600 \text{ dias} \\
+\sigma = 100 \text{ dias}
+\end{cases}
+$
+
+\pause
+Logo,
+
+\pause
+$Z = \displaystyle \frac{X - 600}{100}$
+
+\pause
+Queremos determinar a $P(X < 312)$. 
+
+\pause
+Utilizando o GeoGebra (e a Tabela) determinaremos qual é essa probabilidade.
+
+\pause
+Assim, $P(X < 312) = 0,001988 \approx 0,002$. 
+
+\pause
+Para determinarmos quantas baterias serão substituídas mensalmente fazemos:
+
+\pause
+$10000 \times 0,001988 = 19,88 = 20$ baterias.
+
+\pause
+\begin{flushright}
+	$\blacksquare$
+\end{flushright}
+\end{frame}
+
+\end{document}
+

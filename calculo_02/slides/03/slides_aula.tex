@@ -1,0 +1,329 @@
+\documentclass[hyperref={pdfpagelabels=false}]{beamer}
+\usepackage{lmodern}
+\usetheme{CambridgeUS}
+
+\usepackage[brazilian]{babel}
+\usepackage{multicol}
+\usepackage{textcomp}
+\usepackage[alf]{abntex2cite}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx} %Pacote de imagens
+\graphicspath{{./figures/}}
+\usepackage{amsthm}
+
+\usepackage[normalem]{ulem}
+
+
+\title{Sequências e Séries}  
+\author[Matheus Pimenta]{Matheus Pimenta} 
+\institute[UEL]{\normalsize Universidade Estadual de Londrina \\
+	Londrina
+} 
+\date{Fev. 2022} 
+\begin{document}
+
+	
+\begin{frame}
+\titlepage
+\end{frame} 
+
+
+%\begin{frame}
+%\frametitle{Table of contents}
+%\tableofcontents
+%\end{frame} 
+
+\section{Séries Infinitas}
+
+\begin{frame}{Séries Infinitas}
+
+{\bf MOTIVAÇÃO:} \pause
+\begin{align*}
+ 2 &= 1 + 1 \\
+ 2 &= 1 + \frac{1}{2} + \frac{1}{2} \\
+ 2 &= 1 + \frac{1}{2} + \frac{1}{4} + \frac{1}{4} \\
+ \vdots \\
+ 2 &= 1 + \frac{1}{2} + \frac{1}{4} + \frac{1}{4} + \dots + \frac{1}{2^{n-1}} + \dots
+\end{align*}
+
+\end{frame}
+
+\begin{frame}{Séries Infinitas}
+ \begin{definition}[Séries Infinitas]
+  Seja $\{U_n\}$ uma sequência. Defina $S_1 = u_1$ e $S_n = u_1 + u_2 + \dots + u_n$. Diremos que $\{S_n\}$ é uma \emph{série infinita} (ou simplismente, série). \\
+  {\bf NOTAÇÃO:} $\displaystyle \sum_{n=1}^{\infty}U_n$ para representar  $\{S_n\}$. \pause
+  \begin{itemize}
+   \item Os números $u_1,u_2,\dots,u_n,\dots$ são chamados de termos da série $\{S_n\}$. \pause
+   \item Os números $S_1, S_2, S_3, \dots$ são chamados de somas parciais da série.
+  \end{itemize}
+ \end{definition}
+ \pause
+
+ {\bf OBS.:} 
+ \begin{align*}
+  S_n &= u_1 + u_2 + \dots + u_{n-1} + u_n \\
+  S_{n-1} &= u_1 + u_2 + \dots + u_{n-1} \\
+  S_n - S_{n-1} &= u_n, n \in \mathbb{N}
+ \end{align*}
+\end{frame}
+
+\begin{frame}{Séries Infinitas}
+ {\bf EXEMPLO 01:} Considere $\displaystyle \sum_{n=1}^{\infty} \frac{1}{2^{n-1}}$. A sequência $\{S_n\}$ é determinada por: \pause
+ 
+ \begin{align*}
+  S_1 &= 1 \\
+  S_2 &= u_1 + u_2 = 1 + \frac{1}{2} = \frac{3}{2} \\
+  S_3 &= u_1 + u_2 + u_3 = S_2 + u_3 = \frac{3}{2} + \frac{1}{4} = \frac{7}{4} \\
+  \vdots \\
+  S_n &= 1 + \frac{1}{2} + \dots + \frac{1}{2^{n-1}}
+ \end{align*}
+
+\end{frame}
+
+\begin{frame}{Séries Infinitas}
+ {\bf EXEMPLO 02:} Considere a série telescópica $\displaystyle \sum_{n=1}^{\infty} \frac{1}{n(n+1)}$. Determine $S_n$. \pause
+ 
+ Note que: $\displaystyle \frac{1}{n(n+1)} = \displaystyle \frac{1}{n} - \displaystyle \frac{1}{n+1}, \forall n \geq 1$. Dessa forma: \pause
+ \begin{align*}
+  S_1 &= 1 - \frac{1}{2} = \frac{1}{2}\\
+  S_2 &= \frac{1}{2} - \frac{1}{3} = \frac{3-2}{6} = \frac{1}{6}\\
+  S_3 &= \frac{1}{3} - \frac{1}{4} = \frac{4-3}{12} = \frac{1}{12}\\
+  S_4 &= \frac{1}{4} - \frac{1}{5} = \frac{5-4}{20} = \frac{1}{20}\\
+  \vdots   
+ \end{align*}
+
+\end{frame}
+
+\begin{frame}{Séries Infinitas}
+ {\bf EXEMPLO 02:}
+ Ou ainda: \pause
+ \begin{align*}
+  S_n &= u_1 + u_2 + u_3 + \dots + u_n \\
+  &= \left(1 - \frac{1}{2} \right) + \left(\frac{1}{2} - \frac{1}{3} \right) + \left(\frac{1}{3} - \frac{1}{4} \right) + .. + \left(\frac{1}{n-1} - \frac{1}{n} \right) + \left(\frac{1}{n} - \frac{1}{n+1} \right) \\
+  &\text{Simplificando} \\
+  &= 1 - \frac{1}{n+1}
+ \end{align*} \pause
+
+ $\therefore S_n = 1 - \displaystyle \frac{1}{n+1}, \forall n \geq 1$
+\end{frame}
+
+\begin{frame}{Séries Infinitas}
+ {\bf EXEMPLO 03:}
+ Seja $|r|<1$. Calcule $S_n$ para $\displaystyle \sum_{n=1}^{\infty}r^{n-1}$ (série geométrica)
+ \pause
+ 
+ Temos que $S_n = u_1 + u_2 + u_3 + \dots + u_n$, logo: 
+ 
+ \begin{equation}
+ \label{serie_geo1}
+  S_n = 1 + r + r^2 + r^3 + \dots + r^{n-1}
+ \end{equation}
+
+ Pode-se multiplicar \ref{serie_geo1} por $r$, e dessa forma:
+ 
+ \begin{equation}
+  \label{serie_geo2}
+  rS_n = r + r^2 + r^3 + r^4 + \dots + r^n
+ \end{equation}
+
+ Realizando a subtração de \ref{serie_geo1} - \ref{serie_geo2} segue:
+ 
+ \begin{align*}
+  S_n - rS_n = 1 - r^n \iff S_n(1-r) = 1 - r^n \iff S_n = \frac{1-r^n}{1-r},\forall n \geq 1
+ \end{align*}
+
+\end{frame}
+
+\begin{frame}{Séries Infinitas}
+ {\bf EXEMPLO 03:}
+
+ Como $|r|<1$, então:
+ \begin{align*}
+  \lim_{n\to \infty} S_n &= \lim_{n \to \infty} \frac{1-r^n}{1-r}\\
+  &= \frac{1}{1-r}
+ \end{align*}
+Já que $\displaystyle \lim_{n\to \infty} r^n = 0$
+
+$\therefore \displaystyle \lim_{n\to \infty} S_n = \frac{1}{1-r}$
+ 
+\end{frame}
+
+\begin{frame}{Séries Infinitas}
+ \begin{definition}
+  Seja $\displaystyle \sum_{n=1}^{\infty}u_n$ uma série e $\{s_n\}$ a sequência de suas somas parciais. Se $\displaystyle \lim_{n\to \infty}S_n = S$ ($S$ é definido como soma da série), então dizemos que a \emph{série converge}. Caso contrário, ou seja, se não existe $\displaystyle \lim_{n\to\infty}S_n$ então dizemos que a \emph{série diverge}.
+ \end{definition} \pause
+ 
+ {\bf OBS. 01:} A série telescópica $\displaystyle \sum_{n=1}^{\infty}\frac{1}{n(n+1)} = 1$, pois $\displaystyle \lim_{n\to \infty}S_n = \lim_{n \to \infty} 1-\frac{1}{1+n} = 1$
+ 
+ {\bf OBS. 02:} A série geométrica (como apresentada anteriormente) é convergente, pois $\displaystyle \lim_{n\to \infty}S_n = \lim_{n \to \infty} \frac{1-r^n}{1-r} = \frac{1}{1-r}$ 
+
+\end{frame}
+
+\begin{frame}{Séries Infinitas}
+    \begin{theorem}
+        Se $\displaystyle \sum_{n=1}^{\infty}u_n$ é convergente, então $\displaystyle \lim_{n\to \infty}u_n = 0$
+    \end{theorem} \pause
+    
+{\bf OBSERVAÇÃO:} O teorema anterior não diz que $\displaystyle \sum_{n=1}^{\infty}u_n$ converge se $a_n \to 0$. É possível para uma série divergir quando $u_n \to 0$. \pause
+
+{\bf OBSERVAÇÃO:} NEM TODA SEQUÊNCIA $\{u_n\}$ TAL QUE $u_n \to 0$ É DO TIPO $\displaystyle \sum u_n$ CONVERGENTE. \pause
+
+{\bf EXEMPLO???????????????????????????????????????????????????????????????????????????????????????????????????????????????????????} \pause
+
+TEMOS SIM! E é bem famoso.
+
+\end{frame}
+
+\begin{frame}{Séries Infinitas}
+    {\bf EXEMPLO:} A série $\displaystyle \sum_{n=1}^{\infty} \frac{1}{n}$ diverge. Esta série é chamada de \emph{Série Harmônica}. \pause
+    
+    Fazendo $(s_n)$, a sequência de somas parciais de $\displaystyle \frac{1}{n}$, isto é:
+    \begin{align*}
+        s_1 &= 1 \\
+        s_2 &= a_1 + a_2 = 1 + \frac{1}{2} \\
+        s_3 &= a_1 + a_2 + a_3 = 1 + \frac{1}{2} + \frac{1}{3} \\
+        s_4 &= a_1 + a_2 + a_3 + a_4 = 1 + \frac{1}{2} + \frac{1}{3} + \frac{1}{4} \\
+        \vdots \\
+        s_8 &= a_1 + \dots + a_8 = 1 + \frac{1}{2} + \frac{1}{3} + \frac{1}{4} + \frac{1}{5} + \frac{1}{6} + \frac{1}{7} + \frac{1}{8} \\
+    \end{align*}
+
+\end{frame}
+
+
+\begin{frame}{Séries Infinitas}
+    Podemos analisar a sequência auxiliar como $$s_k^{aux} = 1 + \frac{(k-1)}{2}$$ e mais que isso, $s_k^{aux}$ é monótona crescente. \pause
+    
+    Note que:
+    \begin{align*}
+        \lim_{k\to \infty}s_k^{aux} &= \lim_{k\to \infty}\left[1 + \frac{(k-1)}{2}\right] \\ &= \infty
+    \end{align*}
+
+    Como $s_n > s_k^{aux}$ então $s_n \to \infty$, por também ser uma sequência monótona crescente. \pause
+    
+    $$\therefore \displaystyle \sum_{n=1}^{\infty} \frac{1}{n} \text{ é divergente}.$$
+    
+\end{frame}
+
+\begin{frame}{Séries Infinitas}
+    Do Teorema anterior é possível determinar o primeiro teste. \pause
+    
+    {\bf TESTE DO n-ÉSIMO TERMO PARA DIVERGÊNCIA:} 
+    
+    $\displaystyle \sum_{n=1}^{\infty}u_n$ é divergente se $\displaystyle \lim_{n\to \infty}u_n$ não existe ou é diferente de zero.
+\end{frame}
+
+\begin{frame}{Propriedades de Séries Convergentes}
+    \begin{theorem}
+        Se $\displaystyle \sum_{n=1}^{\infty}a_n = A$ e $\displaystyle \sum_{n=1}^{\infty}b_n =B$ são séries convergentes, então:
+        \begin{itemize}
+            \item {\bf Regra da Soma:} $\displaystyle \sum_{n=1}^{\infty}(a_n + b_n) = \displaystyle \sum_{n=1}^{\infty}a_n + \displaystyle \sum_{n=1}^{\infty}b_n = A + B$ \pause
+            \item {\bf Regra da Diferença:} $\displaystyle \sum_{n=1}^{\infty}(a_n - b_n) = \displaystyle \sum_{n=1}^{\infty}a_n - \displaystyle \sum_{n=1}^{\infty}b_n = A - B$ \pause
+            \item {\bf Regra da Multiplicação por constante:} $\displaystyle \sum_{n=1}^{\infty}ka_n = \displaystyle k \sum_{n=1}^{\infty}a_n = kA$ (qualquer  número $k$)
+        \end{itemize} 
+
+    \end{theorem}
+
+\end{frame}
+
+\begin{frame}{Propriedades de Séries Convergentes}
+    \begin{corollary}
+        \begin{itemize}
+            \item Todo múltiplo constante diferente de zero de uma série divergente diverge. \pause
+            \item Se $\displaystyle \sum_{n=1}^{\infty}a_n$ converge e $\displaystyle \sum_{n=1}^{\infty}b_n$ diverge, então tanto $\displaystyle \sum_{n=1}^{\infty}(a_n + b_n)$ quanto $\displaystyle \sum_{n=1}^{\infty}(a_n - b_n)$ divergem.
+        \end{itemize}
+    \end{corollary} \pause
+    
+{\bf OBSERVAÇÃO:} $\displaystyle \sum_{n=1}^{\infty}(a_n + b_n)$ pode convergir quando tanto $\displaystyle \sum_{n=1}^{\infty}a_n$ quanto $\displaystyle \sum_{n=1}^{\infty}b_n$ divergem. \pause
+
+{\bf EXEMPLO?????????:}
+    
+\end{frame}
+
+\begin{frame}{Propriedades de Séries Convergentes}
+    {\bf Exemplo:}
+    
+    $\displaystyle \sum_{n=1}^{\infty}a_n = 1 + 1 + 1 + \dots $ e $\displaystyle \sum_{n=1}^{\infty}b_n = (-1) + (-1) + (-1) + \dots$ divergem, enquanto $\displaystyle \sum_{n=1}^{\infty}(a_n + b_n) = 0 + 0 + 0 + \dots $ converge para 0.
+\end{frame}
+
+\begin{frame}{Propriedades de Séries Convergentes}
+    \begin{theorem}
+        Se $\displaystyle \sum_{n=1}^{\infty}a_n$ converge e $\{s_n\}$ é a sequência das somas parciais de $\displaystyle \sum_{n=1}^{\infty}a_n$, então, para dado $\epsilon > 0$, existe $N>0$ tal que se $m,n > N$ então $|s_n - s_m| < \epsilon$
+    \end{theorem} \pause
+    
+    \begin{theorem}
+        Sejam $\displaystyle \sum_{n=1}^{\infty}a_n$ e $\displaystyle \sum_{n=1}^{\infty}b_n$ séries que diferem somente de uma quantidade ffinita de termos, isto é, existe $N>0$ tal que $a_n = b_n,~ \forall n>N$. Então ambas convergem ou ambas divergem.
+    \end{theorem}
+
+\end{frame}
+
+
+\begin{frame}{Séries Infinitas}
+    \begin{itemize}
+        \item Adicionando ou retirando termos; \pause
+        \item Reindexação; \pause
+    \end{itemize}
+    Vimos um exemplo quando apresentada a Série Geométrica.
+\end{frame}
+
+\section{Séries Infinitas de Termos Positivos}
+
+\begin{frame}{Séries Infinitas}
+    Se todos os termos de uma série for positivos temos que $\{s_n\}$, sequência das somas parciais, é monótina crescente. \pause
+    
+    Logo, para que uma série $\displaystyle \sum_{n=1}^{\infty}a_n$ de termos positivos seja convergente basta que $\{ s_n\}$ seja limitada superiormente.
+\end{frame}
+
+\begin{frame}{Séries Infinitas}
+    \begin{corollary}
+        Uma série $\displaystyle \sum_{n=1}^{\infty}a_n$ de termos não negativos converge se, e somente se, suas somas parciais são limitadas superiormente.
+    \end{corollary}
+
+\end{frame}
+
+\section{Teste da Integral}
+
+\begin{frame}{Séries Infinitas}
+    {\bf MOTIVAÇÃO:}
+    
+    Estudaremos o comportamento da série $\displaystyle \sum_{n=1}^{\infty}\frac{1}{n^2}$. \pause
+    
+    Para determinarmos a convergência de $\displaystyle \sum_{n=1}^{\infty}\frac{1}{n^2}$ utilizamos a comparação com a seguinte integral $\displaystyle \int_1^{\infty}\left(\frac{1}{x^2}\right)dx$. Para a comparação, pensaremos nos termos da série como valores da função $f(x) = \displaystyle \frac{1}{x^2}$ e interpretamos esses valores cmo as áreas de retângulos sob a curva $y = \displaystyle \frac{1}{x^2}$. \pause
+    
+    {\bf FIGURA}
+\end{frame}
+
+\begin{frame}{Séries Infinitas}
+    Da figura temos que:
+    \begin{align*}
+        s_n &= \frac{1}{1^2} + \frac{1}{2^2} + \frac{1}{3^2} + \frac{1}{4^2} + \dots + \frac{1}{n^2} \\
+        &= f(1) + f(2) + f(3) + \dots + f(n) \\
+        &< f(1) + \int_1^{n}\frac{1}{x^2}dx \\
+        &< 1 + \int_1^{\infty}\frac{1}{x^2}dx \\
+        &< 1 + 1 = 2
+    \end{align*}
+
+    {\bf OBS.:} $\displaystyle \int_1^n\frac{1}{x^2}dx < \int^{\infty} \frac{1}{x^2}dx$
+    
+    {\bf OBS.:} $\displaystyle \int_1^{\infty}\frac{1}{x^2}dx = 1$
+\end{frame}
+
+\begin{frame}{Séries Infinitas}
+    Então, as somas parciais de $\displaystyle \sum_{n=1}^{\infty}\frac{1}{n^2}$ são limitadas superiormente (por 2) e a série converge. \pause
+    
+    A soma da série $\displaystyle \sum_{n=1}^{\infty}\frac{1}{n^2}$ é conhecida por ser $\displaystyle \frac{\pi^2}{6} \approx 1,64493$ \pause
+    
+    {\bf OBS.:} A série e a integral não precisam ter o mesmo valor no caso convergente. Conforme o exemplo anterior, a série $\displaystyle \sum_{n=1}^{\infty}\frac{1}{n^2} = \displaystyle \frac{\pi^2}{6}$ e a integral $\displaystyle \int_1^{\infty}\frac{1}{x^2}dx = 1$
+\end{frame}
+
+\begin{frame}{Teste da Integral}
+    \begin{theorem}[Teste da Integral]
+        Seja $\{a_n\}$ uma sequência de termos positivos. Suponha que $a_n = f(n)$, onde $f$ é uma função continua, positiva e decrescente de $x$ para todo $x \geq N$ (sendo $N$ um inteiro positivo). Então, tanto a série $\displaystyle \sum_{n=N}^{\infty}a_n$ quanto a integral $\displaystyle \int_N^{\infty}f(x)dx$ simultaneamente convergem ou divergem.
+    \end{theorem}
+
+\end{frame}
+
+\section{Testes de Comparação}
+
+\end{document}
+

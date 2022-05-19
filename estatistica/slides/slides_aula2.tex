@@ -1,0 +1,277 @@
+\documentclass[hyperref={pdfpagelabels=false}]{beamer}
+\usepackage{lmodern}
+\usetheme{CambridgeUS}
+
+\usepackage[english,brazilian]{babel}
+\usepackage{multicol}
+\usepackage{textcomp}
+\usepackage[alf]{abntex2cite}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+\usepackage{amsmath,amssymb,exscale}
+
+\title{Probabilidade e Estatística}  
+\author[Matheus Pimenta]{Matheus Pimenta} 
+\institute[UTFPR-CP]{\normalsize Universidade Tecnológica Federal do Paraná \\
+	Câmpus Cornélio Procópio
+} 
+\date{Agosto de 2020 \\ ADNP 2020} 
+\begin{document}
+	
+\begin{frame}
+\titlepage
+\end{frame} 
+
+
+%\begin{frame}
+%\frametitle{Table of contents}
+%\tableofcontents
+%\end{frame} 
+
+
+\section{Probabilidade Condicional} 
+
+\begin{frame}
+\frametitle{Eventos Equiprováveis}
+{\bf Definição:}
+
+Considere o espaço amostral $\Omega = \{ e_1, e_2, \dots, e_n\}$ associado a um experimento aleatório.
+
+Os eventos $e_i$, $i=1,\dots,n$ são {\it equiprováveis} quando $$P(e_1) = P(e_2) = \dots = P(e_n) = p,$$ isto é, todos possuem a mesma probabilidade de ocorrer, isto é:
+$$p = \frac{1}{n}$$
+\pause
+Assim, se o evento é equiprovável, a probabilidade de cada um dos pontos amostrais ocorrer é de: $\displaystyle\frac{1}{n}$.
+\end{frame}
+
+\begin{frame}
+\frametitle{Exemplo}
+	
+{\bf Exemplo 01:} Retira-se uma carta de um baralho completo de $52$ cartas. Qual a probabilidade de sair um $rei$ ou uma {\it carta de espadas}?
+\pause 
+
+{\it Solução:}
+\pause
+
+Seja $A$: retirar um $rei$ e $B$: retirar uma {\it carta de espadas}.
+\pause
+
+Então:
+
+$A = \{ R_O, R_E, R_C, R_P\} \pause \implies P(A) = \displaystyle \frac{4}{52}$
+
+\pause
+$B = \{A_E, \dots, R_E\} \pause \implies P(B) = \displaystyle \frac{13}{52}$
+
+\pause
+Se observarmos que $P(A \cap B) = \{R_E\}$, logo $P(A \cap B) = \displaystyle \frac{1}{52}$.
+
+\pause
+Logo, $P(A \cup B) = P(A) + P(B) - P(A \cap B)$ e assim, 
+$$P(A \cup B) = \frac{4}{52} + \frac{13}{52} - \frac{1}{52}$$
+e assim:
+\pause
+$$P(A \cup B) = \frac{16}{52}$$
+\begin{flushright}
+	$\blacksquare$
+\end{flushright}
+	
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Probabilidade Condicional}
+
+{\bf Definição:}
+
+Sejam $A \subset \Omega$ e $B \subset \Omega$. Definimos como {\it probabilidade condicional de $A$, dado que $B$ ocorre $(A/B)$} como:
+
+$$P(A/B) = \frac{P(A \cap B)}{P(B)} \text{, se } P(B) \neq 0$$
+ou no caso de $(B/A)$:
+$$P(B/A) = \frac{P(B \cap A)}{P(A)} \text{, se } P(A) \neq 0$$
+
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Exemplo}
+
+Considere $250$ alunos que cursam faculdade. Destes alunos, $100$ são homens $(H)$ e $150$ são mulheres $(M)$; $110$ cursam física $(F)$ e $140$ cursam $(Q)$. A distribuição dos alunos é a seguinte:
+
+Cursam física: $40$ homens e $70$ mulheres;
+
+Cursam química: $60$ homens e $80$ mulheres;
+
+Um aluno é sorteado ao acaso, qual a probabilidade de que esteja cursando química, dado que é mulher?
+
+\pause
+{\it Solução:}
+
+Note que:
+A probabilidade $P(M \cap Q) \pause = \displaystyle \frac{80}{250}$ e $P(M) \pause = \displaystyle \frac{150}{250}$.
+
+Utilizando a fórmula de probabilidade condicional, segue que:
+$$P(Q/M) \pause = \displaystyle\frac{\displaystyle\frac{80}{250}}{\displaystyle\frac{150}{250}} = \displaystyle\frac{80}{150}$$
+\begin{flushright}
+	$\blacksquare$
+\end{flushright}
+
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Teorema do Produto}
+
+{\bf Teorema (do Produto):}
+
+Sejam $A \subset \Omega$ e $B \subset \Omega$. Então, $P(A \cap B) = P(B) \cdot P(A/B)$ ou $P(A \cap B) = P(A) \cdot P(B/A)$.
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Eventos Independentes}
+
+{\bf Definição:}
+
+Sejam $A \subset \Omega$ e $B \subset \Omega$. $A$ e $B$ serão independentes se: $P(A/B) = P(A)$ e $P(B/A) = P(B)$.
+
+\pause
+Em outras palavras, $A$ e $B$ são independentes se:
+$$P(A \cap B) =P(A)\cdot P(B)$$
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Exemplo}
+
+Lançam-se $3$ moedas. Verifique se são independentes os eventos:
+\begin{itemize}
+	\item[A)] saída de cara na primeira moeda;
+	\item[B)] saída de coroa da segunda e terceira moedas. 
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Exemplo}
+
+{\it Solução:}
+
+Temos que:
+
+$\Omega = \pause \{ (c,c,c), (c,c,k), (c,k,c), (c,k,k), (k,c,c), (k,c,k), (k,k,c), (k,k,k) \}$
+
+$A = \pause \{ (c,c,c), (c,c,k), (c,k,c), (c,k,k) \} \therefore P(A) = \displaystyle \frac{4}{8} = \displaystyle \frac{1}{2}$
+
+$B = \pause \{ (c,k,k), (k,k,k) \} \therefore P(B) = \displaystyle \frac{2}{8} = \displaystyle \frac{1}{4}$
+
+Logo,
+$$P(A)\cdot P(B) = \pause \frac{1}{2}\cdot \frac{1}{4} = \frac{1}{8}$$
+
+Como:
+
+$A \cap B = \pause \{ (c,k,k)\}$ e $P(A \cap B) = \pause \displaystyle \frac{1}{8}$ segue que $A$ e $B$ são eventos independentes, pois $P(A \cap B) =P(A)\cdot P(B)$.
+
+\begin{flushright}
+	$\blacksquare$
+\end{flushright}
+\end{frame}
+
+\begin{frame}
+\frametitle{Eventos Independentes}
+
+Para verificar se três eventos são independentes, deve-se verificar as $4$ proposições a seguir:
+
+\pause
+\begin{enumerate}
+	\item $P(A \cap B \cap C) = P(A) \cdot P(B) \cdot P(C)$
+	\pause
+	\item $P(A \cap B) = P(A) \cdot P(B)$
+	\pause
+	\item $P(A \cap C) = P(A) \cdot P(C)$
+	\pause
+	\item $P(B \cap C) = P(B) \cdot P(C)$
+	\pause
+\end{enumerate}
+
+Todas as propriedades devem ser satisfeitas.
+
+\pause
+Se $A$ e $B$ são {\it mutualmente exclusivos}, então $A$ e $B$ são {\it dependentes}, pois se $A$ ocorre, $B$ não ocorre, ou seja, a ocorrência de um evento condiciona a não ocorrência do outro.
+
+\pause
+Se os eventos $A_1,A_2,\dots,A_n$ são independentes, então:
+$$P\left( \displaystyle \cap_{i=1}^{n} A_i \right) = \prod_{i=1}^{n} P(A_i)$$
+\end{frame}
+
+\begin{frame}
+\frametitle{Teorema da Probabilidade Total}
+{\bf Teorema da Probabilidade Total:}
+
+	Sejam $A_1, A_2, \dots, A_n$ eventos que formam uma partição do espaço amostral. Seja $B$ um evento desse espaço, então:
+	$$P(B) = \sum_{i=1}^{n}P(A_i)\cdot P(B/A_i)$$
+	
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{Teorema de Bayes}
+
+{\bf Teorema de Bayes:}
+
+Sejam $A_1,A_2,\dots,A_n$ eventos que formam uma partição do $\Omega$. Seja $B \subset \Omega$. Sejam conhecidas $P(A_i)$ e $P(B/A_i)$, $i = 1,2,\dots,n$. Então:
+$$P(A_j/B) = \frac{P(A_j)\cdot P(B/A_j)}{\displaystyle \sum_{i=1}^{n}P(A_i)\cdot P(B/A_i)}$$
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{Exemplo}
+
+{\bf Exemplo 01:} A urna $A$ contém $3$ fichas vermelhas e $2$ azuis, e a urna $B$ contém $2$ vermelhas e $8$ azuis. Joga-se uma moeda honesta. Se a moeda der cara, extrai-se uma ficha da urna $A$; se der coroa, extrai-se uma ficha da urna $B$. Uma ficha vermelha é extraída. Qual a probabilidade de ter saído cara no lançamento?
+\end{frame}
+
+\begin{frame}
+	\frametitle{Exemplo}
+	
+{\it Solução:}
+
+Buscamos determinar $P(C/V)$.
+
+Assim:
+
+$P(C) = \displaystyle \frac{1}{2}$ e $P(K) = \displaystyle \frac{1}{2}$.
+
+\pause
+E assim,
+
+$P(V/C) = \displaystyle \frac{3}{5}$ e $P(V/K) = \displaystyle \frac{2}{10}$
+
+\pause
+Como:
+
+$$P(V) = P(C \cap V) + P(K \cap V)$$
+
+\end{frame}
+
+
+\begin{frame}{Exemplo}
+	Segue que:
+	
+	$$P(V) = P(C) \cdot P(V/C) + P(K) \cdot P(V/K)$$
+	$$\therefore$$
+	$$P(V) = \displaystyle \frac{1}{2}\cdot \displaystyle \frac{3}{5} + \displaystyle \frac{1}{2} \cdot \displaystyle \frac{2}{10} = \displaystyle \frac{4}{10}$$
+	\pause
+	
+	
+	Vamos determinar agora $P(C/V)$: \pause
+	
+	$$P(C/V) = \frac{P(V \cap C)}{P(V)} = \frac{\frac{3}{10}}{\frac{4}{10}} = \frac{3}{4}$$
+	
+	\begin{flushright}
+		$\blacksquare$
+	\end{flushright}
+	
+\end{frame}
+
+\end{document}
+

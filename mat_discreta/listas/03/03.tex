@@ -1,0 +1,296 @@
+\documentclass[oneside,a4paper,12pt]{article}
+\usepackage[english,brazilian]{babel}
+\usepackage{multicol}
+\usepackage{textcomp}
+\usepackage[alf]{abntex2cite}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb,exscale}
+\usepackage[top=20mm, bottom=20mm, left=20mm, right=20mm]{geometry}%margens cima, baixo, esquerda direita
+\usepackage{framed}
+\usepackage{booktabs} %Pacote para deixar tabelas mais bonitas.
+\usepackage{color} %Pacote de Cores
+\usepackage{hyperref} %Pacotes para Hiperlinks
+\usepackage{graphicx} %Pacote de imagens
+\graphicspath{{./Figuras/}}%Direciona as imagens para uma pasta chamada "Figuras" (uso isso para organizar. Uma vez que todas as imagens vao ficar em uma pasta isolada)    
+\definecolor{shadecolor}{rgb}{0.8,0.8,0.8}
+
+%FAZ EDICOES AQUI (somente no conteudo que esta entre entre as ultimas  chaves de cada linha!!!)
+\newcommand{\universidade}{Universidade Tecnológica Federal do Paraná}
+\newcommand{\centro}{Câmpus Cornélio Procópio}
+\newcommand{\departamento}{Departamento Acadêmico de Matemática}
+\newcommand{\curso}{Engenharia da Computação}
+\newcommand{\professores}{Matheus Pimenta}
+\newcommand{\disciplina}{Matemática Discreta - EC34G}
+%\newcommand{\tema}{Lista 01}
+%\newcommand{\turma}{MA31G}
+%\newcommand{\data}{Março de 2019}%{\today}
+%\newcommand{\tempodeaula}{30 minutos}
+%\newcommand{\prerequisitos}{Matrizes, Transformações Lineares e Bases}
+%ATE AQUI !!!	
+
+\begin{document}
+	\pagestyle{empty}
+	
+	\begin{center}
+		\includegraphics[width=\linewidth/8]{logo.jpg}%LOGOTIPO DA INSTITUICAO
+	 	\vspace{2pt} 	
+		
+		\universidade
+		\par
+		\centro
+		\par
+		\departamento
+		\par
+	%	Curso de \curso
+		\par
+		\vspace{12pt}
+		\LARGE \textbf{Lista 03}
+		
+	\end{center}
+	
+	\vspace{12pt}
+	
+	\begin{tabular}{ |l|p{12cm}| }
+		
+		\hline
+		\multicolumn{2}{|c|}{\textbf{Dados de Identificação}} \\
+		\hline
+		Professor:         &    \professores           \\
+		\hline
+		Disciplina:        &    \disciplina          \\
+		\hline
+	%	Tema:              &    \tema                \\
+	%	\hline
+	%	Pré-requisito	:  &    \prerequisitos         \\
+	%	\hline
+		Aluno:             &                   \\
+	%	\hline
+	%	Data:              &    \data                \\
+	%	\hline
+	%	Duração da aula:   &    \tempodeaula         \\
+		\hline
+		
+	\end{tabular}
+	\vspace{6pt}
+	
+	
+	\begin{snugshade}
+	\end{snugshade}
+
+\begin{enumerate}
+
+
+
+	\item Explique a diferença principal entre um par ordenado $(a,b)$ e um conjunto $\{a,b\}$ com dois elementos.
+
+	\item Determine $x$ e $y$ onde $(3x,x-2y) = (6,-8)$.
+	
+	\item Determine o número de relações de $A = \{a,b,c\}$ e $B = \{1,2\}$. \\{\bf R:} 64
+
+	\item Seja $R$ uma relação definida no conjunto $X = \{0,1,2,3,\dots\}$ dos números inteiros não negativos definidos pela equação $x^2 + y^2 = 25$. Determine $R$.
+	\\{\bf R: }$R = \{(0,5), (3,4), (4,3), (5,0)\}$
+
+	\item Suponha que $A$ é um conjunto qualquer finito. Determine o número $m$ de relações em $A$ onde:
+	\begin{enumerate}
+		\item $A$ possui três elementos; \\ {\bf R:} 512
+		\item $A$ possui $n$ elementos; \\ {\bf R:} $m = 2^{n^2}$
+	\end{enumerate}
+
+	\item Seja $R$ e $S$ relações sobre $A = \{1,2,3\}$ dadas por: $R = \{(1,1), (1,2), (2,3), (3,1), (3,3)\}$ e $S = \{(1,2), (1,3), (2,1), (3,3)\}$. Determine: $R \cap S$ e $R \cup S$.
+	
+	\item Determine o grafo da relação $R$ no conjunto $A = \{1,2,3,4\}$ onde \\ $R = \{ (1,2), (2,2), (2,4), (3,2), (3,4), (4,1), (4,3)\}$
+
+	\item Seja $S$ uma relação sobre $X = \{ a,b,c,d,e,f \}$ definido por: \\ $S = \{ (a,b), (b,b), (b,c), (c,f), (d,b), (e,a), (e,b), (e,f) \}$ \\ Determine o seu grafo.
+
+	\item Considere as seguintes relações sobre o conjunto $A = \{ 1,2,3\}$
+	\begin{multicols}{2}
+		\begin{itemize}
+			\item $R = \{ (1,1), (1,2), (1,3), (3,3)\}$
+			\item $S = \{ (1,1), (1,2), (2,1), (2,2), (3,3) \}$
+			\item $T = \{ (1,1), (1,2), (2,2), (2,3) \}$
+			\item $\emptyset$ (relação vazia)
+			\item $A \times A$ (relação universal)
+		\end{itemize}
+	\end{multicols}
+	Quais relações são:
+	\begin{enumerate}
+		\item Reflexivas. \\ {\bf R:} $S$ , $A \times A$
+		\item Simétricas. \\ {\bf R:} $S$, $\emptyset$ e $A \times A$
+		\item Transitivas. \\ {\bf R:} A única que não é transitiva é $T$.
+		\item Antissimétricas. \\ {\bf R:} $S$ e $A \times A$ não são antissimétricas.
+	\end{enumerate}
+
+	\item Considere o conjunto $A = \{1,2,3\}$ dê exemplos de relações $R$ que são:
+	\begin{enumerate}
+		\item $R$ é simétrica e antissimétrica. \\ {\bf R:} $R = \{ (1,1), (2,2)\}$
+		\item $R$ não é nem simétrica e nem antissimétrica \\ {\bf R:} $R = \{ (1,2), (2,1), (2,3) \}$
+		\item $R$ é transitiva, porém $R \cup R^{-1}$ não é transitiva \\ {\bf R:} $R = \{(1,2)\}$
+	\end{enumerate}
+
+	\item Sejam as relações $R,S$ e $T$ sobre o conjunto $A = \{ 1,2,3\}$ definidas por:\\ $R = \{ (1,1), (2,2), (3,3) \} = \Delta_{A}$ \\ $S = \{ (1,2), (2,1), (3,3) \}$ \\ $T = \{(1,2), (2,3), (1,3)\}$
+	Quais relações são:
+	\begin{enumerate}
+		\item Reflexivas. \\ {\bf R:} $\Delta_{A}$
+		\item Simétricas. \\ {\bf R:} $R$ e $S$
+		\item Transitivas. \\ {\bf R:} $R$ e $T$
+		\item Antissimétricas. \\ {\bf R:} $R$ e $T$
+	\end{enumerate}
+	
+	\item Considere a relação $|$ divisão no conjunto $\mathbb{N}$. Determine se a $|$ é uma relação: reflexiva, simétrica, antissimétrica ou transitiva. \\ Lembre-se: a divisão $x|y$ é quando existe $z$ tal que $xz=y$.
+	
+	\item Seja $R$ uma relação sobre $A = \{1,2,3\}$ definida por \\ $R = \{(1,1), (1,2), (2,3)\}$. Determine:
+	\begin{enumerate}
+		\item O fecho reflexivo de $R$. \\{\bf R:} O fecho será o conjunto $\{(1,1), (1,2), (2,3), (2,2), (3,3)\}$
+		\item O fecho simétrico de $R$. \\ {\bf R:} O fecho será o conjunto $\{(1,1), (1,2), (2,3), (2,1), (3,2)\}$
+	\end{enumerate}
+
+	\item Seja $R = \{ (1,1), (1,3), (3,1), (3,3) \}$. $R$ é uma relação de equivalência em $A = \{1,2,3\}$? E em $B = \{1,3\}$?
+	\\ {\bf R: }Não.
+	
+	\item Seja $A$ o conjunto de todos os números inteiros não nulos e seja $\simeq$ uma relação sobre $A \times A$ definida por: $$(a,b) \simeq (c,d) \text{ sempre que } ad=bc$$
+	Prove que $\simeq$ é uma relação de equivalência.
+
+	\item Seja $A$ o conjunto dos inteiros e seja $\sim$ uma relação sobre $A \times A$ definida por: $$(a,b) \sim (c,d) \text{ se } a + d = b + c$$.
+	Prove que $\sim$ é uma relação de equivalência.
+	
+	\item Defina igualdade de funções.
+	
+	\item Seja $X = \{ 1,2,3,4\}$. Determine se as relações abaixo (são pares ordenados) é uma função de $X$ em $X$.
+	\begin{enumerate}
+		\item $f = \{ (2,3),(1,4), (2,1),(3,2),(4,4)\}$ \\ {\bf R:} Não
+		\item $g = \{(3,1), (4,2),(1,1)\}$ \\ {\bf R:} Não
+		\item $h = \{(2,1), (3,4), (1,4),(2,1),(4,4)\}$ \\ {\bf R: } Sim
+	\end{enumerate}
+	
+	\item Seja $W = \{a,b,c,d\}$. Determine quais conjuntos de pares ordenados abaixo são funções de $W$ em $W$.
+	\begin{enumerate}
+		\item $\{(b,a),(c,d),(d,a),(c,d),(a,d)\}$ \\ {\bf R: }Sim
+		\item $\{(d,d),(c,a),(a,b),(d,b)\}$ \\ {\bf R:} Não
+		\item $\{(a,b),(b,b),(c,b),(d,b)\}$ \\ {\bf R:} Sim
+		\item $\{(a,a),(b,a),(a,b),(c,d),(d,a)\}$ \\ {\bf R:} Não
+	\end{enumerate}
+	
+	\item Determine o domínio $D$ das funções abaixo:
+	\begin{enumerate}
+		\item $f(x) = \frac{1}{x-2}$ \\ {\bf R:} $D = \mathbb{R}\backslash\{2\}$
+		\item $g(x) = x^2 - 5x -4$ \\ {\bf R:} $D = \mathbb{R}$
+		\item $h(x) = \sqrt{25 - x^2}$ \\ {\bf R:} $D = [-5,5]$
+	\end{enumerate}
+	
+	\item Sendo $f(x) = x^{3} + 2x^2 - 4$, calcule:
+	\begin{multicols}{2}
+		\begin{enumerate}
+			\item $f(0)$ R=-4
+			\item $f(2)$ R=12
+			\item $f(\frac{1}{2})$ R=$-\frac{27}{8}$
+			\item $f(\sqrt{x})$
+		\end{enumerate}
+	\end{multicols}
+	
+	\item Determine a função inversa em cada um dos exercícios. Faça seus gráficos e restrinja o domínio, se necessário:
+	\begin{multicols}{2}
+		\begin{enumerate}
+			\item $f(x) = x -4$ R:$f^{-1}(x) = x + 4$
+			\item $f(x) = x^2 + 1$ R:$f^{-1}(x) = \sqrt{x-1}$
+			\item $f(x) = e^{4x}$ R:$f^{-1}(x) = \frac{1}{4}\ln(x)$
+			\item $f(x) = \log(\frac{x}{3})$ R:$f^{-1}(x)=3 \cdot 10^x$
+			\item $f(x) = \arctan(8x)$ R:$f^{-1}(x) = \frac{\tan(x)}{8}$
+		\end{enumerate}
+	\end{multicols}
+	
+	\item Determine o domínio das seguintes funções de uma variável real:
+	\begin{multicols}{2}
+		\begin{enumerate}
+			\item $f(x) = \sqrt{(x-4)(x+3)}$ \\ R:$D(f)=\{x \in \mathbb{R}; x \leq -3 \lor x \geq 4 \}$
+			\item $f(x) = \frac{\sqrt{2x}}{\sqrt{x^2 - 9}}$ \\ R:$D(f)=\{x \in \mathbb{R}; x > 3\}$
+			\item $f(x) = \sqrt{\frac{x}{x+1}}$ \\ R:$D(f)=\{x \in \mathbb{R}; x < -1 \lor x \geq 0 \}$
+			\item $f(x) = \log(\frac{x^{2}-3x+2}{x+1})$ \\ R:$D(f)=\{x \in \mathbb{R}; -1 < x < 1 \lor x>2 \}$
+		\end{enumerate}
+	\end{multicols}
+	
+	\item Se $f(x) = \frac{3x-1}{x-7}$ determine:
+	\begin{multicols}{2}
+		\begin{enumerate}
+			\item $\frac{5(f(-1))-2(f(0))+3f(5)}{7}$
+			\item $f(-\frac{1}{2})$
+			\item $f(3x-2)$
+			\item $f[f(5)]$
+		\end{enumerate}
+	\end{multicols}
+	
+	\item Dadas as funções$f(x) = x^2 -1$ e $g(x) = 2x -1$:
+	\begin{multicols}{2}
+		\begin{enumerate}
+			\item Determine o domínio e o conjunto imagem de $f(x)$;
+			\item Determine o domínio e o conjunto imagem de $g(x)$;
+			\item Construa os gráficos de $f(x)$ e $g(x)$;
+			\item Calcule: $f(x) + g(x)$, $f(x) - g(x)$, $f(x) \cdot g(x)$, $\frac{f(x)}{g(x)}$, $g \circ f$ e $f \circ g$.
+		\end{enumerate}
+	\end{multicols}
+	
+	
+	\item Determine $(g \circ f)^{-1}$ onde $f(x) = \frac{2+x}{3}$ e $g(x) = \frac{2x+3}{5}$: \\ R:$\frac{15x-13}{2}$
+
+	\item Sejam as funções reais $f(x) = x^2 + 4x - 5$ e $g(x) = 2x -3$
+	\begin{enumerate}
+	\item Obtenha $f \circ g$ e $g \circ f$;
+	\item Calcule $(f \circ g)(2)$ e $(g \circ f)(2)$
+	\item Determine os valores do domínio de $f \circ g$ que produzem como imagem $16$.
+	\end{enumerate}
+
+	\item Dada a função $f(x) = \frac{x}{3x-1}$. Determine:
+	\begin{enumerate}
+		\item O domínio $D$.
+		\item $f(x)$ é injetora? Prove sua resposta.
+	\end{enumerate}
+
+	\item Dadas as funções abaixo. Mostre ou de um contra-exemplo para a injetividade e sobrejetividade delas.
+	\begin{enumerate}
+		\item $f: \mathbb{R} \rightarrow \mathbb{R}$, $f(x) = x- |x|$
+		\item $f:(0,1] \rightarrow [1,+\infty)$, $f(x) = \frac{1}{x}$
+	\end{enumerate}
+
+	\item Mostre que uma função afim qualquer ($a \neq 0$) é injetiva.
+
+	\item Mostre que $f:\mathbb{R}\backslash\{1\} \rightarrow \mathbb{R}\backslash\{2\}$ definida por $f(x) = \frac{2x+1}{x-1}$ é injetora.
+
+	\item Mostre que uma função afim qualquer ($a \neq 0$) é sobrejetora.
+	
+	\item Mostre que $a + a = a$ e $a \cdot a = a$, $\forall a \in B$
+	
+	\item Mostre que $a + 1 = 1$ , $a \cdot 0 = 0$, $\forall a \in B$
+	
+	\item Mostre que $a + (a \cdot b) = a$, $a \cdot (a + b) = a$
+	
+	\item Mostre que $a + (a' \cdot b) = a + b$
+	
+	\item Mostre que o complemento de cada elemento de uma álgebra de Boole é único.
+	
+	\item Mostre que $(a')' = a$.
+	
+	\item Mostre que $ab + ab' = a$
+	
+	\item Mostre que $0' = 1$ e $1' = 0$
+	
+	\item Mostre a Lei de Morgan. $(a \cdot b)' = a' + b'$ e $(a + b)' = a' \cdot b'$
+	
+	\item Mostre que $ab + a'c + bc = ab + a'c$
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+\end{enumerate}
+
+
+	
+\end{document}

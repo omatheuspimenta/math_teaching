@@ -1,0 +1,626 @@
+\documentclass[hyperref={pdfpagelabels=false}]{beamer}
+\usepackage{lmodern}
+\usetheme{CambridgeUS}
+
+\usepackage[english,brazilian]{babel}
+\usepackage{multicol}
+\usepackage{textcomp}
+\usepackage[alf]{abntex2cite}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+\title{Geometria Analítica}  
+\author[Matheus Pimenta]{Matheus Pimenta} 
+\institute[UTFPR-CP]{\normalsize Universidade Tecnológica Federal do Paraná \\
+	Câmpus Cornélio Procópio
+} 
+\date{Setembro de 2019} 
+\begin{document}
+	
+\begin{frame}
+\titlepage
+\end{frame} 
+
+
+%\begin{frame}
+%\frametitle{Table of contents}
+%\tableofcontents
+%\end{frame} 
+
+
+\section{Soma de Ponto com Vetor} 
+
+
+\begin{frame}
+\frametitle{Definição} 
+Dados um ponto $P$ e um vetor $\overrightarrow{u}$, o ponto $Q$ tal que o segmento orientado $(P,Q)$ é representante de $\overrightarrow{u}$ é chamado de \emph{soma de $P$ com $\overrightarrow{u}$} e indicado por $P + \overrightarrow{u}$. 
+
+Simbolicamente: $$P + \overrightarrow{u} = Q \Leftrightarrow \overrightarrow{PQ} = \overrightarrow{u}$$
+
+Decorre da definição que, quaisquer que sejam os pontos $P$ e $Q$, $$P + \overrightarrow{PQ} = Q$$
+\end{frame}
+
+\begin{frame}
+\frametitle{Definição}
+Pode-se entender $P + \overrightarrow{u}$ como o resultado do deslocamento de um ponto material, inicialmente situado na origem do segmento até a sua extremidade.
+
+{\bf OBS: } A notação $P - \overrightarrow{u}$ indica a soma de $P$ com o vetor oposto de $\overrightarrow{u}$.
+
+{\bf OBS: } A operação que ao par ordenado $(P,\overrightarrow{u})$ associa o ponto $P + \overrightarrow{u}$ é chamada \emph{adição de ponto com vetor.} 
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Propriedades}
+Quaisquer que sejam os pontos $A$ e $B$ e os vetores $\overrightarrow{u}$ e $\overrightarrow{v}$, valem as propriedades:
+\begin{enumerate}
+	\item [P1] $(A + \overrightarrow{u}) + \overrightarrow{v} = A + (\overrightarrow{u} + \overrightarrow{v})$
+	\pause
+	\item [P2] $A + \overrightarrow{u} = A + \overrightarrow{v} \Rightarrow \overrightarrow{u} = \overrightarrow{v} $
+	\pause
+	\item [P3] $A + \overrightarrow{u} = B + \overrightarrow{u} \Rightarrow A = B $
+	\pause
+	\item [P4] $(A - \overrightarrow{u}) + \overrightarrow{u} = A$
+\end{enumerate}
+\end{frame}
+
+\section{Dependência Linear}
+
+\begin{frame}
+\frametitle{Introdução}
+
+Diversas aplicações práticas no estudo de paralelismo são facilmente solucionadas através da utilização dos conceitos de dependência linear. 
+
+\pause
+
+Seja $n \in \mathbb{N}$, o símbolo $(\overrightarrow{v}_1,\overrightarrow{v}_2, \dots, \overrightarrow{v}_n)$ indica a sequência, ou $n-upla$ ordenada.
+$$(\overrightarrow{v}_1,\overrightarrow{v}_2, \dots, \overrightarrow{v}_n) = (\overrightarrow{u}_1,\overrightarrow{u}_2, \dots, \overrightarrow{u}_n)$$ \\ $$\Leftrightarrow$$ \\ $$\overrightarrow{v}_1 = \overrightarrow{u}_1, \overrightarrow{v}_2 = \overrightarrow{u}_2, \dots, \overrightarrow{v}_n = \overrightarrow{u}_n$$
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Definição}
+
+Em nossos estudos, o conceito de \emph{dependência linear} de uma sequência $(\overrightarrow{v}_1,\overrightarrow{v}_2, \dots, \overrightarrow{v}_n)$ será definido caso a caso, dependendo do valor de $n$.
+
+\begin{enumerate}
+	\item Uma sequência $(\overrightarrow{v})$ é {\bf linearmente dependente} se $\overrightarrow{v} = \overrightarrow{0}$ e {\bf linearmente independente} se $\overrightarrow{v} \neq \overrightarrow{0}$
+	\pause
+	\item Uma sequência $(\overrightarrow{u},\overrightarrow{v})$ é {\bf linearmente dependente} se $\overrightarrow{u}$ e $\overrightarrow{v}$ são paralelos. Caso contrário, $(\overrightarrow{u},\overrightarrow{v})$ é {\bf linearmente independente}.
+	\pause
+	\item Uma tripla ordenada $(\overrightarrow{u}, \overrightarrow{v}, \overrightarrow{w})$ é {\bf linearmente dependente} se $\overrightarrow{u}, \overrightarrow{v}$ e $\overrightarrow{w}$ são paralelos a um mesmo plano. Caso contrário, $(\overrightarrow{u}, \overrightarrow{v}, \overrightarrow{w})$ é {\bf linearmente independente}.
+	\pause
+	\item Se $n \geq 4$, qualquer sequência de $n$ vetores é {\bf linearmente dependente}.
+\end{enumerate}
+
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Observação}
+
+Dependência e independência linear são qualidades referentes a uma sequência de vetores e não aos próprios vetores. Usualmente vamos tratar como ``Os vetores $\overrightarrow{u}$ e $\overrightarrow{v}$ são LI'' tratando que o par ordenado $(\overrightarrow{u},\overrightarrow{v})$ é LI.
+\end{frame}
+
+\begin{frame}
+\frametitle{Combinação Linear}
+
+Se $\overrightarrow{u} = \alpha_1\overrightarrow{v}_1 + \alpha_2\overrightarrow{v}_2+\dots+\alpha_n\overrightarrow{v}_n$, dizemos que $\overrightarrow{u}$ é {\bf combinação linear} de $\overrightarrow{v}_1, \overrightarrow{v}_2, \dots, \overrightarrow{v}_n$, ou que $\overrightarrow{u}$ é {\bf gerado} por $\overrightarrow{v}_1, \overrightarrow{v}_1, \overrightarrow{v}_3,\dots, \overrightarrow{v}_n$. Os escalares $\alpha_1,\alpha_2,\dots,\alpha_n$ são chamados {\bf coeficientes} da combinação linear.
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Exemplo} 
+
+\begin{enumerate}
+	\item Sabe-se que $\overrightarrow{u} = 3\overrightarrow{v}$. Escreva três expressões diferentes do vetor nulo como combinação linear de $\overrightarrow{u}, \overrightarrow{v}$.
+	\item Refaça o item anterior, supondo que $(\overrightarrow{u},\overrightarrow{v})$ seja LI.
+\end{enumerate}
+\pause
+
+A partir de agora, ao invés de analisar se a sequência de vetores são paralelos a um plano dado, basta verificar se algum deles é gerado pelos demais.
+\end{frame}
+
+\begin{frame}
+\frametitle{Proposição}
+
+{\bf Proposição: } Se $(\overrightarrow{u},\overrightarrow{v})$ é LI, então $(\overrightarrow{u},\overrightarrow{v},\overrightarrow{w})$ é LD se, e somente se, $\overrightarrow{w}$ é gerado por $\overrightarrow{u}, \overrightarrow{v}$
+
+\pause
+
+{\bf Proposição: } $(\overrightarrow{u},\overrightarrow{v},\overrightarrow{w})$ é LD se, e somente se, um dos vetores é gerado pelos outros dois.
+\end{frame}
+
+\begin{frame}
+\frametitle{Proposição}
+
+{\bf Proposição: } Se $(\overrightarrow{u},\overrightarrow{v},\overrightarrow{w})$ é LI, então qualquer vetor $\overrightarrow{x}$ é combinação linear de $\overrightarrow{u},\overrightarrow{v},\overrightarrow{w}$.
+
+\pause
+
+{\bf Proposição: } Uma sequência $(\overrightarrow{v}_1,\overrightarrow{v}_2,\dots,\overrightarrow{v}_n)$, com $n \geq 2$, é LD se, e somente se, algum vetor da sequência é gerado pelos demais.
+
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Proposição}
+{\bf Proposição: } Uma sequência $(\overrightarrow{v}_1,\overrightarrow{v}_2,\dots,\overrightarrow{v}_n)$, com $1 \leq n \leq 3$, é LI se, e somente se, a equação $\alpha_1\overrightarrow{v}_1 + \alpha_2\overrightarrow{v}_2+\dots+\alpha_n\overrightarrow{v}_n = \overrightarrow{0}$ admite {\bf apenas} a solução nula $\alpha_1=\alpha_2=\dots=\alpha_n=0$
+
+\pause
+
+{\bf Corolário: } Se $(\overrightarrow{v}_1,\overrightarrow{v}_2,\dots,\overrightarrow{v}_n)$ é LI, então, para cada vetor gerador por $\overrightarrow{v}_1,\overrightarrow{v}_2,\dots,\overrightarrow{v}_n$, os coeficientes são univocamente determinados, isto é,
+$$\alpha_1\overrightarrow{v}_1 + \alpha_2\overrightarrow{v}_2+\dots+\alpha_n\overrightarrow{v}_n = \beta_1\overrightarrow{v}_1 + \beta_2\overrightarrow{v}_2+\dots+\beta_n\overrightarrow{v}_n$$ $$\Rightarrow$$ $$\alpha_1 = \beta_1, \alpha_2=\beta_2,\dots,\alpha_n=\beta_n$$
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Preposição}
+
+{\bf Preposição: } Uma sequência $(\overrightarrow{v}_1,\overrightarrow{v}_2,\dots,\overrightarrow{v}_n)$, com $1 \leq n \leq 3$, é LD se, e somente se, a equação $\alpha_1\overrightarrow{v}_1 + \alpha_2\overrightarrow{v}_2+\dots+\alpha_n\overrightarrow{v}_n = \overrightarrow{0}$ admite solução não-nula, isto é, existem escalares $\alpha_1,\alpha_2,\dots,\alpha_n$, não todos nulos, tais que  $\alpha_1\overrightarrow{v}_1 + \alpha_2\overrightarrow{v}_2+\dots+\alpha_n\overrightarrow{v}_n = \overrightarrow{0}$
+
+\end{frame}
+
+\section{Base}
+
+\begin{frame}
+\frametitle{Definição}
+
+Uma tripla ordenada linearmente independente $E = (\overrightarrow{e}_1,\overrightarrow{e}_2,\overrightarrow{e}_3)$ chama-se {\bf base} de $\mathbb{V}^3$.
+
+\pause
+
+Sendo $E = (\overrightarrow{e}_1,\overrightarrow{e}_2,\overrightarrow{e}_3)$ uma base, podemos dizer que todo vetor $\overrightarrow{u}$ é gerado por $\overrightarrow{e}_1,\overrightarrow{e}_2,\overrightarrow{e}_3$, isto é, existem escalares $\alpha_1,\alpha_2,\alpha_3$ tais que
+$$\overrightarrow{u} = \alpha_1\overrightarrow{e}_1 + \alpha_2\overrightarrow{e}_2 + \alpha_3\overrightarrow{e}_3$$
+Essa tripla ordenada de escalares é única, devido a unicidade da combinação linear, e é chamada como {\bf coordenada de $\overrightarrow{u}$ em relação à base $E$}
+
+Notação: $\overrightarrow{u} = (\alpha_1,\alpha_2,\alpha_3)_E$ ou $\overrightarrow{u} = (\alpha_1,\alpha_2,\alpha_3)$
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Propriedades}
+
+{\bf Proposição: } \begin{enumerate}
+	\item $ (\alpha_1,\alpha_2,\alpha_3)_E + (\beta_1,\beta_2,\beta_3)_E = (\alpha_1 + \beta_1, \alpha_2 + \beta_2, \alpha_3 + \beta_3)_E$
+	\item $\rho(\alpha_1,\alpha_2,\alpha_3)_E = (\rho\alpha_1,\rho\alpha_2,\rho\alpha_3)_E$
+\end{enumerate}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Proposição}
+
+Os vetores $\overrightarrow{u} = (a_1,b_1,c_1)_E$ e $\overrightarrow{v} = (a_2,b_2,c_2)_E$ são LD se, e somente se, $a_1,b_1,c_1$ e $a_2,b_2,c_2$ são proporcionais ou, equivalentemente, os três determinantes
+\begin{center}
+	$\left|
+	\begin{array}{cc}
+	a_1	&	b_1	\\
+	a_2	&	b_2
+	\end{array}
+	\right|
+	$
+	,
+	$\left|
+	\begin{array}{cc}
+	a_1	&	c_1	\\
+	a_2	&	c_2
+	\end{array}
+	\right|
+	$
+	,
+	$\left|
+	\begin{array}{cc}
+	b_1	&	c_1	\\
+	b_2	&	c_2
+	\end{array}
+	\right|
+	$
+\end{center}
+são nulos.
+\end{frame}
+
+\begin{frame}
+\frametitle{Proposição}
+
+Os vetores $\overrightarrow{u} = (a_1,b_1,c_1)_E$, $\overrightarrow{v} = (a_2,b_2,c_2)_E$ e $\overrightarrow{w} = (a_3,b_3,c_3)_E$ são LD se, e somente se,
+\begin{center}
+	$\left|
+	\begin{array}{ccc}
+	a_1	&	b_1	&	c_1	\\
+	a_2	&	b_2	&	c_2	\\
+	a_3	&	b_3	&	c_3
+	\end{array}
+	\right| = 0
+	$
+\end{center}
+
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Exemplo}
+
+Verifique se são LI ou LD os vetores $\overrightarrow{u} = (1,-1,2)_E$, $\overrightarrow{v} = (0,1,3)_E$, $\overrightarrow{w} = (4,-3,11)_E$.
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Definição}
+
+\begin{enumerate}
+	\item Os vetores não-nulos $\overrightarrow{u}$ e $\overrightarrow{v}$ são {\bf ortogonais} se existe um representante $(A,B)$ de um deles e um representante $(C,D)$ do outro tais que $AB$ e $CD$ sejam ortogonais.
+	
+	Notação: $\overrightarrow{u} \perp \overrightarrow{v}$
+	\item O vetor nulo é ortogonal a qualquer vetor.
+\end{enumerate}
+
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Proposição}
+
+Os vetores $\overrightarrow{u}$ e $\overrightarrow{v}$ são ortogonais se, e somente se, $$||\overrightarrow{u} + \overrightarrow{v}||^2 = ||\overrightarrow{u}||^2 + ||\overrightarrow{v}||^2$$
+
+\pause
+
+{\bf Definição: } Uma base $(\overrightarrow{e}_1,\overrightarrow{e}_2,\overrightarrow{e}_3)$ é {\bf ortonormal} se $e_1,e_2$ e $e_3$ são unitários e dois a dois ortogonais.
+
+\pause
+
+{\bf Proposição: } Seja $(\overrightarrow{e}_1,\overrightarrow{e}_2,\overrightarrow{e}_3)$ uma base ortonormal. Se $\overrightarrow{u} = \alpha\overrightarrow{e}_1 + \beta\overrightarrow{e}_2+\gamma\overrightarrow{e}_3$, então
+$$||\overrightarrow{u}|| = \sqrt{\alpha^2 + \beta^2 + \gamma^2}$$
+
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Exemplo}
+
+Seja $E$ uma base ortonormal e $\overrightarrow{u} = (2,-1,3)_E$. Calcule $||\overrightarrow{u}||$.
+
+\end{frame}
+
+\section{Mudança de Base}
+
+\begin{frame}
+\frametitle{Mudança de Base}
+
+A mudança de base tem como objetivo facilitar as operações.
+Nosso interesse é na seguinte situação:
+
+Sejam $B = \{ u_1, \dots, u_n \}$ e $B' = \{ w_1, \dots, w_n \}$ duas bases ordenadas de um mesmo espaço vetorial $V$. Dado um vetor $v \in V$, podemos escrevê-lo como:
+\begin{eqnarray}
+v = x_1 u_1 + \dots + x_n u_n \\\label{eq00}
+v = y_1 w_1 + \dots + y_n w_n 
+\end{eqnarray}
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{Mudança de Base}
+	
+	Podemos relacionar as coordenadas de $v$ em relação à base $B$,
+	$$[v]_B = \left[
+	\begin{array}{c}
+	x_1	\\
+	\vdots	\\
+	x_n \\
+	\end{array}
+	\right]$$
+	e também podemos relacionar as coordenadas de $v$ em relação à base $B'$,
+	$$[v]_{B'} = \left[
+	\begin{array}{c}
+	y_1	\\
+	\vdots	\\
+	y_n \\
+	\end{array}
+	\right]$$
+\end{frame}
+
+\begin{frame}
+	\frametitle{Mudança de Base}
+	
+	Como $\{ u_1, \dots, u_n\}$ é base de $V$, podemos escrever os vetores $w_1$ como combinação linear dos $u_j$, isto é,
+	\begin{eqnarray}
+	\label{eq01}
+	\begin{cases}
+	w_1 = a_{11}u_1 + a_{21}u_2 + \dots + a_{n1}u_n \\
+	w_2 = a_{12}u_1 + a_{22}u_2 + \dots + a_{n2}u_n \\
+	\vdots \hspace{40pt} \vdots \hspace{40pt} \vdots \hspace{60pt} \vdots \\
+	w_n = a_{1n}u_1 + a_{2n}u_2 + \dots + a_{nn}u_n \\
+	\end{cases}
+	\end{eqnarray}
+	
+\end{frame}
+
+\begin{frame}
+	\frametitle{Mudança de Base}
+	
+	Substituindo os valores de (\ref{eq01}) em (\ref{eq00}) tem-se
+	\begin{eqnarray*}
+		v & = & y_1 w_1 + \dots + y_n w_n \\
+		& = & y_1 (a_{11}u_1 + \dots + a_{n1}u_n) + \dots + y_n (a_{1n}u_1 + \dots + a_{nn}u_n) \\
+		& = & (a_{11}y_1 + \dots + a_{1n}y_n)u_1 + \dots + (a_{n1}y_1 + \dots + a_{nn}y_n)u_n
+	\end{eqnarray*}
+
+	Como $v = x_1 u_1 + \dots + x_n u_n$ e as coordenadas em relação a uma base são únicas, temos:
+	
+	\begin{eqnarray*}
+		x_1 = a_{11}y_1 + a_{21}y_2 + \dots + a_{n1}y_n \\
+		x_2 = a_{12}y_1 + a_{22}y_2 + \dots + a_{n2}y_n \\
+		\vdots \hspace{40pt} \vdots \hspace{40pt} \vdots \hspace{60pt} \vdots \\
+		x_n = a_{1n}y_1 + a_{2n}y_2 + \dots + a_{nn}y_n \\
+	\end{eqnarray*}
+	
+\end{frame}
+
+\begin{frame}
+	\frametitle{Mudança de Base}
+	
+	Matricialmente, temos a seguinte equação:
+	
+	$$\left[\begin{array}{c}
+	x_{1} \\
+	\vdots \\
+	x_{n}
+	\end{array}\right]
+	=
+	\left[ \begin{array}{ccc}
+	a_{11}  &  \ldots  &  a_{1n} \\
+	\vdots  &  \ddots  &  \vdots \\
+	a_{m1}  &  \cdots  &  a_{mn} \\
+	\end{array}\right]
+	\left[\begin{array}{c}
+	y_{1} \\
+	\vdots \\
+	y_{n}
+	\end{array}\right]$$
+	
+	Definindo,
+	$$[I]_{B}^{B'} = \left[ \begin{array}{ccc}
+	a_{11}  &  \ldots  &  a_{1n} \\
+	\vdots  &  \ddots  &  \vdots \\
+	a_{m1}  &  \cdots  &  a_{mn} \\
+	\end{array}\right]$$
+	
+	Temos a seguinte relação:
+	
+	$$[v]_{B} = [I]_{B}^{B'}[v]_{B'}$$
+	
+	A matriz $[I]_{B}^{B'}$ é chamada \emph{matriz de mudança de base $B'$ para a base $B$}.
+	
+\end{frame}
+
+\begin{frame}
+	\frametitle{Mudança de Base}
+	
+	Compare $[I]_{B}^{B'}$ com (\ref{eq01}) e observe que esta matriz é obtida, colocando as coordenadas em relação a $B$ de $w_i$ na i-ésima coluna. Uma vez obtida $[I]_{B}^{B'}$ podemos encontrar as coordenadas de $v$ na base $B'$ (supostamente conhecidas).
+	
+\end{frame}
+
+\begin{frame}
+	\frametitle{Exemplo}
+	
+	{\bf Exemplo:} Sejam $B = \{ (2,-1), (3,4) \}$ e $B' = \{ (1,0), (0,1) \}$ bases de $\mathbb{R}^2$. Determine $[I]_{B}^{B'}$.
+	
+\end{frame}
+
+\begin{frame}
+	\frametitle{Exemplo - Resolução}
+	
+	Inicialmente, determinaremos os vetores de $B'$ como combinação linear dos vetores de $B$, assim:
+	\begin{eqnarray*}
+		w_1 = (1,0) & = & a_{11}(2,-1) + a_{21}(3,4) \\
+		(1,0) & = & (2a_{11} + 3a_{21}, -a_{11} + 4a_{21})
+	\end{eqnarray*}
+	Determinando os coeficientes, segue que:
+	$$a_{11} = \frac{4}{11} \text{ e } a_{21} = \frac{1}{11}$$
+	\begin{eqnarray*}
+		w_2 = (0,1) & = & a_{12}(2,-1) + a_{22}(3,4) \\
+		(0,1) & = & (2a_{12} + 3a_{22}, -a_{12} + 4a_{22})
+	\end{eqnarray*}
+	Determinando os coeficientes, segue que:
+	$$a_{12} = \frac{-3}{11} \text{ e } a_{22} = \frac{2}{11}$$
+	
+\end{frame}
+
+\begin{frame}
+	\frametitle{Exemplo - Resolução}
+	
+	Portanto,
+	$$[I]_{B}^{B'} = \left[ \begin{array}{cc}
+	a_{11}  &  a_{12}  \\
+	a_{21}  &  a_{22} \\
+	\end{array}\right]
+	=
+	\left[ \begin{array}{cc}
+	\frac{4}{11}  &  \frac{-3}{11}  \\
+	\frac{1}{11}  &  \frac{2}{11} \\
+	\end{array}\right]$$
+	
+\end{frame}
+
+\begin{frame}
+	\frametitle{Exemplo - Resolução}
+	
+	Podemos utilizar o mesmo exemplo para determinar as coordenadas do vetor $v = (5,-8)$ na base $B$.
+	\begin{eqnarray*}
+		[(5,-8)]_{B} & = & [I]_{B}^{B'}[(5,-8)]_{B'} \\
+		& = & \left[ \begin{array}{cc}
+			\frac{4}{11}  &  \frac{-3}{11}  \\
+			\frac{1}{11}  &  \frac{2}{11} \\
+		\end{array}\right] 
+		\left[\begin{array}{c}
+			5 \\
+			-8 \\
+		\end{array}\right]\\
+		& = & 
+		\left[\begin{array}{c}
+			4 \\
+			-1 \\
+		\end{array}\right]
+	\end{eqnarray*}
+	Ou seja,
+	$$(5,-8) = 4(2,-1) -1(3,4)$$
+	
+\end{frame}
+
+\begin{frame}
+	\frametitle{Mudança de Base}
+	
+	O cálculo utilizando a matriz de mudança de base é operacionalmente vantajoso quando trabalhamos com mais vetores, pois não há necessidade de resolução de mais de um sistema de equação para cada vetor.
+	
+\end{frame}
+
+\begin{frame}
+	\frametitle{Mudança de Base}
+	
+	{\bf Proposição: } Toda matriz de mudança de base possui matriz inversa.
+
+	\pause
+
+	{\bf Proposição: } Se $E = (\overrightarrow{e}_1,\overrightarrow{e}_2,\overrightarrow{e}_3)$, $F = (\overrightarrow{f}_1,\overrightarrow{f}_2,\overrightarrow{f}_3)$ e $G = (\overrightarrow{g}_1,\overrightarrow{g}_2,\overrightarrow{g}_3)$ são bases, então $$M_{EF}M_{FG} = M_{EG}$$
+	
+	\pause
+	
+	{\bf Proposição: } A matriz de mudança de $F$ para $E$ é a matriz inversa da matriz de mudança de $E$ para $F$, isto é, $M_{FE} = M_{EF}^{-1}$
+	
+\end{frame}
+
+\section{Produto Escalar}
+
+\begin{frame}
+	\frametitle{Medida Angular}
+	
+	Sejam $\overrightarrow{u}$ e $\overrightarrow{v}$ vetores não-nulos. Chama-se {\bf medida angular entre $\overrightarrow{u}$ e $\overrightarrow{v}$} a medida $\theta$, onde $0 \leq \theta \leq \pi$, do ângulo $P\hat{O}Q$, sendo $(O,P)$ e $(O,Q)$, respectivamente, representantes quaisquer de $\overrightarrow{u}$ e $\overrightarrow{v}$ \emph{com mesma origem}
+	
+	Notação: $\theta = ang(\overrightarrow{u},\overrightarrow{v})$, se necessário, especificando a unidade adotada (grau ou radiano).
+	
+	\pause
+	
+	Se $ang(\overrightarrow{u},\overrightarrow{v}) < 90^{\circ}$ então dizemos que é um \emph{ângulo agudo} formado por $\overrightarrow{u}$ e $\overrightarrow{v}$, analogamente, se $ang(\overrightarrow{u},\overrightarrow{v}) = 90^{\circ}$ então dizemos que é um \emph{ângulo reto} formado por $\overrightarrow{u}$ e $\overrightarrow{v}$.
+\end{frame}
+
+
+\begin{frame}
+	\frametitle{Determinando $\cos(\theta)$ através de $\overrightarrow{u},\overrightarrow{v}$}
+	Lousa
+\end{frame}
+
+\begin{frame}
+	\frametitle{Definição}
+	
+	O {\bf produto escalar} entre dois vetores $\overrightarrow{u},\overrightarrow{v}$, indicado por $\overrightarrow{u}\cdot\overrightarrow{v}$, é o número real tal que:
+	\begin{enumerate}
+		\item se $\overrightarrow{u}$ ou $\overrightarrow{v}$ é nulo, $\overrightarrow{u}\cdot\overrightarrow{v} = 0$;
+		\item se $\overrightarrow{u}$ e $\overrightarrow{v}$ não são nulos e $\theta$ é a medida angular entre eles, $\overrightarrow{u}\cdot\overrightarrow{v} = ||\overrightarrow{u}||||\overrightarrow{v}||\cos(\theta)$
+	\end{enumerate}
+\end{frame}
+	
+\begin{frame}
+	\frametitle{Proposição}
+	\begin{enumerate}
+		\item Se $\overrightarrow{u}$ e $\overrightarrow{v}$ não são nulos e $\theta = ang(\overrightarrow{u},\overrightarrow{v})$, então
+		$$\cos(\theta) = \frac{\overrightarrow{u}\cdot\overrightarrow{v}}{||\overrightarrow{u}||||\overrightarrow{v}||}$$
+		\item Qualquer que seja o vetor $\overrightarrow{u}$, 
+		$$||\overrightarrow{u}|| = \sqrt{\overrightarrow{u}\cdot\overrightarrow{u}}$$
+		\item Quaisquer que sejam os vetores $\overrightarrow{u}$ e $\overrightarrow{v}$,
+		$$\overrightarrow{u}\perp\overrightarrow{v} \Leftrightarrow \overrightarrow{u}\cdot\overrightarrow{v} = 0$$
+	\end{enumerate}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Proposição}
+	Se em relação a uma base ortonormal, $\overrightarrow{u} = (a_1,b_1,c_1)$ e $\overrightarrow{v} = (a_2,b_2,c_2)$, então
+	$$\overrightarrow{u}\cdot\overrightarrow{v} = a_1a_2 + b_1b_2 + c_1c_2$$
+	
+	\pause
+	
+	{\bf Exemplo:} Em relação a uma base ortonormal, são dados $\overrightarrow{u} = (2,0,-3)$ e $\overrightarrow{v} = (1,1,1)$. Calcule a medida angular entre $\overrightarrow{u}$ e $\overrightarrow{v}$.
+\end{frame}
+
+\begin{frame}
+	\frametitle{Propriedades}
+	
+	Quaisquer que sejam os vetores $\overrightarrow{u}, \overrightarrow{v}$ e $\overrightarrow{w}$ e qualquer que seja o número real $\lambda$, são válidas:
+	\begin{enumerate}
+		\item $\overrightarrow{u}\cdot(\overrightarrow{v}+\overrightarrow{w}) = \overrightarrow{u}\cdot\overrightarrow{v} + \overrightarrow{u}\cdot\overrightarrow{w}$
+		\item $\overrightarrow{u}\cdot(\lambda\overrightarrow{v}) = (\lambda\overrightarrow{u})\cdot\overrightarrow{v} = \lambda(\overrightarrow{u}\cdot\overrightarrow{v})$
+		\item $\overrightarrow{u}\cdot\overrightarrow{v} = \overrightarrow{v}\cdot\overrightarrow{u}$
+		\item Se $\overrightarrow{u}\neq\overrightarrow{0}$, então $\overrightarrow{u}\cdot\overrightarrow{u} > 0$
+	\end{enumerate}
+	
+\end{frame}
+
+\begin{frame}
+	\frametitle{Exemplo}
+	
+	As medidas angulares entre os vetores $\overrightarrow{u}$ e $\overrightarrow{v}$, $\overrightarrow{u}$ e $\overrightarrow{w}$ e $\overrightarrow{v}$ e $\overrightarrow{w}$ são, respectivamente, $30$, $45$ e $90$ graus. Mostre que $(\overrightarrow{u}, \overrightarrow{v}, \overrightarrow{w})$ é base.
+\end{frame}
+
+\section{Projeção Ortogonal}
+
+\begin{frame}
+	\frametitle{Introdução}
+
+
+Sejam $\overrightarrow{u} = \overrightarrow{OA}$ e $\overrightarrow{v} = \overrightarrow{OB}$ vetores não-nulos, que formam um \emph{ângulo agudo} de medida $\theta$ radianos e $C$ é o pé da perpendicular, por $B$, à reta $OA$. O vetor $\overrightarrow{p} = \overrightarrow{OC}$ é a \emph{projeção ortogonal de $\overrightarrow{v}$ sobre $\overrightarrow{u}$}.
+
+Tem-se que $\overrightarrow{p}$ é paralelo a $\overrightarrow{u}$ e, dentre todos os vetores paralelos a $\overrightarrow{u}$, parece ser $\overrightarrow{p}$ o único para o qual $\overrightarrow{v} - \overrightarrow{p}$, ou seja, $\overrightarrow{CB}$ é ortogonal a $\overrightarrow{u}$.
+
+\pause
+
+Uma outra forma de se observar é através da decomposição de $\overrightarrow{v}$ como soma de duas parcelas, $\overrightarrow{p}$ e $\overrightarrow{q}$, onde $\overrightarrow{p}$ é paralelo a $\overrightarrow{u}$ e $\overrightarrow{q}$ ortogonal a $\overrightarrow{u}$ $(\overrightarrow{q} = \overrightarrow{CB} = \overrightarrow{v} - \overrightarrow{p})$:
+$$\overrightarrow{v} = \overrightarrow{p} + \overrightarrow{q}$$
+$$\overrightarrow{p} // \overrightarrow{u}$$
+$$\overrightarrow{q} \perp \overrightarrow{u}$$
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{Definição}
+	
+	Seja $\overrightarrow{u} \neq \overrightarrow{0}$. Dado $\overrightarrow{v}$ qualquer, o vetor $\overrightarrow{p}$ é chamado de {\bf projeção ortogonal de $\overrightarrow{v}$ sobre $\overrightarrow{u}$}, e indicado por $proj_{\overrightarrow{u}}\overrightarrow{v}$, se satisfaz as condições:
+	\begin{enumerate}
+		\item $\overrightarrow{p}//\overrightarrow{u}$
+		\item $(\overrightarrow{v} - \overrightarrow{p})\perp\overrightarrow{u}$
+	\end{enumerate}
+	
+\end{frame}
+
+
+\begin{frame}
+	\frametitle{Preposição}
+	
+	Seja $\overrightarrow{u}$ um vetor não-nulo. Qualquer que seja $\overrightarrow{v}$, existe e é única a projeção ortogonal de $\overrightarrow{v}$ sobre $\overrightarrow{u}$. Sua expressão em termos de $\overrightarrow{u}$ e $\overrightarrow{v}$ é:
+	$$proj_{\overrightarrow{u}}\overrightarrow{v} = \frac{\overrightarrow{v}\cdot \overrightarrow{u}}{||\overrightarrow{u}||^2}\overrightarrow{u}$$
+	e a expressão de sua norma,
+	$$||proj_{\overrightarrow{u}}\overrightarrow{v}|| = \frac{|\overrightarrow{v}\cdot \overrightarrow{u}|}{||\overrightarrow{u}||}$$
+	
+	
+\end{frame}
+
+\begin{frame}
+	\frametitle{Exemplo}
+	Dada a base ortonormal $B = (\overrightarrow{i},\overrightarrow{j},\overrightarrow{k})$, sejam $\overrightarrow{u} = 2\overrightarrow{i}-2\overrightarrow{j}+\overrightarrow{k}$ e $\overrightarrow{v} = 3\overrightarrow{i} - 6\overrightarrow{j}$
+	
+	\begin{enumerate}
+		\item Obtenha a projeção ortogonal de $\overrightarrow{v}$ sobre $\overrightarrow{u}$
+		\item Determine $\overrightarrow{p}$ e $\overrightarrow{q}$ tais que $\overrightarrow{v} = \overrightarrow{p} + \overrightarrow{q}$, sendo $\overrightarrow{p}$ paralelo e $\overrightarrow{q}$ ortogonal a $\overrightarrow{u}$
+	\end{enumerate}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Exemplo}
+	
+	Seja $B = (\overrightarrow{i},\overrightarrow{j},\overrightarrow{k})$ e $E = (\overrightarrow{u}, \overrightarrow{v}, \overrightarrow{w})$ base qualquer. Prove que $E$ é ortonormal se, e somente se, a matriz $M = M_{BE}$ satisfaz a igualdade $M^tM=I$, ou seja, sua inversa é igual a sua transposta.
+
+	\end{frame}
+
+
+
+
+\end{document}
+

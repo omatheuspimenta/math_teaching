@@ -1,0 +1,473 @@
+\documentclass[hyperref={pdfpagelabels=false}]{beamer}
+\usepackage{lmodern}
+\usetheme{CambridgeUS}
+
+\usepackage[english,brazilian]{babel}
+\usepackage{multicol}
+\usepackage{textcomp}
+\usepackage[alf]{abntex2cite}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx} %Pacote de imagens
+\graphicspath{{./figures/}}
+
+\title{REVISÃO \\ CÁLCULO I}  
+\author[Matheus Pimenta]{Matheus Pimenta} 
+\institute[UEL]{\normalsize Universidade Estadual de Londrina \\
+	Londrina
+} 
+\date{Fev. 2022} 
+\begin{document}
+	
+\begin{frame}
+\titlepage
+\end{frame} 
+
+
+%\begin{frame}
+%\frametitle{Table of contents}
+%\tableofcontents
+%\end{frame} 
+
+
+\section{Apresentação} 
+
+
+\begin{frame}
+\frametitle{Apresentação} 
+
+Matheus Pimenta \pause
+
+e-mail: matheus.pimenta@outlook.com ou omatheuspimenta@outlook.com \pause
+
+Informações sobre a disciplina \pause
+
+Dúvidas gerais
+
+
+\end{frame}
+
+\section{REVISÃO - FUNÇÕES}
+
+\begin{frame}
+\frametitle{Conjuntos Numéricos}
+\begin{itemize}
+ \item $\mathbb{N}$: O conjunto $\mathbb{N}$	dos números naturais é caracterizado pelos axiomas de Peano.
+
+    \begin{enumerate}
+        \item Todo número natural $n$ tem um sucessor $s(n)$, que ainda é um número natural, números diferentes têm sucessores diferentes. \pause
+        \item Existe um único número natural $1$ que não é sucessor de nenhum outro. \pause
+        \item Se um conjunto de números naturais contém o $1$ e contém também o sucessor de cada um de seus elementos, então esse conjunto contém todos os números naturais. \pause
+    \end{enumerate}
+
+\end{itemize}
+
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Conjuntos Numéricos}
+No conjunto $\mathbb{N}$ dos números naturais são definidas duas operações fundamentais: adição e multiplicação, caracterizadas por:
+\begin{multicols}{2}
+\begin{itemize}
+	\item $n+1 = s(n)$
+	\item $n+s(m) = s(n+m)$
+	\item $m \cdot 1 = m$
+	\item $m \cdot s(n) = m \cdot n + m$
+\end{itemize}
+\end{multicols}
+
+\textbf{Propriedades:}
+\begin{enumerate}
+	\item Associativa: $(m+n)+p = m+(n+p)$ \\ $m(np)=(mn)p$
+	\item Distributiva: $m(n+p)=mn + mp$
+	\item Comutativa: $m+n = n+m$ \\ $mn=nm$
+	\item Lei do Corte: $n+m = p+m \implies n=p$ \\ $nm=pm \implies n=p$
+\end{enumerate}
+
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Conjuntos Numéricos}
+Outra propriedade importante de $\mathbb{N}$ é conhecida como {\it o Princípio da Boa Ordenação} que é todo subconjunto não-vazio $A \subseteq \mathbb{N}$ possui um menor elemento, isto é, um elemento $n_0 \in A$ tal que $n_o \leq n$ $\forall n \in A$.
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Conjuntos Numéricos}
+
+\begin{itemize}
+ \item $\mathbb{Z}$: \pause dos números inteiros é definido por: $$\mathbb{Z} = \{ 0, \pm 1, \pm 2, \pm 3, \dots \}$$. \pause
+ \item $\mathbb{Q}$: \pause dos números racionais é formado pelas razões de inteiros: $$ \mathbb{Q} = \left\{ \frac{p}{q} ; p,q \in \mathbb{Z} \text{ e } q \neq 0 \right\}$$
+\end{itemize}
+
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Conjuntos Numéricos}
+
+\begin{itemize}
+ \item $\mathbb{R}$: \pause dos números reais pode ser definido como o conjunto de todas as possíveis expansões decimais. Assim, um número real $a,d_{1}d_{2}d_{3}\dots$ pode ser representado por uma ``soma infinita'' de números racionais: $$a + \frac{d_1}{10} + \frac{d_2}{10^2} + \dots $$
+\end{itemize}
+
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Conjuntos Numéricos}
+\textbf{$\mathbb{R}$ é um corpo}, isto é, estão definidas em $\mathbb{R}$ duas operações: adição e multiplicação, que satisfazem as seguintes propriedades:
+\begin{multicols}{2}
+\begin{itemize}
+	\item Associativa: $(x+y)+z = x+(y+z)$ \\ $(xy)z=x(yz)$ \pause
+	\item Comutativa: $x+y=y+x$ \\ $xy=yx$ \\ \pause
+	\item Distributiva: $x(y+z) = xy + xz$ \pause
+	\item Elemento Neutro: \\ existem em $\mathbb{R}$ dois elementos distintos, $0$ e $1$, tais que: $x+0=x$ e $x \cdot 1= x$ para qualquer $x \in \mathbb{R}$
+\end{itemize}
+\end{multicols}
+
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Conjuntos Numéricos}
+{\bf Inversos:} todo $x \in \mathbb{R}$ possui um {\it inverso aditivo} $(-x) \in \mathbb{R}$ tal que $x + (-x) = 0$ e se $x \neq 0$, existe também um {\it inverso multiplicativo} $x^{-1}$ tal que $x \cdot x^{-1} = 1$ \pause
+
+A soma $x + (-y)$ é indicada por $x-y$ e é denominada {\bf diferença}. \pause
+
+O produto $x \cdot y^{-1} $ é indicado por $\frac{x}{y}$ e é denominado {\bf quociente}. \pause
+
+A divisão de $x$ por $y$ só faz sentido se $y \neq 0$. Podemos demonstrar outras propriedades como:
+
+\begin{itemize}
+	\item $xy=0 \implies x =0 \text{ ou } y=0$ \pause
+	\item $x(-y)=(-x)y = -(xy)$ \pause
+	\item $(-x)(-y)=xy$ \pause
+	\item $x^2=y^2 \implies x = \pm y$ \pause
+\end{itemize}
+
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Conjuntos Numéricos}
+{\bf $\mathbb{R}$ é um corpo ordenado}, isto é, existe um subconjunto $\mathbb{R}_{+}^{*} \subset \mathbb{R}$ chamado o conjunto dos números reais positivos, que cumpre duas condições: \pause
+\begin{itemize}
+	\item [p1:] $x,y \in \mathbb{R}_{+}^{*} \implies x+y \in \mathbb{R}_{+}^{*}$ e $xy \in \mathbb{R}_{+}^{*}$ \pause
+	\item [p2:] Dado $x \in \mathbb{R}$, $x=0$ ou $x \in \mathbb{R}_{+}^{*}$ ou $(-x) \in \mathbb{R}_{+}^{*}$ \pause
+\end{itemize}
+
+Escreve-se $x<y$ e diz-se que $x$ é menor que $y$ se $y-x \in \mathbb{R}_{+}^{*}$. \pause
+
+De {\bf p2}, segue que, dados $x,y \in \mathbb{R}$, $y-x=0$ ou $y-x \in \mathbb{R}_{+}^{*}$ ou $x-y \in \mathbb{R}_{+}^{*}$. Ou seja, $x=y$, $x>y$ ou $y>x$. \pause
+
+{\bf $\mathbb{R}$ é um corpo ordenado completo}, isto é, não possui espaços ``vazios'' na reta.
+
+\end{frame}
+
+\begin{frame}{Intervalos}
+
+\textbf{Intervalos:} Um intervalo é um conjunto de números reais com a seguinte propriedade: dados dois números pertencentes ao intervalo, todos os números entre eles também pertencem ao intervalo. \pause
+
+\begin{table}[h!]
+	\centering
+	\begin{tabular}{|c|c|c|c|}
+		\hline
+		&	Notação			& Descrição do conjunto						 & Representação Geométrica \\
+		\hline
+		A	& $(a,b)$		& $\{ x \in \mathbb{R} ; a< x <b \} $		 & 	\\
+		\hline
+		B	& $[a,b]$		& $\{ x \in \mathbb{R} ; a\leq x \leq b \} $ & \\
+		\hline
+		C	& $[a,b)$		& $\{ x \in \mathbb{R} ; a\leq  x <b \} $	 & \\	
+		\hline
+		D	& $(a,b]$		& $\{ x \in \mathbb{R} ; a< x \leq b \} $	 & \\
+		\hline
+		E	& $(a, \infty)$	& $\{ x \in \mathbb{R} ; a< x < \infty \} $  & \\
+		\hline
+		F	& $[a,\infty)$	& $\{ x \in \mathbb{R} ; a \leq x <\infty \}$& \\
+		\hline
+		G	& $(- \infty,b)$& $\{ x \in \mathbb{R} ; - \infty < x <b \} $& \\
+		\hline
+		H	& $(- \infty, b]$& $\{ x \in \mathbb{R} ; -\infty< x \leq b \} $	 & \\
+		\hline
+		I	& $(- \infty, \infty)$ & $\mathbb{R}$ &	\\
+		\hline
+		J	& $[a,a]$		& $\{a\}$									 & \\
+		\hline
+	\end{tabular}
+\end{table}
+ 
+\end{frame}
+
+\begin{frame}{Desigualdades}
+ 
+ \textbf{Desigualdades:} Como um corpo ordenado, $\mathbb{R}$ possui as seguintes propriedades:
+\begin{enumerate}
+	\item $a<b$ e $b<c$ $\implies a<c$; \pause
+	\item $a<b$ $\implies a+c<b+c$ \\ $a<b$ $\implies a-c<b-c$ \pause
+	\item $a<b$ e $c<d$ $\implies a+c<b+d$ \pause
+	\item $a<b$ e $c>0$ $\implies ac<bc$ \\ $a<b$ e $c<0$ $\implies ac>bc$ \pause
+	\item $a>0$ $\implies \frac{1}{a}>0$ \\ $a<0$ $\implies \frac{1}{a}<0$ \pause
+	\item Se $a$ e $b$ são ambos positivos ou ambos negativos, então $a<b$ implica $\displaystyle \frac{1}{a} > \displaystyle \frac{1}{b}$. Se $a$ é negativo e $b$ positivo, então $\displaystyle \frac{1}{a} < \displaystyle \frac{1}{b}$
+\end{enumerate}
+ 
+\end{frame}
+
+\begin{frame}{Valor Absoluto}
+ 
+\textbf{Valor Absoluto:} O valor absoluto de um número $x$ é a distância de $x$ a $0$ na reta real, dada por:
+
+$$|x| = 
+\begin{cases}
+x, \text{  se } x \geq 0 \\
+-x, \text{ se } x \leq 0
+\end{cases}
+$$
+
+$$|x| = \sqrt{x^{2}} $$
+
+ 
+\end{frame}
+
+\begin{frame}{Valor Absoluto}
+ 
+ {\bf Algumas propriedades:}
+\begin{enumerate}
+	\item $|x| = a \Leftrightarrow x = \pm a$ \pause
+	\item $|x| < a \Leftrightarrow -a < x < a$ \pause
+	\item $|x| > a \Leftrightarrow x>a$ ou $x<a$ \pause
+	\item $|-a| = |a|$ \pause
+	\item $|ab|=|a|.|b|$ \pause 
+	\item $|\frac{a}{b}| = \frac{|a|}{|b|}$ \pause
+	\item $|a^{n}| = |a|^{n}$ \pause
+	\item $|a+b| \leq |a| + |b|$ Desigualdade Triangular
+\end{enumerate}
+ 
+\end{frame}
+
+
+
+\begin{frame}
+\frametitle{Equações}
+
+\begin{itemize}
+ \item Equações de 1º Grau: \pause são expressões do tipo $ax+b=0$, com $a \neq 0$, onde $a$ e $b$ são coeficientes da equação e $x$ é a incógnita. \pause
+ 
+A equação do primeiro grau pode não ter solução em $\mathbb{N}$ ou $\mathbb{Z}$, mas sempre possui uma solução em $\mathbb{Q}$ ou $\mathbb{R}$.
+
+\begin{eqnarray*}
+	&  ax + b & = 0 \\ \pause
+	\implies & ax + b - b & = -b \\ \pause
+	\implies & ax & = -b \\ \pause
+	\implies & \displaystyle \frac{ax}{a} & = \displaystyle - \frac{b}{a}\\ \pause
+	\implies & x & = \displaystyle - \frac{b}{a}
+\end{eqnarray*}
+ 
+ \end{itemize}
+
+\end{frame}
+ 
+ \begin{frame}
+\frametitle{Equações}
+
+\begin{itemize}
+ \item Equações de 2º Grau: \pause são expressões do tipo $ax^{2} + bx + c = 0$, com $a \neq 0$, onde $a,b$ e $c$ são coeficientes e $x$ é a incógnita. Nem sempre possui raízes reais, mas possui uma ou duas raízes em $\mathbb{C}$. \pause
+ 
+{\bf Fórmula Geral de Resolução da Equação de 2$^\circ$ Grau:}
+
+\begin{equation}
+x = \displaystyle \frac{-b \pm \displaystyle \sqrt{b^2 - 4ac}}{2ac}
+\end{equation}
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Equações}
+ A existência de raízes reais dependerá do valor de $\Delta = b^2 - 4ac$. Suponha, então que $\Delta \geq 0 $, assim:
+$$x_1 = \displaystyle \frac{-b + \displaystyle \sqrt{b^2 - 4ac}}{2ac}$$
+$$x_2 = \displaystyle \frac{-b - \displaystyle \sqrt{b^2 - 4ac}}{2ac}$$
+
+\pause
+Temos as {\bf Relações de Girard}:
+$$\displaystyle \frac{b}{a} = -x_1 - x_2 \implies - \displaystyle \frac{b}{a} = x_1 + x_2$$
+$$\displaystyle \frac{c}{a} = x_1 x_2$$
+\end{frame}
+
+
+\begin{frame}{Inequações}
+ \textbf{Exemplo 01:}Resolva a desigualdade $x^{2} - 5x + 6 \leq 0$ \pause
+ 
+ Fatorando o lado esquerdo da inequação: $a(x-x_1)(x-x_2) \leq 0$ 
+$$(x-2)(x-3) \leq 0$$
+
+Avaliando o sinal nos intervalos:
+
+Se $x \in (-\infty,2) \implies x < 2$, logo:
+$$x-2<0 \land x-3 < 0 $$
+
+Se $x \in (2,3) \implies 2<x<3$, logo:
+$$x-2 > 0 \land x-3 < 3$$
+
+Se $x \in (3, \infty) \implies x > 3$, logo:
+$$x - 2 > \land x - 3>0$$
+
+\end{frame}
+
+\begin{frame}{Inequações}
+ Assim temos a tabela:
+\begin{table}[h]
+	\centering
+	\begin{tabular}{|c|c|c|c|}
+		\hline
+		Intervalo \ Fator	&	$x-2$	&	$x-3$	&	$(x-2)(x-3)$ \\
+		\hline
+		$x<2$				&	-		&	-		&	+	\\
+		\hline
+		$2<x<3$				&	+		&	-		&	-	\\
+		\hline
+		$x>3$				&	+		&	+		&	+	\\
+		\hline
+	\end{tabular}
+\end{table}
+\end{frame}
+
+
+
+\begin{frame}
+\frametitle{Divisão de Polinômios}
+
+Seja $f(x) = a_0x^n+a_1x^{n-1}+\dots+a_{n-1}x+a_n$ e $g(x)=x-a$. 
+
+Se $f(a)=0$, então existe $q(x)=q_0x^{n-1}+q_1x^{n-2}+\dots+q_{n-2}x+q_{n-1}$ tal que $q(x).g(x)=f(x)$.
+
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Funções Reais de uma Variável Real}
+
+Sejam $D$ e $Y$ conjuntos não-degenerados. Uma função $f:D \rightarrow Y$ é uma regra que associa, a cada elemento $x \in D$, um único elemento $f(x) \in Y$. \pause
+
+Função: \pause É uma relação em que todos os elementos $x$ do conjunto $A$, se relacionam uma {\bf única} vez com os elementos $y$ do conjunto $B$, ou seja, $f: A \rightarrow B$, ou ainda, $(f): \mathbb{R} \rightarrow \mathbb{R}$, ou simplesmente $(f): X\rightarrow Y = f(x)$, na prática escrevemos $y = f(x)$. \pause
+
+O conjunto $D$ é denominado domínio da função. O conjunto $Y$ é denominado contra-domínio. A imagem da função $f$ é o conjunto formado por todos os pontos $y \in Y$ tais que existe um $x_0 \in D$ com $f(x_0) = y$. Note que $Im(f) \subset Y$, mas não necessariamente a imagem possui todos os elementos do contra-domínio.
+\end{frame}
+
+\begin{frame}{Funções definidas por partes}
+ Uma função pode ser descrita por fórmulas diferentes a partes diferentes de seu domínio. Por exemplo, a função valor absoluto. \pause
+
+$$|x| = 
+\begin{cases}
+x, \text{  se } x \geq 0 \\
+-x, \text{ se } x < 0
+\end{cases}
+$$
+\end{frame}
+
+\begin{frame}{Simetrias}
+ Uma função $y=f(x)$ é dita:
+\begin{itemize}
+	\item par, se $f(-x) = f(x)$, $\forall x \in D$; \\ Simetria em relação ao eixo $y$.
+	\item ímpar, se $f(-x) = -f(x)$, $\forall x \in D$. \\ Simetria em relação à origem.
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Funções Monótonas}
+
+Uma função $f:D \rightarrow \mathbb{R}$, com $D \subset \mathbb{R}$, chama-se:
+\begin{itemize}
+	\item não-decrescente, se $x<y \Rightarrow f(x) \leq f(y)$;
+	\item não-crescente, se $x<y \Rightarrow f(x) \geq f(y)$;
+	\item crescente, se $x<y \Rightarrow f(x) < f(y)$;
+	\item decrescente, se $x<y \Rightarrow f(x) > f(y)$.
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Composição de Funções}
+Sejam $A$, $B$ e $C$ conjuntos e sejam as funções $f:A \rightarrow B$ e $g: B \rightarrow C$. A função $ g \circ f : A \rightarrow C$ é definida por:
+$$(g \circ f)(x) = g(f(x))$$
+
+Note que $g \circ f$ costuma ser diferente de $ f \circ g$.
+
+\end{frame}
+
+\begin{frame}{Funções}
+ Uma função $f:D \rightarrow Y$ é dita {\it injetora} se $f(x_1) \neq f(x_2)$ sempre que $x_1 \neq x_2$ em $D$. Em outras palavras, $f$ é injetora se $f(x_1) = f(x_2)$ implica em $x_1 = x_2$. Para cada $y = f(x)$ só há um $x$ que satisfaça.
+ \pause
+ 
+ Uma função $f:D \rightarrow Y$ é dita {\it sobrejetora} se, para cada $y \in Y$, existe $x \in D$ tal que $f(x) = y$. Ou seja, $f$ é sobrejetora se $Im(f) = Y$. \pause
+
+Observe que se restringirmos o contra-domínio à imagem, ou seja, tomarmos $f: D \rightarrow Im(f)$ pela mesma lei de formação, teremos uma função sobrejetora.
+\end{frame}
+
+
+\begin{frame}{Funções}
+Uma função injetora e sobrejetora é dita {\it bijetora}. \pause
+
+Se $f: D \rightarrow Y$ é bijetora, então, para cada $y \in Y$, existe um único $x \in D$ tal que $f(x)=y$. \pause
+
+Assim, podemos definir $f^{-1}:Y \rightarrow D$ por 
+$$f^{-1}(y) = x \text{ se } f(x) = y$$ \pause
+
+Temos que:
+
+$f \circ f^{-1}(y) = f(f^{-1}(y)) = f(x) = y$ 
+
+$f^{-1} \circ f(x) = f^{-1}(f(x)) = f^{-1}(y) = x $
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Principais Funções Elementares}
+
+\begin{itemize}
+ \item Função Polinomial: \pause $$f(x) = a_0+a_1x+a_2x^2+\dots+a_nx^n$$ \pause
+ \item Função Racional: \pause $$f(x) = \frac{p(x)}{q(x)},$$ onde $p$ e $q$ são funções polinomiais. O domínio de $f$ é $\{x \in \mathbb{R}; q(x) \neq 0 \}$ \pause
+ \item Funções Trigonométricas: \pause $\sin (\alpha) = \displaystyle \frac{b}{a}$ e $\cos(\alpha) = \displaystyle \frac{c}{a}$
+\end{itemize}
+
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Principais Funções Elementares}
+
+\begin{itemize}
+ \item Função Exponencial: \pause A função exponencial de base $a$ é dada por $f(x) = a^{x}$. Se $x = \frac{p}{q}$ é um número racional, então:
+$$a^{\frac{p}{q}} = \sqrt[q]{a^p} = (\sqrt[q]{a})^{p}$$ \pause
+
+Consideramos sempre $a>0$ e $a \neq 1$. \pause
+
+\textbf{Algumas propriedades:}
+\begin{enumerate}
+	\item $a^{x} \cdot a^{y} = a^{x+y}$; \pause
+	\item $\displaystyle \frac{a^{x}}{a^{y}} = a^{x-y}$; \pause
+	\item $(a^{x})^{y} = a^{xy}$ \pause
+\end{enumerate}
+
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Principais Funções Elementares}
+ \begin{itemize}
+   \item Função Logarítmica: \pause A função logarítmica de base $a$ é a inversa da função exponencial de base $a$, ou seja:
+$$\log_{a}x = y \Leftrightarrow a^{y} = x$$ \pause
+
+Seu domínio é $(0, \infty)$ e sua imagem é $(- \infty, \infty)$ \pause
+
+Algumas bases recebem notação especial:
+$$\log_{a}x = \log(x)$$
+$$\log_{e}x = \ln(x)$$
+ \end{itemize}
+
+\end{frame}
+
+\end{document}
+

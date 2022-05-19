@@ -1,0 +1,1474 @@
+\documentclass[oneside,a4paper,12pt]{article}
+\usepackage[english,brazilian]{babel}
+\usepackage{multicol}
+\usepackage{textcomp}
+\usepackage[alf]{abntex2cite}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb,exscale}
+\usepackage[top=20mm, bottom=20mm, left=20mm, right=20mm]{geometry}%margens cima, baixo, esquerda direita
+\usepackage{framed}
+\usepackage{booktabs} %Pacote para deixar tabelas mais bonitas.
+\usepackage{color} %Pacote de Cores
+\usepackage{hyperref} %Pacotes para Hiperlinks
+\usepackage{graphicx} %Pacote de imagens
+\usepackage{subfigure,epsfig}
+\graphicspath{{./Figuras/}}%Direciona as imagens para uma pasta chamada "Figuras" (uso isso para organizar. Uma vez que todas as imagens vao ficar em uma pasta isolada)    
+\definecolor{shadecolor}{rgb}{0.8,0.8,0.8}
+
+\usepackage{pgf,tikz,pgfplots}
+\pgfplotsset{compat=1.15}
+\usepackage{mathrsfs}
+\usetikzlibrary{arrows}
+
+%%%%%
+
+\newtheorem{proposition}{Proposição}[section]
+\newtheorem{theorem}{Teorema}[section]
+\newtheorem{lemma}{Lema}[section]
+\newtheorem{definition}{Definição}[section]
+\newtheorem{conjecture}{Conjectura}[section]
+\newtheorem{corollary}{Corolário}[section]
+
+%%% ARRUMANDO O SEN, COS, TG, ...
+\newcommand{\sen}{{\rm sen}}
+
+%%%%%
+
+%FAZ EDICOES AQUI (somente no conteudo que esta entre entre as ultimas  chaves de cada linha!!!)
+\newcommand{\universidade}{Universidade Tecnológica Federal do Paraná}
+\newcommand{\centro}{Câmpus Cornélio Procópio}
+\newcommand{\departamento}{Departamento Acadêmico de Matemática}
+\newcommand{\curso}{Turma Especial}
+\newcommand{\professores}{Matheus Pimenta}
+\newcommand{\disciplina}{Estatística}
+%\newcommand{\tema}{Lista 01}
+%\newcommand{\turma}{MA31G}
+%\newcommand{\data}{Março de 2019}%{\today}
+%\newcommand{\tempodeaula}{30 minutos}
+%\newcommand{\prerequisitos}{Matrizes, Transformações Lineares e Bases}
+%ATE AQUI !!!	
+
+\begin{document}
+
+	
+	\begin{center}
+		\includegraphics[width=\linewidth/8]{logo.jpg}%LOGOTIPO DA INSTITUICAO
+	 	\vspace{2pt} 	
+		
+		\universidade
+		\par
+		\centro
+		\par
+		\departamento
+		\par
+	%	Curso de \curso
+		\par
+		\vspace{12pt}
+		\LARGE \textbf{Notas de Aula \\ (em desenvolvimento) \\ Baseado no livro: Estatística Básica, Morettin}
+		
+	\end{center}
+	
+	\vspace{12pt}
+	
+	\begin{tabular}{ |l|p{12cm}| }
+		
+		\hline
+		\multicolumn{2}{|c|}{\textbf{Dados de Identificação}} \\
+		\hline
+		Professor:         &    \professores           \\
+		\hline
+		Disciplina:        &    \disciplina          \\
+		\hline
+	%	Tema:              &    \tema                \\
+	%	\hline
+	%	Pré-requisito	:  &    \prerequisitos         \\
+	%	\hline
+	%	Aluno:             &                   \\
+	%	\hline
+	%	Data:              &    \data                \\
+	%	\hline
+	%	Duração da aula:   &    \tempodeaula         \\
+	%	\hline
+		
+	\end{tabular}
+	\vspace{6pt}
+	
+	\begin{snugshade}
+	\end{snugshade}
+	\begin{center}
+		Tabela para valores de $Z_{\alpha}$.
+		\begin{table}[h]
+			\small
+			\begin{tabular}{|c|cccccccccc|}
+				\hline
+				Nível de Confiança	& $99,73$\% & $99$\% & $98$\% & $96$\% & $95,45$\% & $95$\% & $90$\% & $80$\% & $68,27$\% & $50$\% \\ \hline
+				$Z_{\alpha}$	& $3,00$ & $2,58$ & $2,33$ & $2,05$ & $2,00$ & $1,96$ & $1,645$ & $1,28$ & $1,00$ & $0,6745$ \\ \hline
+			\end{tabular}
+		\end{table}
+	\end{center}
+	\begin{snugshade}
+	\end{snugshade}
+	
+	
+	\begin{snugshade}
+		\section{Probabilidade}
+	\end{snugshade}
+
+\subsection{Espaço Amostral}
+
+\subsubsection{Introdução}
+
+%{\huge
+	 Na natureza encontramos dois tipos de fenômenos: {\it determinísticos} e {\it aleatórios}.
+
+ Os fenômenos determinísticos são aqueles que o resultado são sempre iguais, qualquer que seja o número de ocorrências verificadas. Por exemplo, a temperatura que a água entra em ebulição.
+
+ Já os fenômenos aleatórios são do tipo que não podem ser previsíveis, mesmo que haja um grande número de repetições do mesmo fenômeno. Como exemplo pode se citar a produção de determinada lavoura, cada planta poderá produzir um tanto de produto final, mesmo que as condições sejam as mesmas para todas.
+
+ Os {\it experimentos aleatórios} são os fenômenos que mesmo com as mesmas condições iniciais, os resultados finais de cada tentativa do experimento são diferentes e não previsíveis.
+
+ Alguns exemplos:
+{\begin{enumerate}
+	\item lançamento de uma moeda honesta;
+	\item lançamento de um dado;
+	\item retirada de uma carta de um baralho de $52$ cartas;
+\end{enumerate}}
+
+
+  Os resultados, obtidos pelos experimentos aleatórios não são previsíveis, que é chamado de {\it evento aleatório}.
+
+  No exemplo $1$, os eventos aleatórios associados são: {\it cara} ou {\it coroa}, já no exemplo $2$ os eventos aleatórios associados são as faces do dados que poderão ocorrer $1, 2, 3, 4, 5$ ou $6$.
+
+\subsubsection{Espaço Amostral}
+
+ O {\it espaço amostral} de um experimento aleatório é o conjunto dos resultados do experimento. Os {\it pontos amostrais} são os elementos do espaço amostral. 
+
+ A notação do espaço amostral é: $\Omega$.
+
+ Nossos exemplos anteriores, os espaços amostrais são:
+\begin{enumerate}
+	\item $\Omega = \{ cara, coroa \}$
+	\item $\Omega = \{ 1,2,3,4,5,6 \}$
+	\item $\Omega = \{ A_O,\dots,K_O, A_P,\dots,K_P, A_E,\dots, K_E, A_C,\dots, K_C \}$
+\end{enumerate}
+
+
+ O evento aleatório pode ser um único ponto no espaço amostral, mas também pode ser a reunião deles. Por exemplo, ao lançarmos dois dados, verifique os seguintes eventos:
+
+\begin{enumerate}
+	\item saída de faces iguais;
+	\item saída de faces cuja a soma seja igual a 10;
+	\item saída de faces cuja a soma seja inferior a 2;
+	\item saída de faces cuja a soma seja inferior a 15;
+	\item saída de faces onde uma  face é o dobro da outra;
+\end{enumerate}
+
+Para determinar qual é o espaço amostral, podemos utilizar uma tabela ou um diagrama de árvore.
+
+\begin{center}
+	{\bf TABELA E DIAGRAMA DE ÁRVORE}
+\end{center}
+
+Assim, os eventos pedidos são:
+\begin{enumerate}
+	\item $\Omega = \{ (1,1), (2,2), (3,3), (4,4), (5,5), (6,6) \}$
+	\item $\Omega = \{ (4,6), (5,5), (6,4) \}$
+	\item $\Omega = \varnothing$ (evento impossível)
+	\item $\Omega = \Omega$ (evento certo)
+	\item $\Omega = \{ (1,2), (2,1), (2,4), (3,6), (4,2), (6,3) \}$
+\end{enumerate}
+
+\subsubsection{Operações com Eventos Aleatórios}
+
+Considere o espaço amostral finito $\Omega = \{ e_1, e_2, \dots, e_n \}$. Sejam $A$ e $B$ dois eventos da classe de eventos $F(\Omega)$. As operações a seguir estão definidas:
+
+\begin{itemize}
+	\item Reunião:
+	
+	{\bf Definição:} $A \cup B = \{ e_i \in \Omega; e_i \in A \lor e_i \in B \}$, $i = 1,\dots,n$.
+	
+	O {\it evento reunião} é formado pelos pontos amostrais que pertencem a pelo menos um dos eventos.
+	
+	\begin{center}
+		{\bf DIAGRAMA DE VEEN}
+	\end{center}
+	
+	\item Interseção:
+	
+	{\bf Definição:} $A \cap B = \{ e_i \in \Omega; e_i \in A \land e_i \in B \}$, $i = 1,\dots,n$
+	
+	O {\it evento interseção} é formado pelos pontos amostrais que pertencem simultaneamente aos eventos $A$ e $B$. Se $A \cap B = \varnothing$ dizemos que $A$ e $B$ são {\it eventos mutualmente exclusivos}.
+	
+	\begin{center}
+	{\bf DIAGRAMA DE VEEN}
+	\end{center}	
+	
+	\item Complementação:
+	
+	{\bf Definição:} $\Omega - A = \bar{A} = \{ e_i \in \Omega; e_i \notin A \}$	
+	
+	\begin{center}
+		{\bf DIAGRAMA DE VEEN}
+	\end{center}
+	
+\end{itemize}
+
+{\bf Exemplo:} Lançam-se duas moedas. Sejam $A$: saída de faces iguais; e $B$: saída de cara na primeira moeda.
+
+Determine os eventos:$A \cup B$, $A \cap B$, $\bar{A}$, $\bar{B}$, $(\bar{A}\bar{\cup}\bar{B})$, $(\bar{A}\bar{\cap}\bar{B})$, $(\bar{A}\cup\bar{B})$, $(\bar{A}\cap\bar{B})$, $B - A$, $A - B$, $\bar{A} \cap B$ e $\bar{B} \cap A$.
+
+{\it Resolução:}
+
+$\Omega = \{ (c,c), (c,k), (k,c), (k,k) \}$
+
+$A = \{ (c,c), (k,k) \}$
+
+$B = \{ (c,c), (c,k) \}$
+
+$A\cup B = \{ (c,c), (c,k), (k,k)  \}$
+
+$A\cap B = \{ (c,c)  \}$
+
+$\bar{A} = \{ (c,k), (k,c) \}$
+
+$\bar{B} = \{ (k,c), (k,k) \}$
+
+$(\bar{A}\bar{\cup}\bar{B}) = \{ (k,c) \}$
+
+$(\bar{A}\bar{\cap}\bar{B}) = \{ (c,k), (k,c), (k,k) \}$
+
+$(\bar{A}\cap\bar{B}) = \{ (k,c) \}$
+
+$(\bar{A}\cup\bar{B}) = \{ (c,k), (k,c), (k,k) \}$
+
+$B - A = \{ (c,k) \}$
+
+$A - B = \{ (k,k) \}$
+
+$\bar{A}\cap B = \{ (c,k) \}$
+
+$\bar{B} \cap A = \{ (k,k) \}$
+
+\subsubsection{Propriedades das Operações}
+
+ Sejam $A,B$ e $C$ eventos associados a um espaço amostral $\Omega$. As propriedades a seguir são válidas:
+
+\begin{enumerate}
+	\item Comutativa:
+	
+	$A \cup B = B \cup A$
+	
+	$A \cap B = B \cap A$
+	
+	\item Idempotentes:
+	
+	$A \cup A = A$
+	
+	$A \cap A = A$
+	
+	\item Associativas
+	
+	$A \cap (B \cap C) = (A \cap B) \cap C$
+	
+	$A \cup (B \cup C) = (A \cup B) \cup C$
+	
+	\item Distributivas:
+	
+	$A \cup (B \cap C) = (A \cup B)\cap (A \cup C)$
+	
+	$A \cap (B \cup C) = (A \cap B)\cup (A \cap B)$
+	
+	\item Identidades:
+	
+	$A \cap \Omega = A$
+	
+	$A \cup \Omega = \Omega$
+	
+	$A \cap \varnothing = \varnothing$
+	
+	$A \cup \varnothing = A$
+	
+\end{enumerate}
+
+\subsection{Probabilidade}
+
+\subsubsection{Função de Probabilidade}
+
+\begin{definition}
+É a função $P$ que associa a cada evento de $F$ um número real pertencente ao intervalo $[0,1]$, que satisfaz os seguintes axiomas:
+\begin{itemize}
+\item $P(\Omega) = 1$;
+\item $P(A \cup B) = P(A) + P(B)$, se $A$ e $B$ forem mutualmente exclusivos;
+\item $P\left( \displaystyle\cup_{i=1}^{n} A_i \right) = \displaystyle \sum_{i = 1}^{n}P(A_i)$, se $A_1,A_2,\dots,A_n$ forem, dois a dois, eventos mutualmente exclusivos.
+\end{itemize}
+
+\end{definition}
+
+Pela definição acima, temos que $0\leq P(A) \leq 1$, para todo evento $A$, tal que $A \subset \Omega$.
+
+\subsubsection{Teoremas}
+
+\begin{theorem}
+	Se os eventos $A_1,A_2,\dots,A_n$ formam uma partição do espaço amostral, então:
+	$$\displaystyle \sum_{i = 1}^{n}P(A_i) = 1$$
+\end{theorem}
+
+\begin{theorem}
+	Se $\varnothing$ é o evento impossível, então:
+	$$P(\varnothing) = 0$$
+\end{theorem}
+
+\begin{theorem}[do evento complementar]
+	Para todo evento $A \subset \Omega$, é valido:
+	$$P(A) + P(\bar{A}) = 1$$
+\end{theorem}
+
+\begin{theorem}[da soma]
+	Sejam $A \subset \Omega$ e $B \subset \Omega$. Então:
+	$$P(A \cup B) = P(A) + P(B) - P(A \cap B)$$
+\end{theorem}
+
+\begin{theorem}
+	Para $A \subset \Omega$ e $B \subset \Omega$, temos:
+	$$P(A \cup B) \leq P(A) + P(B)$$
+\end{theorem}
+
+\begin{theorem}
+	Dado o espaço amostral $\Omega$ e os eventos $A_1, A_2, \dots, A_n$, então:
+	$$P\left( \displaystyle \cup_{i=1}^{n} A_i \right) = \displaystyle \sum_{i = 1}^{n}P(A_i) - \displaystyle \sum_{i \neq j}^{n}P(A_i \cap A_j) + \displaystyle \sum_{i \neq j \neq k}^{n}P(A_i \cap A_j \cap A_k) - \dots + (-1)^{n-1}P(A_1\cap\dots\cap A_n)$$
+\end{theorem}
+
+\begin{theorem}
+	Dados os eventos $A_1,A_2,\dots,A_n$, então:
+	$$P\left( \displaystyle \cup_{i=1}^{n} A_i \right) \leq \displaystyle \sum_{i = 1}^{n}P(A_i)$$
+\end{theorem}
+
+\subsubsection{Eventos Equiprováveis}
+
+Considere o espaço amostral $\Omega = \{ e_1, e_2, \dots, e_n\}$ associado a um experimento aleatório.
+
+Os eventos $e_i$, $i=1,\dots,n$ são {\it equiprováveis} quando $P(e_1) = P(e_2) = \dots = P(e_n) = p$, isto é, todos possuem a mesma probabilidade de ocorrer, isto é:
+$$p = \frac{1}{n}$$
+
+Assim, se o evento é equiprovável, a probabilidade de cada um dos pontos amostrais ocorrer é de: $\displaystyle \frac{1}{n}$.
+
+{\bf Exemplo 01:} Retira-se uma carta de um baralho completo de $52$ cartas. Qual a probabilidade de sair um $rei$ ou uma {\it carta de espadas}?
+
+{\it Solução:}
+
+Seja $A$: retirar um $rei$ e $B$: retirar uma {\it carta de espadas}.
+
+Então:
+$A = \{ R_O, R_E, R_C, R_P\} \implies P(A) = \displaystyle \frac{4}{52}$
+
+$B = \{A_E, \dots, R_E\} \implies P(B) = \displaystyle \frac{13}{52}$
+
+Se observarmos que $P(A \cap B) = \{R_E\}$, logo $P(A \cap B) = \displaystyle \frac{1}{52}$.
+
+Logo, $P(A \cup B) = P(A) + P(B) - P(A \cap B)$ e assim, 
+$$P(A \cup B) = \frac{4}{52} + \frac{13}{52} - \frac{1}{52}$$
+e assim:
+$$P(A \cup B) = \frac{16}{52}$$
+\begin{flushright}
+	$\blacksquare$
+\end{flushright}
+
+{\bf Exemplo 02:} O seguinte grupo de pessoas está numa sala: $5$ rapazes com mais de $21$ anos, $4$ rapazes com menos de $21$ anos, $6$ moças com mais de $21$ anos e $3$ moças com menos de $21$ anos. Uma pessoa é escolhida ao acaso entre as $18$. Os seguintes eventos são definidos:
+\begin{enumerate}
+	\item[A:] a pessoa tem mais de $21$ anos;
+	\item[B:] a pessoa tem menos de $21$ anos;
+	\item[C:] a pessoa é um rapaz;
+	\item[D:] a pessoa é uma moça;
+\end{enumerate}
+
+Determine:
+\begin{itemize}
+	\item[a)] $P(B \cup D)$;
+	\item[b)] $P(\bar{A} \cap \bar{C})$
+\end{itemize}
+
+{\it Solução:}
+
+Temos que nosso espaço amostral é definido por:
+
+$\Omega = \{ 5R, 4r, 6M, 3m \} \therefore p = \displaystyle \frac{1}{18}$
+
+$A = \{ 5R, 6M \} \implies P(A) = \displaystyle \frac{11}{18}$
+
+$B = \{ 4r, 3m \} \implies P(B) = \displaystyle \frac{7}{18}$
+
+$C = \{ 5R, 4r \} \implies P(C) = \displaystyle \frac{9}{18}$
+
+$D = \{ 6M, 3m \} \implies P(D) = \displaystyle \frac{9}{18}$
+
+$a) P(B \cup D) = P(B) + P(D) - P(B \cap D)$
+
+De $B \cap D = \{3m\}$, segue que $P(B \cap D) = \displaystyle \frac{3}{18}$
+
+Disto,
+$$P(B \cup D) = \frac{7}{18} + \frac{9}{18} - \frac{3}{18} = \frac{13}{18}$$
+
+$b) P(\bar{A} \cap \bar{C}) = P(\bar{A} \bar{\cup} \bar{C}) = 1 - P(A \cup C) = 1 - \{ P(A) + P(C) - P(A \cap C) \}$
+
+Como $A \cap C = \{ 5R \}$ e $P(A \cap C) = \displaystyle \frac{5}{18}$, segue que:
+
+$$P(\bar{A} \cap \bar{C}) = 1 -  \left\{ \frac{11}{18} + \frac{9}{18} - \frac{5}{18} \right\} = \frac{3}{18} = \frac{1}{6}  $$
+
+Portanto, $P(\bar{A} \cap \bar{C}) = \displaystyle \frac{1}{6}$.
+
+\begin{flushright}
+	$\blacksquare$
+\end{flushright}
+
+\subsubsection{Probabilidade Condicional}
+
+\begin{definition}
+
+Sejam $A \subset \Omega$ e $B \subset \Omega$. Definimos como {\it probabilidade condicional de $A$, dado que $B$ ocorre $(A/B)$} como:
+
+$$P(A/B) = \frac{P(A \cap B)}{P(B)} \text{, se } P(B) \neq 0$$
+ou no caso de $(B/A)$:
+$$P(B/A) = \frac{P(B \cap A)}{P(A)} \text{, se } P(A) \neq 0$$
+
+\end{definition}
+
+{\bf Exemplo 01:} Considere $250$ alunos que cursam faculdade. Destes alunos, $100$ são homens $(H)$ e $150$ são mulheres $(M)$; $110$ cursam física $(F)$ e $140$ cursam $(Q)$. A distribuição dos alunos é a seguinte:
+
+Cursam física: $40$ homens e $70$ mulheres;
+
+Cursam química: $60$ homens e $80$ mulheres;
+
+Um aluno é sorteado ao acaso, qual a probabilidade de que esteja cursando química, dado que é mulher?
+
+{\it Solução:}
+
+Com os dados acima, verificamos que a probabilidade de $\displaystyle \frac{80}{150}$.
+
+Para definirmos esse resultado, note que:
+A probabilidade $P(M \cap Q) = \displaystyle \frac{80}{250}$ e $P(M) = \displaystyle \frac{150}{250}$.
+
+Utilizando a fórmula de probabilidade condicional, segue que:
+$$P(Q/M) = \frac{\frac{80}{250}}{\frac{150}{250}} = \frac{80}{150}$$
+
+\begin{flushright}
+	$\blacksquare$
+\end{flushright}
+
+
+{\bf Exemplo 02:} Sendo $P(A) = \displaystyle \frac{1}{3}$, $P(B) = \displaystyle \frac{3}{4}$ e $P(A \cup B) = \displaystyle \frac{11}{12}$, calcule $P(A/B)$.
+
+{\it Solução:}
+
+Temos que: 
+$P(A/B) = \frac{P(A \cap B)}{P(B)} \text{, se } P(B) \neq 0$, devemos determinar o valor de $P(A \cap B)$.
+
+Para isso, lembre-se de:
+
+$P(A \cup B) = P(A) + P(B) - P(A \cap B)$, disso segue que:
+
+$\displaystyle \frac{11}{12} = \displaystyle \frac{1}{3} + \displaystyle \frac{3}{4} - P(A \cap B)$
+
+O que resulta em:
+$P(A \cap B) = \displaystyle \frac{2}{12} = \displaystyle \frac{1}{6}$.
+
+Logo, $P(A/B) = \displaystyle \frac{\frac{1}{6}}{\frac{3}{4}} = \displaystyle \frac{2}{9}$.
+
+\begin{flushright}
+	$\blacksquare$
+\end{flushright}
+
+\begin{theorem}[do Produto]
+	Sejam $A \subset \Omega$ e $B \subset \Omega$. Então, $P(A \cap B) = P(B) \cdot P(A/B)$ ou $P(A \cap B) = P(A) \cdot P(B/A)$.
+\end{theorem}
+
+{\bf Exemplo 03:} Duas bolas vão ser retiradas de uma urna que contém $2$ bolas brancas, $3$ pretas e $4$ verdes. Qual a probabilidade de que ambas sejam:
+\begin{itemize}
+	\item[a)] verdes;
+	\item[b)] da mesma cor.
+\end{itemize}
+
+{\it Solução:}
+
+$a) P(V \cap V) = P(V) \cdot P(V/V) = \displaystyle \frac{4}{9} \cdot \displaystyle \frac{3}{8} = \displaystyle \frac{1}{6}$
+
+$b) P(MC) = P(B\cap B) + P(P \cap P) + P(V \cap V)$
+
+Disso segue que:
+
+$P(MC) = \displaystyle \frac{2}{9} \cdot \displaystyle \frac{1}{8} + \displaystyle \frac{3}{9} \cdot \displaystyle \frac{2}{8} + \displaystyle \frac{4}{9} \cdot \displaystyle \frac{3}{8}$
+
+$P(MC) = \displaystyle \frac{20}{75} = \displaystyle \frac{5}{18}$.
+
+\begin{flushright}
+	$\blacksquare$
+\end{flushright}
+
+\subsubsection{Eventos Independentes}
+
+\begin{definition}
+	Sejam $A \subset \Omega$ e $B \subset \Omega$. $A$ e $B$ serão independentes se: $P(A/B) = P(A)$ e $P(B/A) = P(B)$.
+	
+	Em outras palavras, $A$ e $B$ são independentes se:
+	$$P(A \cap B) =P(A)\cdot P(B)$$
+\end{definition}
+
+{\bf Exemplo 01:}
+
+Lançam-se $3$ moedas. Verifique se são independentes os eventos:
+\begin{itemize}
+	\item[A)] saída de cara na primeira moeda;
+	\item[B)] saída de coroa da segunda e terceira moedas. 
+\end{itemize}
+
+{\it Solução:}
+
+Temos que:
+
+$\Omega = \{ (c,c,c), (c,c,k), (c,k,c), (c,k,k), (k,c,c), (k,c,k), (k,k,c), (k,k,k) \}$
+
+$A = \{ (c,c,c), (c,c,k), (c,k,c), (c,k,k) \} \therefore P(A) = \displaystyle \frac{4}{8} = \displaystyle \frac{1}{2}$
+
+$B = \{ (c,k,k), (k,k,k) \} \therefore P(B) = \displaystyle \frac{2}{8} = \displaystyle \frac{1}{4}$
+
+Logo,
+$$P(A)\cdot P(B) = \frac{1}{2}\cdot \frac{1}{4} = \frac{1}{8}$$
+
+Como:
+
+$A \cap B = \{ (c,k,k)\}$ e $P(A \cap B) = \displaystyle \frac{1}{8}$ segue que $A$ e $B$ são eventos independentes, pois $P(A \cap B) =P(A)\cdot P(B)$.
+
+\begin{flushright}
+	$\blacksquare$
+\end{flushright}
+
+Para verificar se três eventos são independentes, deve-se verificar as $4$ proposições a seguir:
+
+\begin{enumerate}
+	\item $P(A \cap B \cap C) = P(A) \cdot P(B) \cdot P(C)$
+	\item $P(A \cap B) = P(A) \cdot P(B)$
+	\item $P(A \cap C) = P(A) \cdot P(C)$
+	\item $P(B \cap C) = P(B) \cdot P(C)$
+\end{enumerate}
+
+Todas as propriedades devem ser satisfeitas.
+
+Se $A$ e $B$ são {\it mutualmente exclusivos}, então $A$ e $B$ são {\it dependentes}, pois se $A$ ocorre, $B$ não ocorre, ou seja, a ocorrência de um evento condiciona a não ocorrência do outro.
+
+{\bf Exemplo 02:} Sejam $A$ e $B$ eventos tais que $P(A) = 0,2$, $P(B) = P$ e $P(A \cap B) = 0,6$. Calcular $P$ considerando $A$ e $B$:
+\begin{itemize}
+	\item[a)] mutualmente exclusivos;
+	\item[b)] independentes
+\end{itemize}
+
+{\it Solução:}
+
+$a)$ $A$ e $B$ mutualmente exclusivos $\implies P(A \cap B) = 0$.
+
+Como,
+$$P(A \cup B) = P(A) + P(B) - P(A \cap B) \implies 0,6 = 0,2 + P - 0 \therefore P=0,4$$
+
+$b)$ $A$ e $B$ independentes $\implies P(A \cap B) = P(A) \cdot P(B) = 0,2 \cdot P$
+
+Como,
+
+$$P(A \cup B) = P(A) + P(B) - P(A \cap B) \implies 0,6 = 0,2 + P - 0,2P \implies 0,4 = 0,8P \therefore P = 0,5$$
+
+\begin{flushright}
+	$\blacksquare$
+\end{flushright}
+
+
+Se os eventos $A_1,A_2,\dots,A_n$ são independentes, então:
+$$P\left( \displaystyle \cap_{i=1}^{n} A_i \right) = \prod_{i=1}^{n} P(A_i)$$
+
+\subsubsection{Teorema de Bayes}
+
+\begin{theorem}[da probabilidade total]
+	Sejam $A_1, A_2, \dots, A_n$ eventos que formam uma partição do espaço amostral. Seja $B$ um evento desse espaço, então:
+	$$P(B) = \sum_{i=1}^{n}P(A_i)\cdot P(B/A_i)$$
+\end{theorem}
+
+{\bf Exemplo 01:} Uma urna contém $3$ bolas brancas e $2$ amarelas. Uma segunda urna contém $4$ bolas brancas e $2$ amarelas. Escolhe-se, ao acaso, uma urna e dela retira-se, também ao acaso, uma bola. Qual a probabilidade de que seja branca?
+
+{\it Solução:}
+
+
+Seja urna $I$ e urna $II$. A probabilidade de se escolher a urna $I$ é:
+
+$P(I) = \displaystyle \frac{1}{2}$ e $P(II) = \displaystyle \frac{1}{2}$
+
+Agora, a probabilidade de se retirar uma bola branca da urna $I$ é dada por:
+
+$P(B/I) = \displaystyle \frac{3}{5}$ e $P(B/II) = \displaystyle \frac{4}{6} = \displaystyle \frac{2}{3}$.
+
+Assim, a escolha da bola branca pode ser dada por:
+
+$B = (B \cap I) \cup (B \cap II)$ e assim:
+
+$P(B) = P(B \cap I) + P(B \cap II)$
+
+$P(B) = P(I)\cdot P(B/I) + P(II)\cdot P(B/II)$ 
+
+$$\therefore P(B) = \frac{1}{2}\cdot \frac{3}{5} + \frac{1}{2}\cdot \frac{2}{3} = \frac{19}{30}$$
+
+\begin{flushright}
+	$\blacksquare$
+\end{flushright}
+
+\begin{theorem}[de Bayes]
+	Sejam $A_1,A_2,\dots,A_n$ eventos que formam uma partição do $\Omega$. Seja $B \subset \Omega$. Sejam conhecidas $P(A_i)$ e $P(B/A_i)$, $i = 1,2,\dots,n$. Então:
+	$$P(A_j/B) = \frac{P(A_j)\cdot P(B/A_j)}{\displaystyle \sum_{i=1}^{n}P(A_i)\cdot P(B/A_i)}$$
+\end{theorem}
+
+{\bf Exemplo 01:} A urna $A$ contém $3$ fichas vermelhas e $2$ azuis, e a urna $B$ contém $2$ vermelhas e $8$ azuis. Joga-se uma moeda honesta. Se a moeda der cara, extrai-se uma ficha da urna $A$; se der coroa, extrai-se uma ficha da urna $B$. Uma ficha vermelha é extraída. Qual a probabilidade de ter saído cara no lançamento?
+
+{\it Solução:}
+
+Buscamos determinar $P(C/V)$.
+
+Assim:
+
+$P(C) = \displaystyle \frac{1}{2}$ e $P(K) = \displaystyle \frac{1}{2}$.
+
+E assim,
+
+$P(V/C) = \displaystyle \frac{3}{5}$ e $P(V/K) = \displaystyle \frac{2}{10}$
+
+Como:
+
+$$P(V) = P(C \cap V) + P(K \cap V)$$
+
+Segue que:
+
+$$P(V) = P(C) \cdot P(V/C) + P(K) \cdot P(V/K)$$
+$$\therefore$$
+$$P(V) = \displaystyle \frac{1}{2}\cdot \displaystyle \frac{3}{5} + \displaystyle \frac{1}{2} \cdot \displaystyle \frac{2}{10} = \displaystyle \frac{4}{10}$$
+
+Vamos determinar agora $P(C/V)$:
+
+$$P(C/V) = \frac{P(V \cap C)}{P(V)} = \frac{\frac{3}{10}}{\frac{4}{10}} = \frac{3}{4}$$
+
+\begin{flushright}
+	$\blacksquare$
+\end{flushright}
+
+\subsection{Variáveis Aleatórias Discretas}
+
+\begin{center}
+	{\it Exemplo a ser discutido em sala de aula.}
+\end{center}
+
+\subsubsection{Definições}
+
+\begin{definition}[Variável Aleatória]
+	É a função que associa a todo evento pertencente a uma partição do espaço amostral um único valor real.
+	
+	No caso discreto, a variável deve assumir valores em um conjunto finito ou em um conjunto infinito, porém enumerável.
+	
+	No caso finito, será indicado por:
+	$$X: x_1,x_2,\dots,x_n$$
+\end{definition}
+
+\begin{definition}[Função de Probabilidade]
+	É a função que associa a cada valor assumido pela variável aleatória a probabilidade do evento correspondente, isto é:
+	
+	$$P(X=x_i) = P(A_i),i=1,2,\dots,n$$
+	
+\end{definition}
+
+\begin{definition}[Distribuição de Probabilidades da Variável Aleatória $X$]
+	É o conjunto $\{ x_i, p(x_i), i=1,2,\dots,n \}$.
+\end{definition}
+
+{\bf Observação:} Para que faça sentido uma distribuição de probabilidades de uma variável aleatória $X$, é necessário que:
+$$\sum_{i=1}^{n}p(x_i) = 1$$
+
+{\bf Exemplo 01:} Lançam-se $2$ dados. Seja $X$ a soma das faces, determinar a distribuição de probabilidade de $X$.
+
+{\it Solução:}
+
+\begin{table}[!h]
+	\centering
+\begin{tabular}{|c|c|}
+	\hline
+	$X$		&	$P(X)$ \\ \hline
+	$2$		&	$\displaystyle \frac{1}{36}$	\\ \hline
+	$3$		&	$\displaystyle \frac{2}{36}$	\\ \hline
+	$4$		&	$\displaystyle \frac{3}{36}$	\\ \hline
+	$5$		&	$\displaystyle \frac{4}{36}$	\\ \hline
+	$6$		& 	$\displaystyle \frac{5}{36}$	\\ \hline
+	$7$		&	$\displaystyle \frac{6}{36}$	\\ \hline
+	$8$		&	$\displaystyle \frac{5}{36}$	\\ \hline
+	$9$		&	$\displaystyle \frac{4}{36}$	\\ \hline
+	$10$	&	$\displaystyle \frac{3}{36}$	\\ \hline
+	$11$	&	$\displaystyle \frac{2}{36}$	\\ \hline
+	$12$	&	$\displaystyle \frac{1}{36}$	\\ \hline
+\end{tabular}
+\caption{Resolução do Exemplo 01.}
+\end{table}
+
+\begin{flushright}
+	$\blacksquare$
+\end{flushright}
+
+
+
+\subsubsection{Esperança Matemática}
+
+Quando trabalhamos com distribuições de probabilidades de uma variável aleatória discreta, os parâmetros da distribuição são características numéricas de grande importância.
+
+O primeiro parâmetro é a \emph{esperança matemática} (ou simplesmente média) de uma variável aleatória.
+
+\begin{definition}[Esperança Matemática]
+	$$E(X) = \displaystyle \sum_{i=1}^{n}x_i \cdot p(x_i)$$
+	
+	A \emph{esperança matemática} é um número real. É também uma média aritmética ponderada. 
+	
+	Notação: $E(X)$, $\mu(x)$, $\mu_x$, $\mu$.
+\end{definition}
+
+{\bf Exemplo 01:} Uma seguradora paga $R\$ 30.000,00$ em caso de acidente de carro e cobra uma taxa de $R\$ 1.000,00$. Sabe-se que a probabilidade de que um carro sofra acidente é de $3\%$. Quanto espera a seguradora ganhar por carro segurado?
+
+{\it Solução:}
+
+Suponha que em $100$ carros, $97$ dão lucro de $R\$ 1.000,00$ e $3$ dão prejuízo de $R\$ 29.000,00$ $(R\$ 30.000,00 - R\$ 1.000,00)$.
+
+Lucro total: $97 \cdot 1.000 - 3 \cdot 29.000 = R\$ 10.000,00$
+
+Lucro médio por carro: $R\$ 10.000,00 / 100 = R\$ 100,00$
+
+Se chamarmos de $X$ o lucro por carro, e o lucro médio por carro de $E(X)$, teremos:
+
+$$E(X) = \displaystyle \frac{0,97 \cdot 1.000}{0,03 \cdot 29.000} = 100$$
+
+\begin{flushright}
+	$\blacksquare$
+\end{flushright}
+
+\subsubsection{Propriedades da Esperança Matemática}
+\begin{enumerate}
+	\item $E(k) = k$, onde $k$ é uma constante;
+	\item $E(k\cdot X) = k \cdot E(X)$;
+	\item $E(X \pm Y) = E(X) \pm E(Y)$;
+	\item $E\left\{ \displaystyle \sum_{i=1}^{n}X_i \right\} = \displaystyle \sum_{i=1}^{n}\{ E(X_i) \}$;
+	\item $E(aX \pm b) = aE(X) \pm b$, onde $a$ e $b$ são constantes;
+	\item $E(X - \mu_x) = 0$.
+\end{enumerate}
+
+\subsubsection{Variância}
+
+A medida que dá o grau de dispersão (ou concentração) de probabilidade em torno da média é a \emph{variância}.
+
+\begin{definition}[Variância]
+	$$VAR(X) = \sum_{i = 1}^{n}(x_i - \mu_x)^2 \cdot p(x_i)$$
+	
+	Notação: $VAR(X)$, $V(X)$, $\sigma^2(X)$, $\sigma_X^2$,$\sigma^2$.
+\end{definition}
+
+{\bf Observação:} Quanto menor a variância, menor o grau de dispersão de probabilidades em torno da média e vice-versa; quanto maior a variância, maior e grau de dispersão da probabilidade em torno da média.
+
+\begin{definition}[Desvio Padrão]
+	É a raiz quadrada da variância de $X$, isto é:
+	$$\sigma_x = \sqrt{VAR(X)}$$
+\end{definition}
+
+\subsubsection{Propriedades da Variância}
+\begin{enumerate}
+	\item $VAR(k) = 0$, onde $k$ é constante;
+	\item $VAR(k\cdot X) = k^2 \cdot VAR(X)$;
+	\item $VAR(X \pm Y) = VAR(X) + VAR(Y) \pm 2cov(X,Y)$
+
+
+\begin{definition}[Covariância entre $X$ e $Y$]
+	$$cov(X,Y) =  E\{[X - E(X)]\cdot[Y - E(Y)]\}$$
+	A covariância mede o grau de dependência entre as duas variáveis $X$ e $Y$.
+\end{definition}
+	
+	\item $VAR\left(\displaystyle \sum_{i=1}^{n}X_i\right) = \displaystyle \sum_{i=1}^{n}VAR(X_i) + 2\displaystyle \sum_{i<j}^{n}cov(X_i , Y_j)$
+	\item $VAR(aX \pm b) = a^2VAR(X)$, $a$ e $b$ constantes.
+\end{enumerate}
+
+\subsubsection{Função de Distribuição}
+
+\begin{definition}[Função de Distribuição]
+	$$F(x) = P(X \leq x) = \sum_{x_i \leq x}p(x_i)$$
+\end{definition}
+
+\begin{center}
+	{\it Exemplo a ser mostrado em sala.}
+\end{center}
+
+\subsubsection{Propriedades de $F(x)$}
+\begin{enumerate}
+	\item $0 \leq F(x) \leq 1$;
+	\item $(F - \infty) = 0$;
+	\item $F(+\infty) = 1$;
+	
+	As demais propriedades requer conhecimentos prévios de cálculo.
+\end{enumerate}
+
+\subsection{Variáveis Aleatórias Contínuas}
+
+Seja o seguinte exemplo, considerando as probabilidades da variável aleatória discreta $X$:
+
+\begin{table}[!h]
+	\centering
+	\begin{tabular}{|c|c|}
+		\hline
+		$X$	&	$P(X)$	\\\hline
+		$1$	&	$0,1$	\\\hline
+		$2$	&	$0,2$	\\\hline
+		$3$	&	$0,4$	\\\hline
+		$4$	&	$0,2$	\\\hline
+		$5$	&	$0,1$	\\\hline	
+	\end{tabular}
+\end{table}
+
+Faremos o \emph{histograma} da distribuição de probabilidades de $X$.
+
+{\bf FEITO EM SALA}
+
+O {\it histograma} é um gráfico da distribuição de $X$. É construído com retângulos de bases unitárias e alturas iguais às probabilidades de $X = x_0$.
+
+Para calcularmos, por exemplo, $P(1\leq X \leq 3)$, somamos as áreas dos retângulos $1,2$ e $3$.
+
+Ao ligar os pontos médios de todos os retângulos teremos uma curva, se considerarmos $X$ uma \emph{uma variável aleatória contínua}, essa curva representará uma função contínua $f(X)$, representada no gráfico.
+
+{\bf FEITO EM SALA}
+
+Uma variável aleatória $X$ será contínua se existir uma função $f(X)$, tal que:
+\begin{enumerate}
+	\item $f(x) \geq 0 $ (não negativa)
+	\item $\displaystyle \int_{-\infty}^{\infty}f(x)dx = 1$
+\end{enumerate}
+
+A função $f(x)$ é chamada de {\it função densidade de probabilidade} (f.d.p.);
+
+Pode-se estender todas as definições de variáveis aleatórias discretas para variáveis contínuas.
+
+As extensões necessitam de conhecimentos de cálculo, devido a isso assumiremos tais propriedades como válidas.
+
+\subsubsection{Distribuições Teóricas de Probabilidade de Variáveis Aleatórias Contínuas}
+
+A primeira distribuição a ser estudada é a {\bf Distribuição Uniforme}.
+
+{\bf Distribuição Uniforme:} Uma variável aleatória contínua $X$ tem distribuição uniforme de probabilidades no intervalo $[a,b]$ se a sua função densidade de probabilidade é dada por:
+
+$$
+f(x) = 
+\begin{cases}
+k \text{ se } a \leq x \leq b \\
+0 \text{ se } x < a \text{ ou } x > b
+\end{cases}
+$$
+
+O valor de $k$ é dado por: $k = \displaystyle \frac{1}{b-a}$, logo:
+
+$$
+f(x) = 
+\begin{cases}
+ \displaystyle \frac{1}{b-a} & \text{ se } a \leq x \leq b \\
+0 & \text{ se } x < a \text{ ou } x > b
+\end{cases}
+$$
+
+{\bf GRÁFICO SERÁ FEITO EM SALA}
+
+A próxima distribuição teórica para variáveis aleatórias contínuas é a {\bf Distribuição Exponencial}.
+
+{\bf Distribuição Exponencial:} Uma variável aleatória contínua $X$ tem distribuição exponencial se a sua função densidade de probabilidade é dada por:
+
+$$
+f(x) = 
+\begin{cases}
+\lambda e^{-\lambda x} & \text{ se } x \geq 0 \\
+0 & \text{ se } x < 0
+\end{cases}
+$$
+
+{\bf GRÁFICO SERÁ FEITO EM SALA}
+
+A próxima distribuição é uma das mais utilizadas, é a {\bf Distribuição Normal}.
+
+\subsubsection{Distribuição Normal}
+
+Uma variável aleatória contínua $X$ tem distribuição normal de probabilidade se a sua f.d.p. é dada por:
+
+$$
+f(x) = \displaystyle \frac{1}{\sigma \sqrt{2\pi}}e^{- \displaystyle \frac{1}{2}\left( \displaystyle \frac{x - \mu}{\sigma} \right)^2 } \text{ , para } -\infty < x < \infty
+$$
+
+{\bf O GRÁFICO SERÁ FEITO EM SALA}
+
+As principais características da distribuição Normal são:
+\begin{enumerate}
+	\item O ponto de máximo de $f(x)$ é o ponto $X = \mu$;
+	\item Os pontos de inflexão da função são: $X = \mu + \sigma$ e $X = \mu - \sigma$;
+	\item A curva é simétrica com relação a $\mu$;
+	\item $E(X) = \mu$ e $VAR(X) = \sigma^2$.
+\end{enumerate}
+
+Utilizaremos a seguinte notação:
+$$X: N(\mu,sigma^2)$$
+$X$ tem distribuição normal com média $\mu$ e variância $\sigma^2$.
+
+Seja $X: N(\mu,sigma^2)$, definimos:
+$$Z = \displaystyle \frac{X - \mu}{\sigma}$$
+
+$Z$ é chamada de \emph{variável normal reduzida, normal padronizada} ou \emph{variável normalizada}.
+
+$Z$ possui $E(X) = 0$ e $VAR(X) = 1$.
+
+A vantagem de utilizar a variável $Z$ é a utilização da tabela.
+
+{\bf EXEMPLOS DE COMO UTILIZAR A TABELA SERÁ FORNECIDO EM SALA}
+
+{\bf UTILIZANDO O GEOGEBRA}
+
+{\bf Exemplo 01:}
+
+Um fabricante de baterias sabe, por experiência passada, que as baterias de sua fabricação têm vida média de $600$ dias e desvio-padrão de $100$ dias, sendo que a duração tem aproximadamente distribuição normal. Oferece uma garantia de $312$ dias, isto é, troca as baterias que apresentem falhas nesse período. Fabrica $10.000$ baterias mensalmente. Quantas deverá trocar pelo uso da garantia, mensalmente?
+
+{\it Resolução:}
+
+$X:$ é a duração da bateria e assim $\begin{cases}
+\mu = 600 \text{ dias} \\
+\sigma = 100 \text{ dias}
+\end{cases}
+$
+
+Logo,
+
+$Z = \displaystyle \frac{X - 600}{100}$
+
+Queremos determinar a $P(X < 312)$. 
+
+Utilizando o GeoGebra determinaremos qual é essa probabilidade.
+
+Assim, $P(X < 312) = 0,001988 \approx 0,002$. 
+
+Para determinarmos quantas baterias serão substituídas mensalmente fazemos:
+
+$10000 \times 0,001988 = 19,88 = 20$ baterias.
+
+\begin{flushright}
+	$\blacksquare$
+\end{flushright}
+
+
+
+\newpage
+\begin{snugshade}
+	\section{Inferência}
+\end{snugshade}
+
+\subsection{Amostragem}
+
+Este tópico sobre amostragem já abordamos nos slides iniciais, irei apenas comentar novamente em sala.
+
+\subsection{Análise Exploratória dos Dados de uma Amostra}
+
+Este tópico sobre Análise Exploratória dos Dados de uma Amostra já abordamos nos slides iniciais, irei apenas comentar novamente em sala.
+
+\subsection{Distribuição Amostral dos Estimadores}
+
+Estudaremos como se distribuem por amostragem o estimador $\bar{x}$ da média $\mu$, ou seja é uma estimativa para o parâmetro da população.
+
+\subsubsection{Distribuição Amostral da Média}
+\begin{definition}[Estimador da média $\mu$ populacional]
+	De uma população $X$ retiramos uma amostra de tamanho $n$ constituída pelos elementos $x_1,x_2,\dots,x_n$.
+	
+	O estimador da média $\mu$ populacional da amostra é:
+	$$\bar{x} = \displaystyle \frac{1}{n}\sum_{i=1}^{n}x_i$$
+\end{definition}
+
+O exemplo será discutido em sala, será utilizado para ilustrar a estimação do parâmetro através da média da amostragem. Com isto, chegamos as próximas definições.
+
+\begin{definition}
+	A média das médias amostras, ou $E(\bar{x})$, é igual à média $\mu$ populacional, ou $E(\bar{x}) = \mu_x$.
+\end{definition}
+
+Quando temos $E(\hat{\theta}) = \theta$, o estimador $\hat{\theta}$ é não viciado, não viesado ou não tendencioso. Assim $\bar{x}$ é um estimador não tendencioso de $\mu$.
+
+\begin{definition}
+	A variância da média amostral é igual à variância populacional dividida pelo tamanho da amostra, ou seja,
+	$$VAR(\bar{x}) = \sigma_x^2 = \displaystyle \frac{\sigma^2}{n}$$
+\end{definition}
+
+Ou seja, se $X:N(\mu,\sigma^2)$ e se dessa população retiramos amostras de tamanho $n$, então:
+$$\bar{x}:N\left( \mu, \displaystyle \frac{\sigma^2}{n} \right)$$
+
+A distribuição da variável $\bar{x}$ por amostragem simples será sempre normal com a mesma média da população $X$ e a variância $n$ vezes menor. Ou seja, quanto maior a amostra menor a variância da média, ou seja, quanto maior a amostra maior a precisão do estimador $\bar{x}$.
+
+{\bf O Fator de Correção} para populações finitas e de tamanho $N$ conhecido , e se a amostra de tamanho $n$ dela retirada for sem reposição, então:
+$$\sigma_{\bar{x}} = \displaystyle \frac{\sigma}{\sqrt{n}}\sqrt{\frac{N - n}{N - 1}}$$
+
+{\bf Exemplo 01:}Em uma população de $5000$ alunos de uma faculdade sabemos que a altura média dos alunos é $175$cm e o desvio padrão, $5$cm. Retiramos uma amostra sem reposição, de tamanho $n=100$. Determine o desvio padrão dessa amostra.
+
+{\it Solução:}
+
+Temos que $X:N(175,25) \begin{cases}
+u = 175 \\
+\sigma = 5
+\end{cases}
+$
+
+Então, $\sigma_{\bar{x}} = E(\bar{x}) = 175$
+
+e
+$$\sigma_{\bar{x}} = \displaystyle \frac{\sigma}{\sqrt{n}}\sqrt{\frac{N - n}{N - 1}} = \displaystyle \frac{5}{10}\sqrt{\frac{5000 - 100}{5000 - 1}} = 0,495024$$
+
+Assim, a média das médias amostrais é $175$cm e o desvio padrão da média amostral é $0,5$cm.
+
+Se não utilizássemos o fator de correção, teríamos:
+
+$$\sigma_{\bar{x}} = \displaystyle \frac{\sigma}{\sqrt{n}} = \frac{5}{10} = 0,5$$
+
+Isto é, quando tiramos uma amostra grande de uma população muito maior que o da amostra (pelo menos o dobro), é indiferente usar o fator de correção para populações finitas, pois o erro é muito pequeno.
+
+\begin{flushright}
+	$\blacksquare$
+\end{flushright}
+
+
+\subsubsection{Dimensionamento de uma Amostra}
+
+Para determinarmos qual o tamanho da amostra que deveremos retirar para obter um erro de amostragem dentro de um risco determinado utilizamos o seguinte exemplo:
+
+{\bf Exemplo 01:} Seja $X:N(1200,840)$. Qual deverá ser o tamanho da amostra de tal forma que $P(1.196 < \bar{x} <1204) = 0,9$?
+
+{\it Solução:}
+
+Se $X:N(1200,840) \begin{cases}
+\mu = 1200 \\
+\sigma^2 = 840
+\end{cases}
+\therefore \sigma_{\bar{x}} = 1200
+$
+e
+$\sigma_{\bar{x}} = \displaystyle \frac{\sigma}{\sqrt{n}} = \frac{28,98}{\sqrt{n}} \therefore Z = \frac{\bar{x} - \mu}{\sigma_{\bar{x}}}$
+
+ou
+
+$Z_{\alpha} = Z_{0,45} = 1,64$
+
+Assim,
+
+$1,64 = \displaystyle \frac{1204 - 1200}{\frac{28,98}{\sqrt{n}}}$
+
+É indiferente escolher o extremo inferior ou superior, sendo assim:
+
+$\displaystyle \sqrt{n} = \frac{1,64 \cdot 28,98}{4}$
+
+$\displaystyle \sqrt{n} = 11,88 \implies n = 141,13 \implies n \approx 141$
+
+Com isso, concluímos que, se retirarmos uma amostra de $141$ elementos da população $X$, teremos $95\%$ de confiança que $\bar{x}$ estará no intervalo $(1.196,1.216)$, o que significa que o risco que corremos de que o valor da média caia fora do intervalo anterior é de $5\%$.
+\begin{flushright}
+	$\blacksquare$
+\end{flushright}
+
+\subsection{Estimação}
+
+\begin{definition}[Inferência Estatística]
+	As conjunto de técnicas e procedimentos que permitem dar ao pesquisador um grau de confiabilidade, de confiança, nas afirmações que faz para a população baseadas nos resultados das amostras.
+\end{definition}
+
+O problema fundamental da inferência estatística, portanto, é medir o \emph{grau de incerteza ou risco} dessas generalizações.
+
+\subsubsection{Estimação de Parâmetros}
+
+É um dos objetivos básicos da experimentação. São dois tipos de estimação: por pontos e por intervalos.
+
+{\bf Estimação por Pontos:} a partir das observações, calcula-se uma estimativa, usando o estimador ou ``estatística''.
+
+\subsubsection{Qualidades de um Bom Estimador}
+
+Quanto maior o grau de concentração da distribuição amostral do estimador em torno do verdadeiro valor do parâmetro populacional, tanto melhor será o estimador.
+
+As principais qualidades de um estimador são:
+\begin{enumerate}
+	\item [a)] consistência;
+	\item [b)] ausência de vício;
+	\item [c)] eficiência;
+	\item [d)] suficiência.
+\end{enumerate}
+
+As definições formais requerem conhecimentos de cálculo.
+
+{\bf Estimação por Intervalo:} A estimação por pontos de um parâmetro não possui uma medida do possível erro cometido na estimação. Para solucionar isto, uma alternativa é estabelecer \emph{limites}, que com certa probabilidade incluam  o verdadeiro valor do parâmetro da população.
+
+Estes limites, são definidos como \emph{limites de confiança} e determinam um intervalo de confiança, no qual deverá estar o verdadeiro valor do parâmetro.
+
+Assim, a estimação por intervalos consiste na fixação de dois valores, tais que $(1 - \alpha)$ seja a probabilidade de que o intervalo, por eles determinado, contenha o verdadeiro valor do parâmetro.
+
+Onde:
+
+$\alpha:$ é o nível de incerteza ou grau de desconfiança;
+
+$1 - \alpha:$ é o nível de confiabilidade.
+
+Logo, $\alpha$ nos da o nível de incerteza desta inferência, chamamos de grau de significância.
+
+\subsection{Intervalos de Confiança para Médias}
+
+\subsubsection{Intervalos de Confiança (IC) para a média $\mu$ de uma população Normal com variância $\sigma^2$ conhecida}
+
+Considerando uma população normal com média desconhecida que desejamos estimar e com $\sigma^2$ conhecida, $X:N(?,\sigma^2)$.
+
+O passo a passo para obter intervalos de confiança são:
+\begin{enumerate}
+	\item Retiramos uma amostra casual simples com $n$ elementos;
+	\item Calculamos a média da amostra $\bar{x}$;
+	\item Calculamos o desvio padrão da média amostral: $\sigma_{\bar{x}} = \displaystyle \sqrt{\frac{\sigma^2}{n}} = \frac{\sigma}{\sqrt{x}}$;
+	\item Fixamos um nível de significância $\alpha$, e com ele determinamos $z_\alpha$, tal que $P(|z|>z_\alpha) = \alpha$, ou seja: $P(z>z_\alpha) = \displaystyle \frac{\alpha}{2}$ e $P(z<-z_\alpha) = \displaystyle \frac{\alpha}{2}$. Logo devemos ter: $P(|z| < z_\alpha) = 1-\alpha$. 
+	
+	Com isso, desenvolvendo a fórmula anterior chegamos a:
+	$$P(\bar{x}-z_\alpha\cdot \sigma_{\bar{x}} < \mu < \bar{x}+z_\alpha\cdot \sigma_{\bar{x}})$$
+	
+	Que é a fórmula do $IC$ para a média de populações normais com variância conhecidas.
+\end{enumerate}
+
+Simplificando a notação temos com os limites anteriores: $\mu_1 = \bar{x}-z_\alpha\cdot \sigma_{\bar{x}} $ e $\mu_2 = \bar{x}+z_\alpha\cdot \sigma_{\bar{x}}$, com isto segue que:
+$$IC(\mu,(1-\alpha)\%) = (\mu_1,\mu_2)$$
+
+Em outras palavras, tomando $\alpha = 5\%$, podemos esperar que $95$ dos $IC$ contenham o verdadeiro valor de $\mu$ e $5$ não contenham o valor de $\mu$, em $100$ amostras de mesmo tamanho $n$, onde obteremos $100$ estimativas para $\bar{x}$, com as quais construiremos $100$ $IC$ para $\mu$.
+
+Isto é, em uma amostra qualquer, a probabilidade de que o $IC$ determinado contenha o valor da média é de $95\%$, ou seja, uma confiança de $95\%$ de que o $IC$ determinado contenha o verdadeiro valor de $\mu$. O risco que corremos de que não contenha o verdadeiro valor é de $5\%$.
+
+\textbf{Exemplo 01:} De uma população normal $X$, com $\sigma^2 = 9$, tiramos uma amostra de $25$ observações, obtendo $\displaystyle \sum_{i=1}^{25}x_i = 152$. Determinar um $IC$ de limites de $90\%$ para $\mu$.
+
+\textit{Solução: }
+
+$\alpha = 10\%$ e $\bar{x} = \displaystyle \frac{1}{n}\sum_{i = 1}^{n}x_i = \frac{152}{25} = 6,08$
+
+$\sigma_{\bar{x}} = \displaystyle \sqrt{\frac{\sigma^2}{25}} = \sqrt{\frac{9}{25}} = \frac{3}{5} \implies \sigma_{\bar{x}} = 0,6$
+
+Utilizando a tabela do inicio das notas de aula, segue que:
+
+$z_\alpha = z_{45\%} = z_{0,45} = 1,64$
+
+Com isto, nosso intervalo de confiança é dado por:
+$$P(6,08 - 1,64 \cdot 0,6 < \mu < 6,08 + 1,64 \cdot 0,6) = 0,9$$
+$$P(5,096 < \mu < 7,064) = 0,90$$
+Ou ainda,
+$$IC(\mu,90\%) = (5,096; 7,064)$$
+
+Portanto, temos $90\%$ de confiança que o verdadeiro valor  $\mu$ populacional se encontra entre $5,096$ e $7,064$, ou então corremos um risco de $10\%$ de que o verdadeiro valor da média $\mu$ populacional seja menor que $5,096$ ou maior que $7,064$.
+
+\begin{flushright}
+	$\blacksquare$
+\end{flushright}
+
+\subsubsection{Intervalos de Confiança para a Média de Populações Normais com Variâncias Desconhecidas}
+
+Quando queremos estimar a média de uma população normal com variância desconhecida, consideramos dois procedimentos:
+\begin{itemize}
+	\item se $n \leq 30$, então usa-se a distribuição $t$ de Student, que veremos a diante;
+	\item se $n > 30$, então usa-se a distribuição normal com o estimador $s^2$ de $\sigma^2$.
+\end{itemize}
+
+Nesta seção nosso interesse é no segundo caso. Vejamos um exemplo.
+
+\textbf{Exemplo 01:} De uma população normal com parâmetros desconhecidos, tiramos uma amostra de tamanho $100$, obtendo-se $\bar{x} = 112$ e $s = 11$. Fazer um $IC$ para $\mu$ ao nível de $10\%$.
+
+\textit{Solução:} 
+
+Como a amostra é superior a $30$, utilizamos:
+
+$\sigma_{\bar{x}} \approx \displaystyle \frac{s}{\sqrt{n}} = \frac{11}{10} = 1,1$
+
+$z_\alpha = z_{45\%} = z_{0,45} = 1,64$
+
+Logo,
+
+$$P(112 - 1,64 \cdot 1,1 < \mu < 112 + 1,64 \cdot 1,1) = 0,90$$
+$$P(110,20<\mu<113,80) = 0,90$$
+Ou
+$$IC(\mu,90\%) = (110,20;113,80)$$
+
+O que concluímos que apesar de usar o desvio padrão da amostra, temos um grau de certeza de $90\%$ de que o verdadeiro valor da média populacional está entre $110,20$ e $113,80$.
+
+\begin{flushright}
+	$\blacksquare$
+\end{flushright}
+
+\subsection{Testes de Hipóteses para Médias}
+
+Suponha que uma certa distribuição dependa de um parâmetro $\theta$ e que não se conheça $\theta$ ou, então, haja razões para acreditar que o $\theta$ variou, seja pelo passar do tempo ou por modificações do processo de produção, por exemplo.
+
+A inferência estatística fornece um processo de análise denominado \emph{teste de hipóteses}, que permite se decidir por um valor do parâmetro $\theta$ ou por sua modificação com um grau de risco conhecido.
+
+São formuladas duas hipóteses básicas:
+\begin{itemize}
+	\item [$H_0$:] chamada de hipótese nula ou da existência;
+	\item [$H_1$:] chamada de hipótese alternativa.
+\end{itemize}
+
+Testamos hipóteses para tomarmos uma decisão entre duas alternativas. Por essa razão, o \emph{teste de hipótese} é um processo de decisão estatística.
+
+Alguns exemplos serão discutidos em sala.
+
+De maneira genérica podemos apresentar as hipóteses genéricas que englobam a maioria dos casos:
+\begin{enumerate}
+	\item $\begin{cases}
+	H_0: \theta = \theta_0\\
+	H_1: \theta \neq \theta_0
+	\end{cases}$
+	São os testes bilaterais.
+	\item $\begin{cases}
+	H_0: \theta = \theta_0\\
+	H_1: \theta > \theta_0
+	\end{cases}$
+	São os testes unilaterais à direita.
+	\item $\begin{cases}
+	H_0: \theta = \theta_0\\
+	H_1: \theta < \theta_0
+	\end{cases}$
+	São os testes unilaterais à esquerda.
+	\item E ainda é possível realizar um teste de hipótese após realizar um dos testes acima.
+\end{enumerate}
+	
+\subsubsection{Procedimento Padrão para a Realização de um Teste de Hipótese}
+\begin{itemize}
+	\item Definem-se as hipóteses do teste: nula e alternativa;
+	\item Fixa-se um nível de significância $\alpha$;
+	\item Levanta-se uma amostra de tamanho $n$ e calcula-se uma estimativa $\hat{\theta}_0$ do parâmetro $\theta$;
+	\item Usa-se para cada tipo de teste uma variável cuja distribuição amostral do estimador do parâmetro seja a mais concentrada em torno do verdadeiro valor do parâmetro;
+	\item Calcula-se com o valor do parâmetro $\theta_0$, dado por $H_0$, o valor crítico, valor observado na amostra ou valor calculado $(V_{calc})$;
+	\item Fixam-se duas regiões: uma de \emph{não rejeição} de $H_0$ \textit{(RNR)} e uma de \emph{rejeição} de $H_0$ ou \emph{crítica} \textit{(RC)} para o valor calculado, ao nível de risco dado;
+	\item Se o valor observado $(V_{calc}) \in$ região de não rejeição, a decisão é a de não rejeitar $H_0$;
+	\item Se $(V_{calc}) \in$ região crítica, a decisão é a de rejeitar $H_0$.
+\end{itemize}
+No caso dos testes bilaterais, quando se fixa $\alpha$ os valores críticos, $V_\alpha$ são dados, tais que:
+\begin{itemize}
+	\item $P(|V_{calc}| < V_{\alpha}) = 1 - \alpha \implies RNR$
+	\item $P(|V_{calc}| \geq V_{\alpha}) = \alpha \implies RC$
+\end{itemize}
+
+\subsubsection{Testes de Hipóteses para a Média de Populações Normais com Variâncias $(\sigma^2)$ Conhecidas}
+
+As explicações serão feitas através de um exemplo.
+
+\textbf{Testes Bilaterais}
+
+\textbf{Exemplo 01:} De uma população normal com variância $36$, toma-se uma amostra casual de tamanho $16$. obtendo-se $\bar{x} = 43$. Ao nível de $10\%$, testar as hipóteses:
+$$\begin{cases}
+H_0: \mu = 45\\
+H_1: \mu \neq 45
+\end{cases}
+$$
+
+\textit{Solução:}
+
+As hipóteses já estão definidas no enunciado, isto é, o nível de significância é de $\alpha = 10\%$. O tamanho da amostra $n = 16$ e a média da amostra já é dada, logo $\bar{x} = 43$.
+
+Como a variância é conhecida, utilizamos um \emph{Teste de Hipótese para a Média de Populações Normais com Variância Conhecida}, e utilizamos a variável $Z:N(0,1)$ com as seguintes variáveis:
+$$\sigma^2 = 36 \text{  ;   } \bar{x} = 43 \text{  ;   } n = 16$$
+Assim,
+$$Z = \frac{\bar{x} - \mu_{H_0}}{\sigma_{\bar{x}}}$$
+Onde $\sigma_{\bar{x}}$ é dada por:
+$$\sigma_{\bar{x}} = \frac{\sigma}{\sqrt{n}} = \frac{6}{\sqrt{16}} = \frac{6}{4} \implies \sigma_{\bar{x}} = 1,5$$.
+Sendo $\mu_{H_0} = 45$, segue:
+$$Z_{calc} = \frac{\bar{x} - \mu_{H_0}}{\sigma_{\bar{x}}} = Z_{calc} = \frac{43 - 45}{1,5} = -1,33 $$.
+
+Como o teste é um teste bilateral e $\alpha = 10\%$, a região de não rejeição, $RNR$, é:
+$$P(|Z| < Z_{\alpha}) = 1 - \alpha \implies P(|Z| < 1,64) = 0,90$$ 
+E assim, $Z_{\alpha} = Z_{5\%} = 1,64$.
+
+A região de rejeição $(RC)$ é dada por $P(|Z| \geq Z_{\alpha}) = \alpha \implies P(|Z| \geq 1,64) = 0,10$.
+
+\textbf{GRÁFICO EM SALA}
+
+Como $Z_{calc} = -1,33$ temos que $Z_{calc} \in RNR$.
+
+Assim, a decisão é de não rejeitar $H_0$, isto é, a média é $45$ com $10\%$ de risco de não rejeitarmos uma hipótese falsa.
+
+\begin{flushright}
+	$\square$
+\end{flushright}
+
+Uma outra forma de resolver o mesmo exercício é utilizando os Intervalos de Confiança, como segue:
+$$RNR \implies P(\mu_{H_0} - Z_{\alpha} \cdot \sigma_{\bar{x}} < \bar{x} < \mu_{H_0} + Z_{\alpha} \cdot \sigma_{\bar{x}}) = 1 - \alpha$$
+Ou ainda,
+$$P(\bar{x}_1 < \bar{x} < \bar{x}_2) = 1 - \alpha$$
+$$RC \implies P(\bar{x} \leq \bar{x}_1 \text{ ou } \bar{x} \geq \bar{x}_2)$$
+
+Assim, temos:
+
+$\bar{x}_1 = \mu_{H_0} - Z_{\alpha} \cdot \sigma_{\bar{x}} = 45 - 1,64 \cdot 1,5 = 42,54$
+
+$\bar{x}_2 = \mu_{H_0} + Z_{\alpha} \cdot \sigma_{\bar{x}} = 45 + 1,64 \cdot 1,5 = 47,46$
+
+O que produz:
+
+$RNR = (42,54; 47,46)$
+
+$RC = (\infty; 42,54]\cup[47,46;+\infty)$
+
+Como $\bar{x} = 43$, então $\bar{x} \in RNR$.
+
+Logo, não se rejeita $H_0$ também.
+
+\begin{flushright}
+	$\blacksquare$
+\end{flushright}
+
+
+\textbf{Testes Unilateral (monocaudal)}
+
+Os testes unilaterais são quando não estamos interessados em verificar uma desigualdade do tipo $\neq$ e sim quando estamos em busca de verificar $<$ ou $>$. Será realizado um exemplo para a explicação, no caso do Teste Unilateral à esquerda, o caso unilateral a direita é análogo.
+
+\textbf{Exemplo 01:} Uma fábrica anuncia que o índice de nicotina dos cigarros da marca $X$ apresenta-se abaixo de $26$mg por cigarro. Um laboratório realiza $10$ análises do índice obtendo: $26,24,23,22,28,25,27,26,28,24$. Sabe-se que o índice de nicotina dos cigarros da marca $X$ se distribui normalmente com variância $5,36$mg$^2$. Pode-se aceitar a afirmação do fabricante, ao nível de $5\%$?
+
+\textit{Solução:}
+
+Temos as seguintes hipóteses:
+$$\begin{cases}
+	H_0:\mu = 26\\
+	H_1:\mu < 26
+\end{cases}
+$$
+Com $\alpha = 5\%$ e $n=10$.
+
+Para determinarmos a média:
+$$\bar{x} = \frac{1}{n}\sum_{i = 1}^n \bar{x}_i = \frac{253}{10} \implies \bar{x} = 25,3$$
+E o desvio padrão da amostra:
+$$\sigma_{\bar{x}} = \sqrt{\frac{5,36}{10}} = \sqrt{0,536} = 0,73$$
+
+O valor de $Z_{calc} = \frac{25,3 - 26}{0,73} = -0,959$.
+
+O valor de $Z_{\alpha} = z_{5\%} = 1,64$.
+
+Com isto, temos:
+$RNR = (-1,64; + \infty)$
+
+$RC = (-\infty;-1,64]$
+
+$\therefore Z_{calc} \in RNR$.
+
+Ou seja, ao nível de $5\%$, podemos concluir que a afirmação do fabricante é falsa, ou seja, não se rejeita $H_0$.
+
+\begin{flushright}
+	$\square$
+\end{flushright}
+
+Resolvendo através de Intervalos de Confiança, segue:
+
+$$RNR \implies P(\bar{x} > \mu_{H_0} - Z_{\alpha} \cdot \sigma_{\bar{x}}) = 1 - \alpha$$
+Ou ainda,
+$$RC \implies P(\bar{x} \leq \mu_{H_0} - Z_{\alpha} \cdot \sigma_{\bar{x}}) = \alpha$$
+
+$\therefore$
+
+$P(\bar{x} > 26 - 1,64 \cdot 0,73) = 0,95$
+
+$RNR \implies P(\bar{x} > 24,803) = 0,95$
+
+$RC \implies P(\bar{x} \leq 24,803) = 0,10$.
+
+Como $\bar{x} = 25,3$, concluímos que $\bar{x} \in RNR$, o que conclui para não rejeitar $H_0$.
+
+\begin{flushright}
+	$\blacksquare$
+\end{flushright}
+
+No caso do teste unilateral à direita, a resolução é análoga, levando em consideração que estamos interessados na região à direita.
+
+
+\subsection{Erros de Decisão}
+
+Podemos cometer um erro de decisão quando feito o teste de hipótese:
+\begin{enumerate}
+	\item Rejeitamos uma hipótese nula verdadeira: é o erro do tipo $I$;
+	\item Não rejeitamos uma hipótese nula falsa: é o erro do tipo $II$.
+\end{enumerate}
+
+Resumidamente, se:
+\begin{itemize}
+	\item $H_0$ é verdadeira, e rejeitamos, cometemos o erro do tipo $I$;
+	\item $H_0$ é falsa, e não rejeitamos, cometemos o erro do tipo $II$.
+\end{itemize}
+
+A Função Poder de um Teste será discutida em sala.
+
+\subsection{Distribuição de $t$ de student $IC$ e $TH$ para a Média de População Normal com Variância Desconhecida}
+
+\subsubsection{Distribuição $t$ de Student}
+A variável $Z = \displaystyle \frac{\bar{x} - \mu}{\sigma_{\bar{x}}}$ tem distribuição normal. Quando não conhecemos a variância $\sigma^2$ devemos utilizar $s^2$, como estimador de $\sigma^2$.
+$$s^2 = \displaystyle \frac{1}{n-1}\sum_{i=1}^{n}(x_i - \bar{x})^2 \text{ e } s_{\bar{x}}=\sqrt{\frac{s^2}{n}}$$
+
+A variável definida como $t_{\phi} = \displaystyle \frac{\bar{x} - \mu}{s_{\bar{x}}}$ é definida como variável com distribuição de ``t de Student'' com $\phi$ graus de liberdade.
+
+A utilização da distribuição \emph{t de Student} como vimos anteriormente é para os casos em que o número de observações $(n)$ na amostra é pequeno.
+
+Novamente, como na utilização da distribuição Normal, iremos utilizar a tabela como auxílio.
+
+\subsubsection{Graus de Liberdade}
+Pode-se definir como graus de liberdade o número de informações independentes da amostra $(n)$ menos o número $(K)$ de parâmetros da população a serem estimados além do parâmetro inerente ao estudo.
+$$\phi = n - K$$
+Em nosso caso, como iremos estimar a média de uma população normal com $\sigma^2$ desconhecida, além de $\bar{x}$, estimador inerente ao estudo, estimaremos $\sigma^2$, um parâmetro a mais. Isto significa que em nossos estudos, utilizaremos a distribuição \emph{t de Student} com $n - 1$ graus de liberdade.
+
+\textbf{GRÁFICO DA DISTRIBUIÇÃO EM COMPARAÇÃO COM A DISTRIBUIÇÃO NORMAL}
+
+\subsubsection{IC e TH para a média $\mu$ de uma população Normal com $\sigma^2$ desconhecida}
+
+O Procedimento Padrão para a determinação de IC e TH é o mesmo anteriormente dado:
+\begin{enumerate}
+	\item Retiramos uma amostra de $n$ elementos da população.
+	\begin{itemize}
+		\item Se $n > 30$, usa-se a distribuição Normal com $s^2$;
+		\item Se $n \leq 30$, usa-se a distribuição \emph{t de Student}, com $\phi = n - 1$ graus de liberdade.
+	\end{itemize}
+	\item Calculamos $\bar{x} = \displaystyle \frac{1}{n}\sum_{i = 1}^{n}x_i$
+	\item Calculamos $s^2 = \displaystyle \frac{1}{n-1}\sum_{i=1}^{n}(x_i - \bar{x})^2$
+	\item Determinamos $s_{\bar{x}}=\displaystyle \sqrt{\frac{s^2}{n}}$, que é o estimador de $\sigma_{\bar{x}}$.
+	\item Ao nível $\alpha\%$ fazemos:
+	\begin{enumerate}
+		\item $P(\bar{x}-t_{\alpha}\cdot s_{\bar{x}}<\mu<\bar{x}+t_{\alpha}\cdot s_{\bar{x}}) = 1 - \alpha$
+		\item $\begin{cases}
+			H_0:\mu=\mu_0\\
+			H_1:\mu\neq\mu_0,\mu > \mu_0, \mu < \mu_0
+		\end{cases}$
+	\end{enumerate}
+	Com o $t_{\alpha}$, determinamos a $RNR$ e $RC$. Calculamos $t_{calc} = \displaystyle \frac{\bar{x} - \mu_{H_0}}{s_{\bar{x}}}$:
+	\begin{itemize}
+		\item Se $t_{calc} \in RNR \implies$ não rejeita $H_0$;
+		\item Se $t_{calc} \in RC \implies$ rejeita-se $H_0$.
+	\end{itemize}
+	Observação: Quando a população é normal com parâmetros desconhecidos, teoricamente a solução $N(0,1)$ só é aconselhável quando $n>120$. Ná prática, para $n>30$ usa-se $N(0,1)$.
+\end{enumerate}
+
+\textbf{Exemplo 01:} De uma população normal com parâmetros desconhecidos, retirou-se uma amostra de $25$ elementos para se estimar $\mu$, obtendo-se $\bar{x} = 15$ e $s^2 = 36$. Determinar um IC para a média ao nível de $5\%$.
+
+\textit{Solução:}
+
+$s_{\bar{x}}=\displaystyle \sqrt{\frac{s^2}{n}} = \frac{6}{\sqrt{25}} = \frac{6}{5} = 1,2$
+
+$\phi = n - 1 = 25 - 1 = 24$
+
+$t_{24;2,5\%} = 2,0639$
+
+$P(15 - 2,0639 \cdot 1,2 < \mu < 15 + 2,0639 \cdot 1,2) = 0,95$
+
+$P(12,523 < \mu < 17,477) = 0,95$
+
+\begin{flushright}
+	$\blacksquare$
+\end{flushright}
+
+
+
+
+\subsection{Comparação de duas médias: TH para a diferença de duas médias}
+
+No caso de comparação de duas médias, iremos realizar uma discussão em sala sobre o caso de dados emparelhados.
+
+%} %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+\end{document}

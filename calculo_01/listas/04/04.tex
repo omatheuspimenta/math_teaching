@@ -1,0 +1,234 @@
+\documentclass[oneside,a4paper,12pt]{article}
+\usepackage[english,brazilian]{babel}
+\usepackage{multicol}
+\usepackage{textcomp}
+\usepackage[alf]{abntex2cite}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb,exscale}
+\usepackage[top=20mm, bottom=20mm, left=20mm, right=20mm]{geometry}%margens cima, baixo, esquerda direita
+\usepackage{framed}
+\usepackage{booktabs} %Pacote para deixar tabelas mais bonitas.
+\usepackage{color} %Pacote de Cores
+\usepackage{hyperref} %Pacotes para Hiperlinks
+\usepackage{graphicx} %Pacote de imagens
+\graphicspath{{./Figuras/}}%Direciona as imagens para uma pasta chamada "Figuras" (uso isso para organizar. Uma vez que todas as imagens vao ficar em uma pasta isolada)    
+\definecolor{shadecolor}{rgb}{0.8,0.8,0.8}
+
+%FAZ EDICOES AQUI (somente no conteudo que esta entre entre as ultimas  chaves de cada linha!!!)
+\newcommand{\universidade}{Universidade Tecnológica Federal do Paraná}
+\newcommand{\centro}{Câmpus Cornélio Procópio}
+\newcommand{\departamento}{Departamento Acadêmico de Matemática}
+\newcommand{\curso}{Engenharia da Computação}
+\newcommand{\professores}{Matheus Pimenta}
+\newcommand{\disciplina}{Cálculo Diferencial e Integral I - MA31G}
+%\newcommand{\tema}{Lista 01}
+%\newcommand{\turma}{MA31G}
+%\newcommand{\data}{Março de 2019}%{\today}
+%\newcommand{\tempodeaula}{30 minutos}
+%\newcommand{\prerequisitos}{Matrizes, Transformações Lineares e Bases}
+%ATE AQUI !!!	
+
+\begin{document}
+	\pagestyle{empty}
+	
+	\begin{center}
+		\includegraphics[width=\linewidth/2]{logo.jpg}%LOGOTIPO DA INSTITUICAO
+	 	\vspace{2pt} 	
+		
+		\universidade
+		\par
+		\centro
+		\par
+		\departamento
+		\par
+	%	Curso de \curso
+		\par
+		\vspace{12pt}
+		\LARGE \textbf{Lista 04}
+		
+	\end{center}
+	
+	\vspace{12pt}
+	
+	\begin{tabular}{ |l|p{12cm}| }
+		
+		\hline
+		\multicolumn{2}{|c|}{\textbf{Dados de Identificação}} \\
+		\hline
+		Professor:         &    \professores           \\
+		\hline
+		Disciplina:        &    \disciplina          \\
+		\hline
+	%	Tema:              &    \tema                \\
+	%	\hline
+	%	Pré-requisito	:  &    \prerequisitos         \\
+	%	\hline
+		Aluno:             &                   \\
+	%	\hline
+	%	Data:              &    \data                \\
+	%	\hline
+	%	Duração da aula:   &    \tempodeaula         \\
+		\hline
+		
+	\end{tabular}
+	\vspace{6pt}
+	
+	
+	\begin{snugshade}
+	\end{snugshade}
+
+\begin{enumerate}
+%	\setcounter{enumi}{37}
+	
+	\item Determine o coeficiente angular da reta tangente ao gráfico da função $f(x) = -3x^2 + 2x$ no ponto $P(2,f(2))$. \\ {\bf R:} $-10$
+	
+	\item Determine o coeficiente angular da reta tangente ao gráfico da função $f(x) = \sqrt{x}$, no ponto $P(1,1)$. \\ {\bf R:} $\frac{1}{2}$
+	
+	\item Determine a equação da reta tangente ao gráfico da função $f(x) = 3x^2 -5x + 1$ no ponto $P(2,3)$. \\ {\bf R:} $y = 7x - 11$
+	
+	\item Um ponto em movimento obedece à equação horária $S = t^2 + 3t$ (onde $S$ está em metros e $t$ em segundos). Determinar a velocidade do móvel no instante $t=4s$. \\ {\bf R:} $v(t_0)=S'(t_0)=11m/s$
+	
+	\item Um móvel se desloca segundo a função horária $S = t^3 + t^2 + t$ (onde $S$ está em metros e $t$ em segundos). Determinar a aceleração do móvel no instante $t = 1s$ \\ {\bf R:} $a(t_0) = 8m/s^2$
+	
+	\item Calcule as derivadas das funções abaixo:
+		\begin{enumerate}
+			\item $f(x) = 5x^3 - 2x^2 + x - 4$ \\ {\bf R:} $f'(x) = 15x^2 - 4x + 1$
+			\item $f(x) = x^4 - \frac{2}{x^3} - \frac{8}{x} + 2$ \\ {\bf R:} $f'(x) = 4x^3 + \frac{6}{x^4} + \frac{8}{x^2}$
+			\item $f(x) = (5x-2)^6(3x-1)^3$ \\ {\bf R:} $f'(x) = (5x-2)^5(3x-1)^2(135x-48)$
+			\item $f(x) = \sqrt[3]{(3x^2 +6x - 2)^2}$ \\ {\bf R:} $f'(x) = \frac{4(x+1)}{\sqrt[3]{3x^2+6x-2}}$
+			\item $f(x) = \frac{a + \sqrt{x}}{a - \sqrt{x}}$ \\ {\bf R:} $f'(x) = \frac{a}{\sqrt{x}(a - \sqrt{x})^2}$
+			\item $f(r) = \sqrt{\frac{1+r}{1-r}}$ \\ {\bf R:} $f'(r) = \frac{1}{(1-r)^2\sqrt{\frac{1+r}{1-r}}}$			
+		\end{enumerate}
+	
+	\item Calcule as derivadas das funções abaixo:
+		\begin{enumerate}
+			\item $f(x) = \sqrt[4]{x^3}$  \\ {\bf R:} $f'(x) = \frac{15}{4}x^2\sqrt[4]{x^3}$
+			\item $f(x) = \frac{1 + \cos(x)}{1 - \cos(x)}$  \\ {\bf R:} $f'(x) = \frac{-2\sin(x)}{(1-\cos(x))^2}$
+			\item $f(x) = \frac{2 - \sin(x)}{2 + \cos(x)}$  \\ {\bf R:} $f'(x) = \frac{2\sin(x) - 2\cos(x)-1}{(2+\cos(x))^2}$
+			\item $f(x) = \frac{\sin(x) + \cos(x)}{\sin(x) - \cos(x)}$  \\ {\bf R:} $f'(x) = \frac{-2}{(\sin(x) - \cos(x))^2}$
+			\item $f(x) = \frac{e^x}{\ln(x)}$  \\ {\bf R:}$f'(x) = \frac{xe^x\ln(x)-e^x}{x(\ln(x))^2}$
+			\item $f(x) = \log_{e}(\frac{a+x}{a-x})$ \\ {\bf R:}$f'(x) = \frac{2a}{a^2 - x^2}$
+		\end{enumerate}
+	
+	\item Calcule as derivadas das funções abaixo:
+		\begin{enumerate}
+			\item $f(x) = (x^3 - 2x)^{\ln(x)}$ \\ {\bf R:} $f'(x) = x^{\ln \left(x^3-2x\right)}\left(\frac{\ln \left(x^3-2x\right)}{x}+\frac{\ln \left(x\right)\left(3x^2-2\right)}{x^3-2x}\right)$
+			\item $f(x) = (\ln(x))^{\tan(x)}$ \\ {\bf R:} $f'(x) = (\ln(x))^{\tan(x)}\left[\frac{\tan(x)}{x\ln(x)}+ (\sec^{2}(x))\ln(\ln(x))\right]$
+			\item $f(x) = (\sin(x))^{\cos(x)}$ \\ {\bf R:} $f'(x) = (\sin(x))^{\cos(x)}.\left[ -\sin(x)\ln(\sin(x))+\frac{\cos^{2}(x)}{\sin(x)} \right]$
+			\item $f(x) = x^{(e^x)}$ \\ {\bf R:} $f'(x) = x^{(e^x)}e^{x}\left[ \ln(x) + \frac{1}{x} \right]$
+			\item $f(x) = (e^{x})^{\tan(3x)}$ \\ {\bf R:} $f'(x) = (e^x)^{\tan(3x)}[3x\sec^2(3x)+\tan(3x)]$
+			\item $f(x) = e^{\sin^{3}(x^2)}$ \\ {\bf R:} $f'(x) = 6xe^{\sin^{3}(x^2)}\sin^{2}(x^2)\cos(x^2)$
+		\end{enumerate}
+	
+	\item Calcule as derivadas das funções abaixo:
+		\begin{enumerate}
+			\item $f(x) = e^{3x^2}\tan(\sqrt{x})$ \\ {\bf R:} $f'(x) = e^{3x^2}\left[ \frac{\sec^2(\sqrt{x})}{2\sqrt{x}}+6\tan(\sqrt{x}) \right]$
+			\item $f(x) = \sqrt{4 + cossec^2(3x)}$ \\ {\bf R:}$f'(x) = \frac{-3cossec^2(3x)\cot(3x)}{\sqrt{4 + cossec^2(3x)}}$
+			\item $f(\theta) = \tan^4(\sqrt[4]{\theta})$ \\ {\bf R:} $f'(\theta) = \frac{\tan^3(\sqrt[4]{\theta})}{(\sqrt[4]{\theta^3})}$
+			\item $f(x) = \sqrt{\cos(x)}a^{\sqrt{\cos(x)}}$ \\ {\bf R:} $f'(x) = -\frac{y}{2}\tan(x)(1+\sqrt{x}\ln(a))$
+			\item $f(\theta) = \sec(\sqrt{\theta})\tan(\frac{1}{\theta})$ \\ {\bf R:} $f'(\theta) = \sec(\sqrt{\theta})\left[ \frac{\tan(\sqrt{\theta})\tan(\frac{1}{\theta})}{2\sqrt{\theta}}-\frac{\sec^{2}(\frac{1}{\theta})}{\theta^{2}} \right]$
+			\item $f(x) = \ln\left(\sqrt{\frac{1 + \sin(x)}{1- \sin(x)}}\right)$ \\ {\bf R:} $f'(x) = \sec(x)$
+		\end{enumerate}
+	
+	\item Calcule as derivadas das funções abaixo:
+		\begin{enumerate}
+			\item $f(x) = \ln(\frac{\cos(\sqrt(x))}{1+\sin(\sqrt{x})})$ \\ {\bf R:} $f'(x) = -\frac{1}{2\sqrt{x}\cos(\sqrt{x})}$
+			\item $f(x) = \frac{1}{2}\cot^2(5x)+\ln(\sin(5x))$ \\ {\bf R:} $f'(x) = -5\cot^3(5x)$
+			\item $f(x) = (\arcsin(x))^2$ \\ {\bf R:} $f'(x) = \frac{2\arcsin(x)}{\sqrt{1-x^2}}$
+			\item $f(x) = \frac{\ln(\sinh(x))}{x}$ \\ {\bf R:} $f'(x) = \frac{x \coth(x) - \ln(\sinh(x))}{x^2}$
+			\item $f(x) = sech(\ln(x))$ \\ {\bf R:} $f'(x) = \frac{-sech(\ln(x))\tanh(\ln(x))}{x}$
+			\item $f(x) = arctgh(\frac{1}{2}x^2)$ \\ {\bf R:} $f'(x) = \frac{4x}{4-x^4}$
+		\end{enumerate}
+	
+	\item \begin{itemize}
+		\item Trace um esboço do gráfico das funções;
+		\item Determine se $f$ é contínua em $a$;
+		\item Calcule $f'_{-}(a)$ e $f'_{+}(a)$;
+		\item Determine se $f$ é diferenciável em $a$.
+	\end{itemize}
+	\begin{enumerate}
+		\item $f(x) = \begin{cases}
+		x+2 \text{ se } x \leq -4 \\
+		-x -6 \text{ se } x > -4
+		\end{cases}$
+		$a = -4$		\\ {\bf R:} Sim;1;-1;Não
+		\item $f(x) = |x-3|$ $a = 3$ \\ {\bf R:} Sim;-1;1,Não
+		\item $f(x) = \begin{cases}
+		-1 \text{ se } x < 0 \\
+		x-1 \text{ se } x \geq 0
+		\end{cases}$
+		$a = 0$ \\ {\bf R:} Sim;0;1;Não
+		\item $f(x) = \begin{cases}
+		x \text{ se } x \leq 0 \\
+		-x^2 \text{ se } x > 0
+		\end{cases}$
+		$a = 0$ \\ {\bf R:} Sim;0;0;Sim
+		\item $f(x) = \begin{cases}
+		\sqrt{1-x} \text{ se } x < 1 \\
+		(1-x)^2 \text{ se } x \geq 1
+		\end{cases}$
+		$a = 1$ \\ {\bf R:} Sim; $\nexists$; 0; Não
+		\item $f(x) = \begin{cases}
+		2x^2 - 3 \text{ se } x \leq 2 \\
+		8x - 11 \text{ se } x > 2
+		\end{cases}$
+		$a = 2$ \\ {\bf R:} Sim;8;8;Sim
+	\end{enumerate}
+	
+	
+	\item Determinar as derivadas de segunda ordem das seguintes funções:
+	\begin{enumerate}
+		\item $y = \ln(x + \sqrt{a^2 + x^2})$ \\ {\bf R:} $y'' = \frac{-x}{\sqrt{(a^2 + x^2)^3}}$
+		\item $y = \ln(\sqrt[3]{1+x^2})$ \\ {\bf R:} $y'' = \frac{2(1-x^2)}{(1+x^2)^2}$
+		\item $y = e^{x^2}$ \\ {\bf R:} $y'' = e^{x^2}(4x^2+2)$
+		\item $y = (\arcsin(x))^2$ \\ {\bf R:} $y'' = \frac{2}{1-x^2}+ \frac{2x\arcsin(x)}{(1-x^2)^{\frac{3}{2}}}$
+		\item $y = (1 + x^2)\arctan(x)$ \\ {\bf R:} $y'' = 2\arctan(x) + \frac{2x}{1+x^2}$
+	\end{enumerate}
+
+	\item Expresse $\dfrac{\partial y}{\partial x}$ em termos de $x$ e $y$, onde $y = y(x)$, é uma função derivável, dada implicitamente pela equação:
+	\begin{enumerate}
+		\item $e^{y} + \ln(y) = x$ \\ {\bf R:} $\dfrac{\partial y}{\partial x} = \frac{1}{e^y + \frac{1}{y}}$
+		\item $xy + x - 2y = 1$ \\ {\bf R:} $\dfrac{\partial y}{\partial x} = -\frac{(y + 1)}{x - 2}$
+		\item $2y + \sin(y) = x$ \\ {\bf R:} $\dfrac{\partial y}{\partial x} = \frac{1}{(2 + \cos(y))}$
+		\item $5y + \cos(y) = xy$ \\ {\bf R:}$\dfrac{\partial y}{\partial x} = \frac{y}{5 - \sin(y) - x}$
+	\end{enumerate}
+	
+	\item Determinar a derivada de ordem 123 da função $y = \sin(x)$ \\ {\bf R:} $y^{(123)} = - \cos(x)$
+	
+	\item Demonstrar que a função $y = \frac{1}{2}x^2e^x$, satisfaz a equação diferencial $y'' - 2y' + y = e^x$
+	
+	\item Um retângulo de dimensões $x$ e $y$ tem perímetro $2a$ ($a$ é constante dada). Determinar $x$ e $y$ para que sua área seja máxima. \\ {\bf R:} $x=y=\frac{a}{2}$
+	
+	\item A prefeitura de um município pretende construir um parque retangular, com uma área de $3600$m$^2$ e pretende protegê-lo com uma cerca. Que dimensões devem ter o parque para que o comprimento da cerca seja mínimo? \\ {\bf R:}$60$m
+	
+	\item Estima-se que daqui a $t$ anos, a circulação de um jornal será $C(t) = 100t^2 + 400t + 5000$.
+	\begin{enumerate}
+		\item Encontre uma expressão para a taxa de variação da circulação com o tempo daqui a $t$ anos. \\ {\bf R:} $C'(t) = 200t + 400$
+		\item Qual será a taxa de variação da circulação com o tempo daqui a 5 anos? Nessa ocasião a circulação esta aumentando ou diminuindo? \\ {\bf R:} $1400$, aumentando
+		\item Qual será a variação da circulação durante o sexto ano? \\ {\bf R:} $1500$
+	\end{enumerate}
+
+	\item Quando um determinado modelo de liquidificador é vendido a $p$ reais a unidade, são vendidos $D(p) = \frac{8000}{p}$ liquidificadores por mês. Calcula-se que daqui a $t$ meses o preço dos liquidificadores será $p(t) = 0,04^{\frac{3}{2}}+15$ reais. Calcule a taxa de variação da demanda mensal de liquidificadores com o tempo daqui a $25$ meses. A demanda estará aumentando ou diminuindo nessa ocasião? \\ {\bf R:} $6$ por mês.
+	
+	\item A concentração de um remédio $t$ horas após ter sido injetado no braço de um paciente é dada por $C(t) = \frac{0,15t}{t^2+0,81}$. Trace a função concentração. Para que valor de $t$ a concentração é máxima? \\ {\bf R:}$t = 0,9$
+	
+	\item Usando a regra de L'Hôpital calcule os limites abaixo:
+	\begin{enumerate}
+		\item $\lim\lim\limits_{x \rightarrow 1}\frac{\ln(x)}{x-1}$ \\ {\bf R:} 1
+		\item $\lim\limits_{x \rightarrow + \infty}e^x\ln(x)$ \\ {\bf R:} 0
+		\item $\lim\limits_{x \rightarrow + \infty}\frac{e^x}{x^2}$ \\ {\bf R:}$+ \infty$
+		\item $\lim\limits_{x \rightarrow 0}\frac{2x}{e^x - 1}$ \\ {\bf R:}2
+		\item $\lim\limits_{x \rightarrow 0}\frac{\tan(x)-x}{x^3}$ \\ {\bf R:}$\frac{1}{3}$
+		\item $\lim\limits_{x \rightarrow 0}\frac{\sin(x)-x}{\tan(x)-x}$ \\ {\bf R:}$-\frac{1}{2}$
+		\item $\lim\limits_{x \rightarrow \pi^{-}}\frac{\sin(x)}{1-\cos(x)}$ \\ {\bf R:}0
+		\item $\lim\limits_{x \rightarrow 0^{+}}\frac{\ln(\sin(x))}{\ln(\sin(2x))}$ \\ {\bf R:} 1
+		\item $\lim\limits_{x \rightarrow 0^{+}}\frac{\ln(x)}{cossec(x)}$ \\ {\bf R:}0
+		\item $\lim\limits_{x \rightarrow + \infty}\frac{e^x - 1}{x^3 + 4x}$ \\ {\bf R:}$+ \infty$
+	\end{enumerate}
+	
+\end{enumerate}
+
+
+	
+\end{document}

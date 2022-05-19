@@ -1,0 +1,372 @@
+\documentclass[oneside,a4paper,12pt]{article}
+\usepackage[english,brazilian]{babel}
+\usepackage{multicol}
+\usepackage{textcomp}
+\usepackage[alf]{abntex2cite}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb,exscale}
+\usepackage[top=20mm, bottom=20mm, left=20mm, right=20mm]{geometry}%margens cima, baixo, esquerda direita
+\usepackage{framed}
+\usepackage{booktabs} %Pacote para deixar tabelas mais bonitas.
+\usepackage{color} %Pacote de Cores
+\usepackage{hyperref} %Pacotes para Hiperlinks
+\usepackage{graphicx} %Pacote de imagens
+\graphicspath{{./Figuras/}}%Direciona as imagens para uma pasta chamada "Figuras" (uso isso para organizar. Uma vez que todas as imagens vao ficar em uma pasta isolada)    
+\definecolor{shadecolor}{rgb}{0.8,0.8,0.8}
+
+%FAZ EDICOES AQUI (somente no conteudo que esta entre entre as ultimas  chaves de cada linha!!!)
+\newcommand{\universidade}{Universidade Tecnológica Federal do Paraná}
+\newcommand{\centro}{Câmpus Cornélio Procópio}
+\newcommand{\departamento}{Departamento Acadêmico de Matemática}
+\newcommand{\curso}{Engenharia da Computação}
+\newcommand{\professores}{Matheus Pimenta}
+\newcommand{\disciplina}{Geometria Analítica e Álgebra Linear - EC31G}
+%\newcommand{\tema}{Lista 01}
+%\newcommand{\turma}{MA31G}
+%\newcommand{\data}{Março de 2019}%{\today}
+%\newcommand{\tempodeaula}{30 minutos}
+%\newcommand{\prerequisitos}{Matrizes, Transformações Lineares e Bases}
+%ATE AQUI !!!	
+
+\begin{document}
+	\pagestyle{empty}
+	
+	\begin{center}
+		\includegraphics[width=\linewidth/8]{logo.jpg}%LOGOTIPO DA INSTITUICAO
+	 	\vspace{2pt} 	
+		
+		\universidade
+		\par
+		\centro
+		\par
+		\departamento
+		\par
+	%	Curso de \curso
+		\par
+		\vspace{12pt}
+		\LARGE \textbf{Lista 02}
+		
+	\end{center}
+	
+	\vspace{12pt}
+	
+	\begin{tabular}{ |l|p{12cm}| }
+		
+		\hline
+		\multicolumn{2}{|c|}{\textbf{Dados de Identificação}} \\
+		\hline
+		Professor:         &    \professores           \\
+		\hline
+		Disciplina:        &    \disciplina          \\
+		\hline
+	%	Tema:              &    \tema                \\
+	%	\hline
+	%	Pré-requisito	:  &    \prerequisitos         \\
+	%	\hline
+		Aluno:             &                   \\
+	%	\hline
+	%	Data:              &    \data                \\
+	%	\hline
+	%	Duração da aula:   &    \tempodeaula         \\
+		\hline
+		
+	\end{tabular}
+	\vspace{6pt}
+	
+	
+	\begin{snugshade}
+	\end{snugshade}
+
+\begin{enumerate}
+
+	\setcounter{enumi}{17}
+
+	\item Determinar a forma escalonada de cada matriz:
+	\begin{multicols}{2}
+	\begin{enumerate}
+		\item $A=\left[
+		\begin{array}{cccc}
+		1	&	-3	&	0	&	2 \\
+		1	&	-3	&	1	&	1 \\
+		0	&	-3	&	1	&	1 \\
+		\end{array}
+		\right]
+		$
+		\item $B=\left[
+		\begin{array}{ccc}
+		1	&	2	&	3	\\
+		2	&	4	&	6	\\
+		-3	&	-6	&	-9
+		\end{array}
+		\right]
+		$
+		\item $C=\left[
+		\begin{array}{ccc}
+		1	&	0	&	1	\\
+		1	&	1	&	0	\\
+		-1	&	1	&	1
+		\end{array}
+		\right]
+		$
+		\item $D = \left[
+		\begin{array}{ccc}
+		-1	&	1	&	-1	\\
+		1	&	-1	&	1	\\
+		-1	&	1	&	1
+		\end{array}
+		\right]$
+	\end{enumerate}
+	\end{multicols}
+
+
+
+	\item Classifique os sistemas quanto a serem impossíveis, possíveis determinados ou indeterminados.
+	\begin{multicols}{2}
+	\begin{enumerate}
+			\item $\begin{cases}
+				x + y = 0 \\
+				2x - y = 0
+			\end{cases}$
+			\item $\begin{cases}
+			x + y = 0 \\
+			2x + y = 0
+			\end{cases}$
+			\item $\begin{cases}
+			x + y = 0 \\
+			2x + 2y = 0
+			\end{cases}$
+			\item $\begin{cases}
+			x + y = 0 \\
+			2x + 2y = 2
+			\end{cases}$
+	\end{enumerate}
+	\end{multicols}
+
+	\item Encontre as soluções do sistema $Ax=0$, onde $x = (x_1, \dots, x_n)^{T}$ (para o valor conveniente de $n$) onde $A$ é cada uma das matrizes do exercício $18$.
+	
+	\item Resolva os seguintes sistemas de equações lineares:
+	\begin{multicols}{2}
+	\begin{enumerate}
+		\item $\begin{cases}
+		3x + y = 5 \\
+		2x - 3y = -4
+		\end{cases}$
+		\item $\begin{cases}
+		x + 2y - 3z = 9 \\
+		3x - y + 4z = -5 \\
+		2x + y + z = 0
+		\end{cases}$
+	\end{enumerate}
+	\end{multicols}	
+	
+	\item Determine para quais valores de $k$ o sistema $\begin{cases}
+	x + 2y = 3 \\
+	2x + ky = 2
+	\end{cases}
+	$ é:
+	\begin{enumerate}
+		\item possível e determinado;
+		\item possível e indeterminado;
+		\item impossível
+	\end{enumerate}
+
+	\item Analise as soluções do seguinte sistema de equações lineares: $\begin{cases}
+	-x + 2y + z - 2 = 0 \\
+	x + 2y - 2z = 0 \\
+	x - 4y + 10z - 6 = 0 \\
+	2x + 7y - 5z - 2 = 0
+	\end{cases}
+	$
+	
+	\item Analise as soluções dos seguintes sistemas de soluções lineares (resolva via escalonamento):
+	\begin{multicols}{2}
+	\begin{enumerate}
+		\item $\begin{cases}
+		x + 2y - 3z = 4 \\
+		2x + 3y + 4z = 5 \\
+		4x + 7y - 2z = 12
+		\end{cases}$
+		\item $\begin{cases}
+		x + 2y - 3z = 4 \\
+		3y + 2x + 4z = 5 \\
+		7y - 2z + 4x = 13
+		\end{cases}$
+		\item $\begin{cases}
+		x - 2y + 3z = 4 \\
+		2x - 4y + 6z = 5 \\
+		2x - 6y + 9z = 12
+		\end{cases}$
+		\item $\begin{cases}
+		5732x + 2134y + 2134z = 7866 \\
+		2134x + 5732y + 2134z = 670 \\
+		2134x + 2134y + 5732z = 11464 
+		\end{cases}$
+		\item $\begin{cases}
+		x + 3y + 5z + 7w = 12 \\
+		3x + 5y + 7z + w = 0 \\
+		5x + 7y + z + 3w = 4 \\
+		7x + y + 3z + 5w = 16
+		\end{cases}$
+		\item $\begin{cases}
+		x + z = 2 \\
+		y + z = 4 \\
+		x + y = 5 \\
+		x + y + z = 0
+		\end{cases}$
+		\item $\begin{cases}
+		x - 2y + z + t = 1 \\
+		2x + y - 2z + 2t = 0 \\
+		x + 6y = -2
+		\end{cases}$
+	\end{enumerate}
+	\end{multicols}		
+	
+	\item Agora resolva o exercício anterior via método de Cramer (se possível).
+	
+	\item Determine para quais valores de $m$ e $n$ o sistema $\begin{cases}
+	2x - y + 3z = 1 \\
+	x + 2y - z = 4  \\
+	3x + y + mz = n
+	\end{cases}
+	$ é:
+	\begin{enumerate}
+		\item possível e indeterminado;
+		\item impossível
+	\end{enumerate}
+	
+	\item Analise as soluções dos seguintes sistemas de soluções lineares (resolva via escalonamento):
+	\begin{multicols}{2}
+	\begin{enumerate}
+		\item $\begin{cases}
+		2x - y + 3z = 11 \\
+		4x - 3y + 2z = 0 \\
+		x + y + z = 6 \\
+		3x + y + z = 4
+		\end{cases}$
+		\item $x_1 + 2x_2 - x_3 + 3x_4 = 1$
+		\item $\begin{cases}
+		x+y+z = 4 \\
+		2x +5y - 2z = 3
+		\end{cases}$
+		\item $\begin{cases}
+		x + y+z = 4 \\
+		2x + 5y - 2z = 3 \\
+		x + 7y - 7z = 5
+		\end{cases}$
+	\end{enumerate}	
+	\end{multicols}
+	
+	\item Agora resolva o exercício anterior via método de Cramer (se possível).
+	
+	\item Analise as soluções dos seguintes sistemas de soluções lineares (resolva via escalonamento):
+	\begin{multicols}{2}
+		\begin{enumerate}
+			\item $\begin{cases}
+			x - 2y + 3z = 0 \\
+			2x + 5y + 6z = 0
+			\end{cases}$
+			\item $\begin{cases}
+			x_1 + x_2 + x_3 + x_4 = 0 \\
+			x_1 + x_2 + x_3 - x_4 = 4 \\
+			x_1 + x_2 - x_3 + x_4 = -4 \\
+			x_1 - x_2 + x_3 + x_4 = 2 
+			\end{cases}$
+			\item $\begin{cases}
+			x+2y+3z = 0 \\
+			2x +y + 3z = 0 \\
+			3x + 2y + z = 0
+			\end{cases}$
+			\item $\begin{cases}
+			3x + 2y - 4z = 1 \\
+			x - y + z = 3 \\
+			x - y - 3z = -3 \\
+			3x + 3y - 5z = 0 \\
+			-x + y +z = 1
+			\end{cases}$
+		\end{enumerate}	
+	\end{multicols}		
+		
+	\item Determine o posto e a nulidade das seguintes matrizes:
+	\begin{multicols}{3}
+		\begin{enumerate}
+			\item 	$
+			\left[
+			\begin{array}{cccc}
+			1	&	-2 & 3 & -1 \\
+			2 	&	-1 & 2 & 3 \\
+			3	&	 1 & 2 & 3 
+			\end{array}
+			\right]$
+			\\ {\bf R: (forma escada) } \\
+			$\left[
+			\begin{array}{cccc}
+			1	&	0 & 0 & -4 \\
+			0 	&	1 & 0 & -3 \\
+			0	&	0 & 1 & -1 
+			\end{array}
+			\right]$
+			\item 				
+			$\left[
+			\begin{array}{cccc}
+				0	&	1 & 3 & -2 \\
+				2 	&	1 & -4 & 3 \\
+				2	&	 3 & 2 & -1 
+			\end{array}
+			\right]$
+			\\ {\bf R: (forma escada) } \\
+			$\left[
+			\begin{array}{cccc}
+			1	&	0 & -7/2 & 5/2 \\
+			0 	&	1 & 3 & -2 \\
+			0	&	0 & 0 & 0 
+			\end{array}
+			\right]$
+			\item 	$
+			\left[
+			\begin{array}{ccc}
+			0	&	2 & 2 \\
+			1	&	1 & 3 \\
+			3	&	-4 & 2 \\
+			2 	& 	-3 &1
+			\end{array}
+			\right]$
+			\\ {\bf R: (forma escada) } \\
+			$\left[
+			\begin{array}{ccc}
+			1	&	0 & 2  \\
+			0 	&	1 & 1  \\
+			0	&0& 0 \\
+			0	&0&0 \\
+			\end{array}
+			\right]$
+		\end{enumerate}
+	\end{multicols}
+	
+	\item Determine $k$ para que o sistema admita solução. $\begin{cases}
+	-4x + 3y = 2 \\
+	5x - 4y = 0 \\
+	2x - y = k
+	\end{cases}$
+	
+	\item Estude a solução do sistema de equação linear:
+	$\begin{cases}
+	x_1 + 3x_2 + 2x_3 + 3x_4 - 7x_5 = 14 \\
+	2x_1 + 6x_2 + x_3 - 2x_4 + 5x_5 = -2 \\
+	x_1 + 3x_2 - x_3 + 2x_5 = -1 \\		
+	\end{cases}$
+	
+	\item Sabe-se que uma alimentação diária equilibrada em vitaminas deve constar de $170$ unidades de vitamina $A$, $180$ unidades de vitamina $B$, $140$ unidades de vitamina $C$, $180$ unidades de vitamina $D$ e $350$ unidades de vitamina $E$. Com o objetivo de descobrir como deverá ser uma refeição equilibrada, foram estudados $5$ alimentos. Fixada a mesma quantidade (1g) de cada alimento, determinou-se que:
+	\begin{enumerate}
+		\item o alimento 1 tem $1$ unidade de vitamina $A$, $10$ unidades de vitamina $B$, $1$ unidade de vitamina $C$, $2$ unidades de vitamina $D$ e $2$ unidades de vitamina $E$.
+		\item o alimento 2 tem $9$ unidades de vitamina $A$, $1$ unidade de vitamina $B$, não contém vitamina $C$, $1$ unidade de vitamina $D$ e $1$ unidade de vitamina $E$.
+		\item o alimento 3 tem $2$ unidades de vitamina $A$, $2$ unidades de vitamina $B$, $5$ unidades de vitamina $C$, $1$ unidade de vitamina $D$ e 2 unidades de vitamina $E$.
+		\item o alimento 4 tem $1$ unidade de vitamina $A$, $1$ unidade de vitamina $B$, $1$ unidade de vitamina $C$, $2$ unidades de vitamina $D$ e $13$ unidades de vitamina $E$.
+		\item o alimento 5 tem $1$ unidade de vitamina $A$, $1$ unidade de vitamina $B$, $1$ unidade de vitamina $C$, $9$ unidades de vitamina $D$ e $2$ unidades de vitamina $E$.
+	\end{enumerate}
+	Quantos gramas de cada um dos alimentos $1,2,3,4$ e $5$ devemos ingerir diariamente para que nossa alimentação seja equilibrada?
+	
+\end{enumerate}
+
+	
+\end{document}

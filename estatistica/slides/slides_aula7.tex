@@ -1,0 +1,213 @@
+\documentclass[hyperref={pdfpagelabels=false}]{beamer}
+\usepackage{lmodern}
+\usetheme{CambridgeUS}
+
+\usepackage[english,brazilian]{babel}
+\usepackage{multicol}
+\usepackage{textcomp}
+\usepackage[alf]{abntex2cite}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+\usepackage{amsmath,amssymb,exscale}
+
+\title{Probabilidade e Estatística}  
+\author[Matheus Pimenta]{Matheus Pimenta} 
+\institute[UTFPR-CP]{\normalsize Universidade Tecnológica Federal do Paraná \\
+	Câmpus Cornélio Procópio
+} 
+\date{ADNP 2020} 
+\begin{document}
+	
+\begin{frame}
+\titlepage
+\end{frame} 
+
+
+%\begin{frame}
+%\frametitle{Table of contents}
+%\tableofcontents
+%\end{frame} 
+
+
+\section{Intervalos de Confiança} 
+
+\begin{frame}
+\frametitle{Estimação}
+\textbf{Definição:} As conjunto de técnicas e procedimentos que permitem dar ao pesquisador um grau de confiabilidade, de confiança, nas afirmações que faz para a população baseadas nos resultados das amostras.
+
+\pause
+O problema fundamental da inferência estatística, portanto, é medir o \emph{grau de incerteza ou risco} dessas generalizações.
+
+\end{frame}
+
+\begin{frame}{Estimação de Parâmetros}
+É um dos objetivos básicos da experimentação. São dois tipos de estimação: por pontos e por intervalos.
+
+\pause
+
+{\bf Estimação por Pontos:} a partir das observações, calcula-se uma estimativa, usando o estimador ou ``estatística''.
+\end{frame}
+
+\begin{frame}{Qualidades de um Bom Estimador}
+Quanto maior o grau de concentração da distribuição amostral do estimador em torno do verdadeiro valor do parâmetro populacional, tanto melhor será o estimador.
+
+\pause
+As principais qualidades de um estimador são:
+\pause
+\begin{enumerate}
+	\item [a)] consistência;\pause
+	\item [b)] ausência de vício; \pause
+	\item [c)] eficiência; \pause
+	\item [d)] suficiência.
+\end{enumerate}
+
+\pause
+As definições formais requerem conhecimentos de cálculo.
+\end{frame}
+
+\begin{frame}{Estimação por Intervalo}
+{\bf Definição:} A estimação por pontos de um parâmetro não possui uma medida do possível erro cometido na estimação. Para solucionar isto, uma alternativa é estabelecer \emph{limites}, que com certa probabilidade incluam  o verdadeiro valor do parâmetro da população.
+
+\pause
+Estes limites, são definidos como \emph{limites de confiança} e determinam um intervalo de confiança, no qual deverá estar o verdadeiro valor do parâmetro.
+
+\pause
+Assim, a estimação por intervalos consiste na fixação de dois valores, tais que $(1 - \alpha)$ seja a probabilidade de que o intervalo, por eles determinado, contenha o verdadeiro valor do parâmetro.
+\end{frame}
+
+\begin{frame}{Estimação por Intervalo}
+	$\alpha:$ é o nível de incerteza ou grau de desconfiança;
+	
+	\pause
+	$1 - \alpha:$ é o nível de confiabilidade.
+	
+	\pause
+	Logo, $\alpha$ nos da o nível de incerteza desta inferência, chamamos de grau de significância.
+\end{frame}
+
+\begin{frame}{Intervalos de Confiança (IC) para a média $\mu$ de uma população Normal com variância $\sigma^2$ conhecida}
+	Considerando uma população normal com média desconhecida que desejamos estimar e com $\sigma^2$ conhecida, $X:N(?,\sigma^2)$.
+	\pause
+	
+	O passo a passo para obter intervalos de confiança são:
+	\pause
+	\begin{enumerate}
+		\item Retiramos uma amostra casual simples com $n$ elementos;
+		\item Calculamos a média da amostra $\bar{x}$;
+		\item Calculamos o desvio padrão da média amostral: $\sigma_{\bar{x}} = \displaystyle \sqrt{\frac{\sigma^2}{n}} = \frac{\sigma}{\sqrt{n}}$;
+		\item Fixamos um nível de significância $\alpha$, e com ele determinamos $z_\alpha$, tal que $P(|z|>z_\alpha) = \alpha$, ou seja: $P(z>z_\alpha) = \displaystyle \frac{\alpha}{2}$ e $P(z<-z_\alpha) = \displaystyle \frac{\alpha}{2}$. Logo devemos ter: $P(|z| < z_\alpha) = 1-\alpha$. 
+		
+		Com isso, desenvolvendo a fórmula anterior chegamos a:
+		$$P(\bar{x}-z_\alpha\cdot \sigma_{\bar{x}} < \mu < \bar{x}+z_\alpha\cdot \sigma_{\bar{x}})$$
+		
+		Que é a fórmula do $IC$ para a média de populações normais com variância conhecidas.
+	\end{enumerate}
+\end{frame}
+
+\begin{frame}{Intervalos de Confiança (IC) para a média $\mu$ de uma população Normal com variância $\sigma^2$ conhecida}
+	Simplificando a notação temos com os limites anteriores: $\mu_1 = \bar{x}-z_\alpha\cdot \sigma_{\bar{x}} $ e $\mu_2 = \bar{x}+z_\alpha\cdot \sigma_{\bar{x}}$, com isto segue que:
+	$$IC(\mu,(1-\alpha)\%) = (\mu_1,\mu_2)$$
+	\pause
+	
+	Em outras palavras, tomando $\alpha = 5\%$, podemos esperar que $95$ dos $IC$ contenham o verdadeiro valor de $\mu$ e $5$ não contenham o valor de $\mu$, em $100$ amostras de mesmo tamanho $n$, onde obteremos $100$ estimativas para $\bar{x}$, com as quais construiremos $100$ $IC$ para $\mu$.
+	\pause
+	
+	Isto é, em uma amostra qualquer, a probabilidade de que o $IC$ determinado contenha o valor da média é de $95\%$, ou seja, uma confiança de $95\%$ de que o $IC$ determinado contenha o verdadeiro valor de $\mu$. O risco que corremos de que não contenha o verdadeiro valor é de $5\%$.
+\end{frame}
+
+\begin{frame}{Tabela}
+	\begin{center}
+		Tabela para valores de $Z_{\alpha}$.
+		\begin{table}[h]
+			\tiny
+			\begin{tabular}{|c|cccccccccc|}
+				\hline
+				Nível de Confiança	& $99,73$\% & $99$\% & $98$\% & $96$\% & $95,45$\% & $95$\% & $90$\% & $80$\% & $68,27$\% & $50$\% \\ \hline
+				$Z_{\alpha}$	& $3,00$ & $2,58$ & $2,33$ & $2,05$ & $2,00$ & $1,96$ & $1,645$ & $1,28$ & $1,00$ & $0,6745$ \\ \hline
+			\end{tabular}
+		\end{table}
+	\end{center}
+\end{frame}
+
+\begin{frame}{Exemplo 01}
+	De uma população normal $X$, com $\sigma^2 = 9$, tiramos uma amostra de $25$ observações, obtendo $\displaystyle \sum_{i=1}^{25}x_i = 152$. Determinar um $IC$ de limites de $90\%$ para $\mu$.
+	
+\end{frame}
+
+\begin{frame}{Exemplo 01 - Solução}
+	\textit{Solução: }
+	
+	$\alpha = 10\%$ e $\bar{x} = \displaystyle \frac{1}{n}\sum_{i = 1}^{n}x_i = \frac{152}{25} = 6,08$
+	
+	\pause
+	$\sigma_{\bar{x}} = \displaystyle \sqrt{\frac{\sigma^2}{25}} = \sqrt{\frac{9}{25}} = \frac{3}{5} \implies \sigma_{\bar{x}} = 0,6$
+	
+	\pause
+	Utilizando a tabela do inicio das notas de aula, segue que:
+	
+	\pause
+	$z_\alpha = z_{45\%} = z_{0,45} = 1,64$
+	
+	\pause
+	Com isto, nosso intervalo de confiança é dado por:
+	$$P(6,08 - 1,64 \cdot 0,6 < \mu < 6,08 + 1,64 \cdot 0,6) = 0,9$$
+	$$P(5,096 < \mu < 7,064) = 0,90$$
+	\pause
+	Ou ainda,
+	$$IC(\mu,90\%) = (5,096; 7,064)$$
+	
+\end{frame}
+
+
+\begin{frame}{Exemplo 01 - Solução}
+	Portanto, temos $90\%$ de confiança que o verdadeiro valor  $\mu$ populacional se encontra entre $5,096$ e $7,064$, ou então corremos um risco de $10\%$ de que o verdadeiro valor da média $\mu$ populacional seja menor que $5,096$ ou maior que $7,064$.
+
+\begin{flushright}
+	$\blacksquare$
+\end{flushright}
+\end{frame}
+
+\begin{frame}{Intervalos de Confiança para a Média de Populações Normais com Variâncias Desconhecidas}
+	
+	Quando queremos estimar a média de uma população normal com variância desconhecida, consideramos dois procedimentos:
+	\pause
+	\begin{itemize}
+		\item se $n \leq 30$, então usa-se a distribuição $t$ de Student, que veremos a diante;\pause
+		\item se $n > 30$, então usa-se a distribuição normal com o estimador $s^2$ de $\sigma^2$.
+	\end{itemize}
+	
+	\pause
+	Nesta seção nosso interesse é no segundo caso. Vejamos um exemplo.
+	
+\end{frame}
+
+
+\begin{frame}{Exemplo 02}
+	
+	De uma população normal com parâmetros desconhecidos, tiramos uma amostra de tamanho $100$, obtendo-se $\bar{x} = 112$ e $s = 11$. Fazer um $IC$ para $\mu$ ao nível de $10\%$.
+		
+\end{frame}
+
+\begin{frame}{Exemplo 02 - Solução}
+\textit{Solução:} 
+
+Como a amostra é superior a $30$, utilizamos: \pause
+
+$\sigma_{\bar{x}} \approx \displaystyle \frac{s}{\sqrt{n}} = \frac{11}{10} = 1,1$ \pause
+
+$z_\alpha = z_{45\%} = z_{0,45} = 1,64$ \pause
+
+Logo, \pause
+
+$$P(112 - 1,64 \cdot 1,1 < \mu < 112 + 1,64 \cdot 1,1) = 0,90$$
+$$P(110,20<\mu<113,80) = 0,90$$ \pause
+Ou \pause
+$$IC(\mu,90\%) = (110,20;113,80)$$ \pause
+
+O que concluímos que apesar de usar o desvio padrão da amostra, temos um grau de certeza de $90\%$ de que o verdadeiro valor da média populacional está entre $110,20$ e $113,80$.	$\blacksquare$
+
+\end{frame}
+
+\end{document}
+

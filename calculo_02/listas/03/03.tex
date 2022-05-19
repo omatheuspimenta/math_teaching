@@ -1,0 +1,337 @@
+\documentclass[oneside,a4paper,12pt]{article}
+\usepackage[english,brazilian]{babel}
+\usepackage{multicol}
+\usepackage{textcomp}
+\usepackage[alf]{abntex2cite}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb,exscale}
+\usepackage[top=20mm, bottom=20mm, left=20mm, right=20mm]{geometry}%margens cima, baixo, esquerda direita
+\usepackage{framed}
+\usepackage{booktabs} %Pacote para deixar tabelas mais bonitas.
+\usepackage{color} %Pacote de Cores
+\usepackage{physics} % partial derivates
+\usepackage{hyperref} %Pacotes para Hiperlinks
+\usepackage{graphicx} %Pacote de imagens
+\graphicspath{{./Figuras/}}%Direciona as imagens para uma pasta chamada "Figuras" (uso isso para organizar. Uma vez que todas as imagens vao ficar em uma pasta isolada)    
+\definecolor{shadecolor}{rgb}{0.8,0.8,0.8}
+
+\newcommand{\sen}{{\rm sen}}
+
+%FAZ EDICOES AQUI (somente no conteudo que esta entre entre as ultimas  chaves de cada linha!!!)
+\newcommand{\universidade}{Universidade Estadual de Londrina}
+\newcommand{\centro}{Centro de Ciências Exatas}
+\newcommand{\departamento}{Departamento de Matemática}
+\newcommand{\curso}{Ciência da Computação}
+\newcommand{\professores}{Matheus Pimenta}
+\newcommand{\disciplina}{Cálculo Diferencial e Integral II - 1MAT180}
+\newcommand{\R}{\\{\bf R:}}
+\newcommand{\limm}{\displaystyle \lim}
+\newcommand{\limmzero}{\displaystyle \lim_{(x,y)\to(0,0)}}
+%\newcommand{\dx}{\partial}
+%\newcommand{\tema}{Lista 01}
+%\newcommand{\turma}{MA31G}
+%\newcommand{\data}{Março de 2019}%{\today}
+%\newcommand{\tempodeaula}{30 minutos}
+%\newcommand{\prerequisitos}{Matrizes, Transformações Lineares e Bases}
+%ATE AQUI !!!	
+
+\begin{document}
+	\pagestyle{empty}
+	
+	\begin{center}
+		\includegraphics[width=\linewidth/2]{logo.jpg}%LOGOTIPO DA INSTITUICAO
+	 	\vspace{2pt} 	
+		
+		\universidade
+		\par
+		\centro
+		\par
+		\departamento
+		\par
+	%	Curso de \curso
+		\par
+		\vspace{12pt}
+		\LARGE \textbf{Lista 03}
+		
+	\end{center}
+	
+	\vspace{12pt}
+	
+	\begin{tabular}{ |l|p{12cm}| }
+		
+		\hline
+		\multicolumn{2}{|c|}{\textbf{Dados de Identificação}} \\
+		\hline
+		Professor:         &    \professores           \\
+		\hline
+		Disciplina:        &    \disciplina          \\
+		\hline
+	%	Tema:              &    \tema                \\
+	%	\hline
+	%	Pré-requisito	:  &    \prerequisitos         \\
+	%	\hline
+		Aluno:             &                   \\
+	%	\hline
+	%	Data:              &    \data                \\
+	%	\hline
+	%	Duração da aula:   &    \tempodeaula         \\
+		\hline
+		
+	\end{tabular}
+	\vspace{6pt}
+	
+	{\bf Observação:} Não precisa ser entregue. Apenas para desenvolvimento do pensamento matemático.
+	
+	\begin{snugshade}
+	\end{snugshade}
+
+\begin{enumerate}
+
+	\item Dada a função $f(x,y) = x^2-y^2+3x-4$, determine:
+        \begin{enumerate}
+            \item $f(0,0)$\\{\bf R:} $-4$
+            \item $f(3,4)$\\{\bf R:} $-2$
+            \item $f(2,t)$\\{\bf R:} $6-t^2$
+            \item os valores de $x$ para os quais $f(x)=-y^2$\\{\bf R:} $x=-4 \lor x = 1$ 
+        \end{enumerate}
+	\item Determinar uma função de várias variáveis que represente:
+        \begin{enumerate}
+            \item O volume de água necessário para encher uma piscina redonda de $x$ metros de raio e $y$ metros de altura.\\{\bf R:} $V(x,y) = \pi x^2y$
+            \item A quantidade de rodapé, em metros, necessária para se colocar numa sala retangular de largura $x$ e comprimento $y$. \\{\bf R:} $f(x,y) = 2(x+y)$
+            \item A quantidade, em metros quadrados, de papel de parede necessária para revestir as paredes laterais de uma quarto retangular de $x$ metros de largura, $y$ metros de comprimento e $z$ metros de altura. \\{\bf R:}$f(x,y,z) = 2(xz+yz)$
+            \item O volume de um paralelepípedo retângulo de dimensões $x,y$ e $z$. \\{\bf R:} $V(x,y,z) = xyz$
+            \item A distância entre dois pontos $P_1(x_1,y_1,z_1)$ e $P_2(x_2,y_2,z_2)$. \\{\bf R:} $d(P_1,P_2) = \sqrt{(x_2-x_1)^2+(y_2-y_1)^2+(z_2-z_1)^2}$ 
+            \item A temperatura nos pontos de uma esfera, se ela, em qualquer ponto, é numericamente igual a distância do ponto ao centro da esfera. \\{\bf R:} $T(x,y,z) = \sqrt{x^2+y^2+z^2}$
+        \end{enumerate}
+    %\item Determine o domínio das sequintes funções de várias variáveis reais. Represente graficamente, se possível.
+	Determine o domínio das sequintes funções de várias variáveis reais. Represente graficamente, se possível. Exercícios 3 a 10.
+        %\begin{enumerate}
+            \item $z = x^2+y^2$ \\{\bf R:} $\mathbb{R}^2$
+            \item $z = \displaystyle \frac{7}{\sqrt{1-x^2-y^2}}$\\{\bf R:} $D=\{(x,y)\in\mathbb{R}^2;x^2+y^2<1\}$
+            \item $z=\displaystyle\frac{5}{x+y+z+u+v}$\\{\bf R:}$D=\{(x,y,z,u,v)\in\mathbb{R}^5;x+y+z+u+v \neq 0\}$
+            \item $f(x,y)=\displaystyle\frac{x^2-y^2}{x^2+y^2}$\\{\bf R:}$D=\{(x,y)\in\mathbb{R}^2;x\neq0\land~y\neq0\}$
+            \item $f(x,y,z) = \displaystyle\frac{x-2y}{\sqrt{4y-y^2}}+\sqrt{12+x-x^2}$\\{\bf R:}$D=\{(x,y)\in\mathbb{R}^2;-2\leq x\leq4 \land 0<y<4\}$
+            \item $f(x,y) = \displaystyle\frac{x+y}{x-y}$\\{\bf R:}$D=\{(x,y)\in\mathbb{R}^2;x\neq y\}$
+            \item $z=\ln(x-y)$\\{\bf R:}$D=\{(x,y)\in\mathbb{R}^2;y> x\}$
+            \item $f(x,y,z) = \sqrt{16-x^2-y^2-z^2}$\\{\bf R:}$D=\{(x,y,z)\in\mathbb{R}^3;x^2+y^2+z^2\leq16\}$
+        %\end{enumerate}
+    %\item Determine para cada função o maior subconjunto de $\mathbb{R}^3$ onde as funções são definidas, represente se possível este conjunto graficamente:
+    
+    Determine para cada função o maior subconjunto de $\mathbb{R}^3$ onde as funções são definidas, represente se possível este conjunto graficamente. Exercícios 11 a 14:
+       % \begin{enumerate}
+            \item $f(x,y,z) = \displaystyle\frac{4xyz}{\sqrt{9-x^2-y^2-z^2}}$\\{\bf R:}$D=\{(x,y,z)\in\mathbb{R}^3;x^2+y^2+z^2<9\}$
+            \item $f(x,y,z) = x^2-yz+4\sqrt{36-x^2-y^2-z^2}$\\{\bf R:}$D=\{(x,y,z)\in\mathbb{R}^3;x^2+y^2+z^2\leq36\}$
+            \item $f(x,y,z) = \displaystyle\frac{x+y-z+2}{xyz}$\\{\bf R:}$D=\{(x,y,z)\in\mathbb{R}^3/x\neq\land~ y\neq0\land~ z\neq0\}$
+            \item $f(x,y,z) = \sqrt{(x-2)^2+(y-3)^2+(z-1)^2-25}$\\{\bf R:}$D=\{(x,y,z)\in\mathbb{R}^3;(x-2)^2+(y-3)^2+(z-1)^2\geq25\}$
+       % \end{enumerate}
+   % \item Esboce as curvas de nível de $f$ para os seguintes valores de $k$:
+   
+   Esboce as curvas de nível de $f$ para os seguintes valores de $k$. Exercícios 15 a 18.
+        %\begin{enumerate}
+            \item $f(x,y) = \sqrt{100-x^2-y^2}$; $k=0,2,4,6,8,10$
+            \item $f(x,y) = \sqrt{x^2+y^2}$; $k=0,1,2,3,4$
+            \item $f(x,y) = 4x^2+9y^2$; $k=0,2,4,6$
+            \item $f(x,y) = 3x-7y$; $k=0,\pm1,\pm2$
+        %\end{enumerate}
+    %\item Esboce o gráfico das funções:
+	
+	Esboce o gráfico das funções. Exercícios 19 a 22.
+        % \begin{enumerate}
+            \item $f(x,y) = x^2+y^2$
+            \item $f(x,y) = 2x+3y+4z-12$
+            \item $f(x,y) = \sqrt{x^2+y^2}$
+            \item $f(x,y) = \sqrt{9-x^2-y^2}$
+        % \end{enumerate}
+    
+   % \item Utilize as ferramentas matemáticas de limites e continuidade para calcular os limites abaixo:
+
+   Utilize as ferramentas matemáticas de limites e continuidade para calcular os limites abaixo. Exercícios 23 a 28.
+        % \begin{enumerate}
+            \item $\displaystyle \lim_{(x,y)\to(1,3)}4xy^2-x=$ $35$
+            \item $\limm_{(x,y)\to\left(\displaystyle\frac{1}{2},\pi\right)}xy^2\sen(xy)=$ $\displaystyle\frac{\pi^2}{2}$
+            \item $\limm_{(x,y)\to(-1,2)}\displaystyle\frac{xy^3}{x+y}=-8$
+            \item $\limm_{(x,y)\to(1,-3)}e^{2x-y^2}=e^{-7}$
+            \item $\limm_{(x,y)\to(0,0)}\ln(1+x^2+y^2)=0$
+            \item $\limm_{(x,y)\to(4,-2)}x\sqrt{y^3+2x}=0$
+        % \end{enumerate}
+   % \item Mostre que os limites não existem ao longo dos eixos coordenados:
+   
+   Mostre que os limites não existem ao longo dos eixos coordenados. Exercícios 29 a 32.
+        % \begin{enumerate}
+            \item $\limm_{(x,y)\to(0,0)}\displaystyle\frac{3}{x^2+2y^2}$
+            \item $\limmzero\frac{x+y}{x+y^2}$
+            \item $\limmzero\frac{x-y}{x^2+y^2}$
+            \item $\limmzero\frac{\cos(xy)}{x+y}$
+        % \end{enumerate}
+    % \item Determine se os limites existem. Se existir, determine o seu valor.
+    
+     Determine se os limites existem. Se existir, determine o seu valor. Exercícios 33 a 38.
+       % \begin{enumerate}
+            \item $\limmzero\frac{x^4-y^4}{x^2+y^2}=0$
+            \item $\limmzero\frac{x^4-16y^4}{x^2+4y^2}=0$
+            \item $\limmzero\frac{xy}{3x^2+2y^2}; \nexists$
+            \item $\limmzero\frac{1-x^2-y^2}{x^2+y^2}; \nexists$
+            \item $\limm_{(x,y,z)\to(2,-1,2)}\frac{xz^2}{\sqrt{x^2+y^2+z^2}}=\frac{8}{3}$
+            \item $\limm_{(x,y,z)\to(2,0,-1)}\ln(2x+y-z)=\ln(5)$
+       % \end{enumerate}
+    \item Seja $f(x,y) = \begin{cases}
+                             \displaystyle\frac{\sen(x^2+y^2)}{x^2+y^2}&\text{se}(x,y)\neq(0,0)\\
+                             1&\text{se} (x,y) = (0,0)
+                         \end{cases}$. Mostre que $f$ é contínua em $(0,0)$.
+    \item Seja $f(x,y) = \displaystyle\frac{x^2}{x^2+y^2}$. É possível definir $f(0,0)$ tal que $f$ seja contínua em $(0,0)$? \R Não
+    \item Seja $f(x,y)=xy\ln(x^2+y^2)$. É possível definir $f(0,0)$ tal que $f$ seja contínua em $(0,0)$? \R Sim
+    \item Dada $f(x,y)=\begin{cases}
+                           \displaystyle \frac{3x^2y}{x^2+y^2}&\text{se}(x,y)\neq(0,0)\\
+                           0&\text{se}(x,y)=(0,0)
+                       \end{cases}$. Determine se $f$ é contínua em $(0,0)$. \R Sim
+   % \item Calcule as derivadas parciais das funções a seguir:
+   
+   Calcule as derivadas parciais das funções a seguir. Exercícios 43 a 57.
+%        \begin{enumerate}
+            \item $z = x^2\sen(y)$ \\ \R $\displaystyle \pdv{z}{x} = 2x\sen(y); \displaystyle \pdv{z}{y} = x^2\cos(y)$
+            \item $z = x^2+3xy-4y^2$ \\ \R $\displaystyle \pdv{z}{x} 2x + 3y; \displaystyle \pdv{z}{y} = 3x - 8y$
+            \item $z = \sen(3x)\cos(2y)$ \\ \R $\displaystyle \pdv{z}{x} = 3\cos(3x)\cos(2y); \displaystyle \pdv{z}{y} = -2\sen(3x)\sen(2y)$
+            \item $f(x,y,z) = \displaystyle \frac{x^2 + y^2 + z^2}{x+y+z}$ \\ \R $\displaystyle \pdv{f}{x} = \frac{x^2-y^2-z^2+2xy+2xz}{(x+y+z)^2}$;\\
+            $\displaystyle \pdv{f}{y}=\frac{y^2-x^2-z^2+2xy+2yz}{(x+y+z)^2}$;\\
+            $\displaystyle \pdv{f}{z} = \frac{z^2-x^2-y^2+2xz+2yz}{(x+y+z)^2}$
+            \item $z = x^2+3y^2+4xy+4$ \\ \R $\displaystyle \pdv{z}{x} = 2x+4y; \displaystyle \pdv{z}{y} = 4x+6y$
+            \item $z = x^2\sen(2xy) \\ \R \displaystyle \pdv{z}{x} = 2x[\sen(2xy)+xy\cos(xy)]; \displaystyle \pdv{z}{y} = 2x^3\cos(2xy)$
+            \item $z=e^{x^2-2y^2+4x}$ \\\R $\displaystyle \pdv{z}{x} = (2x+4)e^{x^2-2y^2+4x};\displaystyle \pdv{z}{y} = -4ye^{x^2-2y^2+4x}$
+            \item $\displaystyle z = \frac{1}{x+2y+1}$ \\\R $\displaystyle \pdv{z}{x} = - \frac{1}{(x+2y+1)^2}; \displaystyle \pdv{z}{y} = - \frac{2}{(x+2y+1)^2}$
+            \item $z = x^3y-e^{xy^2}$ \\\R $\displaystyle \pdv{z}{x} = 3x^2y-y^2e^{xy^2}; \displaystyle \pdv{z}{y} = x^3+2xye^{xy^2}$
+            \item $f(x,y) = e^{xy}+artg\left(\frac{x}{y}\right)$ \\ \R $\displaystyle \pdv{f}{x} = ye^{xy} - \frac{y}{x^2+y^2}; \displaystyle \pdv{f}{y} = xe^{xy} + \frac{x}{x^2+y^2}$
+            \item $z = x^2\sen\left(\frac{x}{y}\right)$\\\R $\displaystyle \pdv{z}{x} = 2x\sen\left(\frac{x}{y}\right)+\frac{x^2}{y}\cos\left(\frac{x}{y}\right); \displaystyle \pdv{z}{y} = - \frac{x^2}{y^2}-\cos\left(\frac{x}{y}\right)$
+            \item $z = (\sen(x))^{\sen(y)}$\\\R $\displaystyle \pdv{z}{x} = \sen(y)(\sen(x))^{\sen(y)-1}\cos(x); \displaystyle \pdv{z}{y} = (\sen(x)^{\sen(y)}\cos(x)\ln(\sen(x))$
+            \item $z = \displaystyle \sqrt{\frac{e^x-y}{y-x^2}}$\\\R $\displaystyle \pdv{z}{x} = \frac{e^x(y-x^2+2x)-2xy}{2\sqrt{(e^x-y)(y-x^2)^3}}; \displaystyle \pdv{z}{y} = \frac{x^2-e^x}{2\sqrt{(e^x-y)(y-x^2)^3}}$
+            \item $z = e^{x^2+y^2+z^2}$ \\\R $\displaystyle \pdv{z}{x} = 2xe^{x^2+y^2+z^2}; \displaystyle \pdv{z}{y} = 2ye^{x^2+y^2+z^2};\displaystyle \pdv{z}{z} = 2ze^{x^2+y^2+z^2}$
+%        \end{enumerate}
+    \item Dado o ponto $P(-1,4)$ e $f(x,y) = \sqrt{x^2+y^2}$, calcule:
+        \begin{enumerate}
+            \item $\displaystyle \pdv{f(x,y)}{x}$\\\R $\displaystyle \pdv{f(x,y)}{x} = - \frac{x}{\sqrt{x^2+y^2}}$
+            \item $\displaystyle \pdv{f(x,y)}{y}$\\\R $\displaystyle \pdv{f(x,y)}{y} = \frac{y}{\sqrt{x^2+y^2}}$
+            \item $\displaystyle \pdv{f(P)}{x}$ \\\R $\displaystyle \pdv{f(-1,4)}{x} = -\frac{\sqrt{17}}{17}$
+            \item $\displaystyle \pdv{f(P)}{y}$ \\\R $\displaystyle \pdv{f(-1,4)}{y} = \frac{4\sqrt{17}}{17}$
+        \end{enumerate}
+    \item A função $T(x,y) = 60-2x^2-3y^2$ representa a temperatura em qualquer ponto de uma chapa. Encontrar a razão de variação da temperatura em relação a distância percorrida ao longo da placa na direção dos eixos positivos $x$ e $y$, no ponto $(1,2)$. Considerar a temperatura medida em graus Celsius e a distância em cm. \\\R $\displaystyle \pdv{T(1,2)}{x}=-4$°C/cm; $\displaystyle \pdv{T(1,2)}{y} = -12$°C/cm
+%    \item Determine as derivadas parciais de segunda ordem das seguintes funções:
+
+Determine as derivadas parciais de segunda ordem das seguintes funções. Exercícios 59 a 62.
+       % \begin{enumerate}
+            \item $z = x^2-3y^3+4x^2y^2$\\\R $2+8y^2;16xy;16xy;-18y+8x^2$
+            \item $z = x^2y^2-xy$\\\R $2y^2;4xy-1;4xy-1;2x^2$
+            \item $z = \ln(xy)$\\\R $-\displaystyle \frac{1}{x^2};0;0;-\frac{1}{y^2}$
+            \item $z=e^{xy}$\\\R $y^2e^{xy};e^{xy}(1+xy);e^{xy}(1+xy);x^2e^{xy}$
+       % \end{enumerate}
+    \item Se $z=f(x,y)$ tem derivadas parciais de segunda ordem contúnuas e satisfaz a \emph{equação de Laplace} $\displaystyle \pdv[2]{f}{x} + \pdv[2]{f}{y} = 0$, ela é dita uma \emph{função harmônica}. Verifique se as funções abaixo são funções harmônicas:
+        \begin{enumerate}
+            \item $z=y^3-3x^2y$\\\R Sim
+            \item $z=x^2+2xy$\\\R Não
+            \item $z=e^x\cos(y)$\\\R Sim
+        \end{enumerate}
+    \item Mostre que as funções abaixo satisfazem a \emph{equação do calor} $\displaystyle \pdv{z}{t} = c^2 \displaystyle \pdv[2]{z}{x}$
+        \begin{enumerate}
+            \item $z = e^{-t}\sen\left(\frac{x}{c}\right)$
+            \item $z = e^{-t}\cos\left(\frac{x}{c}\right)$
+        \end{enumerate}
+    \item Quando dois resistores $R_1$ ohms e $R_2$ ohms são conectados em paralelo, sua resistência combinada $R$ em ohms é $$R = \frac{R_1R_2}{R_1 + R_2}.$$ Mostre que: $\displaystyle \pdv[2]{R}{R_1}\displaystyle \pdv[2]{R}{R_2} = \frac{4R^2}{(R_1+R_2)^4}$
+    \item Suponha que o potencial elétrico $V$ no ponto $(x,y,z)$ seja dado por $V = \displaystyle \frac{100}{x^2+y^2+z^2}$, onde $V$ é dado em volts e $x,y$ e $z$ em centímetros. Ache a taxa instantânea de variação de $V$ em relação à distância em $(2,-1,1)$ na direção do eixo $x$, do eixo $y$ e do eixo $z$.
+    \item Um objeto está situado em um sistema coordenado retangular tal que a temperatura $T$ no ponto $P(x,y,z)$ seja dada por $T=4x^2-y^2+16z^2$, em que $T$ é expressa em graus e $x,y$ e $z$ em centímetros. Ache a taxa instantânea de variação de $T$ em relação à distância no ponto $P(4,-2,1)$ na direção dos eixos $x$, $y$ e $z$.
+    \item Em uma livraria, o lucro mensal $L$ é uma função do número de vendedores, $x$, e do capital investido em livros, $y$ (y em milhares de reais). Em certa época tem-se $L(x,y) = 400 - (12-x)^2-(40-y)^2$.
+        \begin{enumerate}
+            \item Calcule o lucro diário se a empresa tem $7$ vendedores e $30$ mil investidos.
+            \item Calcule $\displaystyle \pdv{L}{x}(7,30)$ e $\displaystyle \pdv{L}{y}(7,30)$
+            \item O que é mais lucrativo, a partir da situação do item $(a)$:
+                \begin{enumerate}
+                    \item aumentar de uma unidade o número de funcionários (vendedores), mantendo o capital investido, ou,
+                    \item investir mais mil reais, mantendo o número de vendedores?
+                \end{enumerate}
+        \end{enumerate}
+    \item Uma fábrica produz mensalmente $x$ unidades de um produto $A$ e $y$ unidades de um produto $B$, sendo o custo mensal da produção conjunta dado por $C(x,y) = 20000 + \sqrt{x^2+y^2}$. Em certo mês foram produzidos $3000$ unidades do produto $A$ e $2000$ unidades do produto $B$.
+        \begin{enumerate}
+            \item Calcule o custa da produção neste mês
+            \item Calcule $\displaystyle \pdv{C}{x}$ e $\displaystyle \pdv{C}{y}$
+            \item O que é mais conveniente a partir dessa situação: aumentar a produção do produto $A$ mentendo constante a produção do produto $B$, ou vice versa? Justifique com base nos resultados anteriores.
+        \end{enumerate}
+    \item No estudo da penetração da geada em uma rodovia, a temperatura $T$ no instante $t$ de horas e à produndidade $x$ pode ser dada aproximadamente por $T = T_0e^{-\lambda x}\sen(\omega t - \lambda x)$, em que $T_0, \omega, \lambda$ são constantes. O período de $\sen(\omega t - \lambda x)$ representa $24$ horas.
+        \begin{enumerate}
+            \item Calcule e interprete $\displaystyle \pdv{T}{t}$ e $\displaystyle \pdv{T}{x}$
+            \item Mostre que $T$ satisfaz a equação unidimensional do calor $\displaystyle \pdv{T}{t} = k \displaystyle \pdv[2]{T}{x}$ em que $k$ é constante.
+        \end{enumerate}
+    \item A energia consumida num resistor elétrico é dada por $\displaystyle P = \frac{V^2}{R}$ watts. Se $V=120$ watts e $R = 12$ ohms, calcular um valor aproximado para a variação de energia quando $V$ decresce de $0,001$ volts e $R$ aumenta de $0,02$ ohms. \\\R $-2,02$
+    \item Calcular o valor aproximada da variação da hipotenusa de um triângulo cujos catetos medem $6$cm e $8$, quando o cateto menor é aumentado de $0,25$cm e o maior é diminuído de $0,125$. \\\R $dh=\Delta h \approx 0,05$
+    \item Um orifício cilíndrico circular de $4$cm de diâmetro e $12$cm de profundidade, existente em um bloco metálico, deve ser aumentado para $4,12$cm de diâmetro. Avaliar a quantidade de material que deve ser retirada. \\\R $dV = \Delta V \approx 9,05$cm$^3$
+    \item A resistência $R$, em Ohms, de um circuito é dada por $\displaystyle R = \frac{E}{I}$, onde $I$ é a corrente em ampéres e $E$ é a força eletromotriz, em volts. Num certo instante, quando $E=120$ volts e $I=15$ ampéres, $E$ aumenta numa velocidade de $0,1$ volts/s e $I$ diminui à velocidade de $0,05$ ampéres/s. Determine a taxa de variação instantânea de $R$. \\\R $\displaystyle \frac{1}{30}$ ohm/s
+    \item Seja $T=x^2y-xy^3+2;x=r\cos(\theta); y = r\sen(\theta)$. Use a regra da cadeia para determinar $\displaystyle \pdv{T}{r}$ e $\displaystyle \pdv{T}{\theta}$ \\\R $\displaystyle \pdv{T}{r}=3r^3\sen(\theta)\cos^2(\theta)-4r^3\sen^3(\theta)\cos(\theta)\\ \displaystyle \pdv{T}{\theta}= -2r^3\sen^2(\theta)\cos(\theta)+r^3\cos^3(\theta)+r^4\sen^4(\theta)-3r^4\sen^2(\theta)\cos^2(\theta)$
+    \item Suponha que $z=\sqrt{xy+y};x=\cos(\theta);y=\sen(\theta)$. Use a regra da cadeia para determinar $\displaystyle \pdv{z}{\theta}$ quando $\theta = \displaystyle\frac{\pi}{2}$\\\R $\displaystyle \pdv{z}{t}\Big|_{\theta = \displaystyle \frac{\pi}{2}} = \frac{32}{5}$
+    %\item Utilize derivadas parciais para calcular $\displaystyle \pdv{y}{x}$ se $y=f(x)$ é definida implicitamente pelas equações dadas abaixo:
+    
+    Utilize derivadas parciais para calcular $\displaystyle \pdv{y}{x}$ se $y=f(x)$ é definida implicitamente pelas equações dadas abaixo. Exercícios 77 a 80.
+       % \begin{enumerate}
+            \item $2x^3 + x^2y+y^3=1$
+            \item $6x+\sqrt{xy}=3y-4$
+            \item $x^4+2x^2y^2-3xy^3+2x = 0$
+            \item $x^{\frac{2}{3}}+y^{\frac{1}{3}}=4$
+       % \end{enumerate}
+    \item Determine a derivada direcional de $f(x,y) = 3x^2y$ no ponto $(1,2)$ na direção do vetor $\vec{v} = 3\vec{i}+4\vec{j}$\\\R $\displaystyle \pdv{f}{\vec{v}}(1,2) = \frac{48}{5}$
+    \item Determine a derivada direcional de $f(x,y) = e^{xy}$ em $(-2,0)$ na direção do vetor unitário que faz um ângulo de $\theta = \frac{\pi}{3}$ com  eixo $x$ positivo. \\\R $-\sqrt{3}$
+    \item Seja $f(x,y) = x^2e^y$. Determine o valor máximo de uma derivada direcional em $(-2,0)$ e determine o vetor unitário na direção do qual o valor máximo ocorre. \\\R $\|\nabla f(-2,0)\| = 4 \sqrt{2}$ (valor máximo) e $\vec{u} = \displaystyle \frac{\nabla f(-2,0)}{\|\nabla f(-2,0)\|}= -\frac{1}{\sqrt{2}}\vec{i}+\frac{1}{\sqrt{2}}\vec{j}$ (vetor unitário)
+    \item Suponha que o potencial numa lâmina plana é dado por $V(x,y) = 80-20xe^{- \displaystyle \frac{x^2+y^2}{20}}$ em volts, $x$ e $y$ em centímetros. 
+        \begin{enumerate}
+            \item Determine a taxa de variação do potencial em qualquer direção paralela ao eixo dos $x$. \\\R $\displaystyle \pdv{V}{x}(x,y) = 2(x^2-10)e^{-\frac{x^2+y^2}{20}}$
+            \item Determine a taxa de variação do potencial em qualquer direção paralela ao eixo dos $y$. \\\R $\displaystyle \pdv{V}{y}(x,y)=2xye^{-\frac{x^2+y^2}{20}}$
+            \item Qual a taxa máxima de variação do potencial no ponto $(1,2)$?\\\R $\|\nabla f(1,2)\| = \displaystyle \frac{2\sqrt{85}}{\sqrt[4]{e}}$ volts
+        \end{enumerate}
+    \item Seja $U=2x^3y-3y^2z$
+        \begin{enumerate}
+            \item Calcule a derivada direcional de $U$ em $P=(1,2,-1)$ em direção de $P$ a $Q(3,-1,5)$\\\R $\displaystyle \pdv{U}{\vec{u}}(1,2,-1)=\frac{48}{7}$
+            \item Em qual direção a partir de $P$ a derivada direcional é máxima?\\\R A derivada direcional é máxima na direção do gradiente $\nabla f(1,2,-1)=12\vec{i}+14\vec{j}-12\vec{k}$
+            \item Qual a magnitude da derivada direcional máxima?\\\R $22$
+        \end{enumerate}
+    \item Uma indústria produz dois produtos denotados por $A$ e $B$. O lucro da indústria pela venda de $x$ unidades do produto $A$ e $y$ unidades do produto $B$ é dado por: $$L(x,y) = 60x+100y-\frac{3}{2}x^2-\frac{3}{2}y^2-xy$$ Supondo que toda a produção da indústria seja vendida, determinar a  produção que maximiza o lucro. Determine também esse lucro. \\\R $(10,30)\rightarrow 1,600$
+    \item Quais as dimensões de uma caixa retangular sem tampa com volume $4$m$^3$ e com a menor área de superfície possível? \\\R$(2,2,1)$
+    %\item Determine os pontos críticos das funções, a seguir investigue a sua natureza:
+    
+    Determine os pontos críticos das funções, a seguir investigue a sua natureza. Exercícios 88 a 96.
+       % \begin{enumerate}
+            \item $f(x,y) = 3x^2+2xy+y^2+10x+20y+1$ \\\R $(-2,1)$ Ponto de mínimo.
+            \item $f(x,y) = x^2+y^3-6xy$ \\\R $(0,0)$ Ponto de sela, $(18,6)$ Ponto de mínimo
+            \item $f(x,y) = xy-x^2-y^2-2x-2y+4$ \\\R $(-2,-2)$
+            \item $f(x,y) = \displaystyle \frac{x^3}{3}+9y^3-4xy$ \\\R $(0,0)$ e $\displaystyle \frac{4}{3}, \frac{4}{9}$
+            \item $f(x,y) = e^{-2x}\cos(y)$ \\\R Não tem ponto crítico
+            \item $f(x,y) = xy + 2x - \ln(x^2y)$ $x>0,y>0$\\\R $(\frac{1}{2},0)$ Ponto de mínimo.
+            \item $f(x,y) = -x^2-4x-y^2+2y-1$ \\\R $(-2,1)$ Ponto de máximo
+            \item $f(x,y) = x^2+2xy+3y^2$ \\\R $(0,0)$ Ponto de mínimo
+            \item $f(x,y) = \displaystyle \frac{1}{2}x^4-2x^3+4xy+y^2$ \\\R $(0,0)$ Ponto de sela, $(4,-8)$ Ponto de mínimo, $(-1,2)$ Ponto de máximo
+       % \end{enumerate}
+    \item Determine os pontos de máximos e/ou mínimos das funções dadas, sujeito às restrições:
+        \begin{enumerate}
+            \item $z=4-2x-3y;~x^2+y^2=1$ \\\R $\left(\displaystyle \frac{2}{\sqrt{13}},\frac{3}{\sqrt{13}}\right)$ Ponto de mínimo, $\left(\displaystyle-\frac{2}{\sqrt{13}},-\frac{3}{\sqrt{13}}\right)$ Ponto de máximo
+            \item $z=2x+y;x^2+y^2=4$ \\\R $\left(\displaystyle-\frac{4}{\sqrt{5}},-\frac{2}{\sqrt{5}}\right)$ Ponto de mínimo, $\left(\displaystyle\frac{4}{\sqrt{5}},\frac{2}{\sqrt{5}}\right)$ Ponto de máximo
+            \item $f(x,y) = xy; x^2+y^2=1$\\\R
+            \item $f(x,y) = x^2+y^2;xy=1$\\\R $f(1,1)=f(-1,-1)=2$
+            \item $f(x,y) = x^2-y^2;x^2+y^2=4$ \\\R $f(0,2)=f(0,-2)=-4$
+        \end{enumerate}
+    \item O departamento de estrada está planejando construir uma área de piquenique para motoristas ao longo de uma grande auto-estrada. Ela deve ser retangular, com uma área de $5000$ metros quadrados, e cercada nos três lados não-adjacentes à auto-estrada. Qual é a quantidade mínima de cerca que será necessária para realizar o trabalho? \\\R $200$m
+    \item Há $320$ metros de cerca disponíveis para cercar um campo retangular. Como a cerca deve ser usada de tal forma que a área incluída seja a máxima possível? \\\R $80$ metros de lado. Campo quadrado.
+    \item Deseja-se construir um aquário, na forma de um paralelepípedo retangular de volume $1$m$^3$ $(1000)$L. Determine as dimensões do aquário que minimizam o custo, sabendo que o custo do material usado na confecção do fundo é o dobro do da lateral e que o aquário não terá tampa.\\\R $\begin{cases}
+    \text{min}~ 2xy+2xz+2yz \\
+    \text{s.a}~ xyz=1                                                                                                                                                                                                           
+                                                                                                                                                                                                \end{cases}$, usando os multiplicados de Lagrange. Deverá ser um cubo com aresta de $1$m.
+                                                                                                                                                                                                
+                                                                                                                                                                                                                                                                
+                                                                                                                                                                                                                                                                
+                                                                                                                                                                                                                                                                
+
+
+
+        
+
+
+
+
+\end{enumerate}
+
+
+	
+\end{document}

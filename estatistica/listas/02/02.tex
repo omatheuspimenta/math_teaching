@@ -1,0 +1,175 @@
+\documentclass[oneside,a4paper,12pt]{article}
+\usepackage[english,brazilian]{babel}
+\usepackage{multicol}
+\usepackage{textcomp}
+\usepackage[alf]{abntex2cite}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb,exscale}
+\usepackage[top=20mm, bottom=20mm, left=20mm, right=20mm]{geometry}%margens cima, baixo, esquerda direita
+\usepackage{framed}
+\usepackage{booktabs} %Pacote para deixar tabelas mais bonitas.
+\usepackage{color} %Pacote de Cores
+\usepackage{hyperref} %Pacotes para Hiperlinks
+\usepackage{graphicx} %Pacote de imagens
+\graphicspath{{./Figuras/}}%Direciona as imagens para uma pasta chamada "Figuras" (uso isso para organizar. Uma vez que todas as imagens vao ficar em uma pasta isolada)    
+\definecolor{shadecolor}{rgb}{0.8,0.8,0.8}
+
+%FAZ EDICOES AQUI (somente no conteudo que esta entre entre as ultimas  chaves de cada linha!!!)
+\newcommand{\universidade}{Universidade Tecnológica Federal do Paraná}
+\newcommand{\centro}{Câmpus Cornélio Procópio}
+\newcommand{\departamento}{Departamento Acadêmico de Matemática}
+\newcommand{\curso}{Análise e Desenvolvimento de Sistemas}
+\newcommand{\professores}{Matheus Pimenta}
+\newcommand{\disciplina}{Estatística - AS32E}
+%\newcommand{\tema}{Lista 01}
+%\newcommand{\turma}{MA31G}
+%\newcommand{\data}{Março de 2019}%{\today}
+%\newcommand{\tempodeaula}{30 minutos}
+%\newcommand{\prerequisitos}{Matrizes, Transformações Lineares e Bases}
+%ATE AQUI !!!	
+
+\begin{document}
+	\pagestyle{empty}
+	
+	\begin{center}
+		\includegraphics[width=\linewidth/8]{logo.jpg}%LOGOTIPO DA INSTITUICAO
+	 	\vspace{2pt} 	
+		
+		\universidade
+		\par
+		\centro
+		\par
+		\departamento
+		\par
+	%	Curso de \curso
+		\par
+		\vspace{12pt}
+		\LARGE \textbf{Lista 02}
+		
+	\end{center}
+	
+	\vspace{12pt}
+	
+	\begin{tabular}{ |l|p{12cm}| }
+		
+		\hline
+		\multicolumn{2}{|c|}{\textbf{Dados de Identificação}} \\
+		\hline
+		Professor:         &    \professores           \\
+		\hline
+		Disciplina:        &    \disciplina          \\
+		\hline
+	%	Tema:              &    \tema                \\
+	%	\hline
+	%	Pré-requisito	:  &    \prerequisitos         \\
+	%	\hline
+		Aluno:             &                   \\
+	%	\hline
+	%	Data:              &    \data                \\
+	%	\hline
+	%	Duração da aula:   &    \tempodeaula         \\
+		\hline
+		
+	\end{tabular}
+	\vspace{6pt}
+	
+	
+	\begin{snugshade}
+	\end{snugshade}
+	\begin{center}
+		Tabela para valores de $Z_{\alpha}$.
+		\begin{table}[h]
+			\small
+			\begin{tabular}{|c|cccccccccc|}
+				\hline
+				Nível de Confiança	& $99,73$\% & $99$\% & $98$\% & $96$\% & $95,45$\% & $95$\% & $90$\% & $80$\% & $68,27$\% & $50$\% \\ \hline
+				$Z_{\alpha}$	& $3,00$ & $2,58$ & $2,33$ & $2,05$ & $2,00$ & $1,96$ & $1,645$ & $1,28$ & $1,00$ & $0,6745$ \\ \hline
+			\end{tabular}
+		\end{table}
+	\end{center}
+	\begin{snugshade}
+	\end{snugshade}
+
+\begin{enumerate}
+
+	\item Os salários dos diretos das empresas de São Paulo distribuem-se normalmente com média de R\$8.000,00 e desvio padrão de R\$500,00. Qual a porcentagem de diretores que recebem:
+	\begin{itemize}
+		\item menos de R\$ 6.470,00? {\bf R: } $0,001107$
+		\item entre R\$8.920,00 e R\$9.380,00? {\bf R: } $0,0299994$
+	\end{itemize}
+
+	\item Uma máquina automática enche latas baseada em seus pesos brutos. O peso bruto tem distribuição normal com $\mu = 1000$g e $\sigma = 20$g. As latas têm peso distribuído normalmente, com $\mu = 90$g e $\sigma = 10$g. Qual a probabilidade de que uma lata tenha, de \emph{peso líquido}:
+	\begin{enumerate}
+		\item menos de $830$g? {\bf R: } $0,0000172$
+		\item mais de $870$g? {\bf R: } $0,9632$
+		\item entre $860$g e $920$g? {\bf R: } $0,6611$
+	\end{enumerate}
+
+	\item Sejam $X_1:N(150,30)$, $X_2:N(200,20)$ e $X_3:N(100,14)$ independentes. Sejam $X = X_1 - X_2 + X_3$ também com distribuição normal. Calcular:
+	\begin{enumerate}
+		\item $P(61 \leq X \leq 70)$; {\bf R: }$0,07758$
+		\item $P(47\leq X \leq 58)$. {\bf R: } $0,4893$
+	\end{enumerate} 
+
+	\item Sejam $X_1:N(180,40)$ e $X_2:N(160,50)$ independentes. Sejam $X = 4X_1 - 3X_2$ também com distribuição normal. Calcular:
+	\begin{enumerate}
+		\item $P(X-3\sigma \geq \mu - 100)$; {\bf R: } $0,5119$
+		\item $P(|X-200|\geq 42)$; {\bf R: } $0,4826$
+		\item $P(|X-210|\leq 16)$; {\bf R: } $0,2549$
+	\end{enumerate}
+
+	\item O peso de um saco de café é uma variável aleatória que tem distribuição normal com média de $65$kg e desvio padrão de $4$kg. Um caminhão é carregado com $120$ sacos. Qual a probabilidade de a carga do caminhão pesar (considere o peso da carga com distribuição normal):
+	\begin{itemize}
+		\item entre $7.893$kg e $7.910$kg? {\bf R: } $0.010966$
+		\item mais de $7.722$kg? {\bf R: }$0,9624$
+	\end{itemize}
+
+	\item Um elevador tem seu funcionamento bloqueado se sua carga for superior a $450$kg. Sabendo que o peso de um adulto é uma variável aleatória com distribuição normal, sendo a média igual a $70$kg e o desvio padrão igual a $15$kg, calcule a probabilidade de ocorrer o bloqueio numa tentativa de transportar $6$ adultos.
+	\\{\bf R: } $0,2061$
+	
+	\item O peso de uma caixa de peças é uma variável aleatória com distribuição normal de probabilidade, com média de $60$kg e desvio padrão de $4$kg. Um carregamento de $200$ caixas de peças é feito. Seja $X$ o peso do carregamento e $X$ tendo distribuição normal, determine:
+	\begin{enumerate}
+		\item $P(|X - 12.100|\geq32);$ {\bf R: } $0,1051$
+		\item $X_{\alpha}$ tal que $P(X \geq X_{\alpha}) = 0,973$ {\bf R: } $11.891,39$
+	\end{enumerate}
+
+	\item Um criador possui $5000$ cabeças de vaca leiteira. Sabendo-se que cada vaca produz em média $3$ litros por dia, obedecendo a uma distribuição normal, com desvio padrão de $0,5$ litro, calcular a probabilidade de produzir, diariamente:
+	\begin{enumerate}
+		\item mais de $15.110$ litros; {\bf R: } $0,000935$
+		\item entre $14.910$ e $14.960$ litros. {\bf R: } $0,1238$
+	\end{enumerate}
+
+	\item Deseja-se saber qual a proporção de pessoas da população portadoras de determinada doença. Retira-se uma amostra de $400$ pessoas, obtendo-se $8$ portadores da doença. Definir limites de confiabilidade de $99$\% para a proporção populacional. {\bf R: }$0,99$ e intervalo é $P(0,2\%\leq p \leq 3,8\%)$
+
+	\item Dada uma população normal com $VAR(X) = 3$, levantou-se uma amostra de $4$ elementos tais que $\displaystyle \sum_{i = 1}^{4}x_i = 0,8$. Construir um IC para a verdadeira média populacional $\mu$ ao nível de $1$\%. {\bf R: } $IC(\mu,99\%) = (-2,03;2,43)$
+
+	\item A experiência com trabalhadores de uma certa indústria indica que o tempo necessário para que um trabalhador, aleatoriamente selecionado, realize uma tarefa é distribuído de maneira aproximadamente normal, com desvio padrão de $12$ minutos. Uma amostra de $25$ trabalhadores forneceu $\overline{x} = 140$min. Determinar os limites de confiança de $95$\% para a média $\mu$ da população de todos os trabalhadores que fazem aquele determinado serviço. {\bf R: } $IC(\mu,95\%) = (135,3;144,7)$
+	
+	\item Em uma pesquisa de opinião, entre $600$ pessoas pesquisadas, $240$ responderam ``sim'' a determinada pergunta. Estimar a porcentagem de pessoas com essa mesma opinião na população, dando um intervalo de $95$\% de confiabilidade. {\bf R: } $IC(p,95\%) = [36,08\%;43,92\%]$
+
+	\item Uma amostra aleatória de $80$ notas de matemática de uma população com distribuição normal de $5000$ notas apresenta média de $5,5$ e desvio padrão de $1,25$.
+	\begin{enumerate}
+		\item Qual os limites de confiança de $95$\% para a média das $5000$ notas? {\bf R: } $IC(\mu,95\%) = (5,23;5,77)$
+		\item Com que grau de confiança diríamos que a média das notas é maior que $5$ e menor que $6$? {\bf R: } $99,97$\%
+	\end{enumerate}
+	
+	\item Uma fábrica de automóveis anuncia que seus carros consomem, em média, $11$ litros por $100$km, com desvio padrão de $0,8$litro. Uma revista decide testar essa afirmação e analisa $35$ carros dessa marca, obtendo $11,4$ litros por $100$km, como consumo médio. Admitindo que o consumo tenha distribuição normal, ao nível de $10$\%, o que a revista concluirá sobre o anúncio da fábrica? {\bf R: } A revista pode concluir que o anúncio não é verdadeiro.
+	
+	\item A altura dos adultos de uma certa cidade tem distribuição normal com média de $164$cm e desvio padrão de $5,82$cm. Deseja-se saber se as condições sociais desfavoráveis vigentes na parte pobre dessa cidade causem um retardamento no crescimento dessa população. Para isso, levantou-se uma amostra de $144$ adultos dessa parte da cidade, obtendo-se a média de $162$cm. Pode esse resultado indicar que os adultos residentes na área são em média mais baixos que os demais habitantes da cidade ao nível de $5$\%? {\bf R: } Pode-se admitir que as condições sociais desfavoráveis provocam um retardamento no crescimento da população da parte estudada.
+
+	\item Um candidato a deputado estadual afirma que terá $60$\% dos votos do eleitores de uma cidade. Um instituto de pesquisa colhe uma amostra de $300$ eleitores dessa cidade, encontrando $160$ que votarão no candidato. Esse resultado mostra que a afirmação do candidato é verdadeira, ao nível de $5$\%? {\bf R: } A afirmação do candidato é falsa.
+
+	\item A vida média de uma amostra de $100$ lâmpadas produzidas por uma firma foi calculada em $1570$ horas, com desvio padrão de $120$ horas. Sabe-se que a duração das lâmpadas dessa firma tem distribuição normal com média de $1600$ horas. Ao nível de $1$\% testar se houve altera na duração média das lâmpadas? {\bf R: } Não é significativa a alteração da vida média das lâmpadas.
+
+	\item De uma amostra normal com parâmetro desconhecidos, retirou-se uma amostra de $25$ elementos para estimar $\mu$, obtendo-se $\overline{x} = 15$ e $s^2 = 36$. Determinar um IC para a média ao nível de $5$\%. {\bf R: } $P(12,523 < \mu < 17,477)$
+
+	\item Seja $X$ uma variável aleatória normal com parâmetro desconhecidos. Dessa população foi retirada uma amostra $x_i : 10,12,14,15,9,12,16,11,8,13$. Construir um IC para $\mu$ ao nível de $5$\%. {\bf R: } $P(10,152 < \mu < 13,848) = 0,95$
+	
+	
+
+\end{enumerate}
+
+
+	
+\end{document}

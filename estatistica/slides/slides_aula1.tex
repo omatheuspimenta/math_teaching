@@ -1,0 +1,339 @@
+\documentclass[hyperref={pdfpagelabels=false}]{beamer}
+\usepackage{lmodern}
+\usetheme{CambridgeUS}
+
+\usepackage[english,brazilian]{babel}
+\usepackage{multicol}
+\usepackage{textcomp}
+\usepackage[alf]{abntex2cite}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+\usepackage{amsmath,amssymb,exscale}
+
+\title{Probabilidade e Estatística}  
+\author[Matheus Pimenta]{Matheus Pimenta} 
+\institute[UTFPR-CP]{\normalsize Universidade Tecnológica Federal do Paraná \\
+	Câmpus Cornélio Procópio
+} 
+\date{Agosto de 2020 \\ ADNP 2020} 
+\begin{document}
+	
+\begin{frame}
+\titlepage
+\end{frame} 
+
+
+%\begin{frame}
+%\frametitle{Table of contents}
+%\tableofcontents
+%\end{frame} 
+
+
+\section{Conceitos Básicos - Probabilidade} 
+
+\begin{frame}{Conteúdo Programático}
+	\begin{itemize}
+		\item Espaço Amostral
+		\pause
+		\item Representação do Espaço Amostral
+		\pause
+		\begin{itemize}
+			\item Tabelas
+			\pause
+			\item Diagramas
+		\end{itemize}
+		\pause
+		\item Operações com Eventos Aleatórios
+		\pause
+		\item Propriedades das Operações
+		\pause
+		\item Função de Probabilidade
+		\pause
+		\item Alguns Teoremas
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Espaço Amostral}
+
+Os fenômenos podem ser classificados como: {\it determinísticos} ou {\it aleatórios}.
+
+\pause
+
+{\bf Definição fenômenos determinísticos:}
+
+São aqueles que o resultado são sempre iguais, qualquer que seja o número de ocorrências verificadas.
+
+Por exemplo, a temperatura que a água entra em ebulição, a temperatura de solidificação de um certo composto.
+
+\pause
+
+{\bf Definição fenômenos aleatórios:}
+
+São do tipo que não podem ser previsíveis, mesmo que haja um grande número de repetições do mesmo fenômeno. 
+
+Alguns exemplos são: condições climáticas no próximo mês, resultado de lançamento de um dado, número de veículos que passam em um cruzamento em um certo período do dia.
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Espaço Amostral - Exemplos}
+	
+Os {\it experimentos aleatórios} são os fenômenos que mesmo com as mesmas condições iniciais, os resultados finais de cada tentativa do experimento são diferentes e não previsíveis.
+
+\pause 
+
+Alguns exemplos:
+{\begin{enumerate}
+		\item lançamento de uma moeda honesta;
+		\pause
+		\item lançamento de um dado;
+		\pause
+		\item retirada de uma carta de um baralho de $52$ cartas;
+\end{enumerate}}
+
+\pause
+Quando os resultados não podem ser previsíveis é definidos como {\it eventos aleatórios}.
+
+\pause
+No exemplo $1$, os eventos aleatórios associados são: {\it cara} ou {\it coroa}, já no exemplo $2$ os eventos aleatórios associados são as faces do dados que poderão ocorrer $1, 2, 3, 4, 5$ ou $6$.
+	
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Espaço Amostral}
+
+{\bf Definição Espaço Amostral:}
+
+É o conjunto dos resultados do experimento. Os {\it pontos amostrais} são os elementos do espaço amostral. 
+
+\pause
+
+A notação do espaço amostral é: $\Omega$.
+
+\pause
+Nossos exemplos anteriores, os espaços amostrais são:
+\begin{enumerate}
+	\item $\Omega = \{ cara, coroa \}$
+	\pause
+	\item $\Omega = \{ 1,2,3,4,5,6 \}$
+	\pause
+	\item $\Omega = \{ A_O,\dots,K_O, A_P,\dots,K_P, A_E,\dots, K_E, A_C,\dots, K_C \}$
+\end{enumerate}
+
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Espaço Amostral}
+
+Pode-se ter a união de vários eventos aleatórios como interesse.
+
+\pause
+\begin{enumerate}
+	\item saída de faces iguais;
+	\pause
+	\item saída de faces cuja a soma seja igual a 10;
+	\pause
+	\item saída de faces cuja a soma seja inferior a 2;
+	\pause
+	\item saída de faces cuja a soma seja inferior a 15;
+	\pause
+	\item saída de faces onde uma  face é o dobro da outra;
+\end{enumerate}
+
+\pause
+Para determinar qual é o espaço amostral, podemos utilizar uma tabela ou um diagrama de árvore.
+\end{frame}
+
+\begin{frame}
+\frametitle{Tabela e Diagrama de Árvore}
+
+{\bf Tabela e Diagrama de Árvore}
+\end{frame}
+
+\begin{frame}
+\frametitle{Espaço Amostral}
+
+Assim, os eventos pedidos são:
+\begin{enumerate}
+	\pause
+	\item $\Omega = \{ (1,1), (2,2), (3,3), (4,4), (5,5), (6,6) \}$
+	\pause
+	\item $\Omega = \{ (4,6), (5,5), (6,4) \}$
+	\pause
+	\item $\Omega = \varnothing$ (evento impossível)
+	\pause
+	\item $\Omega = \Omega$ (evento certo)
+	\pause
+	\item $\Omega = \{ (1,2), (2,1), (2,4), (3,6), (4,2), (6,3) \}$
+\end{enumerate}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Operações com Eventos Aleatórios}
+
+Considere o espaço amostral finito $\Omega = \{ e_1, e_2, \dots, e_n \}$. Sejam $A$ e $B$ dois eventos da classe de eventos $F(\Omega)$. As seguintes operações  estão definidas:
+\pause
+\begin{itemize}
+	\item União:
+	
+	{\bf Definição:} $A \cup B = \{ e_i \in \Omega; e_i \in A \lor e_i \in B \}$, $i = 1,\dots,n$.
+	
+	O {\it evento reunião} é formado pelos pontos amostrais que pertencem a pelo menos um dos eventos.
+	
+	\begin{center}
+		{\bf \tiny DIAGRAMA DE VEEN}
+	\end{center}
+	\pause
+	\item Interseção:
+	
+	{\bf Definição:} $A \cap B = \{ e_i \in \Omega; e_i \in A \land e_i \in B \}$, $i = 1,\dots,n$
+	
+	O {\it evento interseção} é formado pelos pontos amostrais que pertencem simultaneamente aos eventos $A$ e $B$. Se $A \cap B = \varnothing$ dizemos que $A$ e $B$ são {\it eventos mutualmente exclusivos}.
+	
+	\begin{center}
+		{\bf \tiny DIAGRAMA DE VEEN}
+	\end{center}	
+	\pause
+	\item Complementação:
+	
+	{\bf Definição:} $\Omega - A = \bar{A} = \{ e_i \in \Omega; e_i \notin A \}$	
+	
+	\begin{center}
+		{\bf \tiny DIAGRAMA DE VEEN}
+	\end{center}
+	
+\end{itemize}
+
+
+\end{frame}
+
+
+
+
+\begin{frame}
+\frametitle{Propriedades das Operações}
+
+Sejam $A,B$ e $C$ eventos associados a um espaço amostral $\Omega$. As propriedades a seguir são válidas:
+\pause
+
+\begin{enumerate}
+	\footnotesize{
+	\item Comutativa:
+	
+	$A \cup B = B \cup A$
+	
+	$A \cap B = B \cap A$
+	\pause
+	\item Idempotentes:
+	
+	$A \cup A = A$
+	
+	$A \cap A = A$
+	\pause
+	\item Associativas
+	
+	$A \cap (B \cap C) = (A \cap B) \cap C$
+	
+	$A \cup (B \cup C) = (A \cup B) \cup C$
+	\pause
+	\item Distributivas:
+	
+	$A \cup (B \cap C) = (A \cup B)\cap (A \cup C)$
+	
+	$A \cap (B \cup C) = (A \cap B)\cup (A \cap B)$
+	\pause
+	\item Identidades:
+	
+	$A \cap \Omega = A$
+	
+	$A \cup \Omega = \Omega$
+	
+	$A \cap \varnothing = \varnothing$
+	
+	$A \cup \varnothing = A$
+	}
+\end{enumerate}
+
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Função de Probabilidade}
+
+{\bf Definição:}
+
+	É a função $P$ que associa a cada evento de $F$ um número real pertencente ao intervalo $[0,1]$, que satisfaz os seguintes axiomas:\pause
+	\begin{itemize}
+		\item $P(\Omega) = 1$;
+		\pause
+		\item $P(A \cup B) = P(A) + P(B)$, se $A$ e $B$ forem mutualmente exclusivos;
+		\pause
+		\item $P\left(\displaystyle\cup_{i=1}^{n} A_i \right) = \displaystyle \sum_{i = 1}^{n}P(A_i)$, se $A_1,A_2,\dots,A_n$ forem, dois a dois, eventos mutualmente exclusivos.
+		\pause
+	\end{itemize}
+	
+	
+	Pela definição acima, temos que $0\leq P(A) \leq 1$, para todo evento $A$, tal que $A \subset \Omega$.
+\end{frame}
+
+\begin{frame}
+\frametitle{Teoremas}
+{\bf Teorema:}
+
+	Se os eventos $A_1,A_2,\dots,A_n$ formam uma partição do espaço amostral, então:
+	$$\displaystyle \sum_{i = 1}^{n}P(A_i) = 1$$
+\pause
+
+{\bf Teorema:}
+
+	Se $\varnothing$ é o evento impossível, então:
+	$$P(\varnothing) = 0$$
+
+\pause
+
+{\bf Teorema: do evento complementar}
+
+	Para todo evento $A \subset \Omega$, é valido:
+	$$P(A) + P(\bar{A}) = 1$$
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{Teoremas}
+
+{\bf Teorema: da soma}
+
+Sejam $A \subset \Omega$ e $B \subset \Omega$. Então:
+$$P(A \cup B) = P(A) + P(B) - P(A \cap B)$$
+\pause
+
+{\bf Teorema:}
+
+	Para $A \subset \Omega$ e $B \subset \Omega$, temos:
+	$$P(A \cup B) \leq P(A) + P(B)$$
+\pause
+
+{\bf Teorema:}
+
+	Dado o espaço amostral $\Omega$ e os eventos $A_1, A_2, \dots, A_n$, então:
+	\footnotesize{
+	$$P\left(\displaystyle\cup_{i=1}^{n} A_i \right) = \displaystyle \sum_{i = 1}^{n}P(A_i) - \displaystyle \sum_{i \neq j}^{n}P(A_i \cap A_j) + \displaystyle \sum_{i \neq j \neq k}^{n}P(A_i \cap A_j \cap A_k) - \dots + (-1)^{n-1}P(A_1\cap\dots\cap A_n)$$}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Teoremas}
+
+{\bf Teorema:}
+
+	Dados os eventos $A_1,A_2,\dots,A_n$, então:
+	$$P\left( \displaystyle \cup_{i=1}^{n} A_i \right) \leq \displaystyle \sum_{i = 1}^{n}P(A_i)$$
+
+\end{frame}
+
+\end{document}
+

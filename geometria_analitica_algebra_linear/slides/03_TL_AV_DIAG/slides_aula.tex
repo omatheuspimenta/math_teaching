@@ -1,0 +1,710 @@
+\documentclass[hyperref={pdfpagelabels=false}]{beamer}
+\usepackage{lmodern}
+\usetheme{CambridgeUS}
+
+\usepackage[english,brazilian]{babel}
+\usepackage{multicol}
+\usepackage{textcomp}
+\usepackage[alf]{abntex2cite}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+\title{Transformações Lineares, Autovalor e Autovetor, Diagonalização de Operadores}  
+\author[Matheus Pimenta]{Matheus Pimenta} 
+\institute[UTFPR-CP]{\normalsize Universidade Tecnológica Federal do Paraná \\
+	Câmpus Cornélio Procópio
+} 
+\date{Junho de 2019} 
+\begin{document}
+	
+\begin{frame}
+\titlepage
+\end{frame} 
+
+
+%\begin{frame}
+%\frametitle{Table of contents}
+%\tableofcontents
+%\end{frame} 
+
+
+\section{Transformações Lineares} 
+
+
+\begin{frame}
+\frametitle{Conceitos e Teoremas} 
+
+	\begin{theorem}
+		Dados dois espaços vetoriais reais $V$ e $W$ e uma base de $V$, $\{ v_1, v_2, \dots, v_n \}$, sejam $w_1, w_2, \dots, w_n$ elementos arbitrários de $W$. Então existe uma única aplicação linear $T: V \rightarrow W$ tal que $T(v_1) = w_1, \dots, T(v_n) = w_n$. Essa aplicação é dada por:
+		
+		Se $v = a_1 v_1 + \dots + a_n v_n$,
+		\begin{eqnarray*}
+			T(v) & = & a_1 T(v_1) + \dots + a_n T(v_n) \\
+			& = & a_1 w_1 + \dots + a_n w_n
+		\end{eqnarray*}
+		
+		\emph{Verifique que $T$ assim definida é linear e que é a única que satisfaz as condições exigidas.}
+	\end{theorem}
+
+	{\bf Exemplo 01:} Qual é a transformação linear $T:\mathbb{R}^2 \rightarrow \mathbb{R}^3$ tal que $T(1,0) = (2,-1,0)$ e $T(0,1) = (0,0,1)$?
+\end{frame}
+
+\begin{frame}
+\frametitle{Núcleo e Imagem}
+\begin{definition}[Imagem de uma Transformação Linear]
+	Seja $T:V \rightarrow W$ uma aplicação linear. A \emph{imagem} de $T$ é o conjunto dos vetores $w \in W$ tais que existe um vetor $v \in V$, que satisfaz $T(v) = w$. Ou seja,
+	$$Im(T) = \{ w \in W; T(v) = w \text{ para algum } v \in V  \}$$
+	
+	Note que $Im(T)$ é um subconjunto de $W$ e, além disso, é um subespaço vetorial de $W$.
+\end{definition}
+
+
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Núcleo e Imagem}
+\begin{definition}[Núcleo de uma Transformação Linear]
+	Seja $T:V \rightarrow W$ uma transformação linear. O conjunto de todos os vetores $v \in V$ tais que $T(v) = 0$ é chamado \emph{núcleo} de $T$, sendo denotado por $ker(T)$. Isto é:
+	$$ket(T) = \{ v \in V; T(v) = 0 \}$$
+	
+	Note que $Ker(T) \subset V$ é um subconjunto de $V$ e, além disso, é um subespaço vetorial de $V$.
+\end{definition}
+
+{\bf Exemplo 01:} $T: \mathbb{R}^2 \rightarrow \mathbb{R}$ onde $T(x,y) = x + y$
+
+{\bf Exemplo 02:} Seja a transformação linear $T: \mathbb{R}^3 \rightarrow \mathbb{R}^3$ dada por $T(x,y,z) = (x,2y,0)$
+\end{frame}
+
+\begin{frame}
+\frametitle{Isomorfismo}
+
+\begin{definition}
+	Dada uma aplicação (ou função) $T: V \rightarrow W$, diremos que $T$ é \emph{injetora} se dados $u \in V$, $v \in V$ com $T(u) = T(v)$ tivermos $u = v$. Equivalentemente, $T$ é injetora se dados $u,v \in V$ com $u \neq v$, então $T(u) \neq T(v)$.
+	
+	Em outras palavras, $T$ é injetora se as imagens de vetores distintos são distintas.
+\end{definition}
+
+\pause
+
+\begin{definition}
+	A aplicação $T: V \rightarrow W$ será \emph{sobrejetora} se a imagem de $T$ coincidir com $W$, ou seja $T(V) = W$.
+	
+	Em outras palavras, $T$ será sobrejetora se dado $w \in W$, existir $v \in V$ tal que $T(v) = w$.
+
+\end{definition}
+
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Teorema}
+
+\begin{theorem}
+	Seja $T: V \rightarrow W$, uma aplicação linear. Então $ker(T) = \{0\}$, se e somente se $T$ é injetora.
+\end{theorem}
+
+\pause
+
+Uma consequência é que uma aplicação linear injetora leva vetores LI em vetores LI.
+
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Teorema do Núcleo e Imagem}
+
+\begin{theorem}[do Núcleo e Imagem]
+	Seja $T:V \rightarrow W$ uma aplicação linear. Então:
+	$$dim(V) = dim(ker(T)) + dim(Im(T))$$
+\end{theorem}
+\pause
+\begin{corollary}
+	Se $dimV = dimW$, então $T$ linear é injetora se e somente se $T$ é sobrejetora.
+\end{corollary}
+\pause
+\begin{corollary}
+	Seja $T:V \rightarrow W$ uma aplicação linear injetora. Se $dimV = dimW$, então $T$ leva base em base.
+\end{corollary}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Isomorfismo}
+
+Quando $T: V \rightarrow W$ for injetora e sobrejetora, ao mesmo tempo, dá-se o nome de \emph{isomorfismo}. Quando há uma tal transformação entre dois espaços vetoriais dizemos que estes são \emph{isomorfos}. 
+
+\pause
+
+No ponto de vista da álgebra linear, dois espaços vetoriais \emph{isomorfos} são, por assim dizer, idênticos. Devido aos resultados anteriores, os espaços isomorfos possuem a mesma dimensão e um isomorfismo leva base a base.
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Isomorfismo} 
+
+Além, disso $T: V \rightarrow W$ tem uma aplicação inversa $T^{-1}:W \rightarrow V$ que é linear e também é um isomorfismo.
+
+{\bf Exemplo 01: } Seja $T: \mathbb{R}^{3} \rightarrow \mathbb{R}^{3}$ dada por $T(x,y,z) = (x - 2y,z, x+y)$. Mostre que $T$ é isomorfismo e determine $T^{-1}$.
+
+\end{frame}
+
+\section{Aplicações Lineares e Matrizes}
+
+\begin{frame}
+\frametitle{Exemplo}
+
+{\bf Exemplo 01: } $A = $ $\left[
+\begin{array}{ccc}
+1	&	-3	&	5 \\
+2	&	4	&	-1	\\
+\end{array}
+\right]$, $B = \{ (1,0), (0,1) \}$ e $B' = \{ (1,0,0), (0,1,0), (0,0,1) \}$ e $T_A : \mathbb{R}^3 \rightarrow \mathbb{R}^2$. Determine $T_A$.
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Exemplo}
+Agora vamos encontrar a matriz associada a uma transformação linear.
+
+\pause
+
+{\bf Exemplo 02:} Seja $T:\mathbb{R}^3 \rightarrow \mathbb{R}^2$ tal que $T(x,y,z) = (2x + y - z, 3x - 2y + 4z)$. Sejam $B = \{ (1,1,1), (1,1,0), (1,0,0) \}$ e $B' = \{ (1,3), (1,4) \}$. Determine $[T]_{B'}^{B}$.
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Exemplo}
+{\bf Exemplo 03: }Dadas as bases $B = \{ (1,1), (0,1) \}$ de $\mathbb{R}^2$ e $B' = \{ (0,3,0), (-1,0,0), (0,1,1) \}$ de $\mathbb{R}^3$, encontremos a transformação linear $T: \mathbb{R}^2 \rightarrow \mathbb{R}^3$ cuja matriz é:
+$[T]_{B'}^{B} = \left[
+\begin{array}{cc}
+0	&	2	\\
+-1	&	0	\\
+-1	&	3
+\end{array}
+\right]  $
+\end{frame}
+
+\begin{frame}
+\frametitle{Exemplo}
+\begin{theorem}
+	Sejam $V$ e $W$ espaços vetoriais, $\alpha$ base de $V$, $\beta$ base de $W$ e $T: V \rightarrow W$ uma aplicação linear. Então, para todo $v \in V$ vale:
+	$$[T(v)]_{\beta} = [T]_{\beta}^{\alpha} \cdot [v]_{\alpha}$$
+\end{theorem}
+
+\pause 
+
+Através deste teorema, o estudo de transformações lineares entre espaços de dimensão finita é reduzido ao estudo de matrizes. No caso particular de $V = W$ e $T = I$, o resultado é o mesmo da matriz de mudança de base.
+
+
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Exemplo}
+
+{\bf Exemplo 04:} Seja a transformação linear $T: \mathbb{R}^2 \rightarrow \mathbb{R}^3$ dada por
+$$[T]_{\alpha}^{\beta} = \left[
+\begin{array}{cc}
+1	&	-1	\\
+0	&	1	\\
+-2	&	3
+\end{array}
+\right] 
+$$
+onde $\alpha = \{ (1,0), (0,1) \}$ é base de $\mathbb{R}^2$, $\beta = \{ (1,0,1), (-2,0,1), (0,1,0) \}$ é base de $\mathbb{R}^3$. Qual a imagem do vetor $v = (2,-3)$ gerada por $T$.
+
+
+\end{frame}
+
+\section{Núcleo e Imagem}
+
+\begin{frame}
+\frametitle{Teoremas}
+
+\begin{theorem}
+	Seja $T:V \rightarrow W$ uma aplicação linear e $\alpha$ e $\beta$ bases de $V$ e $W$ respectivamente. Então:
+	
+	$$\dim Im(T) =  \text{posto de } [T]_{\beta}^{\alpha}$$
+	$$\dim ker(T) = \text{nulidade de } [T]_{\beta}^{\alpha}$$
+	
+	ou ainda, $\dim ker(T) = $ número de colunas - posto de $[T]_{\beta}^{\alpha}$.
+\end{theorem}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Teorema}
+
+\begin{theorem}
+	Sejam $T_1 : V \rightarrow W$ e $T_2 : W \rightarrow U$ transformações lineares e $\alpha, \beta$ e $\gamma$ bases de $V, W$ e $U$ respectivamente. Então a composta de $T_1$ com $T_2$, $T_1 \circ T_2: V \rightarrow U$ é linear e
+	$$[T_2 \circ T_1]_{\gamma}^{\alpha} = [T_2]_{\gamma}^{\beta} \cdot [T_1]_{\beta}^{\alpha}$$
+	\vspace{100pt}
+\end{theorem}
+
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Exemplo}
+
+{\bf Exemplo 02: } Sejam as transformações lineares $T_1: \mathbb{R}^2 \rightarrow \mathbb{R}^3$ e $T_2: \mathbb{R}^3 \rightarrow \mathbb{R}^2$ cujas matrizes são:
+
+$$[T_1]_{\beta}^{\alpha} = \left[
+\begin{array}{cc}
+1	&	0	\\
+1	&	-1	\\
+0	&	1
+\end{array}
+\right] 
+\text{ e }
+[T]_{\gamma}^{\beta} = \left[
+\begin{array}{ccc}
+0	&	1	&	-1	\\
+0	&	0	&	0	\\
+\end{array}
+\right] 
+$$
+em relação às bases $\alpha = \{ (1,0), (0,2) \}$, $B = \{ (\frac{1}{3},0,-3), (1,1,15), (2,0,5) \}$ e $\gamma = \{ (2,0), (1,1) \}$. Determine a transformação linear composta $T_2 \circ T_1: \mathbb{R}^2 \rightarrow \mathbb{R}^2$, isto é, $(T_2 \circ T_1)(x,y)$.
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Corolário}
+
+\begin{corollary}
+	Se $T: V \rightarrow W$ é uma transformação linear inversível ($T$ é um isomorfismo) e $\alpha$ e $\beta$ são bases de $V$ e $W$, então $T^{-1}:W \rightarrow V$ é um operador linear e 
+	$$[T^{-1}]_{\alpha}^{\beta} = ([T]_{\beta}^{\alpha})^{-1}$$
+\end{corollary}
+
+\pause
+
+\begin{corollary}
+	Seja $T: V \rightarrow W$ uma transformação linear e $\alpha$ e $\beta$ bases de $V$ e $W$. Então $T$ é inversível se e somente se $\det[T]_{\beta}^{\alpha} \neq 0$.
+\end{corollary}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Corolário}
+
+\begin{corollary}
+	Conhecendo a matriz de uma transformação linear em relação a certas bases $\alpha$ e $\beta$ e as matrizes de mudança de base para novas bases $\alpha'$ e $\beta'$, podemos achar a matriz da mesma transformação linear, desta vez em relação às novas bases $\alpha'$ e $\beta'$. Matematicamente,
+	$$[T]_{\beta'}^{\alpha'} = [I \circ T \circ I]_{\beta'}^{\alpha'} = [I]_{\beta'}^{\beta}[T]_{\beta}^{\alpha}[I]_{\alpha}^{\alpha'}$$
+\end{corollary}
+
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Corolário}
+
+Como caso particular, se $T: V \rightarrow V$ é uma transformação linear e $\alpha$ e $\beta$ são bases de $V$, então
+$$[T]_{\beta}^{\beta} = [I \circ T \circ I]_{\beta}^{\beta} = [I]_{\beta}^{\alpha}[T]_{\alpha}^{\alpha}[I]_{\alpha}^{\beta}$$
+
+Lembre-se que $[I]_{\alpha}^{\beta} = ([I]_{\beta}^{\alpha})^{-1}$ denotando $[I]_{\alpha}^{\beta} = A$, segue que
+
+$$[T]_{\beta}^{\beta} = A \cdot [T]_{\alpha}^{\alpha} \cdot A^{-1}$$
+
+Dizemos neste caso que as matrizes $[T]_{\alpha}^{\alpha}$ e $[T]_{\beta}^{\beta}$ são \emph{semelhantes}.
+
+\end{frame}
+
+\section{Autovalores e Autovetores}
+
+\begin{frame}
+\frametitle{Autovalores e Autovetores}
+
+{\bf Exemplo 01:} Dada $T: V \rightarrow V$, quais vetores $v \in V$ tais que $T(v) = v$? ($v$ é denominado \emph{vetor fixo}).
+
+O primeiro exemplo é o trivial, a aplicação identidade, onde todo vetor é definido como vetor fixo.
+
+{\bf Exemplo 02: } $r_x:\mathbb{R}^2 \rightarrow \mathbb{R}^2$ dada por $r_x (x,y) = (x,-y)$ ou 
+
+$\left[
+\begin{array}{c}
+x\\
+y \\
+\end{array}
+\right]$ $\rightarrow$
+$\left[
+\begin{array}{cc}
+1	&	0\\
+0	&	-1 \\
+\end{array}
+\right]$
+$\left[
+\begin{array}{c}
+x\\
+y \\
+\end{array}
+\right]$
+ 
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Autovalores e Autovetores}
+
+Dada uma transformação linear de um espaço vetorial $T: V \rightarrow V$, nosso interesse é descobrir quais vetores são levados em um múltiplo de si mesmo, isto é, procuramos um vetor $v \in V$ e um escalar $\lambda \in \mathbb{R}$ tais que:
+$$T(v) = \lambda v$$.
+
+\pause
+
+Neste caso, $T(v)$ será um vetor de mesma ``direção'' que $v$ (sobre a mesma reta suporte). Como $v = 0$ satisfaz a equação para todo $\lambda$, estamos interessados em determinar vetores $v \neq 0$ satisfazendo a condição acima. 
+
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Autovalores e Autovetores}
+
+\begin{definition}[Autovetor e Autovalor]
+	Seja $T: V \rightarrow V$ um operador linear. Se existirem $v \in V$, $v \neq 0$, e $\lambda \in \mathbb{R}$ tais que $T(v) = \lambda v$, $\lambda$ é um \emph{autovalor} de $T$ e $v$ é um \emph{autovetor} de $T$ associado a $\lambda$.
+	
+	Note que $\lambda$ pode ser igual a $0$, embora $v \neq 0$.
+\end{definition}
+
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Autovalores e Autovetores}
+
+\begin{theorem}
+	Dada uma transformação $T:V \rightarrow V$ e um autovetor $v$ associado a um autovalor $\lambda$, qualquer vetor $w = \alpha v (\alpha \neq 0)$ também é um autovetor de $T$ associado a $\lambda$.
+\end{theorem}
+
+\pause 
+
+
+{\bf MOSTRE QUE:} o conjunto formado pelos autovetores associados a um autovalor $\lambda$ e o vetor nulo é um subespaço vetorial de $V$, isto é, $V_\lambda = \{ v \in V; T(v) = \lambda v \}$ é subespaço de $V$.
+
+\begin{definition}
+	O subespaço $V_\lambda = \{ v \in V; T(v) = \lambda v \}$ é chamado o \emph{subespaço associado ao autovalor} $\lambda$.
+\end{definition}
+
+\end{frame}
+
+\section{Autovalores e Autovetores de uma Matriz}
+
+\begin{frame}
+\frametitle{Autovalores e Autovetores}
+
+Dada uma matriz quadrada de ordem $n$, $A$, estaremos entendendo por \emph{autovalor} e \emph{autovetor} de $A$, autovalor e autovetor da transformação linear $T_A:\mathbb{R}^n \rightarrow \mathbb{R}^n$, associada à matriz $A$ em relação à base canônica, isto é, $T_A (v) = A \cdot v$ (na forma coluna). Assim, um autovalor $\lambda \in \mathbb{R}$ de $A$, e um autovetor $v \in \mathbb{R}^n$, são soluções da equação $A \cdot v = \lambda v, v \neq 0$.
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Polinômio Característico}
+
+Nesta seção determinaremos um método prático para determinar autovalores e autovetores de uma matriz real $A$ de ordem $n$.
+
+\pause
+
+{\bf Exemplo: }
+$$A = \left[
+\begin{array}{ccc}
+4	&	2	&	0\\
+-1	&	1	&	0 \\
+0	&	1	&	2	\\
+\end{array}
+\right]$$
+Nosso interesse esta em determinar vetores $v \in \mathbb{R}^3$ e escalares $\lambda \in \mathbb{R}$ tais que $A \cdot v = \lambda v$.
+\end{frame}
+
+\begin{frame}
+\frametitle{Autovalores e Autovetores}
+
+{\bf Exemplo 02:}
+$$A = \left[
+\begin{array}{cc}
+\sqrt{3}	&	-1 \\
+1	&	\sqrt{3} \\
+\end{array}
+\right]$$
+
+
+{\bf OBS:} Quando trabalhamos em espaços algebricamente fechados, o polinômio característico sempre apresentará raízes (o caso quando estamos em $\mathbb{C}$). 
+
+No exemplo anterior, as raízes seriam $\lambda = \sqrt{3} + i$ e $\lambda = \sqrt{3} - i$. Os autovetores encontrados, da mesma maneira que no caso real, são do tipo $(x,-ix)$ e $(x,ix)$, respectivamente. Porém, não se tem a visão geométrica do comportamento do vetor. Autovalores e autovetores complexos são utilizados na resolução de um sistema de equações diferenciais.
+
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Autovalores e Autovetores}
+
+{\bf Exemplo:}
+
+$$A = \left[
+\begin{array}{ccc}
+3	&	0	&	-4\\
+0	&	3	&	5 \\
+0	&	0	&	-1	\\
+\end{array}
+\right]$$
+
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Autovalores e Autovetores}
+
+Pode-se também definir o polinômio característico de uma matriz, cuja a transformação linear $T:\mathbb{R}^n \rightarrow \mathbb{R}^n$ esta associada a ela.
+
+\pause
+
+\begin{definition}
+	Chamamos de \emph{multiplicidade algébrica de um autovalor} a quantidade de vezes que ele aparece como raiz do polinômio característico.
+	
+	A \emph{multiplicidade geométrica de um autovalor $\lambda$} é a dimensão do subespaço $V_\lambda$ de autovetores associados a $\lambda$.
+\end{definition}
+
+\end{frame}
+
+\section{Diagonalização de Operadores}
+
+\begin{frame}
+\frametitle{Diagonalização de Operadores}
+
+Dado um operador linear $T:V \rightarrow V$, nosso objetivo é conseguir uma base $B$ de $V$ na qual a matriz do operador nesta base $([T]_{B}^{B})$ seja uma matriz diagonal, que é a forma mais simples possível de se representar um operador.
+
+\pause
+
+\begin{theorem}
+	Autovetores associados a autovalores distintos são linearmente independentes.
+\end{theorem}
+
+\begin{corollary}
+	Se $V$ é um espaço vetorial de dimensão $n$ e $T:V \rightarrow V$ é um operador linear que possui $n$ autovalores distintos, então $V$ possui uma base cujos vetores são todos autovetores de $T$.
+\end{corollary}
+
+Em outras palavras, se conseguirmos encontrar tantos autovalores distintos quanto for a dimensão do espaço, podemos garantir a existência de uma base de autovetores.
+
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Diagonalização de Operadores}
+
+{\bf Exemplo 02:} Seja $T: \mathbb{R}^3 \rightarrow \mathbb{R}^3$ uma transformação linear cuja matriz em relação à base canônica $\alpha$ é:
+$$[T]^{\alpha}_{\alpha} = \left[
+\begin{array}{ccc}
+3	&	0	&	-4\\
+0	&	3	&	5 \\
+0	&	0	&	-1	\\
+\end{array}
+\right]$$
+
+\end{frame}
+
+
+
+\begin{frame}
+\frametitle{Diagonalização de Operadores}
+
+Dada uma transformação linear qualquer $T:V \rightarrow V$, se conseguirmos uma base $B=\{ v_1, v_2, \dots, v_n \}$ formada por autovetores de $T$, então, como
+
+\begin{eqnarray*}
+	T(v_1) = \lambda_1 v_1 + 0v_2 + \dots + 0v_n \\
+	T(v_2) = 0v_1 + \lambda_2 v_2 + \dots + 0v_n \\
+	\vdots \hspace{30pt} \vdots \hspace{30pt} \vdots \hspace{40pt} \\
+	T(v_n) = 0v_1 + 0v_2 + \dots + \lambda_n v_n \\
+\end{eqnarray*}
+
+
+
+\end{frame}
+
+
+
+\begin{frame}
+\frametitle{Diagonalização de Operadores}
+
+A matriz $[T]_{B}^{B}$ será uma matriz diagonal onde os elementos da diagonal principal são os autovalores $\lambda _i$, isto é, 
+
+$$[T]_{B}^{B} = \left[
+\begin{array}{cccc}
+\lambda_1	&	0		&	\dots	&	0\\
+0		&	\lambda_2	&	\dots	&	0 \\
+\vdots	&	\vdots	&			&	\vdots	\\
+0		&	0		&	\dots	&	\lambda_n
+\end{array}
+\right]$$
+
+\end{frame}
+
+
+
+\begin{frame}
+\frametitle{Diagonalização de Operadores}
+
+Um autovalor aparecerá na diagonal quantas vezes forem os autovetores LI a ele associados.
+
+Por outro lado, se $\gamma = \{ u_1, u_2, \dots, u_n  \}$ é uma base de $V$ tal que
+
+$$[T]_{\gamma}^{\gamma} = \left[
+\begin{array}{cccc}
+a_1	&	0		&	\dots	&	0\\
+0		&	a_2	&	\dots	&	0 \\
+\vdots	&	\vdots	&			&	\vdots	\\
+0		&	0		&	\dots	&	a_n
+\end{array}
+\right]$$
+
+\end{frame}
+
+
+
+\begin{frame}
+\frametitle{Diagonalização de Operadores}
+
+Dessa forma, $u_1, \dots, u_n$ são necessariamente autovetores de $T$ com autovalores $a_1, \dots, a_n$ respectivamente. De fato, da definição de $[T]_{\gamma}^{\gamma}$ temos:
+
+\begin{eqnarray*}
+	T(u_1) = a_1 u_1 + 0u_2 + \dots + 0u_n = a_1 u_1\\
+	T(u_2) = 0u_1 + a_2 u_2 + \dots + 0u_n = a_2 u_2\\
+	\vdots \hspace{30pt} \vdots \hspace{30pt} \vdots \hspace{40pt} \\
+	T(u_n) = 0u_1 + 0u_2 + \dots + a_n u_n = a_n u_n\\
+\end{eqnarray*}
+
+
+\end{frame}
+
+
+
+\begin{frame}
+\frametitle{Diagonalização de Operadores}
+
+Dessa forma, concluímos que um operador $T:V \rightarrow V$ admite uma base $B$ em relação à qual sua matriz $[T]_{B}^{B}$ é diagonal se, e somente se essa base $B$ for formada por autovetores de $T$.
+
+\pause
+
+\begin{definition}
+	Seja $T:V \rightarrow V$ um operador linear. Dizemos que $T$ é um operador \emph{diagonalizável} se existe uma base de $V$ cujos elementos são autovetores de $T$.
+\end{definition}
+
+\end{frame}
+\begin{frame}
+\frametitle{Diagonalização de Operadores}
+
+Os operadores do exemplo 01 e 02 são diagonalizáveis. Agora seja $T: \mathbb{R}^3 \rightarrow \mathbb{R}^3$ a transformação linear cuja matriz em relação à base canônica $\alpha$ é:
+
+$$[T]^{\alpha}_{\alpha} = \left[
+\begin{array}{ccc}
+3	&	-3	&	-4\\
+0	&	3	&	5 \\
+0	&	0	&	-1	\\
+\end{array}
+\right]$$
+
+
+\end{frame}
+\begin{frame}
+\frametitle{Polinômio Minimal}
+
+\begin{definition}
+	Seja $p(x) = a_n x^n + \dots + a_1 x + a_0$ um polinômio e $A$ uma matriz quadrada. Então $p(A)$ é a matriz
+	$$p(A) = a_n A^n + \dots + a_1 A + a_0 I$$
+	Quando $p(A) = 0$, dizemos que o polinômio \emph{anula} a matriz $A$.
+\end{definition}
+
+\end{frame}
+\begin{frame}
+\frametitle{Polinômio Minimal}
+
+{\bf Exemplo:} Sejam $p(x) = x^2 - 9$ e $q(x) = 2x + 3$. Se $A = \left[
+\begin{array}{cc}
+-1	&	4 \\
+2	&	1 \\
+\end{array}
+\right]$. Determine $p(A)$ e $q(A)$.
+
+\end{frame}
+\begin{frame}
+\frametitle{Polinômio Minimal}
+
+\begin{definition}
+	Seja $A$ uma matriz quadrada. O \emph{polinômio minimal} de $A$ é um polinômio
+	$$m(x) = x^k + a_{k-1}x^{k-1} + \dots + a_0$$
+	tal que:
+	\begin{enumerate}
+		\item [i)] $m(A) = 0$, isto é, $m(x)$ anula a matriz $A$.
+		\item [ii)] $m(x)$ é o polinômio de menor grau entre aqueles que anulam $A$.
+	\end{enumerate}
+	Note que o coeficiente do termo $x^k$ do polinômio minimal é $1$ $(a_k = 1)$.
+	
+\end{definition}
+
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Polinômio Minimal}
+
+\begin{theorem}
+	Sejam $T:V \rightarrow V$ um operador linear e $\alpha$ uma base qualquer de $V$ de dimensão $n$. Então $T$ é diagonalizável se, e somente se o polinômio minimal de $[T]_{\alpha}^{\alpha}$ é da forma
+	$$m(x) = (x - \lambda_1)(x - \lambda_2) \dots (x - \lambda_r)$$
+	com $\lambda_1, \lambda_2,\dots, \lambda_r$ distintos.
+\end{theorem}
+
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Polinômio Minimal}
+
+\begin{theorem}[de Cayley-Hamilton]
+	Seja $T:V \rightarrow V$ um operador linear, $\alpha$ uma base de $V$ e $p(x)$ o polinômio característico de $T$. Então
+	$$p([T]_{\alpha}^{\alpha}) = 0$$
+\end{theorem}
+
+\pause
+
+Isto significa que o polinômio característico é um candidato ao polinômio minimal, já que satisfaz a condição $i)$ da definição de polinômio minimal.
+
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Polinômio Minimal}
+
+\begin{theorem}
+	As raízes do polinômio minimal são as mesmas raízes (distintas) do polinômio característico.
+\end{theorem}
+
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Polinômio Minimal}
+
+\begin{theorem}
+	Sejam $\lambda_1,\lambda_2,\dots, \lambda_r$ os autovalores distintos de um operador linear $T$. Então $T$ será diagonalizável se, e somente se o polinômio
+	$$(x - \lambda_1)(x-\lambda_2)\dots(x - \lambda_r)$$
+	anular a matriz de $T$.
+\end{theorem}
+
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Polinômio Minimal}
+
+{\bf Exemplo 01: } O operador linear $T:\mathbb{R}^4 \rightarrow \mathbb{R}^4$ definido por $T(x,y,z,t) = (3x-4z,3y+5z,-z,-t)$ é diagonalizável?
+
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Polinômio Minimal}
+
+Obtemos que $T_1$ e $T_2$ operadores diagonalizáveis, então $T_1$ e $T_2$ são simultaneamente diagonalizáveis se e somente se $T_1$ e $T_2$ comutam $(T_1 \circ T_2 = T_2 \circ T_1)$.
+
+Na prática, dados $T_1$ e $T_2$, tomamos uma base $B$ qualquer de $V$ e verificamos se $T_1$ e $T_2$ são diagonalizáveis. Se isto acontecer e, além disso, $[T_1]_{B}^{B}[T_2]_{B}^{B} = [T_2]_{B}^{B}[T_1]_{B}^{B}$, então podemos concluir que $T_1$ e $T_2$ são simultaneamente diagonalizáveis.
+
+\end{frame}
+
+\end{document}
+

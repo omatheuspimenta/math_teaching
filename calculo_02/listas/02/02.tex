@@ -1,0 +1,133 @@
+\documentclass[oneside,a4paper,12pt]{article}
+\usepackage[english,brazilian]{babel}
+\usepackage{multicol}
+\usepackage{textcomp}
+\usepackage[alf]{abntex2cite}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb,exscale}
+\usepackage[top=20mm, bottom=20mm, left=20mm, right=20mm]{geometry}%margens cima, baixo, esquerda direita
+\usepackage{framed}
+\usepackage{booktabs} %Pacote para deixar tabelas mais bonitas.
+\usepackage{color} %Pacote de Cores
+\usepackage{hyperref} %Pacotes para Hiperlinks
+\usepackage{graphicx} %Pacote de imagens
+\graphicspath{{./Figuras/}}%Direciona as imagens para uma pasta chamada "Figuras" (uso isso para organizar. Uma vez que todas as imagens vao ficar em uma pasta isolada)    
+\definecolor{shadecolor}{rgb}{0.8,0.8,0.8}
+
+\newcommand{\sen}{{\rm sen}}
+
+%FAZ EDICOES AQUI (somente no conteudo que esta entre entre as ultimas  chaves de cada linha!!!)
+\newcommand{\universidade}{Universidade Estadual de Londrina}
+\newcommand{\centro}{Centro de Ciências Exatas}
+\newcommand{\departamento}{Departamento de Matemática}
+\newcommand{\curso}{Ciência da Computação}
+\newcommand{\professores}{Matheus Pimenta}
+\newcommand{\disciplina}{Cálculo Diferencial e Integral II - 1MAT180}
+%\newcommand{\tema}{Lista 01}
+%\newcommand{\turma}{MA31G}
+%\newcommand{\data}{Março de 2019}%{\today}
+%\newcommand{\tempodeaula}{30 minutos}
+%\newcommand{\prerequisitos}{Matrizes, Transformações Lineares e Bases}
+%ATE AQUI !!!	
+
+\begin{document}
+	\pagestyle{empty}
+	
+	\begin{center}
+		\includegraphics[width=\linewidth/2]{logo.jpg}%LOGOTIPO DA INSTITUICAO
+	 	\vspace{2pt} 	
+		
+		\universidade
+		\par
+		\centro
+		\par
+		\departamento
+		\par
+	%	Curso de \curso
+		\par
+		\vspace{12pt}
+		\LARGE \textbf{Lista 02}
+		
+	\end{center}
+	
+	\vspace{12pt}
+	
+	\begin{tabular}{ |l|p{12cm}| }
+		
+		\hline
+		\multicolumn{2}{|c|}{\textbf{Dados de Identificação}} \\
+		\hline
+		Professor:         &    \professores           \\
+		\hline
+		Disciplina:        &    \disciplina          \\
+		\hline
+	%	Tema:              &    \tema                \\
+	%	\hline
+	%	Pré-requisito	:  &    \prerequisitos         \\
+	%	\hline
+		Aluno:             &                   \\
+	%	\hline
+	%	Data:              &    \data                \\
+	%	\hline
+	%	Duração da aula:   &    \tempodeaula         \\
+		\hline
+		
+	\end{tabular}
+	\vspace{6pt}
+	
+	{\bf Observação:} Não precisa ser entregue. Apenas para desenvolvimento do pensamento matemático.
+	
+	\begin{snugshade}
+	\end{snugshade}
+
+\begin{enumerate}
+
+	\item Determine o limite (se existir) da sequência $X_n = \displaystyle \frac{\sen(n\pi)}{n}$
+	\item Determine o limite (se existir) da sequência $X_n = \displaystyle \frac{\log(n)}{n}$ \\ \emph{DICA: Use que} $\forall n \in \mathbb{N}, \sqrt{n}<e^{\sqrt{n}}$
+	\item Apresente dois exemplos de sequências de termos $a_n$, satisfazendo simultaneamente as condições abaixo:
+        \begin{enumerate}
+            \item $\displaystyle \lim_{n\to\infty}a_n=0$
+            \item $\displaystyle \sum_{n=1}^{\infty}a_n$ diverge.
+        \end{enumerate}
+    \item Apresente um exemplo de uma sequência limitada que não é convergente.
+    \item Determine o limite (se existir) das sequências abaixo:
+        \begin{enumerate}
+            \item $\displaystyle\frac{\cos(x)}{n}$
+            \item $\displaystyle \frac{1}{2^n}$
+            \item $a_n = \displaystyle \left(\frac{n+1}{n-1}\right)^n$
+        \end{enumerate}
+    \item Encontre a fórmula para o $n-$ésimo termo das sequências abaixo:
+        \begin{enumerate}
+            \item $1,-1,1,-1,\dots$
+            \item $-1,1,-1,1,\dots$
+            \item $1,4,9,16,25,\dots$
+            \item $\displaystyle 1,-\frac{1}{4},\frac{1}{9},-\frac{1}{16},\dots$
+        \end{enumerate}
+
+	\item Analise a série $\displaystyle \sum \frac{1+n}{n}$
+	\item Analise a série $\displaystyle \sum_{n=1}^{\infty}\frac{\ln(n)}{n^{\frac{3}{2}}}$
+	\item Analise a série $\displaystyle \sum \frac{(2n)!}{n!n!}$
+	\item Mostre que a série Telescópica é convergente.
+	\item Mostre que a série Harmônica é divergente.
+	\item Mostre que a série Harmônica alternada é convergente.
+	\item Analise a série $\displaystyle \sum \frac{1}{n\ln(n)}$
+	\item Analise a série $\displaystyle \sum_{n=2}^{\infty}\frac{n-1}{n!}$
+	\item Analise a série $\displaystyle \sum_{n=1}^{\infty}\ln\left(\frac{n+1}{n}\right)$
+	\item Mostre que a sequência $X_n = \displaystyle \frac{(n!)^{\frac{1}{n}}}{n}$ converge para $\displaystyle \frac{1}{e}$ \\ \emph{DICA: Use que} $\forall n \in \mathbb{N}, en^ne^{-n}<n!<en^{n+1}e^{-n}$
+	\item Para quais valores de $a>0$ a série $\displaystyle \sum_{n=1}^{\infty}\frac{a^nn!}{n^n}$ converge?
+	\item Estude a série $\displaystyle \sum_{n=1}^{\infty}\frac{1}{n^p}$. Para quais valores de $p$ a série é convergente? E para quais valores de $p$ a série é divergente?
+	\item Analise a série $\displaystyle \sum \frac{(-1)^n}{n}$
+	\item Analise a série $\displaystyle \sum_{n=1}^{\infty}\frac{\cos(3\pi^2n)}{n^2}$
+	\item Analise a série $\displaystyle \sum_{n=1}^{\infty}\frac{n!}{n^n}$
+	\item Encontre a série de Taylor e os polinômios de Taylor gerados por $f(x)=e^x$ em $x=0$.
+	\item {\bf DESAFIO:} Mostre que se $a>0$, então $X_n = \displaystyle \sqrt[n]{a}=a^{\frac{1}{n}}$ é tal que o limite de $X_n$ é $1$.
+	\item {\bf DESAFIO:} Analise a série $\displaystyle \sum_{n=1}^{\infty}\frac{4n+3}{n^3+\sqrt{n}}$\\ \emph{DICA: Use estimativas} $\displaystyle \frac{4n+3}{n^3\sqrt{n}} < \frac{4n}{n^3}$
+
+
+
+\end{enumerate}
+
+
+	
+\end{document}

@@ -1,0 +1,292 @@
+\documentclass[oneside,a4paper,12pt]{article}
+\usepackage[english,brazilian]{babel}
+\usepackage{multicol}
+\usepackage{textcomp}
+\usepackage[alf]{abntex2cite}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb,exscale}
+\usepackage[top=20mm, bottom=20mm, left=20mm, right=20mm]{geometry}%margens cima, baixo, esquerda direita
+\usepackage{framed}
+\usepackage{booktabs} %Pacote para deixar tabelas mais bonitas.
+\usepackage{color} %Pacote de Cores
+\usepackage{hyperref} %Pacotes para Hiperlinks
+\usepackage{graphicx} %Pacote de imagens
+\graphicspath{{./Figuras/}}%Direciona as imagens para uma pasta chamada "Figuras" (uso isso para organizar. Uma vez que todas as imagens vao ficar em uma pasta isolada)    
+\definecolor{shadecolor}{rgb}{0.8,0.8,0.8}
+
+%FAZ EDICOES AQUI (somente no conteudo que esta entre entre as ultimas  chaves de cada linha!!!)
+\newcommand{\universidade}{Universidade Tecnológica Federal do Paraná}
+\newcommand{\centro}{Câmpus Cornélio Procópio}
+\newcommand{\departamento}{Departamento Acadêmico de Matemática}
+\newcommand{\curso}{Análise e Desenvolvimento de Sistemas}
+\newcommand{\professores}{Matheus Pimenta}
+\newcommand{\disciplina}{Estatística - AS32E}
+%\newcommand{\tema}{Lista 01}
+%\newcommand{\turma}{MA31G}
+%\newcommand{\data}{Março de 2019}%{\today}
+%\newcommand{\tempodeaula}{30 minutos}
+%\newcommand{\prerequisitos}{Matrizes, Transformações Lineares e Bases}
+%ATE AQUI !!!	
+
+\begin{document}
+	\pagestyle{empty}
+	
+	\begin{center}
+		\includegraphics[width=\linewidth/8]{logo.jpg}%LOGOTIPO DA INSTITUICAO
+	 	\vspace{2pt} 	
+		
+		\universidade
+		\par
+		\centro
+		\par
+		\departamento
+		\par
+	%	Curso de \curso
+		\par
+		\vspace{12pt}
+		\LARGE \textbf{Lista 01}
+		
+	\end{center}
+	
+	\vspace{12pt}
+	
+	\begin{tabular}{ |l|p{12cm}| }
+		
+		\hline
+		\multicolumn{2}{|c|}{\textbf{Dados de Identificação}} \\
+		\hline
+		Professor:         &    \professores           \\
+		\hline
+		Disciplina:        &    \disciplina          \\
+		\hline
+	%	Tema:              &    \tema                \\
+	%	\hline
+	%	Pré-requisito	:  &    \prerequisitos         \\
+	%	\hline
+		Aluno:             &                   \\
+	%	\hline
+	%	Data:              &    \data                \\
+	%	\hline
+	%	Duração da aula:   &    \tempodeaula         \\
+		\hline
+		
+	\end{tabular}
+	\vspace{6pt}
+	
+	
+	\begin{snugshade}
+	\end{snugshade}
+
+\begin{enumerate}
+
+
+
+	\item Uma carta é extraída ao acaso de um baralho comum de $52$ cartas. Descreva o espaço amostral se a diferença de naipes:
+	\begin{enumerate}
+		\item não é levada em consideração;
+		\item é levada em consideração.
+	\end{enumerate}
+	
+	\textbf{DICA: }No segundo item, faça através de um gráfico.
+
+	\item Referindo-nos ao experimento do exercício 01, seja $A$ o evento \{ extração de um rei\} ou simplesmente \{rei\} e $B$ o evento \{extração de uma carta de paus\} ou simplesmente \{paus\}. \emph{Descreva} os eventos:
+	\begin{enumerate}
+		\item $A \cup B$
+		\item $A \cap B$
+		\item $A \cup B^{C}$
+		\item $A^{C} \cap B^{C}$
+		\item $A - B$
+	\end{enumerate}
+
+	\item Uma carta é extraída ao acaso de um baralho comum de $52$ cartas. Encontre a probabilidade de ela ser:
+	\begin{enumerate}
+		\item um ás; \\ {\bf R: } $\frac{1}{13}$
+		\item um valete de copas; \\ {\bf R: } $\frac{1}{52}$
+		\item um $3$ de paus ou um $6$ de ouros; \\ {\bf R: } $\frac{1}{26}$
+		\item uma carta de copas; \\ {\bf R: } $\frac{1}{4}$
+		\item qualquer naipe, exceto copas; \\ {\bf R: } $\frac{3}{4}$
+		\item um $10$ ou uma carta de espadas; \\ {\bf R: } $\frac{4}{13}$
+	\end{enumerate} 
+
+	\item Uma bola é extraída ao acaso de uma caixa contendo $6$ bolas vermelhas, $4$ bolas brancas e $5$ bolas azuis. Determine a probabilidade de que ela seja:
+	\begin{enumerate}
+		\item vermelha \\ {\bf R: } $\frac{2}{5}$
+		\item branca \\ {\bf R: } $\frac{4}{15}$
+		\item azul \\ {\bf R: } $\frac{1}{3}$
+		\item não-vermelha \\ {\bf R: } $\frac{3}{5}$
+		\item vermelha ou branca \\ {\bf R: } $\frac{2}{3}$
+	\end{enumerate}
+
+	\item Um dado honesto é lançado duas vezes. Encontre a probabilidade de obter $4$, $5$ ou $6$ no primeiro lançamento e $1$, $2$,$3$ ou $4$ no segundo lançamento. \\ {\bf R: } $\frac{1}{3}$
+
+	\item Encontre a probabilidade de não obter um total de $7$ ou $11$ em dois lançamentos de um par de dados honestos. \\ {\bf R: } $\frac{7}{9}$
+	
+	\item Duas cartas são extraídas de um baralho comum de $52$ cartas bem misturadas. Encontre a probabilidade de obter dois ases se a primeira carta:
+	\begin{enumerate}
+		\item é recolocada; \\ {\bf R: } $\frac{1}{169}$
+		\item não é recolocada no baralho; \\ {\bf R: } $\frac{1}{221}$
+	\end{enumerate}
+
+	\item Três bolas são retiradas sucessivamente da caixa do exercício $04$. Encontre a probabilidade de elas serem retiradas na ordem vermelha, branca e azul se cada bola:
+	\begin{enumerate}
+		\item é recolocada; \\ {\bf R: } $\frac{8}{225}$
+		\item não é recolocada na caixa. \\ {\bf R: } $\frac{9}{91}$
+	\end{enumerate}
+
+	\item Uma caixa contém $5$ bolas de gude vermelhas e $4$ brancas. Duas bolas de gude são retiradas sucessivamente da caixa, sem reposição e é constatado que a segunda é branca. Qual é a probabilidade da primeira também ser branca? \\ {\bf R: } $\frac{3}{8}$
+
+	\item As probabilidades de que um marido e sua esposa estejam vivos daqui a $20$ anos são dadas por $0,8$ e $0,9$, respectivamente. Encontre a probabilidade de que em $20$ anos:
+	\begin{enumerate}
+		\item ambos estejam vivos; \\ {\bf R: } $0,72$
+		\item nenhum esteja vivo; \\ {\bf R: } $0,02$
+		\item pelo menos um esteja vivo; \\ {\bf R: } $0,98$
+	\end{enumerate}
+
+	\item Vinte e cinco residências de um certo bairro foram sorteadas e visitadas por um entrevistador que, entre outras questões, perguntou sobre o número de televisores. Os dados foram os seguintes:
+	$$2,2,2,3,1,2,1,1,1,1,0,1,2,2,2,2,3,1,1,3,1,2,1,0,2$$
+	Organize os dados numa tabela de frequência e determine as diversas medidas de posição.
+	
+	\item Num experimento, $15$ coelhos foram alimentados com uma nova ração e seu peso avaliado ao fim de um mês. Os dados referentes ao ganho de peso (em quilogramas) foram os seguintes:
+	$$1,5;1,6;2,3;1,7;1,5;2;1,5;1,8;2,1;2,1;1,9;1,8;1,7;2,5;2,2$$
+	\begin{enumerate}
+		\item Utilizando os dados brutos, determine a média, moda e mediana desse conjunto.
+		\item Organize uma tabela de frequência com faixas de amplitude $0,2$ a partir de $1,5$.
+		\item Calcule, a partir da tabela de frequência e com o ponto médio como representante de cada faixa, a média, a moda e a mediana. Discuta as diferenças com o item $a$.
+	\end{enumerate}
+
+	\item Um certo cruzamento tem alto índice de acidentes de trânsito, conforme pode ser constatado em uma amostra dos últimos doze meses: $5,4,7,8,5,6,4,7,9,7,6$ e $8$. Determine a média e a variância do número de acidentes mensais neste cruzamento.
+	
+	\item Estudando uma nova técnica de sutura, foram contados os dias necessários para a completa cicatrização de determinada cirurgia. Os resultados, de $25$ pacientes foram os seguintes: $6,8,9,7,8,6,6,7,8,9,10,7,8,10,9,9,9,7,6,5,7,7,8,10$ e $11$. Organize os dados numa tabela de frequência e calcula a média, a variância e o coeficiente de variação.
+	
+	\item Uma amostra de vinte empresas, de porte médio, foi escolhida para um estudo sobre o nível educacional dos funcionários do setor de vendas. Os dados coletados, quanto ao número de empregados com o curso superior completo, são apresentados abaixo:
+	
+	\begin{table}[h!]
+		\centering
+		\begin{tabular}{|c|c|}
+			\hline
+			Empresa	&	Nº Funcionário	\\
+			1	&	1	\\
+			2	&	0	\\
+			3	&	0	\\
+			4	&	3	\\
+			5	&	0	\\
+			6	&	1	\\
+			7	&	1	\\
+			8	&	2	\\
+			9	&	2	\\
+			10	&	2	\\
+			11	&	0	\\
+			12	&	2	\\
+			13	&	0	\\
+			14	&	2	\\
+			15	&	0	\\
+			16	&	1	\\
+			17	&	1	\\
+			18	&	2	\\
+			19	&	3	\\
+			20	&	2	\\\hline
+		\end{tabular}
+	\caption{Tabela do exercício 15.}
+	\end{table}
+
+	\begin{enumerate}
+		\item Organize uma tabela de frequência e calcule a média, moda e mediana.
+		\item Determine o desvio padrão.
+	\end{enumerate}
+
+	\item As notas finais de estatística para alunos de um curso de Administração foram as seguintes: $$7,5,4,5,6,3,8,4,5,4,5,4,6,4,5,6,4,6,6,3,8,4,5,4,5,5,6$$
+	\begin{enumerate}
+		\item Determine a mediana e a média;
+		\item Separe o conjunto de dados em dois grupos denominados \emph{aprovados}, com nota pelo menos igual a $5$, e \emph{reprovados} para os demais. Compare a variância desses dois grupos.
+	\end{enumerate}
+
+	\item Um hospital maternidade planeja ampliar os leitos para recém-nascidos. Para tal, fez um levantamento dos últimos $50$ nascimentos, obtendo a informação sobre o número de dias que os bebês permaneceram no hospital, antes de terem alta. Os dados, já ordenados, são apresentados a seguir: $1,1,1,2,2,2,2,2,2,2,2,2,2,2,3,3,3,3,3,3,3,$
+	
+	 $3,3,3,3,3,3,3,3,3,4,4,4,4,4,4,4,4,4,5,5,5,5,5,5,6,7,7,8,15$
+	\begin{enumerate}
+		\item Organize uma tabela de frequência.
+		\item Calcule a média, mediana e moda.
+		\item Determine o desvio padrão.
+		\item Dentre as medidas de posição do item $b$, discuta quais delas seriam mais adequadas para resumir esse conjunto de dados.
+		\item Você identifica algum valor \emph{outlier}? Se sim, remova-o obtendo uma nova tabela de frequência e refaça os itens $b$ e $c$. Comente as diferenças encontradas.
+	\end{enumerate}
+
+	\item Foram anotados os níveis de colesterol (em mg/100ml) para trinta pacientes de uma clínica cardíaca. As medidas se referem a homens entre $40$ e $60$ anos de idade que foram à clínica fazer um \emph{check-up}.
+	
+	\begin{table}[h!]
+		\centering
+		\begin{tabular}{|c|c|}
+			\hline
+			Paciente	&	Colesterol	\\
+			1	&	160	\\
+			2	&	160	\\
+			3	&	161	\\
+			4	&	163	\\
+			5	&	167	\\
+			6	&	170	\\
+			7	&	172	\\
+			8	&	172	\\
+			9	&	173	\\
+			10	&	177	\\
+			11	&	178	\\
+			12	&	181	\\
+			13	&	181	\\
+			14	&	182	\\
+			15	&	185	\\
+			16	&	186	\\
+			17	&	194	\\
+			18	&	197	\\
+			19	&	199	\\
+			20	&	203	\\
+			21	&	203	\\
+			22	&	205	\\
+			23	&	206	\\
+			24	&	206	\\
+			25	&	208	\\
+			26	&	209	\\
+			27	&	211	\\
+			28	&	214	\\
+			29	&	218	\\
+			30	&	225	\\
+			\hline
+		\end{tabular}
+		\caption{Tabela do exercício 18.}
+	\end{table}
+
+	\begin{enumerate}
+		\item Calcule a média, a moda, a mediana e a variância a partir da tabela de dados brutos;
+		\item Organize os dados em uma tabela de frequência com faixas de tamanho de $10$ a partir de $160$.
+		\item Refaça o item $a$ usando a tabela de frequência obtida em $b$.
+		\item Comenta as diferenças encontradas entre os valores das medidas calculadas em $a$ e $c$.
+	\end{enumerate}
+
+	\item A média da amostra sempre corresponderá a uma das observações na amostra?
+	
+	\item Exatamente metade das observações em uma amostra cairá abaixo da média?
+	
+	\item A média da amostra sempre será o valor que ocorre com mais frequência na amostra?
+	
+	\item O desvio padrão pode ser igual a zero? Se sim, dê um exemplo.
+	
+	\item O tempo de ignição fria de um motor de carro está sendo investigado por um fabricante de gasolina. Os seguintes tempos (em segundos) foram obtidos em um veículo de teste: $$1,75;1,92;2,62;2,35;3,09;3,15;2,53;1,91$$
+	\begin{enumerate}
+		\item Calcule a média, a variância e o desvio-padrão da amostra.
+		\item Construa um \emph{box-plot} dos dados.
+	\end{enumerate}
+
+	\item Um \emph{outlier} é um ponto além da linha, porém a menos de $3$ faixas interquartis da extremidade do \emph{box-plot}, no caso de ser acima de $3$ faixas interquartis, é chamado de \emph{outlier extremo}. Faça um \emph{box-plot} do exercício $17$ e escreva uma interpretação do que você vê nesse diagrama.
+	
+	\item Suponha que um par de dados honestos está para ser lançado e seja $X$ a variável aleatória representando a soma dos pontos.
+	\begin{enumerate}
+		\item Obtenha a distribuição de probabilidade de $X$.
+		\item Encontre a função de distribuição $F(x)$ da variável aleatória $X$ do problema anterior.
+		\item Determine o gráfico da função de distribuição.
+	\end{enumerate}
+	 
+
+\end{enumerate}
+
+
+	
+\end{document}

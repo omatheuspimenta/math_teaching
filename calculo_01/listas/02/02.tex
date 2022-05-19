@@ -1,0 +1,260 @@
+\documentclass[oneside,a4paper,12pt]{article}
+\usepackage[english,brazilian]{babel}
+\usepackage{multicol}
+\usepackage{textcomp}
+\usepackage[alf]{abntex2cite}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb,exscale}
+\usepackage[top=20mm, bottom=20mm, left=20mm, right=20mm]{geometry}%margens cima, baixo, esquerda direita
+\usepackage{framed}
+\usepackage{booktabs} %Pacote para deixar tabelas mais bonitas.
+\usepackage{color} %Pacote de Cores
+\usepackage{hyperref} %Pacotes para Hiperlinks
+\usepackage{graphicx} %Pacote de imagens
+\graphicspath{{./Figuras/}}%Direciona as imagens para uma pasta chamada "Figuras" (uso isso para organizar. Uma vez que todas as imagens vao ficar em uma pasta isolada)    
+\definecolor{shadecolor}{rgb}{0.8,0.8,0.8}
+
+%FAZ EDICOES AQUI (somente no conteudo que esta entre entre as ultimas  chaves de cada linha!!!)
+\newcommand{\universidade}{Universidade Estadual de Londrina}
+\newcommand{\centro}{Centro de Ciências Exatas}
+\newcommand{\departamento}{Departamento Matemática}
+\newcommand{\curso}{Física}
+\newcommand{\professores}{Matheus Pimenta}
+\newcommand{\disciplina}{Cálculo I - 1MAT096}
+%\newcommand{\tema}{Lista 01}
+%\newcommand{\turma}{MA31G}
+%\newcommand{\data}{Março de 2019}%{\today}
+%\newcommand{\tempodeaula}{30 minutos}
+%\newcommand{\prerequisitos}{Matrizes, Transformações Lineares e Bases}
+%ATE AQUI !!!	
+
+\begin{document}
+	\pagestyle{empty}
+	
+	\begin{center}
+		\includegraphics[width=\linewidth/2]{logo.jpg}%LOGOTIPO DA INSTITUICAO
+	 	\vspace{2pt} 	
+		
+		\universidade
+		\par
+		\centro
+		\par
+		\departamento
+		\par
+	%	Curso de \curso
+		\par
+		\vspace{12pt}
+		\LARGE \textbf{Lista 02 - REVISÃO}
+		
+	\end{center}
+	
+	\vspace{12pt}
+	
+	\begin{tabular}{ |l|p{12cm}| }
+		
+		\hline
+		\multicolumn{2}{|c|}{\textbf{Dados de Identificação}} \\
+		\hline
+		Professor:         &    \professores           \\
+		\hline
+		Disciplina:        &    \disciplina          \\
+		\hline
+	%	Tema:              &    \tema                \\
+	%	\hline
+	%	Pré-requisito	:  &    \prerequisitos         \\
+	%	\hline
+		Aluno:             &                   \\
+	%	\hline
+	%	Data:              &    \data                \\
+	%	\hline
+	%	Duração da aula:   &    \tempodeaula         \\
+		\hline
+		
+	\end{tabular}
+	\vspace{6pt}
+	
+	
+	\begin{snugshade}
+	\end{snugshade}
+
+\begin{enumerate}
+	\setcounter{enumi}{17}
+
+	\item Sendo $f(x) = x^{3} + 2x^2 - 4$, calcule:
+	\begin{multicols}{2}
+	\begin{enumerate}
+		\item $f(0)$ R=-4
+		\item $f(2)$ R=12
+		\item $f(\frac{1}{2})$ R=$-\frac{27}{8}$
+		\item $f(\sqrt{x})$
+	\end{enumerate}
+	\end{multicols}
+
+	\item Determine a função inversa em cada um dos exercícios. Faça seus gráficos e restrinja o domínio, se necessário:
+	\begin{multicols}{2}
+	\begin{enumerate}
+		\item $f(x) = x -4$ R:$f^{-1}(x) = x + 4$
+		\item $f(x) = x^2 + 1$ R:$f^{-1}(x) = \sqrt{x-1}$
+		\item $f(x) = e^{4x}$ R:$f^{-1}(x) = \frac{1}{4}\ln(x)$
+		\item $f(x) = \log(\frac{x}{3})$ R:$f^{-1}(x)=3 \cdot 10^x$
+		\item $f(x) = \arctan(8x)$ R:$f^{-1}(x) = \frac{\tan(x)}{8}$
+	\end{enumerate}
+	\end{multicols}
+
+	\item Determine o domínio das seguintes funções de uma variável real:
+	\begin{multicols}{2}
+	\begin{enumerate}
+		\item $f(x) = \sqrt{(x-4)(x+3)}$ \\ R:$D(f)=\{x \in \mathbb{R}; x \leq -3 \lor x \geq 4 \}$
+		\item $f(x) = \frac{\sqrt{2x}}{\sqrt{x^2 - 9}}$ \\ R:$D(f)=\{x \in \mathbb{R}; x > 3\}$
+		\item $f(x) = \sqrt{\frac{x}{x+1}}$ \\ R:$D(f)=\{x \in \mathbb{R}; x < -1 \lor x \geq 0 \}$
+		\item $f(x) = \log(\frac{x^{2}-3x+2}{x+1})$ \\ R:$D(f)=\{x \in \mathbb{R}; -1 < x < 1 \lor x>2 \}$
+	\end{enumerate}
+	\end{multicols}
+
+	\item Se $f(x) = \frac{3x-1}{x-7}$ determine:
+	\begin{multicols}{2}
+	\begin{enumerate}
+		\item $\frac{5(f-1)-2(f(0))+3f(5)}{7}$
+		\item $f(-\frac{1}{2})$
+		\item $f(3x-2)$
+		\item $f[f(5)]$
+	\end{enumerate}
+	\end{multicols}
+
+	\item Dadas as funções$f(x) = x^2 -1$ e $g(x) = 2x -1$:
+	\begin{multicols}{2}
+	\begin{enumerate}
+		\item Determine o domínio e o conjunto imagem de $f(x)$;
+		\item Determine o domínio e o conjunto imagem de $g(x)$;
+		\item Construa os gráficos de $f(x)$ e $g(x)$;
+		\item Calcule: $f(x) + g(x)$, $f(x) - g(x)$, $f(x) \cdot g(x)$, $\frac{f(x)}{g(x)}$, $g \circ f$ e $f \circ g$.
+	\end{enumerate}
+	\end{multicols}
+
+	\item Determine $(g \circ f)^{-1}$ onde $f(x) = \frac{2+x}{3}$ e $g(x) = \frac{2x+3}{5}$: \\ R:$\frac{15x-13}{2}$
+
+	
+	\item Determine se as funções são pares ou ímpares:
+	\begin{multicols}{2}
+	\begin{enumerate}
+		\item $ f(x) = x^2 - 3$ \\ R: par
+		\item $f(x) = |x|$ \\ R: par
+		\item $f(x) = x^{-3}$ \\ R: ímpar
+		\item $f(x) = 1 - x^{4}$ \\ R: par
+	\end{enumerate}
+	\end{multicols}
+
+	\item Em cada um dos itens abaixo, represente num mesmo plano cartesiano os gráficos das funções dadas, partindo do gráfico básico. Apresente o domínio e o conjunto imagem de cada função:
+	\\ {\bf OBS:} Utilize algum software (ou {\it website}) para verificar com seu traçado a mão.
+	\begin{enumerate}
+		\item $f(x) = x$; $g(x) = x +1$; $h(x) = x -2$; $w(x) = x+3$
+		\item $f(x) = x^2$; $g(x) = x^2 +1$; $h(x) = x^2 - 3$; $i(x) = 2 - x^2$; $j(x) = -3 -x^2$; $l(x) = 3x^2$
+		\item $f(x) = 2^x$; $g(x)=2^x + 3$; $h(x) = 1 - 2^x$
+		\item $f(x) = \sin(x)$; $g(x) = \sin(2x)$; $h(x) = \sin(3x)$
+		\item $f(x) = \frac{1}{x}$; $g(x) = - \frac{1}{x}$
+		\item $f(x) = |x|$;  $g(x) = |x+3|$; $h(x) = -|x|$
+	\end{enumerate}
+
+
+	\item Uma companhia telefônica cobra uma taxa de $R\$ 0,36$ por minuto e uma taxa fixa de $R\$ 39,00$ por mês. Escreva uma função linear que permite calcular o valor da conta mensal (em reais) em função do tempo total das ligações em minuto e construa o gráfico.
+
+	\item Uma empresa de software está vendendo uma média de $400$ cópias de um certo jogo de computador por semana a um preço de $R\$ 120,00$. A empresa observou que a demanda é uma função linear do preço e estima que para cada $R\$ 5,00$ de redução do preço mais $50$ cópias do jogo serão vendidas por semana.
+	\begin{enumerate}
+		\item Escreva uma equação para a receita da empresa em função do preço. \\ {\bf OBS:} Receita = preço $\cdot$ demanda
+		\item Que preço a empresa de software deve cobrar para maximizar a receita com a venda do jogo de computador.
+	\end{enumerate}
+
+	\item Certo banco cobra $R\$ 20,00$ por talão de cheques e $R\$ 0,50$ por cheque utilizado. Outro banco cobra $R\$10,00$ por talão e $R\$0,90$ por cheque utilizado. Levando-se em conta apenas a questão financeira, decida em qual banco você abrirá sua conta. Justifique sua resposta através de gráficos e funções matemática.
+
+
+	\item Se sessenta limoeiros forem plantados, a média de colheita por árvore será 475 limões. A média de colheita por árvore decrescerá de 5 limões por árvore adicional plantada. Quantas árvores deverão ser plantadas, para maximizar a colheita total? (A resposta deverá ser um número inteiro)
+	
+	
+	\item A produção diária de um operário com $t$ semanas de experiência é $Q(t) = 120 - Ae^{-kt}$ unidades. O operário inicialmente produzia 30 unidades/dia e, após oito semanas, 80 unidades/dia. Quantas unidades/dia produziria com quatro semanas? Apresente o gráfico da função.
+
+	\item O custo médio por DVD, em dólares, para uma companhia produzir $x$ DVD é determinado pela função: 
+	$$A(x) = \frac{2x+100}{x}, x>0$$
+	\begin{enumerate}
+		\item Qual é o preço médio por DVD quando é produzido 100 DVDs?
+		\item Para que o preço médio do DVD seja $U\$2,50$ quantos DVDs devem ser produzidos?
+		\item O que você observa em relação ao preço, à medida que a produção de DVD aumenta?
+		\item Plote o gráfico da função
+	\end{enumerate}
+
+	\item Calcula-se que a população máxima que nosso planeta pode comportar, em termos de terras agricultáveis disponíveis, seja de pouco mais de $45$ bilhões. Atualmente a população mundial está na casa dos $7$bi. Supondo que essa população duplique a cada $30$ anos, calcule em quanto tempo ela atingiria o limite máximo? 
+
+	\item Uma locadora de carros da cidade do Rio de Janeiro aluga carros por uma diária de $R\$62,00$, estando incluídos os $100$ primeiros quilômetros. Para cada quilômetro rodado a mais que os $100$ é cobrado uma taxa de $R\$0,18$.
+	\begin{table}[h]
+		\centering
+		\begin{tabular}{|c|c|}
+			\hline
+			Cidades			&	Distância ao Rio \\
+			\hline
+			Niterói			&	$18$km	\\
+			\hline
+			São Paulo (SP)	&	$429$km	\\
+			\hline	
+			Petrópolis		&	$66$km	\\
+			\hline
+			São José dos Campos	& $343$km	\\
+			\hline
+			Vitória			&	$525$km	\\
+			\hline
+		\end{tabular}
+	\end{table}
+	\begin{enumerate}
+		\item Nesta situação, identifique quais seriam as variáveis dependentes e independentes a serem consideradas na relação que dá o preço diário a ser pago em função da distância percorrida.
+		\item Encontre uma fórmula que relacione o preço a ser pago em função da distância percorrida.
+		\item Se uma pessoa pegar o carro de manhã, for a São Paulo e voltar a noite, qual o valor a ser pago, sabendo que ela rodou $35$km na cidade.
+	\end{enumerate}
+
+
+	\item Um funcionário recebe $R\$12,00$ por hora trabalhada para trabalhar $44$ horas semanais, sendo acrescido $30\%$ do salário/hora a cada hora que exceder esse limite, sendo que ele não pode fazer mais do que duas horas por dia.
+	\begin{enumerate}
+		\item Construa uma lei que expresse uma relação entre a quantidade a ser recebida pelo funcionário em função do número de horas trabalhadas.
+		\item Quanto o funcionário receberá após um mês se durante o mês ele fizer uma hora por dia? (Considere o mês sem feriado e com 4 sábados e 4 domingos)
+		\item Qual a variável dependente e qual a variável independente neste problema?
+	\end{enumerate}
+
+	\item Em uma piscina inicialmente haviam $100.000$ litros de água. Foi aberta uma torneira cuja vazão é de $25$ litros por minuto. Sabendo que a piscina tem $10$ metros de comprimento e $8$ de largura, e $3$ metros de profundidade.
+	\begin{enumerate}
+		\item Construa uma lei que expresso uma relação entre a quantidade de litros de água presente na piscina em função do tempo transcorrido desde a abertura da torneira.
+		\item Qual a variável dependente e independente?
+	\end{enumerate}
+
+	\item Sobre determinadas condições a variação entre a temperatura e a altura da coluna de mercúrio de um termômetro é dada por:
+	\begin{table}[h]
+		\centering
+		\begin{tabular}{|c|c|}
+			\hline
+			Temperatura em graus Celsius	&	Comprimento da coluna \\
+			\hline
+			0		&	40	\\
+			\hline
+			5		&	48	\\
+			\hline
+			10		&	56	\\
+			\hline
+			15		&	64	\\
+			\hline
+		\end{tabular}
+	\end{table}
+	\begin{enumerate}
+		\item Baseado nos dados da tabela acima, tente por meio de uma fórmula expressar a relação entre temperatura e a altura do termômetro.
+		\item Na relação estabelecida, quem é a variável dependente e quem é a independente?
+	\end{enumerate}
+
+
+	\item Sejam as funções reais $f(x) = x^2 + 4x - 5$ e $g(x) = 2x -3$
+	\begin{enumerate}
+		\item Obtenha $f \circ g$ e $g \circ f$;
+		\item Calcule $(f \circ g)(2)$ e $(g \circ f)(2)$
+		\item Determine os valores do domínio de $f \circ g$ que produzem como imagem $16$.
+	\end{enumerate}
+
+\end{enumerate}
+
+
+	
+\end{document}

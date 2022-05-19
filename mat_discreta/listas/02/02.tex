@@ -1,0 +1,278 @@
+\documentclass[oneside,a4paper,12pt]{article}
+\usepackage[english,brazilian]{babel}
+\usepackage{multicol}
+\usepackage{textcomp}
+\usepackage[alf]{abntex2cite}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb,exscale}
+\usepackage[top=20mm, bottom=20mm, left=20mm, right=20mm]{geometry}%margens cima, baixo, esquerda direita
+\usepackage{framed}
+\usepackage{booktabs} %Pacote para deixar tabelas mais bonitas.
+\usepackage{color} %Pacote de Cores
+\usepackage{hyperref} %Pacotes para Hiperlinks
+\usepackage{graphicx} %Pacote de imagens
+\graphicspath{{./Figuras/}}%Direciona as imagens para uma pasta chamada "Figuras" (uso isso para organizar. Uma vez que todas as imagens vao ficar em uma pasta isolada)    
+\definecolor{shadecolor}{rgb}{0.8,0.8,0.8}
+
+%FAZ EDICOES AQUI (somente no conteudo que esta entre entre as ultimas  chaves de cada linha!!!)
+\newcommand{\universidade}{Universidade Tecnológica Federal do Paraná}
+\newcommand{\centro}{Câmpus Cornélio Procópio}
+\newcommand{\departamento}{Departamento Acadêmico de Matemática}
+\newcommand{\curso}{Engenharia da Computação}
+\newcommand{\professores}{Matheus Pimenta}
+\newcommand{\disciplina}{Matemática Discreta - EC34G}
+%\newcommand{\tema}{Lista 01}
+%\newcommand{\turma}{MA31G}
+%\newcommand{\data}{Março de 2019}%{\today}
+%\newcommand{\tempodeaula}{30 minutos}
+%\newcommand{\prerequisitos}{Matrizes, Transformações Lineares e Bases}
+%ATE AQUI !!!	
+
+\begin{document}
+	\pagestyle{empty}
+	
+	\begin{center}
+		\includegraphics[width=\linewidth/8]{logo.jpg}%LOGOTIPO DA INSTITUICAO
+	 	\vspace{2pt} 	
+		
+		\universidade
+		\par
+		\centro
+		\par
+		\departamento
+		\par
+	%	Curso de \curso
+		\par
+		\vspace{12pt}
+		\LARGE \textbf{Lista 02}
+		
+	\end{center}
+	
+	\vspace{12pt}
+	
+	\begin{tabular}{ |l|p{12cm}| }
+		
+		\hline
+		\multicolumn{2}{|c|}{\textbf{Dados de Identificação}} \\
+		\hline
+		Professor:         &    \professores           \\
+		\hline
+		Disciplina:        &    \disciplina          \\
+		\hline
+	%	Tema:              &    \tema                \\
+	%	\hline
+	%	Pré-requisito	:  &    \prerequisitos         \\
+	%	\hline
+		Aluno:             &                   \\
+	%	\hline
+	%	Data:              &    \data                \\
+	%	\hline
+	%	Duração da aula:   &    \tempodeaula         \\
+		\hline
+		
+	\end{tabular}
+	\vspace{6pt}
+	
+	
+	\begin{snugshade}
+	\end{snugshade}
+
+\begin{enumerate}
+
+
+
+	\item Utilizando os conjuntos: $X = \{ x; x^2 = 9 \land 2x=4\}$, $Y=\{x; x\neq x\}$, $Z = \{x; x+8 = 8\}$ responda:
+	\begin{itemize}
+		\item $X$ é um conjunto vazio? \\ {\bf R:} Sim.
+		\item $Y$ é um conjunto vazio? \\ {\bf R:} Sim. (em alguns livros essa é a definição de $\varnothing$)
+		\item $Z$ é um conjunto vazio? \\ {\bf R:} Não.
+	\end{itemize}
+
+	\item Seja $U = \mathbb{N}$, identifique quais dos conjuntos é igual a $\{2,4\}$:
+	\begin{enumerate}
+		\item $A = \{ \text{números pares menores que } 6\}$
+		\item $B = \{ x; x<5 \}$
+		\item $C = \{x; (x-2)(x-4)(x+2) = 0\}$ 
+	\end{enumerate}
+	{\bf R:} $A, C$
+	
+	\item Prove as seguintes afirmações:
+	\begin{enumerate}
+		\item Para qualquer conjunto $A$, temos $\varnothing \subseteq A \subseteq U$
+		\item Para qualquer conjunto $A$, temos $A \subset A$
+		\item Se $A \subseteq B$ e $B \subseteq C$ então $A \subseteq C$.
+		\item $A=B$ se, e somente se, $A \subseteq B$ e $B \subseteq A$.
+	\end{enumerate}
+
+	\item Sejam os conjuntos: $U = \{ 1,2,3,\dots,9\}$, $A= \{1,2,3,4\}$, $B = \{2,4,6,8\}$, $C=\{3,4,5,6\}$
+	\begin{enumerate}
+		\item Determine: $(A \cup B)$, $(A \cup C)$, $(B \cup C)$ e $(B \cup B)$
+		\item $(A \cup B)\cup C$ e $A \cup (B \cup C)$
+		\item $(A \cap B)\cap C$ e $A \cap (B \cap C)$
+		\item $(A \cap B)$, $(A \cap C)$, $(B \cap C)$ e $(B \cap B)$
+		\item $A^{C}$, $B^{C}$ e $C^{C}$
+		\item $A-B$, $C-A$, $B-C$, $B-A$ e $B-B$
+		\item $(A \cup B)^{C}$ e $A^{C} \cap B^{C}$
+		\item $A \cap (B \cup C)$ e $(A \cap B)\cup(A\cap C)$
+		\item $(A \cap B)-C$ e $(A - B)^{C}$
+	\end{enumerate}
+
+	\item Prove que $(A \cap B) \subseteq A \subseteq (A \cup B)$ e $(A \cap B) \subseteq B \subseteq (A \cup B)$
+
+	\item Utilizando diagramas de {\it Venn} represente:
+	\begin{enumerate}
+		\item $(A\cup B)^{C}$
+		\item $(A \cap B^{C})$
+		\item $(B-A)^{C}$
+		\item $(A \cap B) \cup (A \cap C)$
+		\item $A \cup (B \cap C)$
+		\item $A^{C} \cup B \cup C$
+	\end{enumerate}
+	
+	\item Utilizando as propriedades apresentadas em sala, mostre e justifique:
+	\begin{enumerate}
+		\item $A \cup A = A$
+		\item $A \cap A = A$
+		\item $A \cup U = U$
+		\item $A \cap \varnothing = \varnothing$
+		\item $(U \cap A) \cup (B \cap A) = A$
+		\item $(\varnothing \cup A)\cap(B \cup A) = A$
+		\item $(A \cup B) \cap (A \cup B^{C}) = A$
+		\item Se $A \subseteq B$ e $B \subseteq C$ então $A \subseteq C$.
+	\end{enumerate}
+
+	\item Em um jantar, cinco pessoas pediram o especial do dia, duas pessoas escolheram somente a entrada e uma pessoa pediu apenas salada. Quantas pessoas jantaram?
+
+	\item Existem $22$ estudantes do sexo feminino e $18$ estudantes do sexo masculino em uma sala, quantos estudantes há ao todo?
+
+	\item De $32$ pessoas que reciclam papeis e embalagens, $30$ reciclam papel e $14$ reciclam embalagens. Determine:
+	\begin{enumerate}
+		\item Quantas pessoas reciclam embalagens. \\ {\bf R:} 12
+		\item Quantas pessoas reciclam apenas papel. \\ {\bf R:} 18
+		\item Quantas pessoas reciclam apenas embalagem. \\ {\bf R:} 2
+	\end{enumerate}
+
+	\item Os estudantes de uma moradia estudantil responderam a uma pesquisa sobre o uso de dicionário e enciclopédia nos dias atuais. Os resultados mostraram que $650$ estudantes possuem dicionário em seus quartos e $150$ não possuem dicionário em seus quartos, $175$ possuem enciclopédias em seus dormitórios e $50$ estudantes não possuem nem dicionário e nem enciclopédia em seus quartos. Determine o número $k$ de estudantes que:
+	\begin{enumerate}
+		\item residem na moradia estudantil. \\ {\bf R:} 800
+		\item possuem tanto dicionário e enciclopédia. \\ {\bf R:} 75
+		\item possuem apenas enciclopédia em seu quarto. \\ {\bf R:} 100
+	\end{enumerate}
+
+	\item Em uma outra pesquisa a respeito sobre a leitura de revistas, foram entrevistadas 60 pessoas e obtidos os seguintes resultados: 25 leem Veja, 26 leem Exame e 26 leem Caras. 9 pessoas leem Veja e Caras, 11 leem Veja e Exame, 8 leem Exame e Caras e 8 não leem nenhuma revista. Determine:
+	\begin{enumerate}
+		\item Quantidade de pessoas que leem as três revistas simultaneamente. \\ {\bf R:} 3
+		\item Represente através de diagrama de Venn.
+		\item Determine o número de pessoas que leem apenas uma revista. \\ {\bf R:} 30
+	\end{enumerate}
+	
+	\item Suponha que 100 de 120 engenheiros da UTFPR estudem outros idiomas, sendo o seguinte: 65 estudam francês, 45 estudam alemão, 42 estudam russo, 20 estudam francês e alemão, 25 estudam francês e russo e 15 estudam alemão e russo. Determine:
+	\begin{enumerate}
+		\item A quantidade de estudantes que estudam os três idiomas. \\ {\bf R:} 8
+		\item Represente através de diagrama de Venn.
+		\item Determine o número de estudantes que estudam apenas um idioma. E dois idiomas. \\ {\bf R: }56 e 36
+	\end{enumerate}
+
+	\item Em uma amostra de 25 carros de uma concessionária, foi obtido o seguinte levantamento: 15 carros possuíam ar condicionado, 12 possuíam rádio, 5 possuíam ar condicionado e vidros elétricos, 9 possuíam ar condicionado e rádio, 4 possuíam rádio e vidros elétricos, 3 possuíam todos os três opcionais e 2 carros não possuíam nenhum opcional. Determine a quantidade de carros que possuíam:
+	
+	{\bf DICA:} Represente através de um diagrama de Venn.
+	
+	\begin{enumerate}
+		\item Apenas vidros elétricos; \\ {\bf R:}  5
+		\item Apenas ar condicionado; \\ {\bf R:}  4
+		\item Apenas rádio; \\ {\bf R:}  2
+		\item Rádio e vidros elétricos, mas sem ar condicionado; \\ {\bf R:}  4
+		\item Ar condicionado e rádio, mas sem vidros elétricos; \\ {\bf R:}  6
+		\item Apenas um opcional. \\ {\bf R:}  11
+	\end{enumerate}
+	
+	
+	\item Suponha que certa identificação é composta por duas letras e três números, onde o primeiro número deve ser obrigatoriamente diferente de 0. Quantas possibilidades de combinação é possível? {\bf R:}  608400
+
+	\item Suponha que certa identificação é composta por duas letras e três números, onde cada caractere deve ser diferente? {\bf R:}  468000
+	
+	\item Suponha que certa identificação é composta por duas letras e três números, onde o primeiro número deve ser obrigatoriamente diferente de 0 e nenhum caractere pode ser repetido. Quantas possibilidades de combinação é possível? {\bf R:}  421200
+	
+	\item Determine o número de possibilidades de uma eleição para o grêmio estudantil, onde estão concorrendo 26 candidatos para as vagas de presidente, secretário e tesoureiro. (Um candidato não pode assumir duas vagas) {\bf R:}  15600
+	
+	\item Simplifique $\frac{(n-r+1)!}{(n-r-1)!}$
+	
+	\item Simplifique $\frac{(n-r)!}{(n-r-2)!}$
+	
+	\item O símbolo ${n} \choose{r}$, onde $n$ e $r$ são números naturais com $r \leq n$ é definido por:
+	${n} \choose{r}$ $= \frac{n(n-1)(n-2)\dots (n-r+1)}{1.2.3\dots (r-1)r}$. Observe que tem $r$ elementos tanto no numerador, quanto no denominador. Assim, determine: 
+	\begin{enumerate}
+		\item ${16} \choose{3}$ \\ {\bf R:}  560
+		\item ${12} \choose{4}$ \\ {\bf R:}  495
+		\item ${8} \choose{2}$ \\ {\bf R:}  28
+		\item ${9} \choose{4}$ \\ {\bf R:}  126
+		\item ${10} \choose{3}$ \\ {\bf R:}  120
+	\end{enumerate}
+
+	\item Determine quantas possibilidades de anagramas com três elementos podemos ter com as seguintes letras, sem repetição.
+	\begin{enumerate}
+		\item $a,b,c,e,d,r$
+		\item $e,h,y,t$
+		\item $e,b,g$
+		\item $e,d,q,s,c,f,g,y,u$
+	\end{enumerate}
+
+	\item Repetições não são permitidas. Quantos numerais de três dígitos podem ser formados com:
+	\begin{enumerate}
+		\item Os seguintes seis dígitos: $2,3,4,5,7$ e $9$? \\ {\bf R:}  120
+		\item Quantos desses são menores que $400$? \\ {\bf R:}  40
+		\item Quantos desses são pares? \\ {\bf R:}  40
+		\item Quantos são ímpares? \\ {\bf R:}  80
+		\item Quantos são múltiplos de $5$? \\ {\bf R:}  20
+	\end{enumerate}
+
+	\item Repetições são permitidas. Quantos numerais de três dígitos podem ser formados com:
+	\begin{enumerate}
+		\item Os seguintes seis dígitos: $2,3,4,5,7$ e $9$? \\ {\bf R:}  216
+		\item Quantos desses são menores que $400$? \\ {\bf R:}  72
+		\item Quantos desses são pares? \\ {\bf R:}  72
+		\item Quantos são ímpares? \\ {\bf R:}  144
+		\item Quantos são múltiplos de $5$? \\ {\bf R:}  36
+	\end{enumerate}
+
+	\item Uma caixa contêm 10 lâmpadas coloridas. Determine:
+	\begin{enumerate}
+		\item Retirando-se 3 lâmpadas com repetição. \\ {\bf R:}  1000
+		\item Retirando-se 3 lâmpadas sem repetição. \\ {\bf R:}  720
+	\end{enumerate}
+
+	\item Resolva o anterior agora com:
+	\begin{enumerate}
+		\item Retirando-se 4 lâmpadas com repetição. \\ {\bf R:}  10000
+		\item Retirando-se 5 lâmpadas sem repetição. \\ {\bf R:}  5824
+	\end{enumerate}
+	
+	\item Um fazendeiro compra três vacas, dois porcos e quatro galinhas de um vendedor que possui seis vacas, cinco porcos e oito galinhas. Quantas possibilidades o fazendeiro possui para a compra? \\ {\bf R:} 14000
+	
+	\item Um mochila contem 5 bolinhas de gude vermelhas e 6 bolinhas de gude brancas. Determine:
+	\begin{enumerate}
+		\item O número de possibilidades para se retirar 4 bolinhas de gude da mochila? \\ {\bf R:} 330
+		\item O número de possibilidades se duas bolinhas de gude for vermelha e duas forem brancas? \\ {\bf R:} 150
+		\item O número de possibilidades se forem de uma mesma cor as quatro bolinhas retiradas? \\ {\bf R:}  20
+	\end{enumerate}
+
+	\item Nosso alfabeto possui $26$ letras, sendo 21 letras consoantes. Determine a quantidade de palavras com cinco letras podemos ter com 3 consoantes diferentes e 2 vogais diferentes. \\ {\bf R:} 1596000
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+\end{enumerate}
+
+
+	
+\end{document}

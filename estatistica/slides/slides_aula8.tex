@@ -1,0 +1,250 @@
+\documentclass[hyperref={pdfpagelabels=false}]{beamer}
+\usepackage{lmodern}
+\usetheme{CambridgeUS}
+
+\usepackage[english,brazilian]{babel}
+\usepackage{multicol}
+\usepackage{textcomp}
+\usepackage[alf]{abntex2cite}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+\usepackage{amsmath,amssymb,exscale}
+
+\title{Probabilidade e Estatística}  
+\author[Matheus Pimenta]{Matheus Pimenta} 
+\institute[UTFPR-CP]{\normalsize Universidade Tecnológica Federal do Paraná \\
+	Câmpus Cornélio Procópio
+} 
+\date{ADNP 2020} 
+\begin{document}
+	
+\begin{frame}
+\titlepage
+\end{frame} 
+
+
+%\begin{frame}
+%\frametitle{Table of contents}
+%\tableofcontents
+%\end{frame} 
+
+
+\section{Testes de Hipóteses} 
+
+\begin{frame}
+\frametitle{Testes de Hipóteses para Médias}
+Suponha que uma certa distribuição dependa de um parâmetro $\theta$ e que não se conheça $\theta$ ou, então, haja razões para acreditar que o $\theta$ variou, seja pelo passar do tempo ou por modificações do processo de produção, por exemplo.
+
+\pause
+
+A inferência estatística fornece um processo de análise denominado \emph{teste de hipóteses}, que permite se decidir por um valor do parâmetro $\theta$ ou por sua modificação com um grau de risco conhecido.
+
+\end{frame}
+
+\begin{frame}{Hipóteses}
+São formuladas duas hipóteses básicas:
+\begin{itemize}
+	\item [$H_0$:] chamada de hipótese nula ou da existência;
+	\item [$H_1$:] chamada de hipótese alternativa.
+\end{itemize}
+
+\pause
+
+Testamos hipóteses para tomarmos uma decisão entre duas alternativas. Por essa razão, o \emph{teste de hipótese} é um processo de decisão estatística.
+
+\end{frame}
+
+\begin{frame}{Exemplos}
+\begin{enumerate}
+	\item As lâmpadas da marca $A$ possui vida média de $\mu = \mu_0$; \pause
+	\item O nível de aprovação de uma população de universitários é $\mu = \mu_0$; \pause
+	\item Uma propaganda produz efeito positivo nas vendas; \pause
+	\item O processo de produção $A$ é mais eficiente que o processo de produção $B$; \pause
+	\item Certa qualidade de semente tem uma produção maior; \pause
+	\item A vacina $A$ produz maiores taxas de imunização;
+\end{enumerate}
+\end{frame}
+
+\begin{frame}{Hipóteses}
+De maneira genérica podemos apresentar as hipóteses genéricas que englobam a maioria dos casos: \pause
+\begin{enumerate}
+	\item $\begin{cases}
+	H_0: \theta = \theta_0\\
+	H_1: \theta \neq \theta_0
+	\end{cases}$
+	São os testes bilaterais. \pause
+	\item $\begin{cases}
+	H_0: \theta = \theta_0\\
+	H_1: \theta > \theta_0
+	\end{cases}$
+	São os testes unilaterais à direita. \pause
+	\item $\begin{cases}
+	H_0: \theta = \theta_0\\
+	H_1: \theta < \theta_0
+	\end{cases}$
+	São os testes unilaterais à esquerda. \pause
+	\item E ainda é possível realizar um teste de hipótese após realizar um dos testes acima.
+\end{enumerate}
+\end{frame}
+
+\begin{frame}{Procedimento Padrão para a Realização de um Teste de Hipótese}
+	\begin{itemize}
+		\item Definem-se as hipóteses do teste: nula e alternativa; \pause
+		\item Fixa-se um nível de significância $\alpha$; \pause
+		\item Levanta-se uma amostra de tamanho $n$ e calcula-se uma estimativa $\hat{\theta}_0$ do parâmetro $\theta$; \pause
+		\item Usa-se para cada tipo de teste uma variável cuja distribuição amostral do estimador do parâmetro seja a mais concentrada em torno do verdadeiro valor do parâmetro; \pause
+		\item Calcula-se com o valor do parâmetro $\theta_0$, dado por $H_0$, o valor crítico, valor observado na amostra ou valor calculado $(V_{calc})$; \pause
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Procedimento Padrão para a Realização de um Teste de Hipótese}
+	\begin{itemize}
+		\item Fixam-se duas regiões: uma de \emph{não rejeição} de $H_0$ \textit{(RNR)} e uma de \emph{rejeição} de $H_0$ ou \emph{crítica} \textit{(RC)} para o valor calculado, ao nível de risco dado; \pause
+		\item Se o valor observado $(V_{calc}) \in$ região de não rejeição, a decisão é a de não rejeitar $H_0$; \pause
+		\item Se $(V_{calc}) \in$ região crítica, a decisão é a de rejeitar $H_0$. \pause
+	\end{itemize}
+
+	No caso dos testes bilaterais, quando se fixa $\alpha$ os valores críticos, $V_\alpha$ são dados, tais que: \pause
+	\begin{itemize}
+		\item $P(|V_{calc}| < V_{\alpha}) = 1 - \alpha \implies RNR$
+		\item $P(|V_{calc}| \geq V_{\alpha}) = \alpha \implies RC$
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Testes de Hipóteses para a Média de Populações Normais com Variâncias $(\sigma^2)$ Conhecidas - Testes Bilaterais}
+	\textbf{Exemplo 01:} De uma população normal com variância $36$, toma-se uma amostra casual de tamanho $16$. obtendo-se $\bar{x} = 43$. Ao nível de $10\%$, testar as hipóteses:
+	$$\begin{cases}
+	H_0: \mu = 45\\
+	H_1: \mu \neq 45
+	\end{cases}
+	$$
+	
+\end{frame}
+
+\begin{frame}{Exemplo 01 - Solução}
+	Como a variância é conhecida, utilizamos um \emph{Teste de Hipótese para a Média de Populações Normais com Variância Conhecida}, e utilizamos a variável $Z:N(0,1)$ com as seguintes variáveis: \pause
+	$$\sigma^2 = 36 \text{  ;   } \bar{x} = 43 \text{  ;   } n = 16$$ \pause
+	Assim, \pause
+	$$Z = \frac{\bar{x} - \mu_{H_0}}{\sigma_{\bar{x}}}$$ \pause
+	Onde $\sigma_{\bar{x}}$ é dada por: \pause
+	$$\sigma_{\bar{x}} = \frac{\sigma}{\sqrt{n}} = \frac{6}{\sqrt{16}} = \frac{6}{4} \implies \sigma_{\bar{x}} = 1,5$$. \pause
+	Sendo $\mu_{H_0} = 45$, segue:
+	$$Z_{calc} = \frac{\bar{x} - \mu_{H_0}}{\sigma_{\bar{x}}} = Z_{calc} = \frac{43 - 45}{1,5} = -1,33 $$.
+	
+\end{frame}
+
+\begin{frame}{Exemplo 01 - Solução}
+Como o teste é um teste bilateral e $\alpha = 10\%$, a região de não rejeição, $RNR$, é: \pause
+$$P(|Z| < Z_{\alpha}) = 1 - \alpha \implies P(|Z| < 1,64) = 0,90$$  \pause
+E assim, $Z_{\alpha} = Z_{5\%} = 1,64$.
+
+A região de rejeição $(RC)$ é dada por $P(|Z| \geq Z_{\alpha}) = \alpha \implies P(|Z| \geq 1,64) = 0,10$. \pause
+
+\textbf{GRÁFICO} \pause
+
+Como $Z_{calc} = -1,33$ temos que $Z_{calc} \in RNR$. \pause
+
+Assim, a decisão é de não rejeitar $H_0$, isto é, a média é $45$ com $10\%$ de risco de não rejeitarmos uma hipótese falsa.
+\begin{flushright}
+	$\square$
+\end{flushright}
+\end{frame}
+
+
+\begin{frame}{Exemplo 01 - Solução}
+	Uma outra forma de resolver o mesmo exercício é utilizando os Intervalos de Confiança, como segue: \pause
+	$$RNR \implies P(\mu_{H_0} - Z_{\alpha} \cdot \sigma_{\bar{x}} < \bar{x} < \mu_{H_0} + Z_{\alpha} \cdot \sigma_{\bar{x}}) = 1 - \alpha$$ \pause
+	Ou ainda, \pause
+	$$P(\bar{x}_1 < \bar{x} < \bar{x}_2) = 1 - \alpha$$ \pause
+	$$RC \implies P(\bar{x} \leq \bar{x}_1 \text{ ou } \bar{x} \geq \bar{x}_2)$$ \pause
+	Assim, temos: \pause
+	
+	$\bar{x}_1 = \mu_{H_0} - Z_{\alpha} \cdot \sigma_{\bar{x}} = 45 - 1,64 \cdot 1,5 = 42,54$ \pause
+	
+	$\bar{x}_2 = \mu_{H_0} + Z_{\alpha} \cdot \sigma_{\bar{x}} = 45 + 1,64 \cdot 1,5 = 47,46$ \pause
+	
+	O que produz: \pause
+	
+	$RNR = (42,54; 47,46)$ \pause
+	
+	$RC = (\infty; 42,54]\cup[47,46;+\infty)$ \pause
+	
+	Como $\bar{x} = 43$, então $\bar{x} \in RNR$. \pause Logo, não se rejeita $H_0$ também.
+	
+	\begin{flushright}
+		$\blacksquare$
+	\end{flushright}
+\end{frame}
+
+\begin{frame}{Testes Unilateral (monocaudal)}
+	
+	Os testes unilaterais são quando não estamos interessados em verificar uma desigualdade do tipo $\neq$ e sim quando estamos em busca de verificar $<$ ou $>$. Será realizado um exemplo para a explicação, no caso do Teste Unilateral à esquerda, o caso unilateral a direita é análogo.
+	
+\end{frame}
+
+
+\begin{frame}{Exemplo 02}
+	
+\textbf{Exemplo 02:} Uma fábrica anuncia que o índice de nicotina dos cigarros da marca $X$ apresenta-se abaixo de $26$mg por cigarro. Um laboratório realiza $10$ análises do índice obtendo: $26,24,23,22,28,25,27,26,28,24$. Sabe-se que o índice de nicotina dos cigarros da marca $X$ se distribui normalmente com variância $5,36$mg$^2$. Pode-se aceitar a afirmação do fabricante, ao nível de $5\%$?
+		
+\end{frame}
+
+\begin{frame}{Exemplo 02 - Solução}
+\textit{Solução:}
+
+Temos as seguintes hipóteses: \pause
+$$\begin{cases}
+H_0:\mu = 26\\
+H_1:\mu < 26
+\end{cases}
+$$ \pause
+Com $\alpha = 5\%$ e $n=10$. \pause
+
+Para determinarmos a média: \pause
+$$\bar{x} = \frac{1}{n}\sum_{i = 1}^n \bar{x}_i = \frac{253}{10} \implies \bar{x} = 25,3$$ \pause
+E o desvio padrão da amostra: \pause
+$$\sigma_{\bar{x}} = \sqrt{\frac{5,36}{10}} = \sqrt{0,536} = 0,73$$ \pause
+
+O valor de $Z_{calc} = \frac{25,3 - 26}{0,73} = -0,959$. \pause
+
+O valor de $Z_{\alpha} = z_{5\%} = 1,64$.
+\end{frame}
+\begin{frame}{Exemplo 02 - Solução}
+	
+Com isto, temos: \pause
+$RNR = (-1,64; + \infty)$ \pause
+
+$RC = (-\infty;-1,64]$ \pause
+
+$\therefore Z_{calc} \in RNR$. \pause
+
+Ou seja, ao nível de $5\%$, podemos concluir que a afirmação do fabricante é falsa, ou seja, não se rejeita $H_0$.
+
+\begin{flushright}
+	$\square$
+\end{flushright}
+
+\end{frame}
+
+\begin{frame}{Exemplo 02 - Solução}
+	Resolvendo através de Intervalos de Confiança, segue: \pause
+	$$RNR \implies P(\bar{x} > \mu_{H_0} - Z_{\alpha} \cdot \sigma_{\bar{x}}) = 1 - \alpha$$ \pause
+	Ou ainda, \pause
+	$$RC \implies P(\bar{x} \leq \mu_{H_0} - Z_{\alpha} \cdot \sigma_{\bar{x}}) = \alpha$$ \pause
+	
+	$P(\bar{x} > 26 - 1,64 \cdot 0,73) = 0,95$ \pause
+	
+	$RNR \implies P(\bar{x} > 24,803) = 0,95$ \pause
+	
+	$RC \implies P(\bar{x} \leq 24,803) = 0,10$. \pause
+	
+	Como $\bar{x} = 25,3$, concluímos que $\bar{x} \in RNR$, o que conclui para não rejeitar $H_0$. 
+	\begin{flushright}
+		$\blacksquare$
+	\end{flushright} \pause
+	No caso do teste unilateral à direita, a resolução é análoga, levando em consideração que estamos interessados na região à direita.
+\end{frame}
+
+\end{document}
+

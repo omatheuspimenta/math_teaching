@@ -1,0 +1,461 @@
+\documentclass[hyperref={pdfpagelabels=false}]{beamer}
+\usepackage{lmodern}
+\usetheme{CambridgeUS}
+
+\usepackage[brazilian]{babel}
+\usepackage{multicol}
+\usepackage{textcomp}
+\usepackage[alf]{abntex2cite}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx} %Pacote de imagens
+\graphicspath{{./figures/}}
+\usepackage{amsthm}
+
+\usepackage[normalem]{ulem}
+
+
+\title{Sequências e Séries}  
+\author[Matheus Pimenta]{Matheus Pimenta} 
+\institute[UEL]{\normalsize Universidade Estadual de Londrina \\
+	Londrina
+} 
+\date{Fev. 2022} 
+\begin{document}
+
+	
+\begin{frame}
+\titlepage
+\end{frame} 
+
+
+%\begin{frame}
+%\frametitle{Table of contents}
+%\tableofcontents
+%\end{frame} 
+
+
+\section{Apresentação} 
+
+
+\begin{frame}
+\frametitle{Apresentação} 
+
+Matheus Pimenta \pause
+
+e-mail: matheus.pimenta@outlook.com ou omatheuspimenta@outlook.com \pause
+
+Informações sobre a disciplina \pause
+
+Dúvidas gerais
+
+
+\end{frame}
+
+\section{Sequências}
+
+\begin{frame}
+\frametitle{Sequências}
+
+\begin{definition}[Sequências]
+    Uma sequência é uma função $$a: \mathbb{N} \rightarrow \mathbb{R},$$ onde $\mathbb{N} = \{1,2,3,\dots\}$
+\end{definition} \pause
+
+\begin{example}
+ Considere $a(n) = n + 1$, $n \in \mathbb{N}$ \pause
+ 
+ \begin{align*}
+  a(1) &= 2 \\ \pause
+  a(2) &= 3 \\ \pause
+  \vdots \\ 
+  a(5) &= 6
+ \end{align*}
+
+\end{example}
+
+
+\end{frame}
+
+\begin{frame}{Sequências}
+ Os valores de $a(n)$ são chamados de \emph{termos da sequência}. \\
+ O termo $a(n)$ é chamado de $n-$ésimo termo da sequência. \\ \pause
+ 
+ {\bf Notação:} Denotaremos uma sequência $a: \mathbb{N} \rightarrow \mathbb{R}$ por: $$(a_n) = (a(n))$$ \\
+ 
+ Ou seja, a sequência $(a_n)$ tem como $n-$ésimo termo $a_n$. \pause
+ 
+ \begin{example}[Considere a sequência:]
+  \begin{equation*}
+   a_n = \frac{n}{n+1}\text{,} n \in \mathbb{N} 
+  \end{equation*} \pause
+  Os primeiros $4$ elementos da sequência $a_n$ são: \pause
+  
+  {\bf Preencher!}
+ \end{example}
+
+\end{frame}
+
+\begin{frame}{Sequências}
+ {\bf Questões:} \pause
+ \begin{enumerate}
+  \item Qual é o domínio de uma sequência? \pause
+  \item Podemos restringir uma sequência? \pause Quais exemplos? \pause Conseguimos representar uma sequência de outras maneiras? \pause
+  \item Quais exemplos de outras sequências podemos ter neste momento? \pause
+  \item Como podemos representar graficamente uma sequência?
+ \end{enumerate}
+
+\end{frame}
+
+\begin{frame}{Sequências - Exemplos}
+ \begin{example}
+  \begin{equation*}
+   a_n = \frac{1}{n}
+  \end{equation*} \pause
+  $a_1 = 1$, \pause$a_2 = \displaystyle \frac{1}{2}$, \pause$a_3 = \displaystyle \frac{1}{3}$, \pause$\dots$, \pause$a_n = \displaystyle \frac{1}{n}$
+ \end{example}
+ 
+   \begin{example}
+  \begin{equation*}
+   a_n = \frac{(-1)^n}{n}
+  \end{equation*} \pause
+  $a_1 = -1$, \pause $a_2 = \displaystyle \frac{1}{2}$, \pause $a_3 = -\displaystyle \frac{1}{3}$
+  
+ \end{example}
+ 
+\end{frame}
+
+\begin{frame}{Sequências}
+ Podemos listar os termos da sequência através do uso de $\{ \}$. \pause 
+ 
+ \begin{example}
+  \begin{align*}
+   \{a_n\} &= \{ \sqrt{1},\sqrt{2}, \sqrt{3}, \dots, \sqrt{n}, \dots \} \\ 
+   \{c_n\} &= \{1, -1, 1, -1, \dots, \dots, (-1)^{n+1}, \dots \} \\
+   \{b_n\} &= \left\{ 1, -\frac{1}{2}, \frac{1}{3}, -\frac{1}{4}, \dots, (-1)^{n+1}\frac{1}{n}, \dots, \right\}
+  \end{align*}
+ \end{example}
+
+\end{frame}
+
+
+\begin{frame}{Sequências}
+ \begin{definition}[Igualdade de sequências]
+  Dizemos que duas sequências $(a_n)$ e $(b_n)$ são iguais se e somente se, $a_n = b_n$, $\forall ~n \in \mathbb{N}$
+ \end{definition} \pause
+ 
+ \begin{example}
+  Analise as sequências: $a_n = (-1)^n$ e $b_n = (-1)^{n+1}$
+ \end{example} \pause
+ 
+ Note que:
+ \begin{align*}
+  (a_n) &= (-1,1,-1,1,-1,\dots,(-1)^n) 
+ \end{align*}\pause
+  \begin{align*}
+  (b_n) &= (1,-1,1,-1,1,\dots, (-1)^{n+1})
+ \end{align*}\pause
+Logo, as sequências \pause {\bf não são iguais}. Assim: $$(a_n) \neq (b_n)$$
+
+\end{frame}
+
+\section{Limite de uma Sequência}
+\begin{frame}{Limite de uma Sequência}
+ 
+ {\bf Motivação:} Tome $a_n = \displaystyle \frac{1}{n}$ \pause
+ {\bf Graficamente:} \pause
+ 
+ \begin{definition}{Limite de uma Sequência}
+  Dizemos que uma sequência $a_n$ converge para $L$ se para dado $\epsilon > 0$, $\exists N > 0$ tal que $n > N$, $|a_n - L| < \epsilon$
+ \end{definition} \pause
+ {\bf Em outras palavras:} \\ \pause
+ $\forall \epsilon >0, ~\exists ~N > 0 ~;~ n > N \implies L-\epsilon < a_n < L + \epsilon$ \\ \pause
+ 
+ {\bf Notação:} \\ \pause Se $(a_n)$ converge para $L$ diremos que $L$ é o \emph{limite da sequência} $(a_n)$. \pause
+ Escrevemos: $\displaystyle\lim_{n\to\infty}a_n = L$, ou $\lim a_n = L$, ou simplismente, $a_n \to L$
+ 
+\end{frame}
+
+\begin{frame}{Limite de uma Sequência}
+ {\bf Observações:} \pause
+ \begin{itemize}
+  \item A noção de ``sequência convergente'' não depende apenas da sequência $(a_n)$, mas também do espaço $X$. \pause
+  \begin{example}
+   A sequência $\left(\displaystyle \frac{1}{n} \right)$ converge a $0$ em $\mathbb{R}$ ou $\mathbb{R}_+$, mas não em $\mathbb{R}_{+}^{*}$. \pause Pois $0 \notin \mathbb{R}_{+}^{*}$. \pause Dessa forma é conveniente dizer que ``$a_n$ converge (ou não) em $X$''.
+  \end{example} \pause
+  \item Podemos reescrever a definição de limite de sequência de outras maneiras: \pause
+  \begin{itemize}
+   \item Dizemos que $(p_n)$ converge se existe um ponto $p \in X$ tal que:
+   $$\forall ~ \epsilon > 0~ \exists ~ n_0; d(p_n,p)< \epsilon ~ \text{ sempre que } n \geq n_0$$
+  \end{itemize}
+
+ \end{itemize}
+
+\end{frame}
+
+\begin{frame}{Limite de uma Sequência}
+ Em particular, considerando $X = \mathbb{R}$. \pause Uma sequência $(x_n)$ em $\mathbb{R}$ converge se existe um número real $x$ tal que: \pause
+ 
+ $$ \forall ~ \epsilon > 0~ \exists ~ n_0; |x_n - x| < \epsilon ~\text{ sempre que } n \geq n_0$$ \pause 
+ 
+Uma outra forma de obter a definição de limite de sequência é a seguinte: \pause
+
+\begin{definition}
+ A sequência $\{a_n\}$ converge para o número $L$ se para todo númro positivo $\epsilon$ corresponder um número inteiro $N$, de forma que para todo $n$,
+ $$n > N ~\implies ~|a_n - L| < \epsilon$$ \pause
+ 
+ Se nenhum número $L$ existir, dizemos que $\{a_n\}$ \emph{diverge}.
+\end{definition}
+
+
+\end{frame}
+
+\begin{frame}{Limite de uma Sequência}
+ {\bf Exemplo 01:} Utilizando a definição mostre que $\displaystyle \lim_{n \to \infty}\frac{1}{n}$ \\\pause
+ {\bf Solução:} \pause Queremos mostrar que $\forall \epsilon > 0, \exists ~N>0;$ \\ \pause
+ \begin{align*}
+  \text{se } n > N &\implies |a_n - L| < \epsilon &\iff \\ 
+  \text{se } n > N &\implies \left| \frac{1}{n} - 0 \right| < \epsilon &\iff (x \in \mathbb{N} \implies |x| \in \mathbb{N}) \\
+  \text{se } n > N &\implies \frac{1}{n} < \epsilon &\iff \\
+  \text{se } n > N &\implies n > \frac{1}{\epsilon}
+ \end{align*} \pause
+ Tome $N \geq \displaystyle \frac{1}{\epsilon}$, então: \pause se $n > N \geq \displaystyle \frac{1}{\epsilon}$ implica em $n > \displaystyle \frac{1}{\epsilon}$ \pause
+ 
+ \end{frame}
+
+ \begin{frame}{Limite de uma Sequência}
+ 
+ Logo, para dado $\epsilon > 0$, tome $N \geq \displaystyle \frac{1}{\epsilon}$, assim se $n > \displaystyle \frac{1}{n}$, então $\left| \displaystyle \frac{1}{n} - 0 \right| < \epsilon. \qed$
+ 
+ \end{frame}
+
+\begin{frame}{Limite de uma Sequência}
+ {\bf Exemplo 02:} Utilizando a definição mostre que $\displaystyle \lim_{n \to \infty} \frac{n}{2n + 1} = \frac{1}{2}$ \\ \pause
+ {\bf Solução:} \pause Queremos mostrar que para $\forall \epsilon > 0, \exists ~N = (N(\epsilon))>0;$ \\ \pause
+ \begin{align*}
+  \text{se } n > N &\implies \left| \frac{n}{2n + 1} - \frac{1}{2} \right| < \epsilon &\iff \\
+  \text{se } n > N &\implies \left| \frac{2n - 2n - 1}{2(2n+1)} \right| < \epsilon &\iff \\
+  \text{se } n > N &\implies \left| \frac{-1}{2(2n+1)}\right| < \epsilon &\iff \\
+  \text{se } n > N &\implies \frac{-1}{2(2n+1)} < \epsilon &\iff \\
+  \text{se } n > N &\implies 2(2n + 1) > \frac{1}{\epsilon} &\iff \\
+ \end{align*}
+
+\end{frame}
+
+\begin{frame}{Limite de uma Sequência}
+ {\bf Exemplo 02:}
+ 
+ \begin{align*}
+  \text{se } n > N &\implies 2n + 1 > \frac{1}{2\epsilon} &\iff \\
+  \text{se } n > N &\implies n > \frac{1}{4\epsilon} - \frac{1}{2} = \frac{2-4\epsilon}{8\epsilon} &\iff \\
+  \text{se } n > N &\implies n > \frac{1-2\epsilon}{4\epsilon}
+ \end{align*} \pause
+ 
+ Logo, tomando $N > \displaystyle \frac{1 - 2 \epsilon}{4\epsilon}$, obtemos que se $n > N$, então $$\left|\frac{n}{2n+1} - \frac{1}{2}\right| < \epsilon$$ $\qed$
+
+\end{frame}
+
+\begin{frame}{Limite de uma Sequência}
+ {\bf Exemplo 03:} Mostre que a sequência $a_n = (-1)^{n+1}$ diverge. \\ \pause
+ {\bf Solução:} \pause Suponha que a sequência convirja para algum número $L$. Escolha $\epsilon = \displaystyle \frac{1}{2}$, da definição de limite, temos que todos os termos $a_n$ da sequência com índice $n$ maior que $N$ deve se localizar a menos de $\epsilon = \displaystyle \frac{1}{2}$ de $L$. \pause Uma vez que o número $1$ aparece repetidamente como termo sim, termo não (sequência alternada), devemos ter o número $1$ localizado a uma distância a menos de $\epsilon = \displaystyle \frac{1}{2}$ de $L$. 
+  
+\end{frame}
+
+\begin{frame}{Limite de uma Sequência}
+{\bf Exemplo 03:} 
+ 
+ Segue que $| L - 1| < \displaystyle \frac{1}{2}$, de forma equivalente,  $\displaystyle \frac{1}{2} < L < \displaystyle \frac{3}{2}$. De forma análoga o número $(-1)$ aparece repetidamente na sequência com índice arbitrariamente alto. E de forma análoga, segue que: $| L - (-1)| < \displaystyle \frac{1}{2}$, de forma equivalente,  $\displaystyle -\frac{1}{2} < L < \displaystyle -\frac{3}{2}$. \pause Contudo o número $L$ não pode estar contido em dois intervalos disjuntos, isto é, os intervalos $\left( \displaystyle \frac{1}{2}, \displaystyle \frac{3}{2} \right)$ e $\left( \displaystyle -\frac{1}{2}, \displaystyle -\frac{3}{2} \right)$ não possuem sobreposição.\pause Dessa forma, não existe tal limite $L$ e portanto a sequência diverge. $\qed$
+ 
+\end{frame}
+
+\begin{frame}{Sequências}
+ \begin{definition}
+  A sequência $a_n$ \emph{diverge ao infinito} se para cada número $M$ houver um número inteiro $N$, tal que para todo $n$ maior que $N$, $a_n > M$. Se essa condição for verdadeira, então: 
+  \begin{equation*}
+   \lim_{n \to \infty} a_n = \infty ~\text{ ou } ~ a_n \to \infty
+  \end{equation*} \pause
+  
+  De maneira análoga a definição ocorre quando a sequência possui como limite $-\infty$.
+ \end{definition}\pause
+ 
+ \begin{definition}[Imagem de Sequência]
+  A \emph{imagem} de uma sequência $(p_n)_{n \in \mathbb{N}}$ é o conjunto de seus pontos, isto é, $\{ x_n ; n \in \mathbb{N}\}$. 
+ \end{definition} \pause
+ 
+\end{frame}
+
+\begin{frame}{Sequências}
+ \begin{definition}[Sequência limitada]
+  Dizemos que uma sequência é \emph{limitada superiormente} (ou inferiormente) se existir $M \in X$ $(m \in X)$ tal que:
+  $$p_n < M,~\forall n \in \mathbb{N}$$
+  $$m < p_n ,~\forall n \in \mathbb{N}$$
+  
+  Dizemos que uma sequência é limitada se existem $q \in X$ e $M > 0$ tal que $d(p_n,q)<M$ para todo $n$. Em outras palavras, se existirem $m,M \in X$ tal que $m<p_n<M,~\forall n \in \mathbb{N}$.
+ \end{definition} \pause
+ 
+ \begin{theorem}
+  Se $\displaystyle \lim_{x \to \infty}f(x) = L$ e $f$ estiver definida em $X$, então $\displaystyle \lim_{n \to \infty}f(n) = L$. Em particular, $X = \mathbb{N}$.
+ \end{theorem} \pause
+ 
+ 
+  {\bf Demonstração:} Utilizar a definição de limite. $\qed$
+ 
+
+\end{frame}
+
+\begin{frame}{Limite de Sequências}
+ Utilizando o Teorema anterior é possível utilizar as propriedades de limites que já foram estudadas. \pause
+ 
+ \begin{theorem}
+  Sejam $\{a_n\}$ e $\{b_n\}$ sequências de números reais, e sejam $A$ e $B$ números reais. As seguintes regras de aplicam se $\displaystyle \lim_{n \to \infty} a_n = A$ e $\displaystyle \lim_{n \to \infty} b_n = B$
+  \begin{itemize}
+  \item $\displaystyle \lim_{n \to \infty} (a_n \pm b_n) = A \pm B$ \pause
+  \item $\displaystyle \lim_{n \to \infty} (k \cdot b_n) = k\cdot B~$ \text{, para todo $k$ constante} \pause
+  \item $\displaystyle \lim_{n \to \infty} (a_n \cdot b_n) = A \cdot B$ \pause
+  \item $\displaystyle \lim_{n \to \infty} \frac{a_n}{b_n} = \frac{A}{B} ~$ \text{, se } $B \neq 0$
+ \end{itemize}
+ \end{theorem}
+
+\end{frame}
+
+\begin{frame}{Sequências}
+\begin{theorem}
+ Seja $(a_n)$ uma sequência em um espaço métrico $X$.
+ \begin{itemize}
+  \item Se $a_n \to A$ e $a_n \to A'$, então $A = A'$ \pause {\bf Unicidade do Limite} \pause
+  \item Se $(a_n)$ converge então $(a_n)$ é limitada. 
+ \end{itemize}
+
+\end{theorem}
+ 
+\end{frame}
+
+\begin{frame}{Sequências}
+ {\bf OBSERVAÇÃO:} Cuidado ao aplicar as regras de limite em sequências, pois em alguns casos mesmo sequências divergentes podem, dentro de hipóteses serem convergentes quando aplicamos alguma operação. \pause
+ 
+ Explico: Suponha as sequências $\{a_n\} = \{1,2,3,4,\dots,...\}$ e $\{b_n\} = \{-1,-2,-3,\dots,...\}$. Ambas as sequências sozinhas são sequências divergentes, contudo quando realizamos $\displaystyle \lim_{n \to \infty}\{a_n + b_n\}$ esta soma converge para $0$.  \pause
+ 
+ Uma consequência é que toda sequência divergente quando multiplicada por algum escalar qualquer não nulo, também será uma sequência divergente. {\bf PENSAR SOBRE!}
+\end{frame}
+
+\begin{frame}{Sequências}
+  \begin{theorem}[do confronto para sequências]
+   Sejam $\{a_n\}$, $\{b_n\}$ e $\{c_n\}$ sequências de números reais. Se $a_n \leq b_n \leq c_n$ for verdade para todo $n$ além de algum índice $N$, e se $\displaystyle \lim_{n \to \infty} a_n = \displaystyle \lim_{n \to \infty} c_n = L$, então $\displaystyle \lim_{n \to \infty} b_n = L$.
+  \end{theorem}\pause
+  \begin{corollary}
+   Se $|b_n| \leq c_n$ e $c_n \to 0$, então $b_n \to 0$.
+  \end{corollary}\pause
+  
+  {\bf Ideia:} Já que $-c_n \leq b_n \leq c_n$, então segue o resultado.
+
+
+\end{frame}
+
+\begin{frame}{Sequências}
+ \begin{theorem}[da função contínua para sequências]
+  Seja $\{a_n\}$ uma sequência de números reais. Se $a_n \to L$ e se $f$ for uma função que é contínua em $L$ e definida em todo $a_n$, então $f(a_n) \to f(L)$.
+ \end{theorem} \pause
+ 
+ \begin{example}
+  Mostre que $\displaystyle \lim_{n \to \infty} a_n = 1$, onde $a_n = \sqrt{\displaystyle \frac{n+1}{n}}$.
+ \end{example} \pause
+ 
+ {\bf Solução:} \pause Sabemos que $\displaystyle \frac{n+1}{n} \to 1$. Tomando $f(x) = \sqrt{x}$ e $L=1$. Aplicando o Teorema anterior tem-se que: $\sqrt{\displaystyle \frac{n+1}{n}} \to \sqrt{1} = 1$ $\qed$.
+
+
+\end{frame}
+
+\begin{frame}{Sequências}
+ \begin{theorem}
+  \begin{itemize}
+   \item $a_n \to a$ se e somente se $a_{n_k} \to a$ para toda subsequência $(a_{n_k})$. \pause
+   \item $a_n \to a$ se e somente se toda subsequência $(a_{n_k})$ possui uma subsubsequência $(a_{n_{k_i}})$ que converge a $a$, isto é, $\displaystyle \lim_{i \to \infty} a_{n_{k_i}} = a$
+  \end{itemize} \pause
+  
+  \begin{definition}
+   Uma sequência $(a_n)$ num espaço métrico $X$ é dita \emph{de Cauchy} se:
+   \begin{equation*}
+    \forall \epsilon >0,~\exists~ n_0; d(a_n,a_m)< \epsilon~\text{sempre que }n,m\geq n_0
+   \end{equation*}
+
+  \end{definition} \pause
+  
+  \begin{theorem}[Cauchy]
+   Em um espaço métrico, toda sequência convergente é de Cauchy. Em outras palavras, se $(a_n)$ é convergente então para dado $\epsilon>0$ existe $N>0$ tal que $n,m>N$, então $|a_n - a_m| < \epsilon$, no caso do conjunto dos números reais.
+  \end{theorem}
+
+ \end{theorem}
+
+\end{frame}
+
+\begin{frame}{Definição recursiva}
+ Uma sequência pode ser definida de maneira \emph{recursiva}, dessa forma a sequência fornece:
+ \begin{itemize}
+  \item O(s) valor(es) do termo inicial ou termos iniciais, e \pause
+  \item Uma regra, chamada \emph{fórmula de recursão}, para o cálculo de qualquer termo posterior a partir dos termos que o precederem.
+ \end{itemize} \pause
+ 
+ \begin{example}
+  \begin{itemize}
+   \item As sentenças $a_1 = 1$ e $a_n = a_{n-1} + 1$ para $n > 1$ definem a sequência $1,2,3,\dots,n,\dots..$ de números inteiros positivos. \pause Para $a_1 = 1, a_2 = a_1 + 1 = 2, \dots$ \pause
+   \item As sentenças $a_1 = 1$ e $a_n = n\cdot a_{n-1}$ para $n>1$ definem a sequência $1,2,6,24,\dots,n!,\dots$ de fatoriais. \pause Com $a_1 = 1$, temos $a_2 = 2 \cdot a_1 = 2$, $a_3 = 3 \cdot a_2 = 6$ e assim por diante. \pause
+   \item Outros examplos são \emph{números de Fibonacci} e o método de Newton.
+  \end{itemize}
+ \end{example}
+\end{frame}
+
+\begin{frame}{Sequências monotônicas}
+ \begin{definition}
+  Dizemos que uma sequência $\{a_n\}$ é: \pause
+  \begin{itemize}
+   \item {\bf Decrescente:} se $a_{n+1} \leq a_n,~\forall n \in \mathbb{N}$, ou ainda $\displaystyle \frac{a_{n+1}}{a_n} \leq 1,~\forall n \in \mathbb{N}$ \pause
+   \item {\bf Estritamente Decrescente:} se $a_{n+1} < a_n,~\forall n \in \mathbb{N}$, ou ainda $\displaystyle \frac{a_{n+1}}{a_n} < 1,~\forall n \in \mathbb{N}$ \pause
+   \item {\bf Crescente:} se $a_{n+1} \geq a_n,~\forall n \in \mathbb{N}$, ou ainda $\displaystyle \frac{a_{n+1}}{a_n} \geq 1,~\forall n \in \mathbb{N}$ \pause
+   \item {\bf Estritamente Crescente:} se $a_{n+1} > a_n,~\forall n \in \mathbb{N}$, ou ainda $\displaystyle \frac{a_{n+1}}{a_n} > 1,~\forall n \in \mathbb{N}$
+  \end{itemize} \pause
+  
+  Se $\{a_n\}$ é uma sequência satisfazendo qualquer um dos itens anteriores dizemos que $\{a_n\}$ é monótona.
+
+ \end{definition}
+
+\end{frame}
+
+\begin{frame}{Sequências monotônicas}
+ Voltaremos a discutir sequências limitadas.
+ \begin{definition}
+  Um número $c \in \mathbb{R}$ é chamado de \emph{limitante inferior} para a sequência $\{a_n\}$ se $$c \leq a_n, \forall n \in \mathbb{N}$$
+  
+  Um número $D \in \mathbb{R}$ é chamado de \emph{limitante superior} para $\{a_n\}$ se $$a_n \leq D, \forall n \in \mathbb{N}$$
+ \end{definition} \pause
+
+  \begin{example}
+   Para a sequência $\left\{\displaystyle\frac{1}{n}\right\}$ qualquer $c \leq 0$ é limitante inferior de $\left\{\displaystyle\frac{1}{n}\right\}$ e qualquer $D \geq 1$ é limitante superior de $\left\{\displaystyle\frac{1}{n}\right\}$.
+ \end{example}
+\end{frame}
+
+\begin{frame}{Sequências monotônicas}
+\begin{theorem}
+ Se uma sequência $\{a_n\}$ é limitada e monótona, então a sequência converge.
+\end{theorem} \pause
+
+{\bf OBSERVAÇÃO:} O Teorema não afirma que sequências convergentes são monótonas. \pause 
+
+{\bf EXEMPLO:} A sequência $\left\{\displaystyle\frac{(-1)^{n+1}}{n}\right\}$ converge e é limitada, mas não é monótona, uma vez que ela altera entre valores positivos e negativos à medida que tende a $0$.
+
+\end{frame}
+
+\begin{frame}{Exemplos}
+ {\bf Exemplo 01:} Mostre que a sequência $\left\{\frac{2^n}{n!}\right\}$ converge. \pause
+ 
+ {\bf Solução:} Inicialmente vamos determinar a monotocidade da sequência:
+ \begin{equation*}
+  \frac{2^n}{n!} > \frac{2^{n+1}}{(n+1)!} \iff 1 > \frac{2}{n+1}~,n > 1
+ \end{equation*}
+Isto ocorre pois: $2^{n+1} = 2^n \cdot 2$ e $(n+1)! = (n+1)\cdot n!$ \\{\it VERIFICAR AS CONTAS!}
+\\$\therefore a_n > a_{n+1},~n>1$. Logo a sequência é estritamente decrescente a partir de $n =2$. \\ \pause
+Agora note que, $\forall c \leq 0$ e então $$\frac{2^n}{n!} > c,~\forall n \geq 1$$
+Dessa forma, como a sequência é estritamente decrescente e limitada inferiormente, segue que $\left\{\frac{2^n}{n!}\right\}$ converge. $\qed$
+\end{frame}
+
+
+\end{document}
+

@@ -1,0 +1,121 @@
+\documentclass[hyperref={pdfpagelabels=false}]{beamer}
+\usepackage{lmodern}
+\usetheme{CambridgeUS}
+
+\usepackage[english,brazilian]{babel}
+\usepackage{multicol}
+\usepackage{textcomp}
+\usepackage[alf]{abntex2cite}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+\usepackage{amsmath,amssymb,exscale}
+
+\title{Probabilidade e Estatística}  
+\author[Matheus Pimenta]{Matheus Pimenta} 
+\institute[UTFPR-CP]{\normalsize Universidade Tecnológica Federal do Paraná \\
+	Câmpus Cornélio Procópio
+} 
+\date{ADNP 2020} 
+\begin{document}
+	
+\begin{frame}
+\titlepage
+\end{frame} 
+
+
+%\begin{frame}
+%\frametitle{Table of contents}
+%\tableofcontents
+%\end{frame} 
+
+
+\section{Distribuição de $t$ de student $IC$ e $TH$ para a Média de População Normal com Variância Desconhecida} 
+
+\begin{frame}
+\frametitle{Distribuição $t$ de Student}
+A variável $Z = \displaystyle \frac{\bar{x} - \mu}{\sigma_{\bar{x}}}$ tem distribuição normal. Quando não conhecemos a variância $\sigma^2$ devemos utilizar $s^2$, como estimador de $\sigma^2$. \pause
+$$s^2 = \displaystyle \frac{1}{n-1}\sum_{i=1}^{n}(x_i - \bar{x})^2 \text{ e } s_{\bar{x}}=\sqrt{\frac{s^2}{n}}$$ \pause
+
+A variável definida como $t_{\phi} = \displaystyle \frac{\bar{x} - \mu}{s_{\bar{x}}}$ é definida como variável com distribuição de ``t de Student'' com $\phi$ graus de liberdade.
+
+\pause
+A utilização da distribuição \emph{t de Student} como vimos anteriormente é para os casos em que o número de observações $(n)$ na amostra é pequeno. \pause
+
+Novamente, como na utilização da distribuição Normal, iremos utilizar a tabela como auxílio.
+\end{frame}
+
+\begin{frame}{Graus de Liberdade}
+Pode-se definir como graus de liberdade o número de informações independentes da amostra $(n)$ menos o número $(K)$ de parâmetros da população a serem estimados além do parâmetro inerente ao estudo. \pause
+$$\phi = n - K$$ \pause
+Em nosso caso, como iremos estimar a média de uma população normal com $\sigma^2$ desconhecida, além de $\bar{x}$, estimador inerente ao estudo, estimaremos $\sigma^2$, um parâmetro a mais. \pause Isto significa que em nossos estudos, utilizaremos a distribuição \emph{t de Student} com $n - 1$ graus de liberdade.
+
+\end{frame}
+
+\begin{frame}{Graus de Liberdade - Gráfico}
+{\bf GRÁFICO}
+\end{frame}
+
+\begin{frame}{IC e TH para a média $\mu$ de uma população Normal com $\sigma^2$ desconhecida}
+O Procedimento Padrão para a determinação de IC e TH é o mesmo anteriormente dado: \pause
+\begin{enumerate}
+	\item Retiramos uma amostra de $n$ elementos da população. \pause
+	\begin{itemize}
+		\item Se $n > 30$, usa-se a distribuição Normal com $s^2$; \pause
+		\item Se $n \leq 30$, usa-se a distribuição \emph{t de Student}, com $\phi = n - 1$ graus de liberdade. \pause
+	\end{itemize}
+	\item Calculamos $\bar{x} = \displaystyle \frac{1}{n}\sum_{i = 1}^{n}x_i$ \pause
+	\item Calculamos $s^2 = \displaystyle \frac{1}{n-1}\sum_{i=1}^{n}(x_i - \bar{x})^2$ \pause
+	\item Determinamos $s_{\bar{x}}=\displaystyle \sqrt{\frac{s^2}{n}}$, que é o estimador de $\sigma_{\bar{x}}$.
+\end{enumerate}
+\end{frame}
+
+\begin{frame}{IC e TH para a média $\mu$ de uma população Normal com $\sigma^2$ desconhecida}
+	\begin{enumerate}
+	\setcounter{enumi}{4}
+	\item Ao nível $\alpha\%$ fazemos: \pause
+	\begin{enumerate}
+		\item $P(\bar{x}-t_{\alpha}\cdot s_{\bar{x}}<\mu<\bar{x}+t_{\alpha}\cdot s_{\bar{x}}) = 1 - \alpha$ \pause
+		\item $\begin{cases}
+		H_0:\mu=\mu_0\\
+		H_1:\mu\neq\mu_0,\mu > \mu_0, \mu < \mu_0
+		\end{cases}$
+	\end{enumerate}
+\end{enumerate}
+\end{frame}
+
+\begin{frame}{IC e TH para a média $\mu$ de uma população Normal com $\sigma^2$ desconhecida}
+Com o $t_{\alpha}$, determinamos a $RNR$ e $RC$. \pause Calculamos $t_{calc} = \displaystyle \frac{\bar{x} - \mu_{H_0}}{s_{\bar{x}}}$: \pause
+\begin{itemize}
+	\item Se $t_{calc} \in RNR \implies$ não rejeita $H_0$; \pause
+	\item Se $t_{calc} \in RC \implies$ rejeita-se $H_0$. \pause
+\end{itemize}
+
+Observação: Quando a população é normal com parâmetros desconhecidos, teoricamente a solução $N(0,1)$ só é aconselhável quando $n>120$. Ná prática, para $n>30$ usa-se $N(0,1)$.
+\end{frame}
+
+\begin{frame}{Exemplo 01}
+	\textbf{Exemplo 01:} De uma população normal com parâmetros desconhecidos, retirou-se uma amostra de $25$ elementos para se estimar $\mu$, obtendo-se $\bar{x} = 15$ e $s^2 = 36$. Determinar um IC para a média ao nível de $5\%$.
+	
+\end{frame}
+
+\begin{frame}{Exemplo 01 - Solução}
+\textit{Solução:}
+
+$s_{\bar{x}}=\displaystyle \sqrt{\frac{s^2}{n}} = \frac{6}{\sqrt{25}} = \frac{6}{5} = 1,2$ \pause
+
+$\phi = n - 1 = 25 - 1 = 24$ \pause
+
+$t_{24;2,5\%} = 2,0639$ \pause
+
+$P(15 - 2,0639 \cdot 1,2 < \mu < 15 + 2,0639 \cdot 1,2) = 0,95$ \pause
+
+$P(12,523 < \mu < 17,477) = 0,95$ \pause
+
+\begin{flushright}
+	$\blacksquare$
+\end{flushright}
+\end{frame}
+
+\end{document}
+

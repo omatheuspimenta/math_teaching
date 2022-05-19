@@ -1,0 +1,360 @@
+\documentclass[oneside,a4paper,12pt]{article}
+\usepackage[english,brazilian]{babel}
+\usepackage{multicol}
+\usepackage{textcomp}
+\usepackage[alf]{abntex2cite}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb,exscale}
+\usepackage[top=20mm, bottom=20mm, left=20mm, right=20mm]{geometry}%margens cima, baixo, esquerda direita
+\usepackage{framed}
+\usepackage{booktabs} %Pacote para deixar tabelas mais bonitas.
+\usepackage{color} %Pacote de Cores
+\usepackage{hyperref} %Pacotes para Hiperlinks
+\usepackage{graphicx} %Pacote de imagens
+\graphicspath{{./Figuras/}}%Direciona as imagens para uma pasta chamada "Figuras" (uso isso para organizar. Uma vez que todas as imagens vao ficar em uma pasta isolada)    
+\definecolor{shadecolor}{rgb}{0.8,0.8,0.8}
+
+%FAZ EDICOES AQUI (somente no conteudo que esta entre entre as ultimas  chaves de cada linha!!!)
+\newcommand{\universidade}{Universidade Tecnológica Federal do Paraná}
+\newcommand{\centro}{Câmpus Cornélio Procópio}
+\newcommand{\departamento}{Departamento Acadêmico de Matemática}
+\newcommand{\curso}{Engenharia da Computação}
+\newcommand{\professores}{Matheus Pimenta}
+\newcommand{\disciplina}{Geometria Analítica e Álgebra Linear - EC31G}
+%\newcommand{\tema}{Lista 01}
+%\newcommand{\turma}{MA31G}
+%\newcommand{\data}{Março de 2019}%{\today}
+%\newcommand{\tempodeaula}{30 minutos}
+%\newcommand{\prerequisitos}{Matrizes, Transformações Lineares e Bases}
+%ATE AQUI !!!	
+
+\begin{document}
+	\pagestyle{empty}
+	
+	\begin{center}
+		\includegraphics[width=\linewidth/8]{logo.jpg}%LOGOTIPO DA INSTITUICAO
+	 	\vspace{2pt} 	
+		
+		\universidade
+		\par
+		\centro
+		\par
+		\departamento
+		\par
+	%	Curso de \curso
+		\par
+		\vspace{12pt}
+		\LARGE \textbf{Lista 01}
+		
+	\end{center}
+	
+	\vspace{12pt}
+	
+	\begin{tabular}{ |l|p{12cm}| }
+		
+		\hline
+		\multicolumn{2}{|c|}{\textbf{Dados de Identificação}} \\
+		\hline
+		Professor:         &    \professores           \\
+		\hline
+		Disciplina:        &    \disciplina          \\
+		\hline
+	%	Tema:              &    \tema                \\
+	%	\hline
+	%	Pré-requisito	:  &    \prerequisitos         \\
+	%	\hline
+		Aluno:             &                   \\
+	%	\hline
+	%	Data:              &    \data                \\
+	%	\hline
+	%	Duração da aula:   &    \tempodeaula         \\
+		\hline
+		
+	\end{tabular}
+	\vspace{6pt}
+	
+	
+	\begin{snugshade}
+	\end{snugshade}
+
+\begin{enumerate}
+
+	\item Determinar se as matrizes são inversíveis e no caso positivo, determinar sua inversa:
+	\begin{multicols}{2}
+	\begin{enumerate}
+		\item $A=\left[
+				\begin{array}{ccc}
+				1	&	1	&	0	\\
+				0	&	1	&	1	\\
+				1	&	0	&	2
+				\end{array}
+				\right]
+				$
+		\item $B=\left[
+		\begin{array}{ccc}
+		1	&	2	&	6	\\
+		0	&	1	&	5	\\
+		2	&	3	&	7
+		\end{array}
+		\right]
+		$
+		\item $C=\left[
+		\begin{array}{ccc}
+		1	&	2	&	1	\\
+		0	&	1	&	2	\\
+		1	&	1	&	1
+		\end{array}
+		\right]
+		$
+		\item $D=\left[
+		\begin{array}{ccc}
+		1	&	2	&	2	\\
+		0	&	1	&	2	\\
+		1	&	3	&	4
+		\end{array}
+		\right]
+		$
+	\end{enumerate}
+	\end{multicols}
+
+
+
+	\item Calcule o determinante das matrizes usando o desenvolvimento de Laplace.
+	\begin{multicols}{2}
+	\begin{enumerate}
+			\item $A=\left[
+			\begin{array}{ccc}
+			2	&	0	&	-1	\\
+			3	&	0	&	2	\\
+			4	&	-3	&	7
+			\end{array}
+			\right]
+			$
+			\item $B=\left[
+			\begin{array}{cccc}
+			2	&	3	&	-1	&	2	\\
+			0	&	4	&	-3	&	5	\\
+			1	&	2	&	1	&	3	\\
+			0	&	4	&	0	&	0
+			\end{array}
+			\right]
+			$
+			\item $C=\left[
+			\begin{array}{cccc}
+			3	&	4	&	-1	&	3	\\
+			0	&	2	&	0	&	3	\\
+			0	&	12	&	-9	&	2	\\
+			0	&	18	&	-9	&	2
+			\end{array}
+			\right]
+			$
+			\item $D=\left[
+			\begin{array}{ccc}
+			1	&	4	&	3	\\
+			-9	&	6	&	6	\\
+			0	&	1	&	-1
+			\end{array}
+			\right]
+			$
+	\end{enumerate}
+	\end{multicols}
+
+	\item Determine as matrizes inversas (se existirem) do exercício anterior.
+	
+	\item Mostre que, sendo $A$ uma matriz quadrada de ordem $n$ e $r$ um número real, temos a seguinte relação:
+	$$\det(rA) = r^{n}\det(A)$$
+	
+	\item Dadas as matrizes:
+	$$
+	A=\left[
+	\begin{array}{cc}
+	1	&	2	\\
+	1	&	0	\\
+	\end{array}
+	\right]
+	\text{ e }
+	B=\left[
+	\begin{array}{cc}
+	3	&	-1	\\
+	0	&	1	\\
+	\end{array}
+	\right]
+	$$
+	Calcule:
+	\begin{enumerate}
+		\item $\det(A) + \det(B)$
+		\item $\det(A+B)$
+	\end{enumerate}
+
+	\item Dada a matriz:
+	
+	$$A=\left[
+	\begin{array}{ccc}
+		2	&	0	&	-1	\\
+		3	&	0	&	2	\\
+		4	&	-3	&	7
+	\end{array}
+	\right]
+	$$
+	Calcule:
+	\begin{enumerate}
+		\item $adj(A)$
+		\item $\det(A)$
+		\item $A^{-1}$
+	\end{enumerate}
+	
+	\item Escreva a matriz $A=(a_{ij})_{2 \times 3}$, onde $a_{ij} = 2i + 3j$
+	
+	\item Escreva a matriz $B=(b_{ij})_{3 \times 3}$, onde $b_{ij} = \frac{i}{j}$
+	
+	\item Escreva a matriz $C=(c_{ij})_{4 \times 1}$, onde $c_{ij} = i^2 + j$
+	
+	\item Determine a matriz $A=(a_{ij})_{4 \times 3}$, onde $a_{ij} = \begin{cases}
+	2, \text{ se } i \geq j;\\ -1, \text{ se } i<j
+	\end{cases}$
+	
+	\item Chama-se traço de uma matriz quadrada a soma dos elementos da diagonal principal. Determine o traço de cada uma das matrizes.
+	\begin{multicols}{2}
+	$A=\left[
+	\begin{array}{ccc}
+	2	&	0	&	-3	\\
+	3	&	5	&	2	\\
+	22	&	\sqrt{2}	&	-9
+	\end{array}
+	\right]
+	$
+	
+	$
+	B=\left[
+	\begin{array}{cc}
+	3	&	-1	\\
+	0	&	1	\\
+	\end{array}
+	\right]$
+	\end{multicols}
+	
+	\item Calcule os seguintes produtos, se possível.
+	\begin{multicols}{2}
+	\begin{enumerate}
+		\item 	$
+		5 \left[
+		\begin{array}{cc}
+		1	&	-1	\\
+		4	&	7	\\
+		\end{array}
+		\right]$
+		
+		\item 
+		$ \left[
+		\begin{array}{cc}
+		5	&	0	\\
+		1	&	4	\\
+		\end{array}
+		\right]$
+		$ \left[
+		\begin{array}{cc}
+		1	&	4	\\
+		2	&	3	\\
+		\end{array}
+		\right]$
+		
+		\item 
+		$ \left[
+		\begin{array}{ccc}
+		1	&	2	&	3	\\
+		\end{array}
+		\right]$
+		$ \left[
+		\begin{array}{c}
+		4	\\
+		5	\\
+		6	\\
+		\end{array}
+		\right]$
+		
+		\item 
+		$ \left[
+		\begin{array}{c}
+		4	\\
+		5	\\
+		6	\\
+		\end{array}
+		\right]$
+		$ \left[
+		\begin{array}{ccc}
+		1	&	2	&	3	\\
+		\end{array}
+		\right]$
+
+		\item 		$ \left[
+		\begin{array}{ccc}
+		5	&	2	&	12	\\
+		1	&	4	&	0	\\
+		2	&	4	&	1
+		\end{array}
+		\right]$
+		$ \left[
+		\begin{array}{ccc}
+		4	&	2	&	2	\\
+		7	&	9	&	0	\\
+		1	&	5	&	1
+		\end{array}
+		\right]$
+	\end{enumerate}
+	\end{multicols}
+	
+	\item Se $A$, $B \in \mathbb{M}_{n}(\mathbb{K})$, vale $AB = BA$? Demonstre ou dê um contra-exemplo.
+	
+	\item Sejam $A$, $B$ matrizes quadradas de ordem $n$. É verdadeiro que $(A + B)^2 = A^2 + 2AB + B^2$? Demonstre ou dê um contra-exemplo.
+	
+	\item Dadas as matrizes 
+	$
+	A=\left[
+	\begin{array}{cc}
+	1	&	2	\\
+	a	&	3	\\
+	\end{array}
+	\right]$
+	e
+	$
+	B=\left[
+	\begin{array}{cc}
+	x	&	3	\\
+	b	&	3	\\
+	\end{array}
+	\right]$
+	determinar $a$, $b$ e $x$ para que $A = B^t$.
+	
+	\item Determine $x$ e $y$ na igualdade:
+	$ \left[
+	\begin{array}{c}
+	\log_{3}x	\\
+	y^2	\\
+	5	\\
+	\end{array}
+	\right]$
+	=
+	$ \left[
+	\begin{array}{c}
+	4	\\
+	9	\\
+	5	\\
+	\end{array}
+	\right]$
+	
+	\item Determine a matriz adjunta de
+	$ A = \left[
+	\begin{array}{ccc}
+	1	&	3	&	5	\\
+	2	&	8	&	1	\\
+	0	&	3	&	4
+	\end{array}
+	\right]$
+	
+	
+	
+\end{enumerate}
+
+	
+\end{document}
