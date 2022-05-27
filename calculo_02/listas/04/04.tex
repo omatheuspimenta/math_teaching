@@ -1,0 +1,206 @@
+\documentclass[oneside,a4paper,12pt]{article}
+\usepackage[english,brazilian]{babel}
+\usepackage{multicol}
+\usepackage{textcomp}
+\usepackage[alf]{abntex2cite}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb,exscale}
+\usepackage[top=20mm, bottom=20mm, left=20mm, right=20mm]{geometry}%margens cima, baixo, esquerda direita
+\usepackage{framed}
+\usepackage{booktabs} %Pacote para deixar tabelas mais bonitas.
+\usepackage{color} %Pacote de Cores
+\usepackage{physics} % partial derivates
+\usepackage{hyperref} %Pacotes para Hiperlinks
+\usepackage{graphicx} %Pacote de imagens
+\usepackage{esint}
+\graphicspath{{./Figuras/}}%Direciona as imagens para uma pasta chamada "Figuras" (uso isso para organizar. Uma vez que todas as imagens vao ficar em uma pasta isolada)    
+\definecolor{shadecolor}{rgb}{0.8,0.8,0.8}
+
+\newcommand{\sen}{{\rm sen}}
+
+%FAZ EDICOES AQUI (somente no conteudo que esta entre entre as ultimas  chaves de cada linha!!!)
+\newcommand{\universidade}{Universidade Estadual de Londrina}
+\newcommand{\centro}{Centro de Ciências Exatas}
+\newcommand{\departamento}{Departamento de Matemática}
+\newcommand{\curso}{Ciência da Computação}
+\newcommand{\professores}{Matheus Pimenta}
+\newcommand{\disciplina}{Cálculo Diferencial e Integral II - 1MAT180}
+\newcommand{\R}{\\{\bf R:}}
+\newcommand{\limm}{\displaystyle \lim}
+\newcommand{\limmzero}{\displaystyle \lim_{(x,y)\to(0,0)}}
+\newcommand{\iintR}{\displaystyle \iint \limits_R}
+\newcommand{\iintD}{\displaystyle \iint \limits_D}
+\newcommand{\iiintB}{\displaystyle \iiint \limits_B}
+%\newcommand{\dx}{\partial}
+%\newcommand{\tema}{Lista 01}
+%\newcommand{\turma}{MA31G}
+%\newcommand{\data}{Março de 2019}%{\today}
+%\newcommand{\tempodeaula}{30 minutos}
+%\newcommand{\prerequisitos}{Matrizes, Transformações Lineares e Bases}
+%ATE AQUI !!!	
+
+\begin{document}
+	\pagestyle{empty}
+	
+	\begin{center}
+		\includegraphics[width=\linewidth/2]{logo.jpg}%LOGOTIPO DA INSTITUICAO
+	 	\vspace{2pt} 	
+		
+		\universidade
+		\par
+		\centro
+		\par
+		\departamento
+		\par
+	%	Curso de \curso
+		\par
+		\vspace{12pt}
+		\LARGE \textbf{Lista 04}
+		
+	\end{center}
+	
+	\vspace{12pt}
+	
+	\begin{tabular}{ |l|p{12cm}| }
+		
+		\hline
+		\multicolumn{2}{|c|}{\textbf{Dados de Identificação}} \\
+		\hline
+		Professor:         &    \professores           \\
+		\hline
+		Disciplina:        &    \disciplina          \\
+		\hline
+	%	Tema:              &    \tema                \\
+	%	\hline
+	%	Pré-requisito	:  &    \prerequisitos         \\
+	%	\hline
+		Aluno:             &                   \\
+	%	\hline
+	%	Data:              &    \data                \\
+	%	\hline
+	%	Duração da aula:   &    \tempodeaula         \\
+		\hline
+		
+	\end{tabular}
+	\vspace{6pt}
+	
+	{\bf Observação:} Não precisa ser entregue. 
+	
+	Apenas para desenvolvimento do pensamento matemático.
+	
+	\begin{snugshade}
+	\end{snugshade}
+
+\begin{enumerate}
+	
+	\item Calcule o valor das integrais:
+	\begin{multicols}{2}
+		\begin{enumerate}
+			\item $\displaystyle \int_{0}^{3}\!\!\!\int_{1}^{2}x^2y \,dy\,dx$
+			\item $\displaystyle \int_{1}^{2}\!\!\!\int_{0}^{3}x^2y \,dx\,dy$
+		\end{enumerate}
+	\end{multicols}
+
+	Calcule as integrais iteradas abaixo.
+	\item $\displaystyle \int_{0}^{\ln(2)}\!\!\int_{0}^{\ln(5)}e^{2x-y}\,dx\,dy$ \R 6
+	
+	\item $\displaystyle \int_{1}^{4}\!\!\int_{1}^{2}\left(\frac{x}{y}+\frac{y}{x}\right)\,dy\,dx$ \R $\displaystyle \frac{21}{2}\ln(2)$
+	
+	\item $\displaystyle \int_{0}^{1}\!\!\int_{y}^{e^y}\sqrt{x}\,dx\,dy$ \R $\displaystyle \frac{4}{9}e^{\frac{3}{2}}-\frac{32}{45}$
+	
+	\item $\displaystyle \int_{0}^{1}\!\!\int_{x}^{2x}\left(2x+4y\right)\,dy\,dx$ \R $\displaystyle \frac{8}{3}$
+	
+	\item $\displaystyle \int_{0}^{2}\!\!\int_{-y}^{y}\left(xy^2+x\right)\,dx\,dy$ \R $0$
+	
+	\item $\displaystyle \int_{1}^{e}\!\!\int_{\ln(x)}^{1}x,dy\,dx$ \R $\displaystyle \frac{e^2}{4}-\frac{3}{4}$
+	
+	\item $\displaystyle \int_{0}^{\pi}\!\!\int_{0}^{\sen(x)}y\,dy\,dx$ \R $\displaystyle \frac{\pi}{4}$
+	
+	\item $\displaystyle \int_{0}^{1}\!\!\int_{0}^{\sqrt{1-y^2}}x\,dx\,dy$ \R $\displaystyle \frac{1}{3}$
+	
+	%%%%%%%
+	Resolva:
+	
+	\item Calcule a integral $\iintR(x\sen(x+y))\,dA$, onde $R=\left[0,\displaystyle\frac{\pi}{6}\right]\times\left[0,\displaystyle\frac{\pi}{3}\right]$\R $\displaystyle \frac{\sqrt{3}-1}{2}-\frac{\pi}{12}$
+	
+	\item Calcule a integral $\iintR xe^{xy}\,dA$, onde $R=\left[0,1\right]\times\left[0,1\right]$\R 
+	
+	\item Calcule a integral $\iintR x\cos(y)\,dA$, onde $R$ é limitada por $y=0$, $y=x^2$ e $x=1$. \R $\displaystyle \frac{1-\cos(1)}{2}$
+	
+	\item Calcule a integral $\iintR y^3\,dA$, onde $R$ é a região triangular com vértices $(0,2),(1,1),(3,2)$. \R $\displaystyle \frac{147}{20}$
+	
+	\item Calcule a integral $\iintR xy\,dA$, onde $R$ é a região compreendida no primeiro quadrante entre os círculos $x^2+y^2 = 4$ e $x^2+y^2 = 25$ \R $\displaystyle \frac{609}{8}$
+	
+	\item Calcule a integral $\iintR e^{-x^2-y^2}\,dA$, onde $R$ é a região limitada pelo semicírculo $x=\sqrt{4-y^2}$ e o eixo $y$. \R $\displaystyle \frac{\pi}{2}(1-e^{-4})$
+	
+	\item Calcule a integral $\iintR(1-6x^2y)\,dA$, onde $R=\left[0,2\right]\times\left[-1,1\right]$\R 4
+	
+	\item Calcule a integral $\iintR y\sen(xy)\,dA$, onde $R=\left[1,2\right]\times\left[0,\pi\right]$\R 0
+	
+	\item Calcule a integral $\iintR \sen(x)\cos(y) \,dA$, onde $R=\left[0,\displaystyle \frac{\pi}{2}\right]\times\left[0,\displaystyle \frac{\pi}{2}\right]$\R 1
+	
+	\item Use integral dupla para achar a área da região da forma indicada. Esboce o gráfico da equação polar e a região.
+		\begin{enumerate}
+			\item Rosácea de raio $\cos(2\theta)$\R
+			\item Um laço de raio $4\sen(\theta)$\R $\displaystyle 2\int_{0}^{\frac{\pi}{2}}\!\!\int_{0}^{4\sen(\theta)}r\,dr\,d\theta = \frac{4\pi}{3}$
+			
+		\end{enumerate}
+	
+	\item Calcule a integral $\iintD(x + 2y) \,dA$, onde $D$ é a região limitada pelas parábolas $y=2x^2$ e $y=1+x^2$ \R $\displaystyle \frac{32}{15}$
+	
+	\item Calcule a integral $\iintD xy \,dA$, onde $D$ é a região limitada pela reta $y=x-1$ e pela parábola $y^2=2x+6$ \R $36$
+	
+	\item Determine o volume do tetraedro limitada pelos planos $x+2y+z=2$, $x=2y$, $x=0$ e $z=0$. \R $\displaystyle \frac{1}{3}$
+	
+	\item Ache o volume do sólido do primeiro octante delimitado pelos planos coordenados, pelo paraboloide $z=x^2+y^2+1$ e pelo plano $2x+y=2$. \R $\displaystyle \frac{11}{6}$
+	
+	\item Ache a área $A$ da região do plano$-xy$ delimitada pelos gráficos de $2y=16-x^2$ e $x+2y=4$. \R $\displaystyle \frac{343}{12}$ (Dica: $A = \iintR \,dA$)
+	
+	\item Converta o ponto $\left(2,\displaystyle \frac{\pi}{3}\right)$ de coordenadas polares para cartesianas. \R $\left(1,\sqrt{3}\right)$
+	
+	\item Represente o ponto com coordenadas cartesianas $(1,-1)$ em termos de coordenadas polares. \R $\left(\sqrt{2},\displaystyle -\frac{\pi}{4}\right)$ ou $\left(\sqrt{2},\displaystyle \frac{7\pi}{4}\right)$
+	
+	\item Calcule $\iintR(3x+4y^2)\,dA$, onde $R$ é a região no semiplano superior limitada pelos círculos $x^2+y^2=1$ e $x^2+y^2=4$. \R$\displaystyle \frac{15\pi}{2}$
+	
+	\item Determine o volume do sólido limitado pelo plano $z=0$ e pelo paraboloide $z = 1-x^2-y^2$ \R $\displaystyle \frac{\pi}{2}$
+	
+	\item Determine a área contida em um laço da rosácea de quatro pétalas $r=\cos(2\theta)$ com $\theta = \displaystyle \frac{\pi}{4}$. \R $\displaystyle \frac{\pi}{8}$
+	
+	Calcule as integrais iteradas abaixo.
+	
+	\item $\displaystyle \int_{3}^{4}\!\!\int_{-1}^{1}\!\int_{0}^{2} \left(xy^2+yz^3\right)\,dz\,dx\,dy$ \R $28$
+	
+	\item $\displaystyle \int_{-2}^{2}\!\!\int_{x^2}^{4}\!\int_{0}^{4-y} \,dz\,dy\,dx$ \R $\displaystyle\frac{256}{15}$
+	
+	\item $\displaystyle \int_{0}^{1}\!\!\int_{x+1}^{2x}\!\int_{z}^{x+z} x\,dy\,dz\,dx$ \R $\displaystyle -\frac{1}{12}$
+	
+	\item $\displaystyle \int_{-1}^{2}\!\!\int_{1}^{x^2}\!\!\int_{0}^{x+y} \left(2x^2y\right)\,dz\,dy\,dx$ \R $\displaystyle \frac{513}{8}$
+	
+	\item Calcule a integral tripla $\iiintB 2x\,dV$ onde $B=\{(x,y,z);0\leq y \leq 2, 0 \leq x \leq \sqrt{4-y^2},0\leq z \leq y\}$ \R $4$
+	
+	\item Calcule a integral tripla $\iiintB xyz^2\,dV$ onde $B$ é a caixa retangular dada por $B=\left[0,1\right]\times\left[-1,2\right]\times\left[0,3\right]$ \R$\displaystyle \frac{27}{4}$
+	
+	\item Ache o volume do sólido delimitado pelo cilindro $y=x^2$ e pelos planos $y+z=4$ e $z=0$. \R$\displaystyle \frac{256}{15}$
+	
+	\item Encontre o volume do sólido delimitado pelas superfícies $z=x^2+3y^2$ e $z=8-x^2-y^2$ \R $8\pi\sqrt{2}$
+	
+	\item Ache o volume do sólido delimitado pelos gráficos de $z=3x^2$, $z=4-x^2$, $y=0$ e $z+y=6$. \R$\displaystyle \frac{304}{15}$
+	
+	\item Calcule $\iiintB\sqrt{x^2+z^2}\,dV$, onde $B$ é a região limitada pelo paraboloide $y=x^2+z^2$ e pelo plano $y=4$.\R$\displaystyle \frac{128\pi}{15}$
+	
+	\item Calcule $\displaystyle \int_{-2}^{2}\!\int_{-\sqrt{4-x^2}}^{\sqrt{4-x^2}}\!\int_{\sqrt{x^2+y} 2}^{2}(x^2+y^2)\,dz\,dy\,dx$ \R$\displaystyle \frac{16\pi}{5}$
+	
+	\item Ache o volume de um sólido delimitado pelo paraboloide $z=x^2+y^2$, pelo cilindro $x^2+y^2=4$ e pelo plano$-xy$.\R$8\pi$
+	
+	\item Calcule $\iiintB e^{(x^2+y^2+z^2)^\frac{3}{2}}\,dV$, onde $B$ é a bola unitária $B=\{(x,y,z);x^2+y^2+z^2\leq 1\}$ \R$\displaystyle \frac{4\pi}{3}(e -1)$
+	
+	\item Determine o volume de um sólido que está acima do cone $z = \sqrt{x^2+y^2}$ e abaixo da esfera $x^2+y^2+z^2=z$\R$\displaystyle\frac{\pi}{8}$ 
+	(Dica:$\phi$ varia de $0$ a $\frac{\pi}{4}$, $\rho$ varia de $0$ a $\cos(\phi)$, $\theta$ varia de $0$ a $2\pi$)
+	
+	
+\end{enumerate}
+
+
+	
+\end{document}
